@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+
+    namespace 'com.example.physicsmate'
+    compileSdk 34
+    packagingOptions {
+        resources {
+            excludes += ['graphml.xsd', 'xlink.xsd', 'viz.xsd', 'gexf.xsd', 'META-INF/DEPENDENCIES', 'META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat']
+        }
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+
+    defaultConfig {
+        applicationId "com.example.physicsmate"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+
+            //minifyEnabled true
+            //shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+configurations.configureEach {
+    config -> {
+        exclude group:"org.apache.logging.log4j", module:"log4j-core"
+    }
+        resolutionStrategy {
+            force "org.apache.logging.log4j:log4j-api:2.17.2"
+        }
+}
+
+repositories
+        {
+            google()
+            mavenCentral()
+            jcenter()
+            maven { url 'https://jitpack.io' }
+        }
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation("androidx.core:core-splashscreen:1.0.0") //dont update, else debugDuplicateError
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1' //must be 2.5.1
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //_______________________________________________________________________________
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' //graphs
+    implementation 'org.matheclipse:matheclipse-core:2.0.0' //symbolic java
+    implementation 'io.github.kexanie.library:MathView:0.0.6' //latex
+    implementation 'com.airbnb.android:paris:2.0.0' //styling
+//_______________________________________________________________________________
+
+    //________________________________________________________________________________
+    //annotationProcessor 'org.apache.logging.log4j:log4j-core:2.13.3'
+    //implementation('org.slf4j:slf4j-api:1.7.30')
+    //{
+    //exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    //exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+    //exclude group: 'org.slf4j', module: 'slf4j-simple'
+    //}
+    //implementation('org.slf4j:slf4j-nop:1.7.30')
+    //implementation 'org.matheclipse:matheclipse-core:2.0.0' //symja differentiation
+
+    //________________________________________________________________________________
+    //implementation "ru.noties:jlatexmath-android:0.2.0"
+
+    // for Cyrillic symbols
+    //implementation "ru.noties:jlatexmath-android-font-cyrillic:0.1.2"
+
+    // for Greek symbols
+    //implementation "ru.noties:jlatexmath-android-font-greek:0.1.2" //formula displayer
+
+
+    //__________________________________________________________________________________________
+    //implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    //implementation group: 'org.apache.commons', name: 'commons-math4-core', version: '4.0-beta1' //lagrange
+
+    //________________________________________________________________________________________
+
+}

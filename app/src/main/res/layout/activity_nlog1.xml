@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/SV_NLOG1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            tools:context=".activities.Gravitation$NLOG$NLOG1">
+
+        <TextView
+                android:id="@+id/textView3"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sans_bold"
+                android:gravity="center"
+                android:text="Mass of the first object"
+                android:textAllCaps="true"
+                android:textColor="@color/text_question"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/etNLOG3m1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+                android:singleLine="true"
+
+                android:id="@+id/etNLOG3m1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:hint="Enter mass in kg"
+                android:inputType="phone"
+                android:digits="-+0123*/456789."
+                android:minHeight="48dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+
+        <TextView
+                android:id="@+id/textView4"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sans_bold"
+                android:gravity="center"
+                android:text="Mass of the second object"
+                android:textAllCaps="true"
+                android:textColor="@color/text_question"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/etNLOG3m2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNLOG3m1"/>
+
+        <EditText
+                android:singleLine="true"
+
+                android:id="@+id/etNLOG3m2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:hint="Enter mass in kg"
+                android:inputType="phone"
+                android:digits="+-0123*/456789."
+                android:minHeight="48dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/text_hint"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"/>
+
+        <TextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sans_bold"
+                android:gravity="center"
+                android:text="Distance between the centre of the objects"
+                android:textAllCaps="true"
+                android:textColor="@color/text_question"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/etNLOG1r"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNLOG3m2"/>
+
+        <EditText
+                android:singleLine="true"
+
+                android:id="@+id/etNLOG1r"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="phone"
+                android:digits="+-0123*/456789."
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:hint="Enter distance in m"
+                android:minHeight="48dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/text_hint"
+                app:layout_constraintBottom_toTopOf="@+id/btnNLOG1calc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNLOG1calc"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/btn_enabled"
+                android:fontFamily="@font/sans_bold"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:text="calculate force of attraction"
+                android:textColor="@drawable/dynamic_text"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvNLOG1result"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNLOG1r"/>
+
+        <TextView
+                android:id="@+id/tvNLOG1result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sans_semi_bold"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="TextView"
+                android:textColor="@color/text_question"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/btnNLOG1copy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnNLOG1calc"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNLOG1copy"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_enabled"
+                android:fontFamily="@font/sans_bold"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:text="copy to clipboard"
+                android:textColor="@drawable/dynamic_text"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNLOG1result"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

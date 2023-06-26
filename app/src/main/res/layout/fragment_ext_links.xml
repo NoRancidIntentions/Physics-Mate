@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            tools:context=".ui.main.UI_Solver_Tools_Linker$ExtLinks">
+
+        <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="35dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+                app:layout_constraintBottom_toTopOf="@+id/btnGB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/neon_divider"/>
+
+        <Button
+                android:id="@+id/btnGB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="GeoGebra Graphing Calculator"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView22"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView21"/>
+
+        <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+                app:layout_constraintBottom_toTopOf="@+id/btnDC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnGB"
+                app:srcCompat="@drawable/neon_divider"/>
+
+        <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="35dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPS"
+                app:srcCompat="@drawable/neon_divider"/>
+
+        <Button
+                android:id="@+id/btnDC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Derivative Calculator"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView22"/>
+
+        <Button
+                android:id="@+id/btnPS"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Physics Simulations"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView23"/>
+
+        <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+                app:layout_constraintBottom_toTopOf="@+id/btnPS"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnDC"
+                app:srcCompat="@drawable/neon_divider"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
