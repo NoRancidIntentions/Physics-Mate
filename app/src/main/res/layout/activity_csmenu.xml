@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".activities.CSMenu"
+>
+
+    <TextView
+            style="@style/custom_textView"
+            android:text="select one of the conic sections"
+            android:id="@+id/textView52"
+            android:layout_marginTop="45dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button"
+            android:text="Circle"
+            android:id="@+id/button27"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button"
+            android:text="Ellipse"
+            android:id="@+id/button28"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button"
+            android:text="Parabola"
+            android:id="@+id/button29"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:text="Hyperbola"
+            style="@style/custom_button"
+            android:id="@+id/button30"
+            android:layout_marginBottom="45dp"/>
+
+</LinearLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg"
+            tools:context=".ui.main.UI_Solver_Tools_Linker$Tools_frag"
+            style="@style/mainmenulinearlayout">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+                android:layout_marginTop="35dp"
+        />
+
+        <Button
+                android:id="@+id/btnExpEval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Expression evaluator"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/btnLOSAC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="triangles"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/btnCS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Conic Sections Graphs"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/btnDerivativeCalcOffline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Derivative calculator"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/btnIntegralCalcOffline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Integral calculator"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/btnLagrange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="Lagrange polynomial interpolation"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+        <Button
+                android:id="@+id/button8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_light"
+                android:fontFamily="@font/sans_bold"
+                android:foreground="@drawable/ripple_light"
+                android:text="quadratic equations"
+                android:textSize="16sp"
+        />
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/neon_divider"
+        />
+
+    </LinearLayout>
+</ScrollView>

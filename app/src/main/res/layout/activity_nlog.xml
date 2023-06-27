@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            tools:context=".activities.Gravitation$NLOG">
+
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="328dp"
+                android:layout_height="264dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="40dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/textView29"
+                app:layout_constraintDimensionRatio="h,834:637"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/nlogpic"/>
+
+        <TextView
+                android:id="@+id/textView29"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="60dp"
+                android:fontFamily="@font/sans_bold"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Please select the required formula"
+                android:textAllCaps="true"
+                android:textColor="@color/text_question"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/btnNLOG1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+        <ImageButton
+                android:id="@+id/btnNLOG1"
+                android:layout_width="310dp"
+                android:layout_height="0dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="40dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/btnNLOG2"
+                app:layout_constraintDimensionRatio="h,729:146"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView29"
+                app:srcCompat="@drawable/phbtn1_2_clicked"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ImageButton
+                android:id="@+id/btnNLOG2"
+                android:layout_width="310dp"
+                android:layout_height="0dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="40dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/btnNLOG3"
+                app:layout_constraintDimensionRatio="h,729:146"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnNLOG1"
+                app:srcCompat="@drawable/phbtn1_3_clicked"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ImageButton
+                android:id="@+id/btnNLOG3"
+                android:layout_width="310dp"
+                android:layout_height="0dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="h,729:146"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnNLOG2"
+                app:srcCompat="@drawable/phbtn1_4"
+                tools:ignore="SpeakableTextPresentCheck"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

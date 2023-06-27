@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <LinearLayout
+            style="@style/customLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            tools:context=".activities.LOSAC">
+
+        <ImageView
+                android:id="@+id/imageView2"
+                style="@style/custom_imageview_fixedratio"
+                app:srcCompat="@drawable/losac"/>
+
+        <TextView
+                android:id="@+id/textView16"
+                style="@style/custom_textView"
+                android:text="Please choose one of these as per your requirement"
+        />
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button10"
+                android:text="I know AB, angle B and angle C"
+                style="@style/custom_button"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button4"
+                style="@style/custom_button"
+                android:text="I know Ab, BC, and angle b"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button5"
+                style="@style/custom_button"
+                android:text="I know Ab, BC, and angle c"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button7"
+                android:text="i know ab, bc, and ac"
+                style="@style/custom_button"/>
+    </LinearLayout>
+</ScrollView>

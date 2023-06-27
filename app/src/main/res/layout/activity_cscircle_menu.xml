@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.CSCircleMenu"
+        android:orientation="vertical">
+
+    <TextView
+            style="@style/custom_textView"
+            android:text="Choose one out of the following"
+            android:id="@+id/textView53"
+            android:layout_marginTop="45dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button"
+            android:text="Get circle graph from equation"
+            android:id="@+id/button22"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button"
+            android:text="Get Circle information from formula"
+            android:id="@+id/button23"
+    />
+
+
+</LinearLayout>

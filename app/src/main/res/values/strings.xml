@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Physics Mate</string>
+    <string name="Solver_tab_text">Solver</string>
+    <string name="Mathematical_Tools_tab_text">Mathematical Tools</string>
+    <string name="External_Links_tab_text">External Links</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

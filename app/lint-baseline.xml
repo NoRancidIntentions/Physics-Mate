@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.3.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.3.1)" variant="fatal" version="7.3.1">
+
+    <issue
+        id="Instantiatable"
+        message="`Tools_frag` must extend android.app.Activity"
+        errorLine1="                android:name=&quot;.activities.Custom_methods$Tools_frag&quot;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="258"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ExtLinks` must extend android.app.Activity"
+        errorLine1="                android:name=&quot;.activities.Custom_methods$ExtLinks&quot;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="261"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`Solver_frag` must extend android.app.Activity"
+        errorLine1="                android:name=&quot;.activities.Custom_methods$Solver_frag&quot;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="319"
+            column="31"/>
+    </issue>
+
+</issues>

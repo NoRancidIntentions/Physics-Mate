@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="mainmenulinearlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/app_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:weightSum">10</item>
+    </style>
+    <style name="customLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/app_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="custom_button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:background">@drawable/btn_enabled</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@drawable/dynamic_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="custom_textView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:text">Please choose one of these as per your requirement</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/text_question</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="custom_checkBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">acceleration &quot;a&quot;</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/yellow_num_answer</item>
+        <item name="android:textSize">15sp</item>
+        <item name="buttonTint">@color/yellow_num_answer</item>
+    </style>
+
+
+    <style name="custom_numeric_edittext" parent="Widget.AppCompat.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">6</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:digits">+-0123*/456789()."</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
+    </style>
+
+    <style name="custom_imageview_fixedratio" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
+    </style>
+
+    <style name="custom_non_numeric_edittext" parent="Widget.AppCompat.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:inputType">text</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+
+</resources>
