@@ -38,6 +38,13 @@
                     android:value=""/>
         </activity>
         <activity
+                android:name=".activities.Gravitation$GravPotentialEnergyMenu$GravPotentialEnergyCalc"
+                android:exported="false">
+            <meta-data
+                    android:name="android.app.lib_name"
+                    android:value=""/>
+        </activity>
+        <activity
                 android:name=".activities.Gravitation$OrbVelMenu$OrbVel3Calc"
                 android:exported="false">
             <meta-data
@@ -264,10 +271,10 @@
                 android:name=".activities.Kinematics$KE1$KE1_1$ke11_graph"
                 android:exported="false"/>
         <activity
-                android:name=".activities.Custom_methods$Tools_frag"
+                android:name=".ui.main.UI_Solver_Tools_Linker$Tools_frag"
                 android:exported="true"/>
         <activity
-                android:name=".activities.Custom_methods$ExtLinks"
+                android:name=".ui.main.UI_Solver_Tools_Linker$ExtLinks"
                 android:exported="true"/>
         <activity
                 android:name=".ui.main.MainActivity"
@@ -325,7 +332,7 @@
                 android:name=".activities.Gravitation$NLOG"
                 android:exported="false"/>
         <activity
-                android:name=".activities.Custom_methods$Solver_frag"
+                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
                 android:exported="true"/>
     </application>
 

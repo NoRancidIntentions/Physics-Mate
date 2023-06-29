@@ -440,9 +440,9 @@ public class Gravitation extends AppCompatActivity {
             btnM = findViewById(R.id.button42);
             btnR = findViewById(R.id.button43);
 
-            btnR.setVisibility(View.GONE);
-
             btnU.setText("Gravitational Potential Energy \"U\"");
+            btnM.setText("Mass \"m\"");
+            btnR.setText("Distance \"r\"");
             img.setImageResource(R.drawable.orbvelpng);
 
             final int[] chooserU = {0};
@@ -454,7 +454,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserU[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, OrbVelMenu.OrbVel3Calc.class).putExtra("chooserU", chooserU[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
                 finish();
             });
 
@@ -462,7 +462,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, OrbVelMenu.OrbVel3Calc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -470,7 +470,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserR[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, OrbVelMenu.OrbVel3Calc.class).putExtra("chooserR", chooserR[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserR", chooserR[0]));
                 finish();
             });
 
@@ -502,9 +502,9 @@ public class Gravitation extends AppCompatActivity {
 
                 img.setImageResource(R.drawable.escvelpng);
 
-                int chooserU = getIntent().getIntExtra("chooserU", 1);
-                int chooserM = getIntent().getIntExtra("chooserM", 1);
-                int chooserR = getIntent().getIntExtra("chooserR", 1);
+                int chooserU = getIntent().getIntExtra("chooserU", 0);
+                int chooserM = getIntent().getIntExtra("chooserM", 0);
+                int chooserR = getIntent().getIntExtra("chooserR", 0);
 
                 if (chooserU == 1) {
                     tv1.setText("Enter Mass of first object in kilograms");
