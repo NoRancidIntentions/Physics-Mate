@@ -269,6 +269,23 @@ public class Custom_methods {
         }
     }
 
+    public static String evalAtPointXSymbolic(@NotNull final String str, Double val) {
+        ExprEvaluator util = new ExprEvaluator(false, (short) 10);
+        try {
+            IExpr variableSetter = util.eval("x=" + val);
+            return String.valueOf(util.eval(str));
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            return "error";
+        } catch (MathException me) {
+            // catch Symja math errors here
+            return "error";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
     @SafeVarargs
     public static void addArrayListEntries(String input, float xmin, float xmax, ArrayList<Entry>... inputLineArrays) {
 

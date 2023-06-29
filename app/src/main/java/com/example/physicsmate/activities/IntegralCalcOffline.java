@@ -14,12 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import io.github.kexanie.library.MathView;
+import org.matheclipse.core.interfaces.IExpr;
+
+import java.util.Collections;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 public class IntegralCalcOffline extends AppCompatActivity {
-    EditText inputFunction, inputVar, nthDer, minX, maxX;
-    TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1;
+    EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
+    CheckBox cbDefiniteIntegral, cbNumericEvaluation;
+    TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound;
 
     Button calculateDerivative, btnGraph, btnGraphInfo, btnCopy;
 
@@ -52,6 +56,12 @@ public class IntegralCalcOffline extends AppCompatActivity {
         DerInttv3 = findViewById(R.id.DerInttv3);
         DerInttv2 = findViewById(R.id.DerInttv2);
         DerInttv1 = findViewById(R.id.DerInttv1);
+        tvLowerBound = findViewById(R.id.tvLowerBound);
+        tvUpperBound = findViewById(R.id.tvUpperBound);
+        etLowerBound = findViewById(R.id.etLowerBound);
+        etUpperBound = findViewById(R.id.etUpperBound);
+        cbDefiniteIntegral = findViewById(R.id.checkBox6);
+        cbNumericEvaluation = findViewById(R.id.checkBox7);
 
         calculateDerivative.setClickable(false);
         calculateDerivative.setBackgroundResource(R.drawable.btn_disabled);
@@ -70,6 +80,11 @@ public class IntegralCalcOffline extends AppCompatActivity {
         derInttvMax.setVisibility(View.GONE);
         derInttvMin.setVisibility(View.GONE);
         btnCopy.setVisibility(View.GONE);
+        tvLowerBound.setVisibility(View.GONE);
+        tvUpperBound.setVisibility(View.GONE);
+        etLowerBound.setVisibility(View.GONE);
+        etUpperBound.setVisibility(View.GONE);
+        cbNumericEvaluation.setVisibility(View.GONE);
 
         DerInttv3.setText("Number of times to integrate");
         DerInttv2.setText("Enter the integrating variable");
@@ -81,14 +96,27 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
         IntegralTextChangeListener(btnGraph, btnGraphInfo, btnCopy, latexView1, latexView2, latexView3, inputFunction, inputVar, nthDer);
 
-
+        cbDefiniteIntegral.setOnClickListener(view -> {
+            if (cbDefiniteIntegral.isChecked()) {
+                tvLowerBound.setVisibility(View.VISIBLE);
+                tvUpperBound.setVisibility(View.VISIBLE);
+                etLowerBound.setVisibility(View.VISIBLE);
+                etUpperBound.setVisibility(View.VISIBLE);
+                cbNumericEvaluation.setVisibility(View.VISIBLE);
+            } else {
+                tvLowerBound.setVisibility(View.GONE);
+                tvUpperBound.setVisibility(View.GONE);
+                etLowerBound.setVisibility(View.GONE);
+                etUpperBound.setVisibility(View.GONE);
+                cbNumericEvaluation.setVisibility(View.GONE);
+            }
+        });
 
     }
 
     //see if the button is clickable, when the edittext is empty, the button is not clickable
     private void buttonIsClickable() {
-        if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty())
-        {
+        if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty()) {
             calculateDerivative.setClickable(false);
             calculateDerivative.setBackgroundResource(R.drawable.btn_disabled);
             calculateDerivative.setTextColor(getResources().getColor(R.color.app_bg));
@@ -120,8 +148,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
                     buttonIsClickable();
 
-                    if(calculateDerivative.isClickable())
-                    {
+                    if (calculateDerivative.isClickable()) {
                         calculateDerivative.setOnClickListener(v ->
 
                         {
@@ -129,6 +156,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             String function = inputFunction.getText().toString().trim();
                             String StrInputVar = inputVar.getText().toString().trim();
                             double n = eval(nthDer.getText().toString().trim());
+                            double lowerBound = eval(etLowerBound.getText().toString().trim());
+                            double upperBound = eval(etUpperBound.getText().toString().trim());
 
                             //if inputs are empty, show toast
                             if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty()) {
@@ -146,20 +175,50 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                 } else if (n % 1 != 0) {
                                     Toast.makeText(IntegralCalcOffline.this, "Please enter a positive integer", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    String derivative = calculateNthIntegral(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase();
-                                    String finalStringResult = "<font color=#6BBBE1>The integral is </font> <font color=#CDDC39>" + derivative;
+                                    String integral = calculateNthIntegral(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase();
+                                    String finalStringResult = "<font color=#6BBBE1>The integral is </font> <font color=#CDDC39>" + integral;
 
                                     result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                                     result.setVisibility(View.VISIBLE);
 
-                                    latexView2.setText(getTex(derivative));
+                                    latexView2.setText(getTex(integral));
                                     latexView2.setVisibility(View.VISIBLE);
                                     btnCopy.setVisibility(View.VISIBLE);
                                     btnGraphInfo.setVisibility(View.VISIBLE);
 
+                                    if (cbDefiniteIntegral.isChecked()) {
+
+                                        String finalDefiniteIntegral;
+
+                                        if (cbNumericEvaluation.isChecked()) {
+                                            double definiteIntegral = evalDefiniteIntegral(integral, lowerBound, upperBound);
+                                            finalDefiniteIntegral = "<font color=#6BBBE1>The definite integral is </font> <font color=#CDDC39>" + definiteIntegral;
+
+                                            result.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
+                                            result.setVisibility(View.VISIBLE);
+
+                                            latexView2.setText(getTex(String.valueOf(definiteIntegral)));
+                                            latexView2.setVisibility(View.VISIBLE);
+                                            btnCopy.setVisibility(View.VISIBLE);
+                                            btnGraphInfo.setVisibility(View.VISIBLE);
+                                        } else {
+                                            String definiteIntegral = evalDefiniteIntegralSymbolic(integral, lowerBound, upperBound);
+                                            finalDefiniteIntegral = "<font color=#6BBBE1>The definite integral is </font> <font color=#CDDC39>" + definiteIntegral;
+
+                                            result.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
+                                            result.setVisibility(View.VISIBLE);
+
+                                            latexView2.setText(getTex(definiteIntegral));
+                                            latexView2.setVisibility(View.VISIBLE);
+                                            btnCopy.setVisibility(View.VISIBLE);
+                                            btnGraphInfo.setVisibility(View.VISIBLE);
+                                        }
+
+                                    }
+
                                     btnCopy.setOnClickListener(v1 -> {
                                         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                        ClipData clip = ClipData.newPlainText("Integral", derivative);
+                                        ClipData clip = ClipData.newPlainText("Integral", integral);
                                         clipboard.setPrimaryClip(clip);
                                         Toast.makeText(getApplicationContext(), "Integral copied to clipboard", Toast.LENGTH_SHORT).show();
                                     });
@@ -185,7 +244,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                             } else {
                                                 Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
                                                 intent.putExtra("input", function);
-                                                intent.putExtra("DerInt", derivative);
+                                                intent.putExtra("DerInt", integral);
                                                 intent.putExtra("minX", eval(minX.getText().toString().trim()));
                                                 intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
                                                 startActivity(intent);
@@ -197,8 +256,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
                                     // Execute simplification in a separate thread
                                     new Thread(() -> {
-                                        String simplifiedDerivative = ExprSimplifier(derivative);
-                                        String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + derivative;
+                                        String simplifiedDerivative = ExprSimplifier(integral);
+                                        String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + integral;
 
 
                                         // Update UI with simplified derivative
@@ -241,7 +300,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                                     } else {
                                                         Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
                                                         intent.putExtra("input", function);
-                                                        intent.putExtra("DerInt", derivative);
+                                                        intent.putExtra("DerInt", integral);
                                                         intent.putExtra("minX", eval(minX.getText().toString().trim()));
                                                         intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
                                                         startActivity(intent);
@@ -283,6 +342,22 @@ public class IntegralCalcOffline extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
+
+        double upperValue = evalAtPointX(integral, upperBound);
+        double lowerValue = evalAtPointX(integral, lowerBound);
+        return upperValue - lowerValue;
+
+    }
+
+    private String evalDefiniteIntegralSymbolic(String integral, double lowerBound, double upperBound) {
+
+        String upperValue = evalAtPointXSymbolic(integral, upperBound);
+        String lowerValue = evalAtPointXSymbolic(integral, lowerBound);
+        return ExprSimplifier((upperValue + "-" + lowerValue));
+
     }
 
 
