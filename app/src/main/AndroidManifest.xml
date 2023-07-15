@@ -20,215 +20,215 @@
             tools:targetApi="q">
         <activity
                 android:name=".activities.Lagrange_Interpolation"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.DerivativeCalcOfflineGraph"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.DerivativeCalcOffline"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.IntegralCalcOffline"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Gravitation$GravPotentialMenu$GravPotential3Calc"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravPotentialEnergyMenu$GravPotentialEnergyCalc"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$OrbVelMenu$OrbVel3Calc"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$EscVelMenu$EscVel3Calc"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$EscVelMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravPotentialEnergyMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravPotentialMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravAcc"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$KepThirdLaw"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$JeansMass"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravRedshift"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravTimeDilation"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravLensing"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravTorque"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravBinEnergy"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$OrbVelMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$SchRadius"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravWaveFrequency"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravWaveEnergy"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$GravWaveLuminosity"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$RocheLimit"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation$TidalForce"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Gravitation"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.ExpressionEvaluator"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.CS_CircleAnalyserMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.CSCircleGraphShower"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.CSCircleGraphInfoGetter"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.CSCircleMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.CSMenu"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
@@ -248,28 +248,28 @@
         </activity>
         <activity
                 android:name=".activities.MPLSim"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.DerivativeCalcOnline"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.GeoGebraGraph"
-                android:exported="false">
+                android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
         <activity
                 android:name=".activities.Kinematics$KE1$KE1_1$ke11_graph"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".ui.main.UI_Solver_Tools_Linker$Tools_frag"
                 android:exported="true"/>
@@ -282,55 +282,55 @@
         </activity>
         <activity
                 android:name=".activities.Kinematics$KE1$KE1_1"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Kinematics$KE2"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Kinematics$KE1"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Kinematics"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.LOSAC$LOSAC4"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.QE"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.QE$QE_Graph"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.VEMultiply"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.VEAdd"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.LOSAC$LOSAC3"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.LOSAC$LOSAC2"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.LOSAC$LOSAC1"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.LOSAC"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Gravitation$NLOG$NLOG3"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Gravitation$NLOG$NLOG2"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Gravitation$NLOG$NLOG1"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".activities.Gravitation$NLOG"
-                android:exported="false"/>
+                android:exported="true"/>
         <activity
                 android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
                 android:exported="true"/>
