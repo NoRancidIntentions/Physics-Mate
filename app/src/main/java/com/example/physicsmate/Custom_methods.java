@@ -43,6 +43,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static de.lab4inf.math.util.Accuracy.round;
 
@@ -269,20 +271,129 @@ public class Custom_methods {
         }
     }
 
-    public static String evalAtPointXSymbolic(@NotNull final String str, Double val) {
-        ExprEvaluator util = new ExprEvaluator(false, (short) 10);
-        try {
-            IExpr variableSetter = util.eval("x=" + val);
-            return String.valueOf(util.eval(str));
+    public static String evalAtPointXSymbolic(@NotNull final String str, CharSequence var, Double val) {
+        //replace x with val. If val is in decimal, convert it to fraction
+        String frac = convertDecimalToFraction(val);
+        String str1 = str.replace(var, frac);
 
-        } catch (SyntaxError e) {
-            // catch Symja parser errors here
-            return "error";
-        } catch (MathException me) {
-            // catch Symja math errors here
-            return "error";
-        } catch (Exception e) {
-            return "error";
+        return ((ExprSimplifier(str1))).toLowerCase();
+    }
+
+    public static String replaceFractionalValues(CharSequence expression) {
+        Pattern pattern = Pattern.compile("\\d+/\\d+");
+        Matcher matcher = pattern.matcher(expression);
+
+        StringBuffer buffer = new StringBuffer();
+        while (matcher.find()) {
+            String fraction = matcher.group();
+            String[] parts = fraction.split("/");
+            double numerator = Double.parseDouble(parts[0]);
+            double denominator = Double.parseDouble(parts[1]);
+            double decimalValue = numerator / denominator;
+            String replacement = Double.toString(decimalValue);
+            matcher.appendReplacement(buffer, Matcher.quoteReplacement(replacement));
+        }
+        matcher.appendTail(buffer);
+        return buffer.toString();
+    }
+
+
+    //method to convert decimal to fraction
+    public static String convertDecimalToFraction(double decimal) {
+        int precision = getNumberOfFractionDigitsSym(decimal);
+        int denominator = (int) Math.pow(10, precision);
+        int numerator = (int) (decimal * denominator);
+        int gcd = getGCD(numerator, denominator);
+        return (numerator / gcd) + "/" + (denominator / gcd);
+    }
+
+    public static int getNumberOfFractionDigitsSym(double number) {
+        String numberString = Double.toString(Math.abs(number));
+        int indexOfDecimal = numberString.indexOf(".");
+
+        if (indexOfDecimal >= 0 && indexOfDecimal < numberString.length() - 1) {
+            return numberString.length() - indexOfDecimal - 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public static String reduceLogTerms(String expression) {
+        // Regular expression pattern to match log terms
+        String pattern = "log\\(([^\\)]+)\\)";
+
+        // Create a pattern object
+        Pattern regex = Pattern.compile(pattern);
+
+        // Create a matcher object with the input expression
+        Matcher matcher = regex.matcher(expression);
+
+        StringBuffer output = new StringBuffer();
+
+        // Iterate through the matches
+        while (matcher.find()) {
+            // Get the log term
+            String logTerm = matcher.group(1);
+
+            // Split the log term by multiplication
+            String[] terms = logTerm.split("\\*");
+
+            // Simplify the log terms
+            double result = 0;
+            for (String term : terms) {
+                result += Math.log(Double.parseDouble(term));
+            }
+
+            // Replace the log term with the simplified version in the output
+            String replacement = "log(" + result + ")";
+            matcher.appendReplacement(output, replacement);
+        }
+
+        // Append the remaining part of the input to the output
+        matcher.appendTail(output);
+
+        return output.toString();
+    }
+
+    public static String simplifyFractionsInsideLog(String input) {
+        // Regular expression pattern to match the fraction inside log
+        String pattern = "log\\((\\d+)/(\\d+)\\)";
+
+        // Create a pattern object
+        Pattern regex = Pattern.compile(pattern);
+
+        // Create a matcher object with the input string
+        Matcher matcher = regex.matcher(input);
+
+        StringBuffer output = new StringBuffer();
+
+        // Iterate through the matches
+        while (matcher.find()) {
+            // Get the numerator and denominator
+            int numerator = Integer.parseInt(matcher.group(1));
+            int denominator = Integer.parseInt(matcher.group(2));
+
+            // Simplify the fraction
+            int gcd = getGCD(numerator, denominator);
+            int simplifiedNumerator = numerator / gcd;
+            int simplifiedDenominator = denominator / gcd;
+
+            // Replace the fraction with the simplified version in the output
+            String replacement = "log(" + simplifiedNumerator + "/" + simplifiedDenominator + ")";
+            matcher.appendReplacement(output, replacement);
+        }
+
+        // Append the remaining part of the input to the output
+        matcher.appendTail(output);
+
+        return output.toString();
+    }
+
+    public static int getGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return getGCD(b, a % b);
         }
     }
 

@@ -11,7 +11,6 @@ import android.widget.*;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.UI_Solver_Tools_Linker;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;

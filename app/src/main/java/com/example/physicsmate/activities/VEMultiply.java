@@ -1,14 +1,11 @@
 package com.example.physicsmate.activities;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.UI_Solver_Tools_Linker;
 
 import static com.example.physicsmate.Custom_methods.*;
 

@@ -15,7 +15,6 @@ import com.example.physicsmate.R;
 import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
-import static com.example.physicsmate.ui.main.UI_Solver_Tools_Linker.Solver_frag.*;
 
 public class DerivativeCalcOffline extends AppCompatActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX;
@@ -32,7 +31,7 @@ public class DerivativeCalcOffline extends AppCompatActivity {
         Button calculateDerivative = findViewById(R.id.calculate_derivative);
         Button btnGraph = findViewById(R.id.btnGraph);
         Button btnGraphInfo = findViewById(R.id.btnGraphInfo);
-        Button btnCopy = findViewById(R.id.btnCopyDerInt);
+        Button btnCopy = findViewById(R.id.btnCopy);
         result = findViewById(R.id.result);
         simpResult = findViewById(R.id.simp_result);
         MathView latexView1 = findViewById(R.id.latexView1);
