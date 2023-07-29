@@ -16,7 +16,7 @@ import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class DerivativeCalcOffline extends AppCompatActivity {
+public class DerivativeCalcOfflineOld extends AppCompatActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX;
     TextView result, simpResult, derInttvMax, derInttvMin;
 
@@ -157,7 +157,7 @@ public class DerivativeCalcOffline extends AppCompatActivity {
             double n = eval(nthDer.getText().toString().trim());
 
             if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty()) {
-                Toast.makeText(DerivativeCalcOffline.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DerivativeCalcOfflineOld.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
             } else {
 
                 String derivative = calculateNthDerivative(function, StrInputVar, (int) eval(nthDer.getText().toString().trim()));
@@ -197,7 +197,7 @@ public class DerivativeCalcOffline extends AppCompatActivity {
                         if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
                             Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
                         } else {
-                            Intent intent = new Intent(DerivativeCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                            Intent intent = new Intent(DerivativeCalcOfflineOld.this, DerivativeCalcOfflineGraph.class);
                             intent.putExtra("input", function);
                             intent.putExtra("DerInt", derivative);
                             intent.putExtra("minX", eval(minX.getText().toString().trim()));
@@ -256,7 +256,7 @@ public class DerivativeCalcOffline extends AppCompatActivity {
                                 if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
                                     Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Intent intent = new Intent(DerivativeCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                                    Intent intent = new Intent(DerivativeCalcOfflineOld.this, DerivativeCalcOfflineGraph.class);
                                     intent.putExtra("input", function);
                                     intent.putExtra("DerInt", derivative);
                                     intent.putExtra("minX", eval(minX.getText().toString().trim()));

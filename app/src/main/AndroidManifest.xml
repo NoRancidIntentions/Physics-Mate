@@ -25,7 +25,7 @@
                 android:name=".activities.DerivativeCalcOfflineGraph"
                 android:exported="true"/>
         <activity
-                android:name=".activities.DerivativeCalcOffline"
+                android:name=".activities.DerivativeCalcOffline2"
                 android:exported="true"/>
         <activity
                 android:name=".activities.IntegralCalcOffline"

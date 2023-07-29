@@ -31,7 +31,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
     ScrollView derIntSymjaSV;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_derivative_integral_calc_offline);
 

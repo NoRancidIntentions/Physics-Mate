@@ -68,7 +68,7 @@ public class UI_Solver_Tools_Linker {
             btnQE.setOnClickListener(v -> startActivity(new Intent(getActivity(), QE.class)));
             btnCS.setOnClickListener(v -> startActivity(new Intent(getActivity(), CSMenu.class)));
             btnExpEval.setOnClickListener(v -> startActivity(new Intent(getActivity(), ExpressionEvaluator.class)));
-            btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline.class)));
+            btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline2.class)));
             btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline.class)));
             btnLagrange.setOnClickListener(v -> startActivity(new Intent(getActivity(), Lagrange_Interpolation.class)));
         }
