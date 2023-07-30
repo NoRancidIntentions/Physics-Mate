@@ -30,19 +30,19 @@
                 android:text="Please select the unknown variable"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="Escape velocity v"
                 android:id="@+id/button41"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Mass M"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:id="@+id/button42"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Radius R"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:id="@+id/button43"
                 android:layout_marginBottom="45dp"
         />

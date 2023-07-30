@@ -97,7 +97,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/calculate_derivative"
                 android:text="Calculate Derivative"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <TextView
@@ -106,7 +106,7 @@
                 android:id="@+id/textView18"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style = "@style/custom_button"
+                style = "@style/custom_button_enabled"
                 android:text="Copy to clipboard"
                 android:id="@+id/button3"/>
         <TextView
@@ -141,14 +141,14 @@
         />
 
         <androidx.appcompat.widget.AppCompatButton
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="Copy to clipboard"
                 android:id="@+id/btnCopy"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGraphInfo"
                 android:text="Get Graph"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <TextView
@@ -174,7 +174,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="Next"
                 android:id="@+id/btnGraph"/>
 

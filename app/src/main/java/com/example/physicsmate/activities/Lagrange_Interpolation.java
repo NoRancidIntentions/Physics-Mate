@@ -14,7 +14,6 @@ import io.github.kexanie.library.MathView;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import static com.example.physicsmate.Custom_methods.*;
-import static com.example.physicsmate.ui.main.UI_Solver_Tools_Linker.Solver_frag.*;
 
 public class Lagrange_Interpolation extends AppCompatActivity {
 
@@ -143,7 +142,7 @@ public class Lagrange_Interpolation extends AppCompatActivity {
             } else {
                 LagrangeCalcButton.setClickable(true);
                 //set style of the button
-                Paris.styleBuilder(LagrangeCalcButton).add(R.style.custom_button).apply();
+                Paris.styleBuilder(LagrangeCalcButton).add(R.style.custom_button_enabled).apply();
                 LagrangeCalcButton.setText("Get polynomial");
             }
         }

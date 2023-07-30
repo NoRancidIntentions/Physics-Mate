@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.airbnb.paris.Paris;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -79,6 +80,43 @@ public class Custom_methods {
         } catch (MathException e) {
             e.printStackTrace();
             return 1536.786;
+        }
+    }
+
+    public static void setupEditTextChangeListener(Button button, EditText ...editTexts) {
+        for (EditText editText : editTexts) {
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    // Check if any of the EditTexts are empty
+                    boolean anyEditTextEmpty = false;
+                    for (EditText editText : editTexts) {
+                        if (editText.getText().toString().isEmpty()) {
+                            anyEditTextEmpty = true;
+                            break;
+                        }
+                    }
+
+                    // Enable or disable the button based on EditTexts' contents
+                    button.setClickable(!anyEditTextEmpty);
+
+                    if (anyEditTextEmpty) {
+                        Paris.styleBuilder(button).add(R.style.custom_button_disabled).apply();
+                    } else {
+                        //use paris style builder to set the background
+                        Paris.styleBuilder(button).add(R.style.custom_button_enabled).apply();
+                    }
+
+                }
+            });
         }
     }
 

@@ -48,7 +48,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button19"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="find the remaining values"/>
 
         <TextView
@@ -58,7 +58,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button25"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="get velocity - time graph"
                 android:layout_marginBottom="45dp"/>
     </LinearLayout>

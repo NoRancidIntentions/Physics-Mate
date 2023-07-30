@@ -15,12 +15,12 @@
             android:layout_marginTop="45dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:text="Get circle graph from equation"
             android:id="@+id/button22"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:text="Get Circle information from formula"
             android:id="@+id/button23"
     />

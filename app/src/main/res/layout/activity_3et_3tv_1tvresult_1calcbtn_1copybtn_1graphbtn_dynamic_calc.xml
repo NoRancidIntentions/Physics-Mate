@@ -49,7 +49,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
                 android:text="find the remaining values"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
 
         <TextView
                 android:id="@+id/tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
@@ -60,7 +60,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Copy to clipboard"
                 android:id="@+id/btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:layout_marginBottom="45dp"/>
 
     </LinearLayout>

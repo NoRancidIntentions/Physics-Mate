@@ -16,7 +16,7 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
 
         <!-- Customize your theme here. -->
-        <item name="android:buttonStyle">@style/custom_button</item>
+        <item name="android:buttonStyle">@style/custom_button_enabled</item>
         <item name="android:textViewStyle">@style/custom_textView</item>
         <item name="android:editTextStyle">@style/custom_numeric_edittext</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
@@ -51,7 +51,7 @@
 
     <style name="Theme.PhysicsMate.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="custom_button" parent="Widget.AppCompat.Button">
+    <style name="custom_button_enabled" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">15dp</item>

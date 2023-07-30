@@ -16,23 +16,23 @@
             android:layout_marginTop="45dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:text="Circle"
             android:id="@+id/button27"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:text="Ellipse"
             android:id="@+id/button28"/>
 
     <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:text="Parabola"
             android:id="@+id/button29"/>
 
     <androidx.appcompat.widget.AppCompatButton
             android:text="Hyperbola"
-            style="@style/custom_button"
+            style="@style/custom_button_enabled"
             android:id="@+id/button30"
             android:layout_marginBottom="45dp"/>
 

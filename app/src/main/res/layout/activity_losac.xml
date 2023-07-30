@@ -27,22 +27,22 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button10"
                 android:text="I know AB, angle B and angle C"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button4"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="I know Ab, BC, and angle b"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button5"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="I know Ab, BC, and angle c"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button7"
                 android:text="i know ab, bc, and ac"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
     </LinearLayout>
 </ScrollView>

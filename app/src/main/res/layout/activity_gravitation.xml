@@ -39,109 +39,109 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Newton's law of gravitation"
                 android:id="@+id/button24"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Potential"
                 android:id="@+id/button31"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Potential Energy"
                 android:id="@+id/button36"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Accleration"
                 android:id="@+id/button38"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Binding Energy"
                 android:id="@+id/button32"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Escape Velocity"
                 android:id="@+id/button34"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Orbital Velocity"
                 android:id="@+id/button37"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Kepler's Third Law"
                 android:id="@+id/button26"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Time Dilation"
                 android:id="@+id/button33"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Lensing"
                 android:id="@+id/button35"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Torque"
                 android:id="@+id/button40"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Schwarzschild Radius"
                 android:id="@+id/button39"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Roche Limit"
-                android:id="@+id/btnRoche" style="@style/custom_button"
+                android:id="@+id/btnRoche" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Tidal Force"
-                android:id="@+id/btnTidalForce" style="@style/custom_button"
+                android:id="@+id/btnTidalForce" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Wave Energy"
-                android:id="@+id/btnGravWaveEnergy" style="@style/custom_button"
+                android:id="@+id/btnGravWaveEnergy" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Wave Frequency"
-                android:id="@+id/btnGravWaveFrequency" style="@style/custom_button"
+                android:id="@+id/btnGravWaveFrequency" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Wave Luminosity"
-                android:id="@+id/btnGravWaveLuminosity" style="@style/custom_button"
+                android:id="@+id/btnGravWaveLuminosity" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Gravitational Redshift"
-                android:id="@+id/btnGravRedShift" style="@style/custom_button"
+                android:id="@+id/btnGravRedShift" style="@style/custom_button_enabled"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Jean's Mass"
                 android:layout_marginBottom="45dp"
-                android:id="@+id/btnJeansMass" style="@style/custom_button"
+                android:id="@+id/btnJeansMass" style="@style/custom_button_enabled"
         />
 
     </LinearLayout>

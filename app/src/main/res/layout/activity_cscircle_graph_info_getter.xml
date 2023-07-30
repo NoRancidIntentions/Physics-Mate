@@ -150,7 +150,7 @@
         />
 
         <androidx.appcompat.widget.AppCompatButton
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="Get Graph of the circle"
                 android:id="@+id/button21"
                 app:layout_constraintStart_toStartOf="parent"

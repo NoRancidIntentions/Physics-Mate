@@ -96,13 +96,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/LagrangeAddRowButton"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:layout_marginTop="40dp"
                 android:text="Add Row"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/LagrangeCalcButton"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:layout_marginBottom="40dp"
                 android:text="Get Polynomial"
         />

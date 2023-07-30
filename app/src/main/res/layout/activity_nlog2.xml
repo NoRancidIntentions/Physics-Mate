@@ -51,7 +51,7 @@
         />
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNLOG2calculate"
-                style = "@style/custom_button"
+                style = "@style/custom_button_enabled"
                 android:text="calculate mass of second object"
                 android:textColor="@drawable/dynamic_text"
         />
@@ -63,7 +63,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNLOG2copy"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="copy to clipboard"
         />
 

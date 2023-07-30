@@ -103,7 +103,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:text="find the remaining values"
                 android:id="@+id/button15"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
 
         <TextView
                 android:text="TextView"

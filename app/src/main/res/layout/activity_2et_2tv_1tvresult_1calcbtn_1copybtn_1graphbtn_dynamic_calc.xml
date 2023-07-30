@@ -43,7 +43,7 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:text="error"
                 android:id="@+id/btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
 
         <TextView
                 android:text="ERROR"
@@ -54,14 +54,14 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Copy to clipboard"
                 android:id="@+id/btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button"/>
+                style="@style/custom_button_enabled"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="Get Graph"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="45dp"
                 android:id="@+id/btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button">
+                style="@style/custom_button_enabled">
 
         </androidx.appcompat.widget.AppCompatButton>
 

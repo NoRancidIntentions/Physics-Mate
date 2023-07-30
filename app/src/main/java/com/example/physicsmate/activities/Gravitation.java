@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.*;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -142,9 +143,13 @@ public class Gravitation extends AppCompatActivity {
 
                 img.setImageResource(R.drawable.escvelpng);
 
-                int chooserV = getIntent().getIntExtra("chooserV", 1);
-                int chooserM = getIntent().getIntExtra("chooserM", 1);
-                int chooserR = getIntent().getIntExtra("chooserR", 1);
+                int chooserV = getIntent().getIntExtra("chooserV", 0);
+                int chooserM = getIntent().getIntExtra("chooserM", 0);
+                int chooserR = getIntent().getIntExtra("chooserR", 0);
+
+                Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
+                btnCalc.setClickable(false);
+                setupEditTextChangeListener(btnCalc, et1, et2);
 
                 if (chooserV == 1) //needs work
                 {
@@ -625,7 +630,11 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_acc);
+            setContentView(R.layout.activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+
+
+
         }
     }
 

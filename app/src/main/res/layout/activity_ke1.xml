@@ -52,12 +52,12 @@
 
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:id="@+id/button18"
                 android:text="next"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:id="@+id/button20"
                 android:text="Clear all checkboxes"
         />

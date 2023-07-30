@@ -20,13 +20,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button16"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="rectilinear motion"
         />
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button14"
-                style="@style/custom_button"
+                style="@style/custom_button_enabled"
                 android:text="projectile motion"
         />
 

@@ -14,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import io.github.kexanie.library.MathView;
-import org.matheclipse.core.eval.ExprEvaluator;
-import org.matheclipse.core.interfaces.IExpr;
 
 import static com.example.physicsmate.Custom_methods.*;
 import static org.matheclipse.core.expression.F.HoldForm;
@@ -114,7 +112,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                 latexView1.setText(getTex(inputFunction.getText().toString().trim()));
                 calculateDerivative.setClickable(true);
                 //set style of the button
-                Paris.styleBuilder(calculateDerivative).add(R.style.custom_button).apply();
+                Paris.styleBuilder(calculateDerivative).add(R.style.custom_button_enabled).apply();
                 latexView1.setVisibility(View.VISIBLE);
             } else {
                 calculateDerivative.setClickable(false);
