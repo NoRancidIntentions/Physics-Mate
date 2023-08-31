@@ -28,10 +28,8 @@
 
         <io.github.kexanie.library.MathView
                 android:id="@+id/latexView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/LatexStyle"
                 auto:engine="MathJax"
-                android:textColor="@color/white_color_on_primary"
         />
 
         <TextView

@@ -80,7 +80,7 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_esc_orb_vel_gp_menu);
+            setContentView(R.layout.activity_esc_orb_vel_gp_gravacc_menu);
 
             Button btnV, btnM, btnR;
 
@@ -160,9 +160,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -182,8 +179,8 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
-                    });
+                        });
+
                 } else if (chooserM == 1) {
                     tv1.setText("Enter Escape Velocity in m/s");
                     tv2.setText("Enter Radius in meters");
@@ -192,9 +189,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double vel = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -214,7 +208,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserR == 1) {
                     tv1.setText("Enter Mass in kilograms");
@@ -224,9 +218,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double vel = eval(et2.getText().toString());
 
@@ -246,7 +237,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 }
 
@@ -259,7 +250,7 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_esc_orb_vel_gp_menu);
+            setContentView(R.layout.activity_esc_orb_vel_gp_gravacc_menu);
 
             Button btnV, btnM, btnR;
 
@@ -338,9 +329,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -360,7 +348,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserM == 1) {
                     tv1.setText("Enter Gravitational Potential in J/Kg");
@@ -370,9 +358,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double v = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -392,7 +377,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserR == 1) {
                     tv1.setText("Enter Mass in kilograms");
@@ -402,9 +387,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v1 -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double v = eval(et2.getText().toString());
 
@@ -424,7 +406,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 }
             }
@@ -436,7 +418,7 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_esc_orb_vel_gp_menu);
+            setContentView(R.layout.activity_esc_orb_vel_gp_gravacc_menu);
 
             Button btnU, btnM, btnR;
             ImageView img = findViewById(R.id.imageView26);
@@ -498,7 +480,7 @@ public class Gravitation extends AppCompatActivity {
                 EditText et3 = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
@@ -520,9 +502,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty() || et3.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m1 = eval(et1.getText().toString());
                             double m2 = eval(et2.getText().toString());
                             double r = eval(et3.getText().toString());
@@ -543,7 +522,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserM == 1) {
                     tv1.setText("Enter Gravitational Potential Energy in joules");
@@ -555,9 +534,6 @@ public class Gravitation extends AppCompatActivity {
                     et3.setHint("384400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             //find m1
                             double u = eval(et1.getText().toString());
                             double m2 = eval(et2.getText().toString());
@@ -579,9 +555,9 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
-                } else if (chooserR ==1){ //find r
+                } else if (chooserR == 1) { //find r
                     tv1.setText("Enter Gravitational Potential Energy in joules");
                     tv2.setText("Enter Mass of first object in kilograms");
                     tv3.setText("Enter Mass of second object in kilograms");
@@ -591,9 +567,6 @@ public class Gravitation extends AppCompatActivity {
                     et3.setHint("7.3 * 10^22");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty() || et3.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             //find r
                             double u = eval(et1.getText().toString());
                             double m1 = eval(et2.getText().toString());
@@ -615,7 +588,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
 
                     });
                 }
@@ -630,11 +603,170 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            setContentView(R.layout.activity_esc_orb_vel_gp_gravacc_menu);
+
+            Button btnV, btnM, btnR;
+
+            btnV = findViewById(R.id.button41);
+            btnM = findViewById(R.id.button42);
+            btnR = findViewById(R.id.button43);
+
+            btnV.setText("Gravitational acceleration \"g\"");
+
+            final int[] chooserA = {0};
+            final int[] chooserM = {0};
+            final int[] chooserR = {0};
+
+            btnV.setOnClickListener(v -> {
+
+                chooserA[0] = 1;
+
+                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserA", chooserA[0]));
+                finish();
+            });
+
+            btnM.setOnClickListener(v -> {
+
+                chooserM[0] = 1;
+
+                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserM", chooserM[0]));
+                finish();
+            });
+
+            btnR.setOnClickListener(v -> {
+
+                chooserR[0] = 1;
+
+                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserR", chooserR[0]));
+                finish();
+            });
+
+        }
+
+        public static class GravAcc3Calc extends AppCompatActivity {
+
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+                TextView tv1 = findViewById(R.id.tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tv2 = findViewById(R.id.tv2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tvRes = findViewById(R.id.tvResults_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                EditText et1 = findViewById(R.id.et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                EditText et2 = findViewById(R.id.et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Button btnCalc = findViewById(R.id.btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+                ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+
+                btnCopy.setVisibility(View.GONE);
+                tvRes.setVisibility(View.GONE);
+                btnGraph.setVisibility(View.GONE);
+
+                img.setImageResource(R.drawable.escvelpng);
+
+                int chooserA = getIntent().getIntExtra("chooserA", 0);
+                int chooserM = getIntent().getIntExtra("chooserM", 0);
+                int chooserR = getIntent().getIntExtra("chooserR", 0);
+
+                //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
+                //btnCalc.setClickable(false);
+                setupEditTextChangeListener(btnCalc, et1, et2);
+
+                if (chooserA == 1) //needs work
+                {
+                    tv1.setText("Enter Mass in kilograms");
+                    tv2.setText("Enter Radius in meters");
+                    btnCalc.setText("Calculate Gravitational acceleration");
+                    et1.setHint("5.97 * 10^24");
+                    et2.setHint("6400000");
+
+                    btnCalc.setOnClickListener(v -> {
+
+                        double m = eval(et1.getText().toString());
+                        double r = eval(et2.getText().toString());
+
+                        double acc = G * m / Math.pow(r, 2);
+                        String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
+                        tvRes.setText(Html.fromHtml(strRes));
 
 
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
+
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Escape velocity", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
+                    });
+                } else if (chooserM == 1) {
+                    tv1.setText("Enter Gravitational acceleration in m/s²");
+                    tv2.setText("Enter Radius in meters");
+                    btnCalc.setText("Calculate Mass");
+                    et1.setHint("9.8");
+                    et2.setHint("6400000");
+
+                    btnCalc.setOnClickListener(v -> {
+                            double acc = eval(et1.getText().toString());
+                            double r = eval(et2.getText().toString());
+
+                            double m = acc * Math.pow(r, 2) / G;
+                            String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
+                            tvRes.setText(Html.fromHtml(strRes));
 
 
+                            tvRes.setVisibility(View.VISIBLE);
+                            btnCopy.setVisibility(View.VISIBLE);
+
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+                            btnCopy.setOnClickListener(v12 -> {
+                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                                ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
+                                clipboard.setPrimaryClip(clip);
+                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            });
+
+                    });
+                } else if (chooserR == 1) {
+                    tv1.setText("Enter Mass in kilograms");
+                    tv2.setText("Enter Gravity in m/s²");
+                    btnCalc.setText("Calculate Radius");
+                    et1.setHint("5.97 * 10^24");
+                    et2.setHint("9.8");
+
+                    btnCalc.setOnClickListener(v -> {
+                            double m = eval(et1.getText().toString());
+                            double acc = eval(et2.getText().toString());
+
+                            double r = Math.sqrt(G * m / acc);
+                            String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
+                            tvRes.setText(Html.fromHtml(strRes));
+
+
+                            tvRes.setVisibility(View.VISIBLE);
+                            btnCopy.setVisibility(View.VISIBLE);
+
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+                            btnCopy.setOnClickListener(v13 -> {
+                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                                clipboard.setPrimaryClip(clip);
+                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            });
+
+                    });
+                }
+
+            }
         }
     }
 
@@ -652,7 +784,7 @@ public class Gravitation extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_esc_orb_vel_gp_menu);
+            setContentView(R.layout.activity_esc_orb_vel_gp_gravacc_menu);
 
             Button btnV, btnM, btnR;
             ImageView img = findViewById(R.id.imageView26);
@@ -731,9 +863,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -753,7 +882,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserM == 1) {
                     tv1.setText("Enter Orbital Velocity in m/s");
@@ -763,9 +892,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double vel = eval(et1.getText().toString());
                             double r = eval(et2.getText().toString());
 
@@ -785,7 +911,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 } else if (chooserR == 1) {
                     tv1.setText("Enter Mass in kilograms");
@@ -795,9 +921,6 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                        if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                        } else {
                             double m = eval(et1.getText().toString());
                             double vel = eval(et2.getText().toString());
 
@@ -817,7 +940,7 @@ public class Gravitation extends AppCompatActivity {
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
-                        }
+
                     });
                 }
 
@@ -986,7 +1109,7 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG1m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1r = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView SV_NLOG1 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -1057,7 +1180,7 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG2r = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG2n = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView SV_NLOG2 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -1131,7 +1254,7 @@ public class Gravitation extends AppCompatActivity {
                 etNLOG3m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 etNLOG3f = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 SV_NLOG3 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);

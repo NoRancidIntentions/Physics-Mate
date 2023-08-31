@@ -50,17 +50,36 @@ import java.util.regex.Pattern;
 import static de.lab4inf.math.util.Accuracy.round;
 
 public class Custom_methods {
+    /**
+     * Returns the number of fraction digits in the given number.
+     *
+     * @param number The number to check.
+     * @return The number of fraction digits.
+     */
     public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
-        if (number == null) return 0; //or throw
-        if (number.doubleValue() == 0.0d) return 0;
+        if (number == null) {
+            return 0; // If the number is null, there are no fraction digits.
+        }
+
+        if (number.doubleValue() == 0.0d) {
+            return 0; // If the number is zero, there are no fraction digits.
+        }
+
         BigDecimal bd = new BigDecimal(number.toString());
-        //BigDecimal bd = BigDecimal.valueOf(number.doubleValue()); // if double precision is ok, just note that you should use BigDecimal.valueOf(double) rather than new BigDecimal(double) due to precision bugs in the latter
-        bd = bd.stripTrailingZeros(); //convert 1.00 to 1 -> scale will now be 0, except for 0.0 where this doesn't work
+        bd = bd.stripTrailingZeros(); // Remove trailing zeros to get the correct scale.
         return bd.scale();
     }
 
 
     //method to round a number to the least number of decimal places from all the edit texts
+    /**
+     * Returns a rounded string representation of the given number, rounded to the least number
+     * of decimal places from all the EditTexts.
+     *
+     * @param t         the number to round
+     * @param editTexts the EditTexts containing the numbers
+     * @return a rounded string representation of the number
+     */
     public static String rounded_String(double t, EditText... editTexts) {
         int[] precision = new int[editTexts.length];
         for (int i = 0; i < editTexts.length; i++) {
@@ -73,6 +92,12 @@ public class Custom_methods {
         return String.valueOf(round(t, min));
     }
 
+    /**
+     * Evaluates a mathematical expression and returns the result as a double.
+     *
+     * @param  str  the mathematical expression to be evaluated
+     * @return      the result of the evaluation as a double
+     */
     public static double eval(@NotNull final String str) {
         ExprEvaluator util = new ExprEvaluator();
         try {
@@ -83,11 +108,38 @@ public class Custom_methods {
         }
     }
 
+    /**
+     * Sets up an EditText change listener for a given Button and multiple EditTexts.
+     *
+     * @param  button      the Button that will be enabled or disabled based on the EditTexts' contents
+     * @param  editTexts   the EditTexts to be monitored for changes
+     */
     public static void setupEditTextChangeListener(Button button, EditText ...editTexts) {
+
+        // Check if any of the EditTexts are empty
+        boolean anyEditTextEmpty = false;
+        for (EditText editText : editTexts) {
+            if (editText.getText().toString().isEmpty()) {
+                anyEditTextEmpty = true;
+                break;
+            }
+        }
+
+        // Enable or disable the button based on EditTexts' contents
+        button.setEnabled(!anyEditTextEmpty);
+
+        if (anyEditTextEmpty) {
+            Paris.styleBuilder(button).add(R.style.custom_button_disabled).apply();
+        } else {
+            //use paris style builder to set the background
+            Paris.styleBuilder(button).add(R.style.custom_button_enabled).apply();
+        }
+
         for (EditText editText : editTexts) {
             editText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
                 }
 
                 @Override
@@ -106,7 +158,7 @@ public class Custom_methods {
                     }
 
                     // Enable or disable the button based on EditTexts' contents
-                    button.setClickable(!anyEditTextEmpty);
+                    button.setEnabled(!anyEditTextEmpty);
 
                     if (anyEditTextEmpty) {
                         Paris.styleBuilder(button).add(R.style.custom_button_disabled).apply();
@@ -120,6 +172,12 @@ public class Custom_methods {
         }
     }
 
+    /**
+     * Replaces constants in the input string with their corresponding values.
+     *
+     * @param  input   the input string to be processed
+     * @return         the processed string with constants replaced
+     */
     public static String replaceConstants(String input) {
         // Replace "pi" with "Pi"
         input = input.replaceAll("pi", String.valueOf(Math.PI));
@@ -136,6 +194,13 @@ public class Custom_methods {
 
     }
 
+    /**
+     * Removes null values from the given array and returns a new array
+     * without the null values.
+     *
+     * @param  array  the array from which to remove null values
+     * @return        the new array without null values
+     */
     public static String[] removeNullValues(String[] array) {
         List<String> resultList = new ArrayList<>();
 
@@ -150,6 +215,13 @@ public class Custom_methods {
     }
 
     //method to find number of extremas of a polynomial
+    /**
+     * This method finds the number of extrema of a polynomial.
+     *
+     * @param function the polynomial function
+     * @param var the variable of the polynomial function
+     * @return an array of strings representing the extremas as (x, y) pairs
+     */
     public static String[] ExtremasFinder(String function, String var) {
         ExprEvaluator evaluator = new ExprEvaluator();
         try {

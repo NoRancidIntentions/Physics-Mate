@@ -26,6 +26,7 @@
         <item name="android:fontFamily">@font/sans_bold</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingTop">10dp</item>
+        <item name="android:clickable">true</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingBottom">10dp</item>
         <item name="android:textColor">@drawable/dynamic_text</item>
@@ -44,6 +45,7 @@
         <item name="android:fontFamily">@font/sans_bold</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingTop">10dp</item>
+        <item name="android:clickable">false</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingBottom">10dp</item>
         <item name="android:textColor">@color/app_bg</item>
@@ -126,6 +128,11 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="LatexStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white_color_on_primary</item>
+    </style>
 
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>

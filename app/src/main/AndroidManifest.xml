@@ -18,6 +18,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
+
         <activity
                 android:name=".activities.Lagrange_Interpolation"
                 android:exported="true"/>
@@ -86,6 +87,11 @@
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
+        <activity
+                android:name=".activities.Gravitation$GravAcc$GravAcc3Calc"
+                android:exported="false"
+                android:label="@string/title_activity_grav_acc3_calc"
+                android:theme="@style/Theme.PhysicsMate"/>
         <activity
                 android:name=".activities.Gravitation$KepThirdLaw"
                 android:exported="true">

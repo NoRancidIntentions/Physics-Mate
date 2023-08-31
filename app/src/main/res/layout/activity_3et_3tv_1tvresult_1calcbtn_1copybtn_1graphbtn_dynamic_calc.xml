@@ -14,10 +14,10 @@
             android:background="@color/app_bg"
             android:orientation="vertical">
 
-        <ImageView
-                style="@style/custom_imageview_fixedratio"
-                android:id="@+id/imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                app:srcCompat="@drawable/losac"/>
+        <io.github.kexanie.library.MathView
+                style="@style/LatexStyle"
+                android:id="@+id/latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                app:text="G"/>
 
         <TextView
                 android:text="Enter length of AB"
