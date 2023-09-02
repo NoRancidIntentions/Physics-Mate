@@ -103,7 +103,6 @@ public class Custom_methods {
         try {
             return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
         } catch (MathException e) {
-            e.printStackTrace();
             return 1536.786;
         }
     }
@@ -605,6 +604,12 @@ public class Custom_methods {
 
     //method to calculate the nth integral of a function
 
+    /**
+     * Retrieves the LaTeX representation of a mathematical function.
+     *
+     * @param  function  the mathematical function to convert to LaTeX
+     * @return           the LaTeX representation of the function
+     */
     public static String getTex(String function) {
         try {
             // false -> switch to Mathematica syntax mode:

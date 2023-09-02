@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -441,7 +442,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserU[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
                 finish();
             });
 
@@ -449,7 +450,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -480,7 +481,8 @@ public class Gravitation extends AppCompatActivity {
                 EditText et3 = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
@@ -659,6 +661,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
@@ -666,7 +669,8 @@ public class Gravitation extends AppCompatActivity {
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
 
-                img.setImageResource(R.drawable.escvelpng);
+                img.setVisibility(View.GONE);
+                mathView.setText(getTex("g = G*M/r^2"));
 
                 int chooserA = getIntent().getIntExtra("chooserA", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
@@ -1073,21 +1077,21 @@ public class Gravitation extends AppCompatActivity {
 
             btnNLOG1.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG1.class);
+                Intent intent = new Intent(NLOG.this, NLOG.NLOG1.class);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG2.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG2.class);
+                Intent intent = new Intent(NLOG.this, NLOG.NLOG2.class);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG3.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG3.class);
+                Intent intent = new Intent(NLOG.this, NLOG.NLOG3.class);
                 startActivity(intent);
                 finish();
             });
@@ -1096,7 +1100,6 @@ public class Gravitation extends AppCompatActivity {
 
         public static class NLOG1 extends AppCompatActivity {
 
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -1109,10 +1112,11 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG1m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1r = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView SV_NLOG1 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
                 tvNLOG1.setText("Mass of the first object");
@@ -1180,10 +1184,11 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG2r = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG2n = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView SV_NLOG2 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
 
@@ -1254,10 +1259,11 @@ public class Gravitation extends AppCompatActivity {
                 etNLOG3m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 etNLOG3f = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 SV_NLOG3 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
                 tvNLOG1.setText("Mass of the first object");

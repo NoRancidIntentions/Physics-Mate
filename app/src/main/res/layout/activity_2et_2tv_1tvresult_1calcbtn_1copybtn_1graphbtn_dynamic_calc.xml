@@ -14,6 +14,11 @@
             android:orientation="vertical"
             android:gravity="center">
 
+        <io.github.kexanie.library.MathView
+                style="@style/LatexStyle"
+                android:id="@+id/latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                app:text="G"/>
+
         <ImageView
                 style="@style/custom_imageview_fixedratio"
                 android:src="@drawable/losac"
