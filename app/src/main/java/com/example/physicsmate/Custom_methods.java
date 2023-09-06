@@ -642,11 +642,8 @@ public class Custom_methods {
             mathView.config(
                     "MathJax.Hub.Config({\n" +
                             "  \"HTML-CSS\" : {\n" +
-                            "        availableFonts : [\"Latin-Modern\"],\n" +
-                            "        preferredFont : \"Latin-Modern\",\n" +
                             "        webFont : \"Latin-Modern\",\n" +
                             "        linebreaks: { automatic: true },\n" +
-                            "        imageFont : null\n" +
                             "    }" +
                             "});");
         }

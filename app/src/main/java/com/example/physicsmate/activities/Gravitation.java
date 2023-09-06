@@ -670,6 +670,7 @@ public class Gravitation extends AppCompatActivity {
                 btnGraph.setVisibility(View.GONE);
 
                 img.setVisibility(View.GONE);
+                MathJaxConfig(mathView);
                 mathView.setText(getTex("g = G*M/r^2"));
 
                 int chooserA = getIntent().getIntExtra("chooserA", 0);

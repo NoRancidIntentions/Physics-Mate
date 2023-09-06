@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:layout_gravity="bottom|center"
+>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button1"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="1"
+            android:layout_row="0"
+            android:layout_column="0"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="2"
+            android:layout_row="0"
+            android:layout_column="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="3"
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button4"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="4"
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button5"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="5"
+            android:layout_row="1"
+            android:layout_column="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button6"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="6"
+            android:layout_row="1"
+            android:layout_column="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button7"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="7"
+            android:layout_row="2"
+            android:layout_column="0"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button8"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="8"
+            android:layout_row="2"
+            android:layout_column="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button9"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="9"
+            android:layout_row="2"
+            android:layout_column="2"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button0"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="0"
+            android:layout_row="3"
+            android:layout_column="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonBackspace"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="⌫"
+            android:layout_row="3"
+            android:layout_column="2"/>
+
+    <!-- create a button which will be used to switch between the custom keyboard and the symbols keyboard which contains e, pi, sin, cos, arcsin, etc. -->
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSymbols"
+            style="@style/custom_button_enabled_keyboard"
+            android:fontFamily="sans-serif-black"
+            android:text="switch"
+            android:layout_row="3"
+            android:layout_column="0"/>
+
+    <!-- add +, -, / and * buttons -->
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonPlus"
+            style="@style/custom_button_enabled_keyboard"
+            android:fontFamily="sans-serif-black"
+            android:text="+"
+            android:layout_row="0"
+            android:layout_column="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonMinus"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="-"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:fontFamily="sans-serif-black"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonMultiply"
+            style="@style/custom_button_enabled_keyboard"
+            android:fontFamily="sans-serif-black"
+            android:text="*"
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonDivide"
+            style="@style/custom_button_enabled_keyboard"
+            android:text="/"
+            android:fontFamily="sans-serif-black"
+            android:layout_row="3"
+            android:layout_column="3"/>
+
+
+</GridLayout>

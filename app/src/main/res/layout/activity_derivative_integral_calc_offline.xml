@@ -115,10 +115,8 @@
 
         <io.github.kexanie.library.MathView
                 android:id="@+id/latexView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style = "@style/LatexStyle"
                 auto:engine="MathJax"
-                android:textColor="@color/white_color_on_primary"
         />
 
         <TextView
@@ -129,13 +127,9 @@
         />
 
         <io.github.kexanie.library.MathView
-                android:layout_marginBottom="45dp"
-                android:layout_marginTop="0dp"
                 android:id="@+id/latexView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/LatexStyle"
                 auto:engine="MathJax"
-                android:textColor="@color/white_color_on_primary"
         />
 
         <androidx.appcompat.widget.AppCompatButton

@@ -159,14 +159,23 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
 
                             String function = inputFunction.getText().toString().trim();
                             String StrInputVar = inputVar.getText().toString().trim();
+                            final String[] derivative = new String[1];
 
-                            String derivative = calculateNthDerivative(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase();
-                            String finalStringResult = "<font color=#6BBBE1>The derivative is </font> <font color=#CDDC39>" + derivative;
+                            //get derivative in a new thread
+                            Thread thread = new Thread(() -> derivative[0] = calculateNthDerivative(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase());
+
+                            thread.start();
+
+                            try {
+                                thread.join();
+                            } catch (InterruptedException ignored) {}
+
+                            String finalStringResult = "<font color=#6BBBE1>The derivative is </font> <font color=#CDDC39>" + derivative[0];
 
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
 
-                            latexView2.setText(getTex(derivative));
+                            latexView2.setText(getTex(derivative[0]));
                             latexView2.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
                             btnGraphInfo.setVisibility(View.VISIBLE);
@@ -177,7 +186,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
 
                             btnCopy.setOnClickListener(view -> {
                                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Derivative", derivative);
+                                ClipData clip = ClipData.newPlainText("Derivative", derivative[0]);
                                 clipboard.setPrimaryClip(clip);
                                 Toast.makeText(getApplicationContext(), "Derivative copied to clipboard", Toast.LENGTH_SHORT).show();
                             });
@@ -202,7 +211,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                     } else {
                                         Intent intent = new Intent(DerivativeCalcOffline2.this, DerivativeCalcOfflineGraph.class);
                                         intent.putExtra("input", function);
-                                        intent.putExtra("DerInt", derivative);
+                                        intent.putExtra("DerInt", derivative[0]);
                                         intent.putExtra("minX", eval(minX.getText().toString().trim()));
                                         intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
                                         startActivity(intent);
@@ -213,8 +222,8 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
 
                             // Execute simplification in a separate thread
                             new Thread(() -> {
-                                String simplifiedDerivative = ExprSimplifier(derivative);
-                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + derivative;
+                                String simplifiedDerivative = ExprSimplifier(derivative[0]);
+                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + derivative[0];
 
 
                                 // Update UI with simplified derivative
@@ -257,7 +266,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                             } else {
                                                 Intent intent = new Intent(DerivativeCalcOffline2.this, DerivativeCalcOfflineGraph.class);
                                                 intent.putExtra("input", function);
-                                                intent.putExtra("DerInt", derivative);
+                                                intent.putExtra("DerInt", derivative[0]);
                                                 intent.putExtra("minX", eval(minX.getText().toString().trim()));
                                                 intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
                                                 startActivity(intent);

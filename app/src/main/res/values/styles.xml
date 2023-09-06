@@ -34,6 +34,24 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <!-- style for the button in the custom keyboard -->
+    <style name="custom_button_enabled_keyboard" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:background">@drawable/black_glass_btn</item>
+        <item name="android:fontFamily">@font/sans_bold</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/yellow_num_answer</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="custom_button_disabled" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -131,6 +149,9 @@
     <style name="LatexStyle" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name ="android:layout_marginTop">15dp</item>
+        <item name ="android:layout_marginBottom">15dp</item>
+        <item name ="android:layout_gravity">center</item>
         <item name="android:textColor">@color/white_color_on_primary</item>
     </style>
 

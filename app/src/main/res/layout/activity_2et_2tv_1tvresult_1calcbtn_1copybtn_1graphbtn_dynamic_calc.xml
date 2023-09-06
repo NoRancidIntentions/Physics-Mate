@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:auto="http://schemas.android.com/tools"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/SV_2et_3tv_2btn_1graph_dynamic_calc"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <io.github.kexanie.library.MathView
                 style="@style/LatexStyle"
                 android:id="@+id/latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                app:text="G"/>
+                auto:engine="MathJax"/>
 
         <ImageView
                 style="@style/custom_imageview_fixedratio"
