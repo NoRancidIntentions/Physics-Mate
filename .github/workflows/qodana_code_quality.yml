@@ -22,6 +22,5 @@ jobs:
           push-fixes: pull-request
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
-        fixesStrategy: cleanup/apply
         env:
           QODANA_TOKEN: ${{ secrets.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmdhbml6YXRpb24iOiIzb1paYSIsInByb2plY3QiOiIzSk5XUCIsInRva2VuIjoiQUdRbFoifQ.YbOR3kcJCTlPgLybolMkj-pN9uOHYnUrS-TBFJcOsFI }}
