@@ -67,7 +67,7 @@
             android:layout_column="3"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_ln"
+                android:id="@+id/buttonLn"
                 style="@style/custom_button_enabled_keyboard"
                 android:text="ln"
                 android:fontFamily="sans-serif-black"
