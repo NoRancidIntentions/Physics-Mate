@@ -70,6 +70,11 @@
 
         </androidx.appcompat.widget.AppCompatButton>
 
+        <com.example.physicsmate.ui.main.custom_keyboard1_initializer
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+        />
 
     </LinearLayout>
 </ScrollView>

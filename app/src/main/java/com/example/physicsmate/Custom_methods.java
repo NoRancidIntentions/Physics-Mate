@@ -15,6 +15,7 @@ import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.airbnb.paris.Paris;
+import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -187,10 +188,26 @@ public class Custom_methods {
         // Replace phi with Phi
         input = input.replaceAll("phi", String.valueOf(1.61803398874989484820458683436563811772030917980576286213544862270526046281890));
 
-        //calculate ln(x)
+        //replace log10 with ln equivalent
+        input = input.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
 
         return input;
 
+    }
+
+    //set up the edittext to use the custom keyboard
+    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, EditText ...editText) {
+        for (EditText editText1 : editText) {
+            editText1.setShowSoftInputOnFocus(false);
+            editText1.setOnFocusChangeListener((v, hasFocus) -> {
+                if (hasFocus) {
+                    custom_keyboard1.setTargetEditText(editText1);
+                    custom_keyboard1.showKeyboard();
+                } else {
+                    custom_keyboard1.hideKeyboard();
+                }
+            });
+        }
     }
 
     /**

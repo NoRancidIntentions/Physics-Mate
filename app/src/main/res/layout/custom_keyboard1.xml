@@ -247,17 +247,15 @@
                 android:layout_row="3"
                 android:layout_column="7"/>
         <androidx.appcompat.widget.AppCompatButton
-                android:text="√"
+                android:text="φ"
                 style = "@style/custom_button_enabled_keyboard"
                 android:layout_row="3" android:layout_column="4"
-                android:font="sans-serif-black"
-                android:id="@+id/buttonsqrt"/>
+                android:id="@+id/buttonPhi"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:text="|n|"
                 style = "@style/custom_button_enabled_keyboard"
                 android:layout_row="3" android:layout_column="5"
-                android:font="sans-serif-black"
                 android:id="@+id/button_modulus"/>
 
 
