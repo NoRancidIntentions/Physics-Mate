@@ -18,7 +18,7 @@
         <!-- Customize your theme here. -->
         <item name="android:buttonStyle">@style/custom_button_enabled</item>
         <item name="android:textViewStyle">@style/custom_textView</item>
-        <item name="android:editTextStyle">@style/custom_numeric_edittext</item>
+        <item name="android:editTextStyle">@style/custom_non_numeric_edittext</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
     </style>
 
@@ -82,24 +82,6 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/text_question</item>
         <item name="android:textSize">18sp</item>
-    </style>
-
-    <style name="custom_numeric_edittext" parent="Widget.AppCompat.EditText">
-        <item name="android:singleLine">true</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">15dp</item>
-        <item name="android:layout_marginEnd">15dp</item>
-        <item name="android:layout_marginBottom">30dp</item>
-        <item name="android:ems">10</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:gravity">center_horizontal|center_vertical</item>
-        <item name="android:inputType">phone</item>
-        <item name="android:digits">+-0123*/456789()."</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textColorHint">@color/text_hint</item>
-        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="custom_imageview_fixedratio" parent="Widget.AppCompat.EditText">

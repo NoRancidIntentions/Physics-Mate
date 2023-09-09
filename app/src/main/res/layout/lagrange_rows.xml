@@ -10,7 +10,7 @@
               android:weightSum="2">
 
     <EditText
-            style="@style/custom_numeric_edittext"
+            style="@style/custom_non_numeric_edittext"
             android:layout_width="wrap_content"
             android:layout_marginBottom="0dp"
             android:layout_weight="1"
@@ -18,7 +18,7 @@
             android:hint="x2"/>
 
     <EditText
-            style="@style/custom_numeric_edittext"
+            style="@style/custom_non_numeric_edittext"
             android:layout_marginBottom="0dp"
             android:layout_width="wrap_content"
             android:layout_weight="0.75"

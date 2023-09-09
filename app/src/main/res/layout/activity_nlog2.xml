@@ -22,7 +22,7 @@
                 style="@style/custom_textView"/>
 
         <EditText
-                style = "@style/custom_numeric_edittext"
+                style = "@style/custom_non_numeric_edittext"
                 android:hint="Enter mass in kg"
                 android:id="@+id/etNLOG2m"
         />
@@ -33,7 +33,7 @@
                 style="@style/custom_textView"/>
 
         <EditText
-                style = "@style/custom_numeric_edittext"
+                style = "@style/custom_non_numeric_edittext"
                 android:hint="Enter force in N"
                 android:id="@+id/etNLOG2n"
         />
@@ -44,7 +44,7 @@
                 style="@style/custom_textView"/>
 
         <EditText
-                style = "@style/custom_numeric_edittext"
+                style = "@style/custom_non_numeric_edittext"
                 android:id="@+id/etNLOG2r"
                 android:hint="Enter distance in m"
 

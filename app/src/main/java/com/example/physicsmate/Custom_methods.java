@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -99,9 +100,18 @@ public class Custom_methods {
      * @param  str  the mathematical expression to be evaluated
      * @return      the result of the evaluation as a double
      */
-    public static double eval(@NotNull final String str) {
+    public static double eval(@NotNull String str, Boolean isRadians) {
         ExprEvaluator util = new ExprEvaluator();
         try {
+            //if isRadians is False, convert the number inside trig functions from degrees to radians
+            if (!isRadians) {
+                str = str.replaceAll("sin\\((.*?)\\)", "sin($1*Pi/180)");
+                str = str.replaceAll("cos\\((.*?)\\)", "cos($1*Pi/180)");
+                str = str.replaceAll("tan\\((.*?)\\)", "tan($1*Pi/180)");
+                str = str.replaceAll("asin\\((.*?)\\)", "asin($1)*180/Pi");
+                str = str.replaceAll("acos\\((.*?)\\)", "acos($1)*180/Pi");
+                str = str.replaceAll("atan\\((.*?)\\)", "atan($1)*180/Pi");
+            }
             return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
         } catch (MathException e) {
             return 1536.786;
@@ -195,8 +205,7 @@ public class Custom_methods {
 
     }
 
-    //set up the edittext to use the custom keyboard
-    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, EditText ...editText) {
+    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, EditText... editText) {
         for (EditText editText1 : editText) {
             editText1.setShowSoftInputOnFocus(false);
             editText1.setOnFocusChangeListener((v, hasFocus) -> {
@@ -205,10 +214,19 @@ public class Custom_methods {
                     custom_keyboard1.showKeyboard();
                 } else {
                     custom_keyboard1.hideKeyboard();
+
+                    // Hide the soft keyboard when losing focus
+                    hideSoftKeyboard(v.getContext(), editText1);
                 }
             });
         }
     }
+
+    private static void hideSoftKeyboard(Context context, EditText editText) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+    }
+
 
     /**
      * Removes null values from the given array and returns a new array
