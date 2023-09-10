@@ -74,6 +74,7 @@ public class Custom_methods {
 
 
     //method to round a number to the least number of decimal places from all the edit texts
+
     /**
      * Returns a rounded string representation of the given number, rounded to the least number
      * of decimal places from all the EditTexts.
@@ -97,8 +98,8 @@ public class Custom_methods {
     /**
      * Evaluates a mathematical expression and returns the result as a double.
      *
-     * @param  str  the mathematical expression to be evaluated
-     * @return      the result of the evaluation as a double
+     * @param str the mathematical expression to be evaluated
+     * @return the result of the evaluation as a double
      */
     public static double eval(@NotNull String str, Boolean isRadians) {
         ExprEvaluator util = new ExprEvaluator();
@@ -118,13 +119,23 @@ public class Custom_methods {
         }
     }
 
+    public static double eval(@NotNull String str) {
+        ExprEvaluator util = new ExprEvaluator();
+        try {
+            return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
+        } catch (MathException e) {
+            return 1536.786;
+        }
+
+    }
+
     /**
      * Sets up an EditText change listener for a given Button and multiple EditTexts.
      *
-     * @param  button      the Button that will be enabled or disabled based on the EditTexts' contents
-     * @param  editTexts   the EditTexts to be monitored for changes
+     * @param button    the Button that will be enabled or disabled based on the EditTexts' contents
+     * @param editTexts the EditTexts to be monitored for changes
      */
-    public static void setupEditTextChangeListener(Button button, EditText ...editTexts) {
+    public static void setupEditTextChangeListener(Button button, EditText... editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;
@@ -185,8 +196,8 @@ public class Custom_methods {
     /**
      * Replaces constants in the input string with their corresponding values.
      *
-     * @param  input   the input string to be processed
-     * @return         the processed string with constants replaced
+     * @param input the input string to be processed
+     * @return the processed string with constants replaced
      */
     public static String replaceConstants(String input) {
         // Replace "pi" with "Pi"
@@ -207,7 +218,7 @@ public class Custom_methods {
 
     public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, EditText... editText) {
         for (EditText editText1 : editText) {
-            editText1.setShowSoftInputOnFocus(false);
+            editText1.setShowSoftInputOnFocus(true);
             editText1.setOnFocusChangeListener((v, hasFocus) -> {
                 if (hasFocus) {
                     custom_keyboard1.setTargetEditText(editText1);
@@ -232,8 +243,8 @@ public class Custom_methods {
      * Removes null values from the given array and returns a new array
      * without the null values.
      *
-     * @param  array  the array from which to remove null values
-     * @return        the new array without null values
+     * @param array the array from which to remove null values
+     * @return the new array without null values
      */
     public static String[] removeNullValues(String[] array) {
         List<String> resultList = new ArrayList<>();
@@ -249,11 +260,12 @@ public class Custom_methods {
     }
 
     //method to find number of extremas of a polynomial
+
     /**
      * This method finds the number of extrema of a polynomial.
      *
      * @param function the polynomial function
-     * @param var the variable of the polynomial function
+     * @param var      the variable of the polynomial function
      * @return an array of strings representing the extremas as (x, y) pairs
      */
     public static String[] ExtremasFinder(String function, String var) {
@@ -642,8 +654,8 @@ public class Custom_methods {
     /**
      * Retrieves the LaTeX representation of a mathematical function.
      *
-     * @param  function  the mathematical function to convert to LaTeX
-     * @return           the LaTeX representation of the function
+     * @param function the mathematical function to convert to LaTeX
+     * @return the LaTeX representation of the function
      */
     public static String getTex(String function) {
         try {

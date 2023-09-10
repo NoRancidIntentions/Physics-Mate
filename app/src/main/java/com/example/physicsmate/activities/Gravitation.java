@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.RadDegSwitch;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
 
@@ -665,6 +666,7 @@ public class Gravitation extends AppCompatActivity {
                 MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                RadDegSwitch radDegSwitch = findViewById(R.id.RadDeg_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -694,8 +696,8 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
 
-                        double m = eval(et1.getText().toString());
-                        double r = eval(et2.getText().toString());
+                        double m = eval(et1.getText().toString(), radDegSwitch.isRad());
+                        double r = eval(et2.getText().toString(), radDegSwitch.isRad());
 
                         double acc = G * m / Math.pow(r, 2);
                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
@@ -722,8 +724,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double acc = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double acc = eval(et1.getText().toString(), radDegSwitch.isRad());
+                            double r = eval(et2.getText().toString(), radDegSwitch.isRad());
 
                             double m = acc * Math.pow(r, 2) / G;
                             String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
@@ -751,8 +753,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("9.8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double acc = eval(et2.getText().toString());
+                            double m = eval(et1.getText().toString(), radDegSwitch.isRad());
+                            double acc = eval(et2.getText().toString(), radDegSwitch.isRad());
 
                             double r = Math.sqrt(G * m / acc);
                             String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
