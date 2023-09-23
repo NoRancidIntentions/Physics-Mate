@@ -22,7 +22,7 @@
                 android:text="TextView"
                 android:layout_marginTop="45dp"/>
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/editTextNumber"
         />
 
@@ -32,7 +32,7 @@
                 style="@style/custom_textView"
         />
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/editTextNumber2"/>
 
         <TextView
@@ -42,7 +42,7 @@
         />
 
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/editTextNumber3"
         />
 

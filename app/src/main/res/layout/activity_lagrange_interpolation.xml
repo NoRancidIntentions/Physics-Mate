@@ -50,7 +50,7 @@
                     android:weightSum="2">
 
                 <EditText
-                        style="@style/custom_numeric_edittext"
+                        style="@style/custom_non_numeric_edittext"
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:id="@+id/Lagrangex1"
@@ -58,7 +58,7 @@
                         android:hint="x1"/>
 
                 <EditText
-                        style="@style/custom_numeric_edittext"
+                        style="@style/custom_non_numeric_edittext"
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:ems="4"
@@ -75,7 +75,7 @@
                     android:weightSum="2">
 
                 <EditText
-                        style="@style/custom_numeric_edittext"
+                        style="@style/custom_non_numeric_edittext"
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:id="@+id/Lagrangex2"
@@ -83,7 +83,7 @@
                         android:hint="x2"/>
 
                 <EditText
-                        style="@style/custom_numeric_edittext"
+                        style="@style/custom_non_numeric_edittext"
                         android:layout_marginBottom="0dp"
                         android:layout_weight="1"
                         android:id="@+id/Lagrangey2"

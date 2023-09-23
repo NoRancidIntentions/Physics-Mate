@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.RadDegSwitchInitializer;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
 
@@ -665,6 +666,7 @@ public class Gravitation extends AppCompatActivity {
                 MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);

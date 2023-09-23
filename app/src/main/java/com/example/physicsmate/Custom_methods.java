@@ -108,6 +108,21 @@ public class Custom_methods {
         }
     }
 
+    public static double eval(@NotNull String str, Boolean isRad) {
+        ExprEvaluator util = new ExprEvaluator();
+        str = str.replace("pi", "3.14159265");
+        str = str.replace("e", "2.718281828459045");
+        if (!isRad) {
+
+        }
+
+        try {
+            return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
+        } catch (MathException e) {
+            return 1536.786;
+        }
+    }
+
     /**
      * Sets up an EditText change listener for a given Button and multiple EditTexts.
      *

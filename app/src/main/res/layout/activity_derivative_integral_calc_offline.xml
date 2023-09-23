@@ -57,7 +57,7 @@
         <EditText
                 android:id="@+id/nth_der"
                 android:hint="1"
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:minHeight="48dp"/>
 
 
@@ -149,7 +149,7 @@
                 android:id="@+id/derInttvMin"/>
 
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/etXMinDerInt"
                 android:hint="-10"/>
 
@@ -159,7 +159,7 @@
                 android:id="@+id/derInttvMax"/>
 
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/etXMaxDerInt"
                 android:hint="10"/>
 

@@ -25,13 +25,20 @@
                 android:id="@+id/imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
         />
 
+        <com.example.physicsmate.ui.main.RadDegSwitchInitializer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                android:layout_gravity="end"
+        />
+
         <TextView
                 android:text="ERROR"
                 android:id="@+id/tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
                 style="@style/custom_textView"/>
 
         <EditText
-                style="@style/custom_numeric_edittext"
+                style="@style/custom_non_numeric_edittext"
                 android:id="@+id/et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
         />
 
@@ -42,7 +49,7 @@
 
         <EditText
                 android:id="@+id/et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_numeric_edittext"/>
+                style="@style/custom_non_numeric_edittext"/>
 
 
         <androidx.appcompat.widget.AppCompatButton

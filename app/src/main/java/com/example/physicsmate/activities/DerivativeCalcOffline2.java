@@ -16,7 +16,6 @@ import com.example.physicsmate.R;
 import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
-import static org.matheclipse.core.expression.F.HoldForm;
 
 public class DerivativeCalcOffline2 extends AppCompatActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;

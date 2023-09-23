@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <ToggleButton
+            android:id="@+id/toggleRad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Rad"
+            android:textOff="Rad"
+            android:checked="true"
+            android:background="@color/yellow_num_answer"
+            android:textSize="12sp" android:minHeight="20dip" android:minWidth="40dip"/>
+
+    <ToggleButton
+            android:id="@+id/toggleDeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Deg"
+            android:textOff="Deg"
+            android:textColor="@color/yellow_num_answer"
+            android:background="@color/app_bg"
+            android:textSize="12sp" android:minHeight="20dip" android:minWidth="40dip"/>
+
+</LinearLayout>
