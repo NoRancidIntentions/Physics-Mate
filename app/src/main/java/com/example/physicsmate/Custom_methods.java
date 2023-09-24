@@ -110,11 +110,17 @@ public class Custom_methods {
 
     public static double eval(@NotNull String str, Boolean isRad) {
         ExprEvaluator util = new ExprEvaluator();
-        str = str.replace("pi", "3.14159265");
-        str = str.replace("e", "2.718281828459045");
-        if (!isRad) {
+        str = str.replace("e", "E");
+        // Replace log10 with ln while maintaining the value
+        str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
 
+        if (!isRad) {
+            str = str.replaceAll("sin\\((.*?)\\)", "sin(($1)*pi/180)");
+            str = str.replaceAll("cos\\((.*?)\\)", "cos(($1)*pi/180)");
+            str = str.replaceAll("tan\\((.*?)\\)", "tan(($1)*pi/180)");
         }
+
+        str = replaceNumbersInTrigWithRemainder(str);
 
         try {
             return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
@@ -122,6 +128,20 @@ public class Custom_methods {
             return 1536.786;
         }
     }
+
+    public static String replaceNumbersInTrigWithRemainder(String input) {
+        Pattern pattern = Pattern.compile("(sin|cos|tan)\\((.*?)\\)");
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            String trigFunction = matcher.group(1); // sin, cos, or tan
+            double argValue = Double.parseDouble(matcher.group(2));
+            double remainder = argValue % (2 * Math.PI);
+            String modifiedTrig = trigFunction + "(" + remainder + ")";
+            input = input.replaceFirst(Pattern.quote(matcher.group()), modifiedTrig);
+        }
+
+        return input;
 
     /**
      * Sets up an EditText change listener for a given Button and multiple EditTexts.

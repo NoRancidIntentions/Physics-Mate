@@ -696,8 +696,8 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
 
-                        double m = eval(et1.getText().toString());
-                        double r = eval(et2.getText().toString());
+                        double m = eval(et1.getText().toString(), radDegSwitch.isRad());
+                        double r = eval(et2.getText().toString(), radDegSwitch.isRad());
 
                         double acc = G * m / Math.pow(r, 2);
                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
