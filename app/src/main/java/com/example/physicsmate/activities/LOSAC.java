@@ -94,9 +94,9 @@ public class LOSAC extends AppCompatActivity {
                     Toast.makeText(LOSAC1.this, "angle C cannot be 0 or 180", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double ab = eval(AB.getText().toString().trim());
-                    double bc = eval(BC.getText().toString().trim());
-                    double c = eval(C.getText().toString().trim());
+                    double ab = evalf(AB.getText().toString().trim());
+                    double bc = evalf(BC.getText().toString().trim());
+                    double c = evalf(C.getText().toString().trim());
 
                     double k = ab / Math.sin(Math.toRadians(c));
                     double a = Math.asin(bc / k);
@@ -174,9 +174,9 @@ public class LOSAC extends AppCompatActivity {
                 } else if (B.getText().toString().trim().equals("0") || B.getText().toString().trim().equals("180")) {
                     Toast.makeText(LOSAC2.this, "angle B cannot be 0 or 180", Toast.LENGTH_SHORT).show();
                 } else {
-                    double ab = eval(AB.getText().toString().trim());
-                    double bc = eval(BC.getText().toString().trim());
-                    double b = eval(B.getText().toString().trim());
+                    double ab = evalf(AB.getText().toString().trim());
+                    double bc = evalf(BC.getText().toString().trim());
+                    double b = evalf(B.getText().toString().trim());
 
                     double ac = Math.sqrt((ab * ab) + (bc * bc) - (2 * ab * bc * (Math.cos(Math.toRadians(b)))));
 
@@ -243,9 +243,9 @@ public class LOSAC extends AppCompatActivity {
                     Toast.makeText(LOSAC3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double ab = eval(AB.getText().toString().trim());
-                    double bc = eval(BC.getText().toString().trim());
-                    double ac = eval(AC.getText().toString().trim());
+                    double ab = evalf(AB.getText().toString().trim());
+                    double bc = evalf(BC.getText().toString().trim());
+                    double ac = evalf(AC.getText().toString().trim());
 
                     String b = rounded_String(Math.toDegrees(Math.acos(((ab * ab) + (bc * bc) - (ac * ac)) / (2 * ab * bc))), AB, BC, AC);
                     String c = rounded_String(Math.toDegrees(Math.acos(((ac * ac) + (bc * bc) - (ab * ab)) / (2 * ac * bc))), AB, BC, AC);
@@ -308,9 +308,9 @@ public class LOSAC extends AppCompatActivity {
                     Toast.makeText(LOSAC4.this, "angle C cannot be 0 or 180", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double ab = eval(AB.getText().toString().trim());
-                    double b = eval(B.getText().toString().trim());
-                    double c = eval(C.getText().toString().trim());
+                    double ab = evalf(AB.getText().toString().trim());
+                    double b = evalf(B.getText().toString().trim());
+                    double c = evalf(C.getText().toString().trim());
 
                     double a = 180 - b - c;
 

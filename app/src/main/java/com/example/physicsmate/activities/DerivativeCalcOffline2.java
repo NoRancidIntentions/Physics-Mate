@@ -161,7 +161,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                             final String[] derivative = new String[1];
 
                             //get derivative in a new thread
-                            Thread thread = new Thread(() -> derivative[0] = calculateNthDerivative(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase());
+                            Thread thread = new Thread(() -> derivative[0] = calculateNthDerivative(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase());
 
                             thread.start();
 
@@ -211,8 +211,8 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                         Intent intent = new Intent(DerivativeCalcOffline2.this, DerivativeCalcOfflineGraph.class);
                                         intent.putExtra("input", function);
                                         intent.putExtra("DerInt", derivative[0]);
-                                        intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                        intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
+                                        intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                                        intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
                                         startActivity(intent);
                                     }
 
@@ -266,8 +266,8 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                                 Intent intent = new Intent(DerivativeCalcOffline2.this, DerivativeCalcOfflineGraph.class);
                                                 intent.putExtra("input", function);
                                                 intent.putExtra("DerInt", derivative[0]);
-                                                intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                                intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
+                                                intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                                                intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
                                                 startActivity(intent);
                                             }
 

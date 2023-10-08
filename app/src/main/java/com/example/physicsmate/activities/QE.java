@@ -170,9 +170,9 @@ public class QE extends AppCompatActivity {
             } else if (a.getText().toString().equals("0")) {
                 Toast.makeText(QE.this, " 'a' cannot be 0!", Toast.LENGTH_SHORT).show();
             } else {
-                double A = eval(a.getText().toString().trim());
-                double B = eval(b.getText().toString().trim());
-                double C = eval(c.getText().toString().trim());
+                double A = evalf(a.getText().toString().trim());
+                double B = evalf(b.getText().toString().trim());
+                double C = evalf(c.getText().toString().trim());
 
                 double D = (B * B) - (4 * A * C);
                 if (D < 0) {
@@ -230,9 +230,9 @@ public class QE extends AppCompatActivity {
                     Toast.makeText(QE.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double A = eval(a.getText().toString().trim());
-                    double B = eval(b.getText().toString().trim());
-                    double C = eval(c.getText().toString().trim());
+                    double A = evalf(a.getText().toString().trim());
+                    double B = evalf(b.getText().toString().trim());
+                    double C = evalf(c.getText().toString().trim());
 
                     int xmin = Integer.parseInt(graphxmin.getText().toString().trim());
                     int xmax = Integer.parseInt(graphxmax.getText().toString().trim());
@@ -262,9 +262,9 @@ public class QE extends AppCompatActivity {
                     Toast.makeText(QE.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double A = eval(a.getText().toString().trim());
-                    double B = eval(b.getText().toString().trim());
-                    double C = eval(c.getText().toString().trim());
+                    double A = evalf(a.getText().toString().trim());
+                    double B = evalf(b.getText().toString().trim());
+                    double C = evalf(c.getText().toString().trim());
 
                     int xmin = Integer.parseInt(graphxmin.getText().toString().trim());
                     int xmax = Integer.parseInt(graphxmax.getText().toString().trim());

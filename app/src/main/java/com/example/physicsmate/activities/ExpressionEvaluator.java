@@ -60,7 +60,7 @@ public class ExpressionEvaluator extends AppCompatActivity {
 
                 double val;
 
-                val = eval(etval.getText().toString().toLowerCase());
+                val = evalf(etval.getText().toString().toLowerCase());
                 System.out.println(val);
 
 

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.et_Scroller;
-import static com.example.physicsmate.Custom_methods.eval;
+import static com.example.physicsmate.Custom_methods.evalf;
 
 public class CSCircleGraphInfoGetter extends AppCompatActivity {
 
@@ -35,9 +35,9 @@ public class CSCircleGraphInfoGetter extends AppCompatActivity {
             if (etH.getText().toString().isEmpty() || etK.getText().toString().isEmpty() || etR.getText().toString().isEmpty()) {
                 Toast.makeText(CSCircleGraphInfoGetter.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
             } else {
-                double h = eval(etH.getText().toString());
-                double k = eval(etK.getText().toString());
-                double r = eval(etR.getText().toString());
+                double h = evalf(etH.getText().toString());
+                double k = evalf(etK.getText().toString());
+                double r = evalf(etR.getText().toString());
 
                 Intent intent = new Intent(CSCircleGraphInfoGetter.this, CSCircleGraphShower.class);
 

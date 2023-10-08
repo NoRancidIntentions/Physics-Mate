@@ -192,9 +192,9 @@ public class Lagrange_Interpolation extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Please fill in all the values", Toast.LENGTH_SHORT).show();
                         } else {
                             //convert the value of the edit text at index 0 to double and store it in the x array at index j
-                            x[i] = eval(LagrangeRowItemXValue);
+                            x[i] = evalf(LagrangeRowItemXValue);
                             //convert the value of the edit text at index 1 to double and store it in the y array at index j
-                            y[i] = eval(LagrangeRowItemYValue);
+                            y[i] = evalf(LagrangeRowItemYValue);
                         }
 
                     }

@@ -1,14 +1,141 @@
 package com.example.physicsmate;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.matheclipse.core.eval.ExprEvaluator;
+import org.matheclipse.parser.client.math.MathException;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.example.physicsmate.Custom_methods.*;
 import static org.junit.Assert.assertEquals;
-import static org.matheclipse.core.expression.F.HoldForm;
+import static org.junit.Assert.fail;
 
+@RunWith(JUnit4.class)
 public class Custom_methodsTest {
 
+    @Test
+    public void replaceNumbersInTrigWithRemainder() {
+
+        String input = "sin(7*pi)";
+        Pattern pattern = Pattern.compile("(sin|cos|tan)\\((.*?)\\)");
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            String trigFunction = matcher.group(1); // sin, cos, or tan
+            String argValueString = matcher.group(2);
+            System.out.println("Arg val string: " + argValueString);
+            System.out.println("trig function: " + trigFunction);
+            assert argValueString != null;
+            String argValue = argValueString.replaceAll("[()]", ""); // Remove parentheses before parsing
+            System.out.println("Arg val:" + Custom_methods.evalf(argValue));
+            double remainder = mod(Custom_methods.evalf(argValue), 2 * Math.PI);
+            String modifiedTrig = trigFunction + "(" + remainder + ")";
+            System.out.println("modified trig: " + modifiedTrig);
+            input = input.replaceFirst(Pattern.quote(matcher.group()), modifiedTrig);
+        }
+
+        System.out.println("input after replacing numbers in trig with remainder: " + input);
+    }
+
+    @Test
+    public void eval() {
+        String str = "sin(7*pi)";
+        ExprEvaluator util = new ExprEvaluator();
+        try {
+            System.out.println(Double.parseDouble(String.valueOf(util.eval(IExprConverter(str)))));
+        } catch (MathException e) {
+            System.out.println("Error");
+        }
+    }
+
+    // Existing tests...
+
+    @Test
+    public void testReplaceNumbersInTrigWithRemainderWhenNumericArgumentThenRemainder() { //passed, ignore this
+        // Arrange
+        String input = "sin(7*pi)";
+        String expected = "sin(3.14159)";
+
+        // Act
+        String result = Custom_methods.replaceNumbersInTrigWithRemainder(input);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testReplaceNumbersInTrigWithRemainderWhenNoTrigFunctionsThenInputUnchanged() {
+        // Arrange
+        String input = "7*pi";
+        String expected = "7*pi";
+
+        // Act
+        String result = Custom_methods.replaceNumbersInTrigWithRemainder(input);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testReplaceNumbersInTrigWithRemainderWhenNonNumericArgumentThenException() {
+        // Arrange
+        String input = "sin(pi*x)";
+
+        try {
+            // Act
+            Custom_methods.replaceNumbersInTrigWithRemainder(input);
+            fail("Expected an exception to be thrown");
+        } catch (Exception e) {
+            // Assert
+            assertEquals("Invalid argument for trigonometric function", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testEvalWhenExpressionValidAndIsRadTrueThenReturnsCorrectResult2() {
+        // Arrange
+        String expression = "sin(pi)";
+        Boolean isRad = true;
+        double expected = 0.0;
+
+        // Act
+        double result = Custom_methods.evalf(expression, isRad);
+
+        // Assert
+        assertEquals(expected, result, 0.001);
+    }
+
+    @Test
+    public void testEvalWhenExpressionValidAndIsRadFalseThenReturnsCorrectResult() {
+        // Arrange
+        String expression = "sin(180)";
+        Boolean isRad = false;
+        double expected = 0.0;
+
+        // Act
+        double result = Custom_methods.evalf(expression, isRad);
+        System.out.println("result: " + result);
+
+        // Assert
+        assertEquals(expected, result, 0.001);
+    }
+
+    @Test
+    public void testEvalWhenExpressionInvalidThenReturnsDefaultResult() {
+        // Arrange
+        String expression = "invalid expression";
+        Boolean isRad = true;
+        double expected = 1536.786;
+
+        // Act
+        double result = Custom_methods.evalf(expression, isRad);
+
+        // Assert
+        assertEquals(expected, result, 0.001);
+    }
 
     /**
      * Should simplify the expression after replacing 'x'
@@ -111,8 +238,7 @@ public class Custom_methodsTest {
     }
 
     @Test
-    public void evalDefiniteIntegralSymbolicTester()
-    {
+    public void evalDefiniteIntegralSymbolicTester() {
         String res = evalDefiniteIntegralSymbolic("(log(x))^2 + log(x)", "x", 1.5, 2.5);
         System.out.println(res);
     }
@@ -129,6 +255,4 @@ public class Custom_methodsTest {
         String expanded = util.eval("Expand(" + expr + ")").toString();
         return util.eval("Simplify(ReplaceAll(" + expanded + ", {log(x_)+log(y_) -> log(x*y), log(x_)-log(y_) -> log(x/y), log(x_^y_) -> y*log(x_)}))").toString();
     }
-
-
 }

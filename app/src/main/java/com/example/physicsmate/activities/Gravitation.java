@@ -4,12 +4,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
@@ -140,6 +138,8 @@ public class Gravitation extends AppCompatActivity {
 
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
+                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -152,7 +152,7 @@ public class Gravitation extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
-                setupEditTextChangeListener(btnCalc, et1, et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
 
                 if (chooserV == 1) //needs work
                 {
@@ -163,8 +163,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double vel = Math.sqrt(2 * G * m / r);
                             String strRes = "<font color = #6BBBE1> Escape velocity = </font> <font color = #CDDC39>" + vel + " m/s </font>";
@@ -192,8 +192,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double vel = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double vel = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double m = Math.pow(vel, 2) * r / (2 * G);
                             String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
@@ -221,8 +221,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double vel = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double vel = evalf(et2.getText().toString());
 
                             double r = (2 * G * m) / Math.pow(vel, 2);
                             String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
@@ -332,8 +332,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double m = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double v = -(G * m / r);
                             String strRes = "<font color = #6BBBE1> Gravitational Potential = </font> <font color = #CDDC39>" + v + " J/Kg </font>";
@@ -361,8 +361,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double v = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double v = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double m = -v * r / G;
                             String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
@@ -390,8 +390,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double m = eval(et1.getText().toString());
-                            double v = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double v = evalf(et2.getText().toString());
 
                             double r = -G * m / v;
                             String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
@@ -506,9 +506,9 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m1 = eval(et1.getText().toString());
-                            double m2 = eval(et2.getText().toString());
-                            double r = eval(et3.getText().toString());
+                            double m1 = evalf(et1.getText().toString());
+                            double m2 = evalf(et2.getText().toString());
+                            double r = evalf(et3.getText().toString());
 
                             double u = G * m1 * m2 / r;
                             String strRes = "<font color = #6BBBE1> Gravitational potential energy = </font> <font color = #CDDC39>" + u + " m/s </font>";
@@ -539,9 +539,9 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                             //find m1
-                            double u = eval(et1.getText().toString());
-                            double m2 = eval(et2.getText().toString());
-                            double r = eval(et3.getText().toString());
+                            double u = evalf(et1.getText().toString());
+                            double m2 = evalf(et2.getText().toString());
+                            double r = evalf(et3.getText().toString());
 
                             double m1 = u * r / (G * m2);
                             String strRes = "<font color = #6BBBE1> Mass of first object = </font> <font color = #CDDC39>" + m1 + " kg </font>";
@@ -572,9 +572,9 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                             //find r
-                            double u = eval(et1.getText().toString());
-                            double m1 = eval(et2.getText().toString());
-                            double m2 = eval(et3.getText().toString());
+                            double u = evalf(et1.getText().toString());
+                            double m1 = evalf(et2.getText().toString());
+                            double m2 = evalf(et3.getText().toString());
 
                             double r = G * m1 * m2 / u;
                             String strRes = "<font color = #6BBBE1> Distance = </font> <font color = #CDDC39>" + r + " m </font>";
@@ -668,6 +668,8 @@ public class Gravitation extends AppCompatActivity {
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
                 RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
+                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -684,7 +686,7 @@ public class Gravitation extends AppCompatActivity {
 
                 //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 //btnCalc.setClickable(false);
-                setupEditTextChangeListener(btnCalc, et1, et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
 
                 if (chooserA == 1) //needs work
                 {
@@ -696,8 +698,8 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
 
-                        double m = eval(et1.getText().toString(), radDegSwitch.isRad());
-                        double r = eval(et2.getText().toString(), radDegSwitch.isRad());
+                        double m = evalf(et1.getText().toString(), radDegSwitch.isRad());
+                        double r = evalf(et2.getText().toString(), radDegSwitch.isRad());
 
                         double acc = G * m / Math.pow(r, 2);
                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
@@ -724,8 +726,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double acc = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double acc = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double m = acc * Math.pow(r, 2) / G;
                             String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
@@ -753,8 +755,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("9.8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double acc = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double acc = evalf(et2.getText().toString());
 
                             double r = Math.sqrt(G * m / acc);
                             String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
@@ -873,8 +875,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double vel = Math.sqrt(G * m / r);
                             String strRes = "<font color = #6BBBE1> Orbital velocity = </font> <font color = #CDDC39>" + vel + " m/s </font>";
@@ -902,8 +904,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double vel = eval(et1.getText().toString());
-                            double r = eval(et2.getText().toString());
+                            double vel = evalf(et1.getText().toString());
+                            double r = evalf(et2.getText().toString());
 
                             double m = Math.pow(vel, 2) * r / (G);
                             String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
@@ -931,8 +933,8 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = eval(et1.getText().toString());
-                            double vel = eval(et2.getText().toString());
+                            double m = evalf(et1.getText().toString());
+                            double vel = evalf(et2.getText().toString());
 
                             double r = (G * m) / Math.pow(vel, 2);
                             String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
@@ -1146,9 +1148,9 @@ public class Gravitation extends AppCompatActivity {
                         Toast.makeText(NLOG1.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
 
-                        double m1 = eval(etNLOG1m1.getText().toString().trim());
-                        double m2 = eval(etNLOG1m2.getText().toString().trim());
-                        double r = eval(etNLOG1r.getText().toString().trim());
+                        double m1 = evalf(etNLOG1m1.getText().toString().trim());
+                        double m2 = evalf(etNLOG1m2.getText().toString().trim());
+                        double r = evalf(etNLOG1r.getText().toString().trim());
 
                         double result = ((0.00000000006674010551359 * m1 * m2) / (r * r));
 
@@ -1219,9 +1221,9 @@ public class Gravitation extends AppCompatActivity {
                     if (etNLOG2m.getText().toString().trim().isEmpty() || etNLOG2n.getText().toString().trim().isEmpty() || etNLOG2r.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG2.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
-                        double m = eval(etNLOG2m.getText().toString().trim());
-                        double n = eval(etNLOG2n.getText().toString().trim());
-                        double r = eval(etNLOG2r.getText().toString().trim());
+                        double m = evalf(etNLOG2m.getText().toString().trim());
+                        double n = evalf(etNLOG2n.getText().toString().trim());
+                        double r = evalf(etNLOG2r.getText().toString().trim());
 
                         double result = ((n * r * r) / (m * 0.00000000006674010551359));
                         String res = "<font color = #CDDC39>" + rounded_StringNLOG(result) + "</font> <font color = #6BBBE1> Kg </font>";
@@ -1294,9 +1296,9 @@ public class Gravitation extends AppCompatActivity {
                         Toast.makeText(NLOG3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
 
-                        double m1 = eval(etNLOG3m1.getText().toString().trim());
-                        double m2 = eval(etNLOG3m2.getText().toString().trim());
-                        double n = eval(etNLOG3f.getText().toString().trim());
+                        double m1 = evalf(etNLOG3m1.getText().toString().trim());
+                        double m2 = evalf(etNLOG3m2.getText().toString().trim());
+                        double n = evalf(etNLOG3f.getText().toString().trim());
 
                         double result = (Math.sqrt((0.00000000006674010551359 * m1 * m2) / n));
                         String res = "<font color = #CDDC39>" + rounded_StringNLOG(result) + "</font> <font color = #6BBBE1> m </font>";

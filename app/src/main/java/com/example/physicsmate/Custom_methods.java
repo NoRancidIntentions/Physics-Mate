@@ -99,57 +99,75 @@ public class Custom_methods {
      * @param  str  the mathematical expression to be evaluated
      * @return      the result of the evaluation as a double
      */
-    public static double eval(@NotNull final String str) {
+    public static double evalf(@NotNull final String str) {
         ExprEvaluator util = new ExprEvaluator();
         try {
-            return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
+            System.out.println("evaluated" + (util.evalf(IExprConverter(str))));
+            return util.evalf(IExprConverter(str));
+
         } catch (MathException e) {
             return 1536.786;
         }
     }
 
-    public static double eval(@NotNull String str, Boolean isRad) {
+    public static double evalf(@NotNull String str, Boolean isRad) {
         ExprEvaluator util = new ExprEvaluator();
         str = str.replace("e", "E");
-        // Replace log10 with ln while maintaining the value
         str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
 
         if (!isRad) {
-            str = str.replaceAll("sin\\((.*?)\\)", "sin(($1)*pi/180)");
-            str = str.replaceAll("cos\\((.*?)\\)", "cos(($1)*pi/180)");
-            str = str.replaceAll("tan\\((.*?)\\)", "tan(($1)*pi/180)");
+            str = str.replaceAll("sin\\((.*?)\\)", "sin($1*pi/180)");
+            str = str.replaceAll("cos\\((.*?)\\)", "cos($1*pi/180)");
+            str = str.replaceAll("tan\\((.*?)\\)", "tan($1*pi/180)");
         }
 
-        str = replaceNumbersInTrigWithRemainder(str);
+        System.out.println("str to eval:" + str);
 
         try {
-            return Double.parseDouble(String.valueOf(util.eval(IExprConverter(str))));
+            return util.evalf(IExprConverter(str));
         } catch (MathException e) {
             return 1536.786;
         }
     }
 
-    public static String replaceNumbersInTrigWithRemainder(String input) {
-        Pattern pattern = Pattern.compile("(sin|cos|tan)\\((.*?)\\)");
-        Matcher matcher = pattern.matcher(input);
+    public static String replaceNumbersInTrigWithRemainder(String expression) {
+        String modifiedExpression = expression;
 
+        // Regular expression pattern to match trigonometric functions
+        String pattern = "(sin|cos|tan)\\(([^\\)]+)\\)";
+
+        // Create a pattern object
+        Pattern regex = Pattern.compile(pattern);
+
+        // Create a matcher object with the input expression
+        Matcher matcher = regex.matcher(expression);
+
+        // Iterate through the matches
         while (matcher.find()) {
+            // Get the trigonometric function
             String trigFunction = matcher.group(1); // sin, cos, or tan
-            double argValue = Double.parseDouble(matcher.group(2));
-            double remainder = argValue % (2 * Math.PI);
-            String modifiedTrig = trigFunction + "(" + remainder + ")";
-            input = input.replaceFirst(Pattern.quote(matcher.group()), modifiedTrig);
+
+            // Get the argument of the trigonometric function
+            String argValueString = matcher.group(2);
+            assert argValueString != null;
+            String argValue = argValueString.replaceAll("[()]", ""); // Remove parentheses before parsing
+
+            // Evaluate the argument of the trigonometric function
+            double evaluatedExpression = evalf(argValue);
+
+            // Replace the numbers in the trigonometric expression with the remainder
+            modifiedExpression = modifiedExpression.replaceFirst(Pattern.quote(matcher.group()), trigFunction + "(" + evaluatedExpression + ")");
         }
 
-        return input;
+        return modifiedExpression;
+    }
 
-    /**
-     * Sets up an EditText change listener for a given Button and multiple EditTexts.
-     *
-     * @param  button      the Button that will be enabled or disabled based on the EditTexts' contents
-     * @param  editTexts   the EditTexts to be monitored for changes
-     */
-    public static void setupEditTextChangeListener(Button button, EditText ...editTexts) {
+
+    public static double mod(double dividend, double divisor) {
+        return dividend - divisor * Math.floor(dividend / divisor);
+    }
+
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, EditText ...editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;
@@ -160,14 +178,14 @@ public class Custom_methods {
             }
         }
 
-        // Enable or disable the button based on EditTexts' contents
-        button.setEnabled(!anyEditTextEmpty);
+        // Enable or disable the btnCalc based on EditTexts' contents
+        btnCalc.setEnabled(!anyEditTextEmpty);
 
         if (anyEditTextEmpty) {
-            Paris.styleBuilder(button).add(R.style.custom_button_disabled).apply();
+            Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
         } else {
             //use paris style builder to set the background
-            Paris.styleBuilder(button).add(R.style.custom_button_enabled).apply();
+            Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
         }
 
         for (EditText editText : editTexts) {
@@ -183,6 +201,11 @@ public class Custom_methods {
 
                 @Override
                 public void afterTextChanged(Editable editable) {
+
+                    for (View view : viewsToDisappear) {
+                        view.setVisibility(View.GONE);
+                    }
+
                     // Check if any of the EditTexts are empty
                     boolean anyEditTextEmpty = false;
                     for (EditText editText : editTexts) {
@@ -192,14 +215,14 @@ public class Custom_methods {
                         }
                     }
 
-                    // Enable or disable the button based on EditTexts' contents
-                    button.setEnabled(!anyEditTextEmpty);
+                    // Enable or disable the btnCalc based on EditTexts' contents
+                    btnCalc.setEnabled(!anyEditTextEmpty);
 
                     if (anyEditTextEmpty) {
-                        Paris.styleBuilder(button).add(R.style.custom_button_disabled).apply();
+                        Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                     } else {
                         //use paris style builder to set the background
-                        Paris.styleBuilder(button).add(R.style.custom_button_enabled).apply();
+                        Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
                     }
 
                 }

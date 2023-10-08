@@ -236,9 +236,9 @@ public class Kinematics extends AppCompatActivity {
 
 
                         if (case1) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double v = eval(editTextNumber2.getText().toString().trim());
-                            double u = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double v = evalf(editTextNumber2.getText().toString().trim());
+                            double u = evalf(editTextNumber3.getText().toString().trim());
 
                             double t = 2 * s / (v - u);
                             double a = (v - u) / t;
@@ -247,9 +247,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case2) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double v = eval(editTextNumber2.getText().toString().trim());
-                            double a = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double v = evalf(editTextNumber2.getText().toString().trim());
+                            double a = evalf(editTextNumber3.getText().toString().trim());
 
                             double u = Math.sqrt(v * v - (2 * a * s));
                             double t = (v - u) / a;
@@ -259,9 +259,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case3) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double v = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double v = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double u = 2 * s / t - v;
                             double a = (v - u) / t;
@@ -270,9 +270,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case4) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double u = eval(editTextNumber2.getText().toString().trim());
-                            double a = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double u = evalf(editTextNumber2.getText().toString().trim());
+                            double a = evalf(editTextNumber3.getText().toString().trim());
 
                             double v = Math.sqrt(u * u + 2 * a * s);
                             double t = (v - u) / a;
@@ -281,9 +281,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case5) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double u = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double u = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double v = 2 * s / t - u;
                             double a = (v - u) / t;
@@ -292,9 +292,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case6) {
-                            double s = eval(editTextNumber.getText().toString().trim());
-                            double a = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double s = evalf(editTextNumber.getText().toString().trim());
+                            double a = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double u = (s - (a * t * t / 2)) / t;
                             double v = u + a * t;
@@ -303,9 +303,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case7) {
-                            double v = eval(editTextNumber.getText().toString().trim());
-                            double u = eval(editTextNumber2.getText().toString().trim());
-                            double a = eval(editTextNumber3.getText().toString().trim());
+                            double v = evalf(editTextNumber.getText().toString().trim());
+                            double u = evalf(editTextNumber2.getText().toString().trim());
+                            double a = evalf(editTextNumber3.getText().toString().trim());
 
                             double s = (v * v - u * u) / (2 * a);
                             double t = (v - u) / a;
@@ -314,9 +314,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case8) {
-                            double v = eval(editTextNumber.getText().toString().trim());
-                            double u = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double v = evalf(editTextNumber.getText().toString().trim());
+                            double u = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double a = (v - u) / t;
                             double s = (v * v - u * u) / (2 * a);
@@ -325,9 +325,9 @@ public class Kinematics extends AppCompatActivity {
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case9) {
-                            double v = eval(editTextNumber.getText().toString().trim());
-                            double a = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double v = evalf(editTextNumber.getText().toString().trim());
+                            double a = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double u = v - a * t;
                             double s = (v * v - u * u) / (2 * a);
@@ -337,9 +337,9 @@ public class Kinematics extends AppCompatActivity {
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else //case10
                         {
-                            double u = eval(editTextNumber.getText().toString().trim());
-                            double a = eval(editTextNumber2.getText().toString().trim());
-                            double t = eval(editTextNumber3.getText().toString().trim());
+                            double u = evalf(editTextNumber.getText().toString().trim());
+                            double a = evalf(editTextNumber2.getText().toString().trim());
+                            double t = evalf(editTextNumber3.getText().toString().trim());
 
                             double v = u + a * t;
                             double s = (v * v - u * u) / (2 * a);
@@ -550,14 +550,14 @@ public class Kinematics extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    double x = eval(X.getText().toString()); //gets launching X coordinate
-                    double y = eval(Y.getText().toString()); //gets launching Y coordinate
-                    double v = eval(V.getText().toString()); //gets launching velocity
-                    double a1 = Math.toRadians(eval(A1.getText().toString())); //gets  angle of incline
-                    double a2 = Math.toRadians(eval(A2.getText().toString())); //gets launching angle wrt incline
-                    double g = eval(G.getText().toString()); //gets launching gravity
+                    double x = evalf(X.getText().toString()); //gets launching X coordinate
+                    double y = evalf(Y.getText().toString()); //gets launching Y coordinate
+                    double v = evalf(V.getText().toString()); //gets launching velocity
+                    double a1 = Math.toRadians(evalf(A1.getText().toString())); //gets  angle of incline
+                    double a2 = Math.toRadians(evalf(A2.getText().toString())); //gets launching angle wrt incline
+                    double g = evalf(G.getText().toString()); //gets launching gravity
                     double t = 0;                        //gets launching time
-                    double b = eval(B.getText().toString()); //gets coeff of air resistance
+                    double b = evalf(B.getText().toString()); //gets coeff of air resistance
 
                     double x0 = x;
                     double y0 = y;

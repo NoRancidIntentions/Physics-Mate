@@ -8,7 +8,6 @@ import android.widget.*;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.UI_Solver_Tools_Linker;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -55,12 +54,12 @@ public class VEAdd extends AppCompatActivity {
             if (etAi.getText().toString().trim().isEmpty() || etAj.getText().toString().trim().isEmpty() || etAk.getText().toString().trim().isEmpty() || etBi.getText().toString().trim().isEmpty() || etBj.getText().toString().trim().isEmpty() || etBk.getText().toString().trim().isEmpty()) {
                 Toast.makeText(VEAdd.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
             } else {
-                double Ai = eval(etAi.getText().toString().trim());
-                double Aj = eval(etAj.getText().toString().trim());
-                double Ak = eval(etAk.getText().toString().trim());
-                double Bi = eval(etBi.getText().toString().trim());
-                double Bj = eval(etBj.getText().toString().trim());
-                double Bk = eval(etBk.getText().toString().trim());
+                double Ai = evalf(etAi.getText().toString().trim());
+                double Aj = evalf(etAj.getText().toString().trim());
+                double Ak = evalf(etAk.getText().toString().trim());
+                double Bi = evalf(etBi.getText().toString().trim());
+                double Bj = evalf(etBj.getText().toString().trim());
+                double Bk = evalf(etBk.getText().toString().trim());
 
                 //Only for this project
                 double Ci = Ai + Bi;

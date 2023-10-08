@@ -438,14 +438,14 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
                             //get lower and upper bounds if cbDefiniteIntegral is checked
                             if (cbDefiniteIntegral.isChecked()) {
-                                lowerBound = eval(etLowerBound.getText().toString().trim());
-                                upperBound = eval(etUpperBound.getText().toString().trim());
+                                lowerBound = evalf(etLowerBound.getText().toString().trim());
+                                upperBound = evalf(etUpperBound.getText().toString().trim());
                             }
 
                             String function = inputFunction.getText().toString().trim();
                             String StrInputVar = inputVar.getText().toString().trim();
 
-                            String integral = calculateNthIntegral(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase();
+                            String integral = calculateNthIntegral(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase();
                             String finalStringResult = "<font color=#6BBBE1>The integral is </font> <font color=#CDDC39>" + integral;
 
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
@@ -512,8 +512,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                         Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
                                         intent.putExtra("input", function);
                                         intent.putExtra("DerInt", integral);
-                                        intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                        intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
+                                        intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                                        intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
                                         startActivity(intent);
                                     }
 
@@ -567,8 +567,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                                 Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
                                                 intent.putExtra("input", function);
                                                 intent.putExtra("DerInt", integral);
-                                                intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                                intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
+                                                intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                                                intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
                                                 startActivity(intent);
                                             }
 
