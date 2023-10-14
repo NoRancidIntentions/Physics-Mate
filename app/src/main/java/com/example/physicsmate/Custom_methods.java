@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -230,6 +231,31 @@ public class Custom_methods {
         }
     }
 
+    //set up the edittext to use the custom keyboard
+    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, View scrollView, EditText ...editText) {
+        for (EditText editText1 : editText) {
+            editText1.setShowSoftInputOnFocus(false);
+            custom_keyboard1.setScrollView(scrollView);
+            editText1.setOnFocusChangeListener((v, hasFocus) -> {
+                if (hasFocus) {
+                    custom_keyboard1.setTargetEditText(editText1);
+                    custom_keyboard1.showKeyboard();
+                } else {
+                    custom_keyboard1.hideKeyboard();
+                }
+            });
+        }
+
+        //if system back button is pressed, hide the keyboard
+        scrollView.setOnKeyListener((v, keyCode, event) -> {
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                custom_keyboard1.hideKeyboard();
+                return true;
+            }
+            return false;
+        });
+    }
+
     /**
      * Replaces constants in the input string with their corresponding values.
      *
@@ -251,21 +277,6 @@ public class Custom_methods {
 
         return input;
 
-    }
-
-    //set up the edittext to use the custom keyboard
-    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, EditText ...editText) {
-        for (EditText editText1 : editText) {
-            editText1.setShowSoftInputOnFocus(false);
-            editText1.setOnFocusChangeListener((v, hasFocus) -> {
-                if (hasFocus) {
-                    custom_keyboard1.setTargetEditText(editText1);
-                    custom_keyboard1.showKeyboard();
-                } else {
-                    custom_keyboard1.hideKeyboard();
-                }
-            });
-        }
     }
 
     /**

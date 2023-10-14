@@ -13,6 +13,7 @@ import com.example.physicsmate.R;
 public class custom_keyboard1_initializer extends GridLayout {
 
     private EditText targetEditText;
+    private View scrollView;
 
     public custom_keyboard1_initializer(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -45,7 +46,7 @@ public class custom_keyboard1_initializer extends GridLayout {
         buttonLn = keyboardView.findViewById(R.id.buttonLn);
         buttonlog10 = keyboardView.findViewById(R.id.buttonLog10);
         buttonFactorial = keyboardView.findViewById(R.id.button_factorial);
-        buttonModulus = keyboardView.findViewById(R.id.button_modulus);
+        keyboardView.findViewById(R.id.button_modulus);
         buttonSin = keyboardView.findViewById(R.id.button_sin);
         buttonCos = keyboardView.findViewById(R.id.button_cos);
         buttonTan = keyboardView.findViewById(R.id.button_tan);
@@ -112,12 +113,24 @@ public class custom_keyboard1_initializer extends GridLayout {
         targetEditText = editText;
     }
 
+    public void setScrollView(View view) {
+        scrollView = view;
+    }
+
     public void showKeyboard() {
+        //get height of keyboard
+        double keyboardHeight = getHeight();
+
+        //increase height of parent view by height of keyboard
+        scrollView.setPadding(0, 0, 0, (int) keyboardHeight);
         setVisibility(View.VISIBLE);
+
     }
 
     public void hideKeyboard() {
+        scrollView.setPadding(0, 0, 0, 0);
         setVisibility(View.GONE);
+
     }
 
     private void insertText(CharSequence text) {
@@ -128,5 +141,6 @@ public class custom_keyboard1_initializer extends GridLayout {
             editable.insert(cursorPosition, text);
         }
     }
-
 }
+
+

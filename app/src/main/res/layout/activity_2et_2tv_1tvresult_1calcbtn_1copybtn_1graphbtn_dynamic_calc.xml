@@ -1,87 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:auto="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:auto="http://schemas.android.com/tools"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/SV_2et_3tv_2btn_1graph_dynamic_calc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/constraintView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc">
 
-    <LinearLayout
+    <ScrollView
+            android:id="@+id/SV_2et_3tv_2btn_1graph_dynamic_calc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+            <io.github.kexanie.library.MathView
+                    style="@style/LatexStyle"
+                    android:id="@+id/latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    auto:engine="MathJax"/>
+
+            <ImageView
+                    style="@style/custom_imageview_fixedratio"
+                    android:src="@drawable/losac"
+                    android:id="@+id/imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            />
+
+            <com.example.physicsmate.ui.main.RadDegSwitchInitializer
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    android:layout_gravity="end"
+            />
+
+            <TextView
+                    android:text="ERROR"
+                    android:id="@+id/tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_textView"/>
+
+            <EditText
+                    style="@style/custom_non_numeric_edittext"
+                    android:id="@+id/et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            />
+
+            <TextView
+                    android:text="ERROR"
+                    android:id="@+id/tv2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_textView"/>
+
+            <EditText
+                    android:id="@+id/et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_non_numeric_edittext"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:text="error"
+                    android:id="@+id/btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_button_enabled"/>
+
+            <TextView
+                    android:text="ERROR"
+                    android:id="@+id/tvResults_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    android:textColor="@color/yellow_num_answer"
+                    style="@style/custom_textView"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:text="Copy to clipboard"
+                    android:id="@+id/btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_button_enabled"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:text="Get Graph"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="45dp"
+                    android:id="@+id/btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_button_enabled">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+        </LinearLayout>
+    </ScrollView>
+    <com.example.physicsmate.ui.main.custom_keyboard1_initializer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
-        <io.github.kexanie.library.MathView
-                style="@style/LatexStyle"
-                android:id="@+id/latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                auto:engine="MathJax"/>
-
-        <ImageView
-                style="@style/custom_imageview_fixedratio"
-                android:src="@drawable/losac"
-                android:id="@+id/imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-        />
-
-        <com.example.physicsmate.ui.main.RadDegSwitchInitializer
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                android:layout_gravity="end"
-        />
-
-        <TextView
-                android:text="ERROR"
-                android:id="@+id/tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_textView"/>
-
-        <EditText
-                style="@style/custom_non_numeric_edittext"
-                android:id="@+id/et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-        />
-
-        <TextView
-                android:text="ERROR"
-                android:id="@+id/tv2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_textView"/>
-
-        <EditText
-                android:id="@+id/et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_non_numeric_edittext"/>
-
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:text="error"
-                android:id="@+id/btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button_enabled"/>
-
-        <TextView
-                android:text="ERROR"
-                android:id="@+id/tvResults_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                android:textColor="@color/yellow_num_answer"
-                style="@style/custom_textView"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:text="Copy to clipboard"
-                android:id="@+id/btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button_enabled"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:text="Get Graph"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="45dp"
-                android:id="@+id/btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button_enabled">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-        <com.example.physicsmate.ui.main.custom_keyboard1_initializer
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-        />
-
-    </LinearLayout>
-</ScrollView>
+            android:id="@+id/custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

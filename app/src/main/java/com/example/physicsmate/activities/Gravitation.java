@@ -678,7 +678,7 @@ public class Gravitation extends AppCompatActivity {
                 MathJaxConfig(mathView);
                 mathView.setText(getTex("g = G*M/r^2"));
 
-                setupEditTextForCustomKeyboard(customKeyboard, et1, et2);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 
                 int chooserA = getIntent().getIntExtra("chooserA", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
