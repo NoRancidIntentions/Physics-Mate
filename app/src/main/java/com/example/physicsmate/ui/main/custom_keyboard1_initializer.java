@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -133,6 +134,10 @@ public class custom_keyboard1_initializer extends GridLayout {
 
     }
 
+    public String getKeyboardText(){
+        return targetEditText.getText().toString();
+    }
+
     private void insertText(CharSequence text) {
         if (targetEditText != null) {
             // Insert text at the current cursor position
@@ -141,6 +146,7 @@ public class custom_keyboard1_initializer extends GridLayout {
             editable.insert(cursorPosition, text);
         }
     }
+
 }
 
 

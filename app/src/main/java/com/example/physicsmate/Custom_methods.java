@@ -233,6 +233,7 @@ public class Custom_methods {
 
     //set up the edittext to use the custom keyboard
     public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, View scrollView, EditText ...editText) {
+
         for (EditText editText1 : editText) {
             editText1.setShowSoftInputOnFocus(false);
             custom_keyboard1.setScrollView(scrollView);
@@ -245,15 +246,6 @@ public class Custom_methods {
                 }
             });
         }
-
-        //if system back button is pressed, hide the keyboard
-        scrollView.setOnKeyListener((v, keyCode, event) -> {
-            if (keyCode == KeyEvent.KEYCODE_BACK) {
-                custom_keyboard1.hideKeyboard();
-                return true;
-            }
-            return false;
-        });
     }
 
     /**

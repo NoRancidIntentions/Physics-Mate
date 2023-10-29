@@ -4,9 +4,11 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
@@ -16,6 +18,7 @@ import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
+import static java.security.AccessController.getContext;
 
 public class Gravitation extends AppCompatActivity {
 
@@ -649,8 +652,22 @@ public class Gravitation extends AppCompatActivity {
 
         public static class GravAcc3Calc extends AppCompatActivity {
 
+            ScrollView sv;
+            custom_keyboard1_initializer customKeyboard;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
+
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
@@ -664,8 +681,8 @@ public class Gravitation extends AppCompatActivity {
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
                 RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
@@ -695,6 +712,7 @@ public class Gravitation extends AppCompatActivity {
                     btnCalc.setText("Calculate Gravitational acceleration");
                     et1.setHint("5.97 * 10^24");
                     et2.setHint("6400000");
+
 
                     btnCalc.setOnClickListener(v -> {
 
