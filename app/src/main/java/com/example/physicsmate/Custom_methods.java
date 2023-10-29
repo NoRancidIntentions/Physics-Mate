@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
-import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -129,6 +128,81 @@ public class Custom_methods {
         } catch (MathException e) {
             return 1536.786;
         }
+    }
+
+    //solver for multi variable equations
+    public static String solveEquationSymbolic(ArrayList<String> equation, ArrayList<String> variables) {
+        try {
+            //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
+            String eqns = "{";
+            for (int i = 0; i < equation.size(); i++) {
+                eqns = eqns + equation.get(i) + ",";
+            }
+            eqns = eqns.substring(0, eqns.length() - 1) + "}";
+            eqns = eqns.replaceAll("=", "==");
+            System.out.println("eqns:" + eqns);
+
+            //store the variables in string form: "{x, y, z, ...}"
+            String vars = "{";
+            for (int i = 0; i < variables.size(); i++) {
+                vars = vars + variables.get(i) + ",";
+            }
+            vars = vars.substring(0, vars.length() - 1) + "}";
+            System.out.println("vars:" + vars);
+
+            //solve the eqns
+            ExprEvaluator evaluator = new ExprEvaluator();
+            IExpr result = evaluator.eval("Solve(" + eqns + "," + vars + ")");
+            return result.toString();
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            return "Syntax error";
+        } catch (MathException me) {
+            // catch Symja math errors here
+            return "Math error";
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return "error";
+    }
+
+    public static String solveEquationNumeric(ArrayList<String> equation, ArrayList<String> variables) {
+        try {
+            //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
+            String eqns = "{";
+            for (int i = 0; i < equation.size(); i++) {
+                eqns = eqns + equation.get(i) + ",";
+            }
+            eqns = eqns.substring(0, eqns.length() - 1) + "}";
+            eqns = eqns.replaceAll("=", "==");
+            System.out.println("eqns:" + eqns);
+
+            //store the variables in string form: "{x, y, z, ...}"
+            String vars = "{";
+            for (int i = 0; i < variables.size(); i++) {
+                vars = vars + variables.get(i) + ",";
+            }
+            vars = vars.substring(0, vars.length() - 1) + "}";
+            System.out.println("vars:" + vars);
+
+            //solve the eqns
+            ExprEvaluator evaluator = new ExprEvaluator();
+            IExpr result = evaluator.eval("NSolve(" + eqns + "," + vars + ")");
+            return String.valueOf(result);
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            return "Syntax error";
+        } catch (MathException me) {
+            // catch Symja math errors here
+            return "Math error";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+
     }
 
     public static String replaceNumbersInTrigWithRemainder(String expression) {

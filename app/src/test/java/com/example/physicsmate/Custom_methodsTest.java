@@ -4,8 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.matheclipse.core.eval.ExprEvaluator;
+import org.matheclipse.core.interfaces.IExpr;
+import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +18,109 @@ import static org.junit.Assert.fail;
 
 @RunWith(JUnit4.class)
 public class Custom_methodsTest {
+
+    public static String solveEquationSymbolic(ArrayList<String> equation, ArrayList<String> variables) {
+        try {
+            //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
+            String eqns = "{";
+            for (int i = 0; i < equation.size(); i++) {
+                eqns = eqns + equation.get(i) + ",";
+            }
+            eqns = eqns.substring(0, eqns.length() - 1) + "}";
+
+            //replace all "=" with "=="
+            eqns = eqns.replaceAll("=", "==");
+            System.out.println("eqns:" + eqns);
+
+            //store the variables in string form: "{x, y, z, ...}"
+            String vars = "{";
+            for (int i = 0; i < variables.size(); i++) {
+                vars = vars + variables.get(i) + ",";
+            }
+            vars = vars.substring(0, vars.length() - 1) + "}";
+            System.out.println("vars:" + vars);
+
+            //solve the eqns
+            ExprEvaluator evaluator = new ExprEvaluator();
+            IExpr result = evaluator.eval("Solve(" + eqns + "," + vars + ")");
+            return result.toString();
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            return "Syntax error";
+        } catch (MathException me) {
+            // catch Symja math errors here
+            return "Math error";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+
+    }
+
+    @Test
+    public void solveEquationSymbolicTester() {
+        ArrayList<String> eqns = new ArrayList<>();
+        eqns.add("x^2 + y^2 + z^2 = 2");
+        eqns.add("x + y = 2");
+        eqns.add("x + z = 3");
+        ArrayList<String> vars = new ArrayList<>();
+        vars.add("x");
+        vars.add("y");
+        vars.add("z");
+        System.out.println(solveEquationSymbolic(eqns, vars));
+    }
+
+    public static String solveEquationNumeric(ArrayList<String> equation, ArrayList<String> variables) {
+        try {
+            //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
+            String eqns = "{";
+            for (int i = 0; i < equation.size(); i++) {
+                eqns = eqns + equation.get(i) + ",";
+            }
+            eqns = eqns.substring(0, eqns.length() - 1) + "}";
+            eqns = eqns.replaceAll("=", "==");
+            System.out.println("eqns:" + eqns);
+
+            //store the variables in string form: "{x, y, z, ...}"
+            String vars = "{";
+            for (int i = 0; i < variables.size(); i++) {
+                vars = vars + variables.get(i) + ",";
+            }
+            vars = vars.substring(0, vars.length() - 1) + "}";
+            System.out.println("vars:" + vars);
+
+            //solve the eqns
+            ExprEvaluator evaluator = new ExprEvaluator();
+            IExpr result = evaluator.eval("NSolve(" + eqns + "," + vars + ")");
+            return String.valueOf(result);
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            return "Syntax error";
+        } catch (MathException me) {
+            // catch Symja math errors here
+            return "Math error";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+
+    }
+
+    @Test
+    public void solveEquationNumericTester() {
+
+        ArrayList<String> eqns = new ArrayList<>();
+        eqns.add("x^2 + y^2 + z^2 = 2");
+        eqns.add("x + y = 2");
+        eqns.add("x + z = 3");
+        ArrayList<String> vars = new ArrayList<>();
+        vars.add("x");
+        vars.add("y");
+        vars.add("z");
+        System.out.println(solveEquationNumeric(eqns, vars));
+    }
 
     @Test
     public void replaceNumbersInTrigWithRemainder() {
