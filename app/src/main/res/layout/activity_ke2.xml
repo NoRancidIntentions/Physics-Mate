@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            tools:context=".activities.Kinematics$KE2">
+            tools:context=".activities.physics.Kinematics$KE2">
 
         <ImageView
                 android:src="@drawable/ke2"

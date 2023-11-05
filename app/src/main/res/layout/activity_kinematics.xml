@@ -9,7 +9,7 @@
 
     <LinearLayout
             style="@style/customLinearLayout"
-            tools:context=".activities.Kinematics">
+            tools:context=".activities.physics.Kinematics">
 
         <TextView
                 android:id="@+id/textView35"

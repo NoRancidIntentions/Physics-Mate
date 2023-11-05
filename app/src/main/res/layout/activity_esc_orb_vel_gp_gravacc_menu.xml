@@ -9,7 +9,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".activities.Gravitation$EscVelMenu"
+            tools:context=".activities.physics.Gravitation$EscVelMenu"
             android:orientation="vertical">
 
         <ImageView

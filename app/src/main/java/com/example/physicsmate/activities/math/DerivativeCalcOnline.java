@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.math;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -7,7 +7,7 @@ import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.WebViewLoader;
 
-public class GeoGebraGraph extends AppCompatActivity {
+public class DerivativeCalcOnline extends AppCompatActivity {
 
     WebView wv;
 
@@ -17,8 +17,9 @@ public class GeoGebraGraph extends AppCompatActivity {
         setContentView(R.layout.activity_universal_webview);
 
         wv = findViewById(R.id.webView);
-        WebViewLoader(wv, "https://www.geogebra.org/graphing?lang=en");
+        WebViewLoader(wv, "https://www.derivative-calculator.net/");
     }
+
 
     @Override
     public void onBackPressed() {

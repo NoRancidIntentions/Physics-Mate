@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.math;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -7,8 +7,7 @@ import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.WebViewLoader;
 
-
-public class MPLSim extends AppCompatActivity {
+public class GeoGebraGraph extends AppCompatActivity {
 
     WebView wv;
 
@@ -18,9 +17,8 @@ public class MPLSim extends AppCompatActivity {
         setContentView(R.layout.activity_universal_webview);
 
         wv = findViewById(R.id.webView);
-        WebViewLoader(wv, "https://www.myphysicslab.com/index-en.html");
+        WebViewLoader(wv, "https://www.geogebra.org/graphing?lang=en");
     }
-
 
     @Override
     public void onBackPressed() {
@@ -30,5 +28,4 @@ public class MPLSim extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
 }

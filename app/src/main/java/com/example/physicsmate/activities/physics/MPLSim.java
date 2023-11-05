@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.physics;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -7,7 +7,8 @@ import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.WebViewLoader;
 
-public class DerivativeCalcOnline extends AppCompatActivity {
+
+public class MPLSim extends AppCompatActivity {
 
     WebView wv;
 
@@ -17,7 +18,7 @@ public class DerivativeCalcOnline extends AppCompatActivity {
         setContentView(R.layout.activity_universal_webview);
 
         wv = findViewById(R.id.webView);
-        WebViewLoader(wv, "https://www.derivative-calculator.net/");
+        WebViewLoader(wv, "https://www.myphysicslab.com/index-en.html");
     }
 
 
@@ -29,4 +30,5 @@ public class DerivativeCalcOnline extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.math;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -76,9 +76,20 @@ public class Lagrange_Interpolation extends AppCompatActivity {
             LagrangeRowItemY.setHint("y" + (i + 1));
             LagrangeRowItemX.addTextChangedListener(new CustomTextWatcher());
             LagrangeRowItemY.addTextChangedListener(new CustomTextWatcher());
+
+        }
+
+        //delete listener to each row
+        for (int i = 0; i < LagrangeRowsLinearLayoutChildCount; i++) {
+            ImageButton LagrangeDeleteRowButton = (ImageButton) LagrangeRow.getChildAt(2);
+            LagrangeDeleteRowButton.setOnClickListener(v -> {
+                LagrangeRowsLinearLayout.removeView(LagrangeRow);
+                LagrangeCalcButtonClickable();
+            });
         }
 
     }
+
 
     //use lagrange interpolation from apache library
     public String getPolynomialFunction(double[] x, double[] y) {
@@ -133,6 +144,7 @@ public class Lagrange_Interpolation extends AppCompatActivity {
             EditText LagrangeRowItemY = (EditText) LagrangeRow.getChildAt(1);
             String LagrangeRowItemXValue = LagrangeRowItemX.getText().toString().trim();
             String LagrangeRowItemYValue = LagrangeRowItemY.getText().toString().trim();
+
             if (LagrangeRowItemXValue.isEmpty() || LagrangeRowItemYValue.isEmpty()) {
                 LagrangeCalcButton.setClickable(false);
                 LagrangeCalcButton.setBackgroundResource(R.drawable.btn_disabled);

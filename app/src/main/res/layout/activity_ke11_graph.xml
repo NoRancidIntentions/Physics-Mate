@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.Kinematics$KE1$KE1_1$ke11_graph">
+        tools:context=".activities.physics.Kinematics$KE1$KE1_1$ke11_graph">
 
     <com.github.mikephil.charting.charts.LineChart
             android:layout_width="match_parent"

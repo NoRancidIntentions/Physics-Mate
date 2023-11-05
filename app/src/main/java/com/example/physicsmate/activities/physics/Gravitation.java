@@ -1,14 +1,12 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.physics;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
@@ -18,7 +16,6 @@ import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
 
 import static com.example.physicsmate.Custom_methods.*;
-import static java.security.AccessController.getContext;
 
 public class Gravitation extends AppCompatActivity {
 
@@ -660,6 +657,7 @@ public class Gravitation extends AppCompatActivity {
                 //if system back btn is pressed, and if keyboard is visible, hide it
                 if (customKeyboard.getVisibility() == View.VISIBLE) {
                     customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0,0,0,0);
                 } else {
                     super.onBackPressed();
                 }

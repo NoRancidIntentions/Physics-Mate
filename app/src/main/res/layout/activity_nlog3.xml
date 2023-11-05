@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            tools:context=".activities.Gravitation$NLOG$NLOG3">
+            tools:context=".activities.physics.Gravitation$NLOG$NLOG3">
 
         <TextView
                 android:id="@+id/textView9"

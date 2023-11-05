@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            tools:context=".activities.Gravitation$NLOG">
+            tools:context=".activities.physics.Gravitation$NLOG">
 
         <ImageView
                 android:id="@+id/imageView"

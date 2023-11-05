@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            tools:context=".activities.LOSAC">
+            tools:context=".activities.math.LOSAC">
 
         <ImageView
                 android:id="@+id/imageView2"

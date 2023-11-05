@@ -5,6 +5,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.CS_CircleAnalyserMenu">
+        tools:context=".activities.math.CS_CircleAnalyserMenu">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

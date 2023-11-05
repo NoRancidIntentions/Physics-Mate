@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".activities.CSCircleGraphInfoGetter">
+            tools:context=".activities.math.CSCircleGraphInfoGetter">
 
         <TextView
                 android:text="Enter the coordinates of the centres of the Circle"

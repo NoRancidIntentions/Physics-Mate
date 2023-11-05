@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities;
+package com.example.physicsmate.activities.physics;
 
 import android.content.Intent;
 import android.os.Build;

@@ -13,7 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.physicsmate.R;
-import com.example.physicsmate.activities.*;
+import com.example.physicsmate.activities.math.*;
+import com.example.physicsmate.activities.physics.Gravitation;
+import com.example.physicsmate.activities.physics.Kinematics;
+import com.example.physicsmate.activities.physics.MPLSim;
 import org.apache.logging.log4j.util.StackLocator;
 import org.jetbrains.annotations.NotNull;
 
