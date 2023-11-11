@@ -28,8 +28,6 @@
                     style="@style/custom_edittext"
                     android:hint="3x + 2y = 10"/>
 
-            <include layout="@layout/var_solver_rows"/>
-
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton

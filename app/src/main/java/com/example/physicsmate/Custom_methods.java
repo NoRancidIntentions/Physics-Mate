@@ -253,7 +253,7 @@ public class Custom_methods {
      * @param  btnCalc           the button to enable or disable based on EditTexts' contents
      * @param  editTexts         an array of EditTexts to listen for changes
      */
-    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, EditText ...editTexts) {
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, ArrayList<EditText> editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;

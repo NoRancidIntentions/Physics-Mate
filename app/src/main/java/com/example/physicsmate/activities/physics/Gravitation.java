@@ -15,6 +15,8 @@ import com.example.physicsmate.ui.main.RadDegSwitchInitializer;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
 
+import java.util.ArrayList;
+
 import static com.example.physicsmate.Custom_methods.*;
 
 public class Gravitation extends AppCompatActivity {
@@ -152,7 +154,10 @@ public class Gravitation extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
+                ArrayList<EditText> ets = new ArrayList<>();
+                ets.add(et1);
+                ets.add(et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, ets);
 
                 if (chooserV == 1) //needs work
                 {
@@ -701,8 +706,10 @@ public class Gravitation extends AppCompatActivity {
 
                 //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 //btnCalc.setClickable(false);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
-
+                ArrayList<EditText> ets = new ArrayList<>();
+                ets.add(et1);
+                ets.add(et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, ets);
                 if (chooserA == 1) //needs work
                 {
                     tv1.setText("Enter Mass in kilograms");
