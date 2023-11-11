@@ -301,6 +301,15 @@ public class Custom_methods {
                         }
                     }
 
+                    //if all the edittexts have some text, activate the button
+                    if (!anyEditTextEmpty) {
+                        btnCalc.setEnabled(true);
+                        Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
+                    } else {
+                        btnCalc.setEnabled(false);
+                        Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
+                    }
+
                     // Enable or disable the btnCalc based on EditTexts' contents
                     btnCalc.setEnabled(!anyEditTextEmpty);
 

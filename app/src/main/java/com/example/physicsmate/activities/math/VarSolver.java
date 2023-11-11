@@ -9,6 +9,7 @@ import com.example.physicsmate.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 import static com.example.physicsmate.Custom_methods.setupEditTextChangeListener;
@@ -28,11 +29,12 @@ public class VarSolver extends AppCompatActivity {
         EditText variables = findViewById(R.id.var_solver_variables);
 
         View[] viewsToDisappear = {result};
+        solveButton.setEnabled(false);
 
         //the first row does not have a delete button, and is simply an edittext, comtaining the first (mandatory) equation.
         //the rest of the rows are added dynamically, and have a delete button just nextto the edittext. this is a horizontal linear layout.
 
-        EditText et1 = findViewById(R.id.var_solver_et1); //the first edittext (inside the rowsContainer)
+        EditText et1 = findViewById(R.id.var_solver_et1); //the first edittext
         equations.add(et1);
 
         //setup rest of the rows
@@ -41,29 +43,28 @@ public class VarSolver extends AppCompatActivity {
             EditText et = (EditText) row.getChildAt(0);
             equations.add(et);
             ImageButton deleteButton = (ImageButton) row.getChildAt(1);
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rowsContainer.removeView(row);
-                    checkSolveButton(equations, solveButton);
-                }
+            deleteButton.setOnClickListener(v -> {
+                rowsContainer.removeView(row);
+                checkSolveButton(equations, solveButton);
             });
             setupEditTextChangeListener(viewsToDisappear, solveButton, equations);
         }
 
         //add row button
         Button addRowButton = findViewById(R.id.var_solver_add_button);
-        addRowButton.setOnClickListener(v -> {
+        addRowButton.setOnClickListener(v ->
+        {
             LinearLayout row = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_rows, null);
             EditText et = (EditText) row.getChildAt(0);
             equations.add(et);
             ImageButton deleteButton = (ImageButton) row.getChildAt(1);
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rowsContainer.removeView(row);
-                    checkSolveButton(equations, solveButton);
-                }
+            deleteButton.setOnClickListener(v1 ->
+            {
+                checkSolveButton(equations, solveButton);
+                rowsContainer.removeView(row);
+                checkSolveButton(equations, solveButton);
+                System.out.println(equations);
+                System.out.println("Delete button clicked");
             });
             rowsContainer.addView(row);
             setupEditTextChangeListener(viewsToDisappear, solveButton, equations);
@@ -75,12 +76,12 @@ public class VarSolver extends AppCompatActivity {
             if (solveButton.isEnabled()) {
                 System.out.println("Solve button clicked");
                 // Store the equations in string form: "{eqn1, eqn2, eqn3, ...}"
-                ArrayList<String> eqns = new ArrayList<>();
+                Collection<String> eqns = new ArrayList<>();
                 for (EditText equation : equations) {
                     eqns.add(equation.getText().toString());
                 }
                 // Store the variables in string form: "{var1, var2, var3, ...}"
-                ArrayList<String> vars = new ArrayList<>();
+                Collection<String> vars = new ArrayList<>();
                 for (String var : variables.getText().toString().split(",")) {
                     vars.add(var.trim());
                 }
@@ -110,7 +111,7 @@ public class VarSolver extends AppCompatActivity {
     }
 
     //if any edittext is empty, the solve button is disabled. check clickablity of solve button
-    private void checkSolveButton(ArrayList<EditText> equations, Button solveButton) {
+    private void checkSolveButton(Iterable<EditText> equations, Button solveButton) {
         for (EditText equation : equations) {
             if (equation.getText().toString().equals("")) {
                 solveButton.setEnabled(false);
