@@ -18,7 +18,7 @@
         <!-- Customize your theme here. -->
         <item name="android:buttonStyle">@style/custom_button_enabled</item>
         <item name="android:textViewStyle">@style/custom_textView</item>
-        <item name="android:editTextStyle">@style/custom_non_numeric_edittext</item>
+        <item name="android:editTextStyle">@style/custom_edittext</item>
         <item name="android:checkboxStyle">@style/custom_checkBox</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
     </style>

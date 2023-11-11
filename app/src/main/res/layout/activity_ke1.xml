@@ -7,7 +7,7 @@
             android:background="@color/app_bg">
 
     <LinearLayout
-            style="@style/customLinearLayout">
+            style="@style/custom_linearLayout">
 
         <TextView
                 android:id="@+id/textView36"

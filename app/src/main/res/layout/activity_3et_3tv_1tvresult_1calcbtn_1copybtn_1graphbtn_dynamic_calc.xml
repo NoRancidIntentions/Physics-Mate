@@ -33,7 +33,7 @@
 
         <EditText
                 android:id="@+id/et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_non_numeric_edittext"/>
+                style="@style/custom_edittext"/>
 
         <TextView
                 android:text="Enter length of BC"
@@ -42,7 +42,7 @@
 
         <EditText
                 android:id="@+id/et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_non_numeric_edittext"/>
+                style="@style/custom_edittext"/>
 
         <TextView
                 android:text="Enter value of angle C in degrees"
@@ -51,7 +51,7 @@
 
         <EditText
                 android:id="@+id/et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_non_numeric_edittext"/>
+                style="@style/custom_edittext"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"

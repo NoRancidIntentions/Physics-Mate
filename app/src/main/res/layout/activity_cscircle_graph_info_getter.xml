@@ -70,7 +70,7 @@
         />
 
         <EditText
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:id="@+id/etCSCirR"
                 android:hint="r"
                 app:layout_constraintStart_toStartOf="parent"

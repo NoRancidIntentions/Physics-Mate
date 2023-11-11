@@ -19,7 +19,7 @@
         android:theme="@style/Theme.PhysicsMate"
         tools:targetApi="q" >
         <activity
-            android:name=".VarSolver"
+            android:name=".activities.math.VarSolver"
             android:exported="false" />
         <activity
             android:name=".activities.math.Lagrange_Interpolation"

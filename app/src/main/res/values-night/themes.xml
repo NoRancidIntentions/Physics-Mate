@@ -18,7 +18,7 @@
         <!-- Customize your theme here. -->
         <item name="android:buttonStyle">@style/custom_button_enabled</item>
         <item name="android:textViewStyle">@style/custom_textView</item>
-        <item name="android:editTextStyle">@style/custom_non_numeric_edittext</item>
+        <item name="android:editTextStyle">@style/custom_edittext</item>
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
     </style>
 
@@ -93,7 +93,7 @@
         <item name="android:layout_marginBottom">30dp</item>
     </style>
 
-    <style name="custom_non_numeric_edittext" parent="Widget.AppCompat.EditText">
+    <style name="custom_edittext" parent="Widget.AppCompat.EditText">
         <item name="android:singleLine">true</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

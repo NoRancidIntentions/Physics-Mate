@@ -112,9 +112,9 @@ public class Custom_methodsTest {
     public void solveEquationNumericTester() {
 
         ArrayList<String> eqns = new ArrayList<>();
-        eqns.add("x^2 + y^2 + z^2 = 2");
-        eqns.add("x + y = 2");
-        eqns.add("x + z = 3");
+        eqns.add("z+x = 2");
+        eqns.add("x + y = 3");
+        eqns.add("y + z = 4");
         ArrayList<String> vars = new ArrayList<>();
         vars.add("x");
         vars.add("y");

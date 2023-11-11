@@ -22,7 +22,7 @@
         <EditText
                 android:id="@+id/input_function"
                 android:hint="(3x*cos(x))^(2*ln(x))"
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:inputType="text"
                 android:minHeight="48dp"/>
 
@@ -42,7 +42,7 @@
         <EditText
                 android:id="@+id/input_var"
                 android:hint="x"
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:inputType="text"
                 android:digits="qwertyuioasdfghjklzxcvbnm"
                 android:minHeight="48dp"/>
@@ -57,7 +57,7 @@
         <EditText
                 android:id="@+id/nth_der"
                 android:hint="1"
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:minHeight="48dp"/>
 
 
@@ -73,7 +73,7 @@
                 android:id="@+id/tvUpperBound">
         </TextView>
         <EditText
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:id="@+id/etUpperBound"
                 android:hint="1"/>
         <TextView
@@ -82,7 +82,7 @@
                 android:id="@+id/tvLowerBound">
         </TextView>
         <EditText
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:id="@+id/etLowerBound"
                 android:hint="0"/>
         <CheckBox
@@ -149,7 +149,7 @@
                 android:id="@+id/derInttvMin"/>
 
         <EditText
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:id="@+id/etXMinDerInt"
                 android:hint="-10"/>
 
@@ -159,7 +159,7 @@
                 android:id="@+id/derInttvMax"/>
 
         <EditText
-                style="@style/custom_non_numeric_edittext"
+                style="@style/custom_edittext"
                 android:id="@+id/etXMaxDerInt"
                 android:hint="10"/>
 

@@ -134,20 +134,20 @@ public class Custom_methods {
     public static String solveEquationSymbolic(ArrayList<String> equation, ArrayList<String> variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
-            String eqns = "{";
-            for (int i = 0; i < equation.size(); i++) {
-                eqns = eqns + equation.get(i) + ",";
+            StringBuilder eqns = new StringBuilder("{");
+            for (String s : equation) {
+                eqns.append(s).append(",");
             }
-            eqns = eqns.substring(0, eqns.length() - 1) + "}";
-            eqns = eqns.replaceAll("=", "==");
+            eqns = new StringBuilder(eqns.substring(0, eqns.length() - 1) + "}");
+            eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
             System.out.println("eqns:" + eqns);
 
             //store the variables in string form: "{x, y, z, ...}"
-            String vars = "{";
-            for (int i = 0; i < variables.size(); i++) {
-                vars = vars + variables.get(i) + ",";
+            StringBuilder vars = new StringBuilder("{");
+            for (String variable : variables) {
+                vars.append(variable).append(",");
             }
-            vars = vars.substring(0, vars.length() - 1) + "}";
+            vars = new StringBuilder(vars.substring(0, vars.length() - 1) + "}");
             System.out.println("vars:" + vars);
 
             //solve the eqns
@@ -168,28 +168,32 @@ public class Custom_methods {
         return "error";
     }
 
-    public static String solveEquationNumeric(ArrayList<String> equation, ArrayList<String> variables) {
+    public static String solveEquationNumeric(Iterable<String> equation, Iterable<String> variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
-            String eqns = "{";
-            for (int i = 0; i < equation.size(); i++) {
-                eqns = eqns + equation.get(i) + ",";
+            StringBuilder eqns = new StringBuilder("{");
+            for (String s : equation) {
+                eqns.append(s).append(",");
             }
-            eqns = eqns.substring(0, eqns.length() - 1) + "}";
-            eqns = eqns.replaceAll("=", "==");
+            eqns = new StringBuilder(eqns.substring(0, eqns.length() - 1) + "}");
+            eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
             System.out.println("eqns:" + eqns);
 
-            //store the variables in string form: "{x, y, z, ...}"
-            String vars = "{";
-            for (int i = 0; i < variables.size(); i++) {
-                vars = vars + variables.get(i) + ",";
+            //store the variables in arraylist form: "{x, y, z, ...}"
+            StringBuilder vars = new StringBuilder("{");
+            for (String variable : variables) {
+                vars.append(variable).append(",");
             }
-            vars = vars.substring(0, vars.length() - 1) + "}";
+            vars = new StringBuilder(vars.substring(0, vars.length() - 1) + "}");
             System.out.println("vars:" + vars);
 
             //solve the eqns
-            ExprEvaluator evaluator = new ExprEvaluator();
+            ExprEvaluator evaluator = new ExprEvaluator(true, (short) 0);
             IExpr result = evaluator.eval("NSolve(" + eqns + "," + vars + ")");
+
+            //clear cache
+            evaluator.clearVariables();
+
             return String.valueOf(result);
 
         } catch (SyntaxError e) {
@@ -209,7 +213,7 @@ public class Custom_methods {
         String modifiedExpression = expression;
 
         // Regular expression pattern to match trigonometric functions
-        String pattern = "(sin|cos|tan)\\(([^\\)]+)\\)";
+        String pattern = "(sin|cos|tan)\\(([^)]+)\\)";
 
         // Create a pattern object
         Pattern regex = Pattern.compile(pattern);
@@ -242,6 +246,13 @@ public class Custom_methods {
         return dividend - divisor * Math.floor(dividend / divisor);
     }
 
+    /**
+     * Sets up a change listener for the EditTexts and Button.
+     *
+     * @param  viewsToDisappear  an array of views to disappear when any EditText is empty
+     * @param  btnCalc           the button to enable or disable based on EditTexts' contents
+     * @param  editTexts         an array of EditTexts to listen for changes
+     */
     public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, EditText ...editTexts) {
 
         // Check if any of the EditTexts are empty
@@ -517,9 +528,8 @@ public class Custom_methods {
         ExprEvaluator util = new ExprEvaluator(false, (short) 10);
         try {
             IExpr variableSetter = util.eval("x=" + val);
-            double result = util.evalf(str);
 
-            return result;
+            return util.evalf(str);
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
@@ -579,9 +589,9 @@ public class Custom_methods {
         }
     }
 
-    public static String reduceLogTerms(String expression) {
+    public static String reduceLogTerms(CharSequence expression) {
         // Regular expression pattern to match log terms
-        String pattern = "log\\(([^\\)]+)\\)";
+        String pattern = "log\\(([^)]+)\\)";
 
         // Create a pattern object
         Pattern regex = Pattern.compile(pattern);
