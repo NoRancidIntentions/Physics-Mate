@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
+    <color name="blue_text_answer">#6BBBE1</color>
     <color name="colorPrimaryVariant">#303F9F</color>
     <color name="grey_disable">#AEAEAE</color>
     <color name="colorOnSecondary">#FF000000</color>
