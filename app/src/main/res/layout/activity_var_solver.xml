@@ -53,5 +53,10 @@
                 style = "@style/custom_textView"
                 android:id="@+id/var_solver_solution"
                 android:text="Solution:"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                style = "@style/custom_button_disabled"
+                android:id="@+id/btnCopy"
+                android:text="Copy to clipboard"/>
     </LinearLayout>
 </ScrollView>

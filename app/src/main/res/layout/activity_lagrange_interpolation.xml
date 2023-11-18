@@ -112,12 +112,5 @@
                 style="@style/custom_textView"
                 android:text="TextView"/>
 
-        <io.github.kexanie.library.MathView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/LagrangeMathView"
-                auto:engine="MathJax"
-        />
-
     </LinearLayout>
 </ScrollView>
