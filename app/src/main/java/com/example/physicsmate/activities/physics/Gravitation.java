@@ -154,10 +154,7 @@ public class Gravitation extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
-                ArrayList<EditText> ets = new ArrayList<>();
-                ets.add(et1);
-                ets.add(et2);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, ets);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
 
                 if (chooserV == 1) //needs work
                 {
@@ -706,10 +703,7 @@ public class Gravitation extends AppCompatActivity {
 
                 //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 //btnCalc.setClickable(false);
-                ArrayList<EditText> ets = new ArrayList<>();
-                ets.add(et1);
-                ets.add(et2);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, ets);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
                 if (chooserA == 1) //needs work
                 {
                     tv1.setText("Enter Mass in kilograms");

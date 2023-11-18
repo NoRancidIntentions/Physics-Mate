@@ -131,7 +131,7 @@ public class Custom_methods {
     }
 
     //solver for multi variable equations
-    public static String solveEquationSymbolic(ArrayList<String> equation, ArrayList<String> variables) {
+    public static String solveEquationSymbolic(Iterable<String> equation, String variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
             StringBuilder eqns = new StringBuilder("{");
@@ -142,17 +142,9 @@ public class Custom_methods {
             eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
             System.out.println("eqns:" + eqns);
 
-            //store the variables in string form: "{x, y, z, ...}"
-            StringBuilder vars = new StringBuilder("{");
-            for (String variable : variables) {
-                vars.append(variable).append(",");
-            }
-            vars = new StringBuilder(vars.substring(0, vars.length() - 1) + "}");
-            System.out.println("vars:" + vars);
-
             //solve the eqns
             ExprEvaluator evaluator = new ExprEvaluator();
-            IExpr result = evaluator.eval("Solve(" + eqns + "," + vars + ")");
+            IExpr result = evaluator.eval("Solve(" + eqns + ", {" + variables + "})");
             return result.toString();
 
         } catch (SyntaxError e) {
@@ -168,7 +160,7 @@ public class Custom_methods {
         return "error";
     }
 
-    public static String solveEquationNumeric(Iterable<String> equation, Iterable<String> variables) {
+    public static String solveEquationNumeric(Iterable<String> equation, String variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
             StringBuilder eqns = new StringBuilder("{");
@@ -179,17 +171,9 @@ public class Custom_methods {
             eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
             System.out.println("eqns:" + eqns);
 
-            //store the variables in arraylist form: "{x, y, z, ...}"
-            StringBuilder vars = new StringBuilder("{");
-            for (String variable : variables) {
-                vars.append(variable).append(",");
-            }
-            vars = new StringBuilder(vars.substring(0, vars.length() - 1) + "}");
-            System.out.println("vars:" + vars);
-
             //solve the eqns
             ExprEvaluator evaluator = new ExprEvaluator(true, (short) 0);
-            IExpr result = evaluator.eval("NSolve(" + eqns + "," + vars + ")");
+            IExpr result = evaluator.eval("NSolve(" + eqns + ", {" + variables + "})");
 
             //clear cache
             evaluator.clearVariables();
@@ -253,7 +237,7 @@ public class Custom_methods {
      * @param  btnCalc           the button to enable or disable based on EditTexts' contents
      * @param  editTexts         an array of EditTexts to listen for changes
      */
-    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, ArrayList<EditText> editTexts) {
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, EditText... editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;

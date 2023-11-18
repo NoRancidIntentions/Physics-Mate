@@ -49,7 +49,7 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         LagrangeCalcButton.setBackgroundResource(R.drawable.btn_disabled);
         LagrangeCalcButton.setTextColor(getResources().getColor(R.color.app_bg));
         LagrangeCalcButton.setText("Enter all the fields");
-        LagrangeMathView = findViewById(R.id.LagrangeMathView);
+        //LagrangeMathView = findViewById(R.id.LagrangeMathView);
 
         LagrangeTvResult.setVisibility(View.GONE);
         LagrangeMathView.setVisibility(View.GONE);
