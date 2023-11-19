@@ -139,7 +139,7 @@ public class VarSolver extends AppCompatActivity {
                 btnSolve.setTextColor(getResources().getColor(R.color.app_bg));
                 btnSolve.setText("Enter all the fields");
                 System.out.println("not clickable");
-                break;//
+                break;
             } else {
                 btnSolve.setClickable(true);
                 btnSolve.setEnabled(true);
