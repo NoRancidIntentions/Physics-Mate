@@ -155,14 +155,37 @@ public class VarSolver extends AppCompatActivity {
     }
 
     private static String parseString(String input) {
-        return Arrays.stream(input.replaceAll("[{}]", "").split(","))
-                .map(pair -> pair.split("->"))
-                .filter(keyValue -> keyValue.length == 2)
-                .map(keyValue -> {
-                    String key = keyValue[0].trim();
-                    String value = keyValue[1].trim();
-                    return "<font color='#6BBBE1'>" + key + " is </font><font color='#CDDC39'>" + value + "</font>";
-                })
-                .collect(Collectors.joining("<br/>"));
+        // Replace },{ with <br/>OR<br/>
+        String result = input.replaceAll("\\},\\{", "<br/><br/>OR<br/><br/>");
+        // Replace {{ with <br/>
+        result = result.replaceAll("\\{\\{", "<br/>");
+        // Replace }} with <br/>
+        result = result.replaceAll("\\}\\}", "<br/>");
+        // Replace { with <br/>
+        result = result.replaceAll("\\{", "<br/>");
+        // Replace } with <br/>
+        result = result.replaceAll("\\}", "<br/>");
+        // Replace , with <br/>
+        result = result.replaceAll(",", "<br/>");
+        // Replace -> with =
+        result = result.replaceAll("->", "=");
+
+        //make the numerical part #CDDC39 and the text part in #6BBBE1
+        List<String> resultSplit = Arrays.asList(result.split("<br/>"));
+        List<String> resultSplitParsed = resultSplit.stream().map(s -> {
+            if (s.contains("=")) {
+                String[] split = s.split("=");
+                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDD39'>" + split[1] + "</font>";
+            } else {
+                return s;
+            }
+        }).collect(Collectors.toList());
+
+        result = String.join("<br/>", resultSplitParsed);
+
+        return result;
     }
+
+
+
 }
