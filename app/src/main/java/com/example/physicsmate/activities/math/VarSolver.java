@@ -22,6 +22,7 @@ public class VarSolver extends AppCompatActivity {
     EditText et1, etVars;
     TextView tvResult;
     LinearLayout rowsLinearLayout;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class VarSolver extends AppCompatActivity {
 
         rowsLinearLayout = findViewById(R.id.var_solver_SOE);
         tvResult = findViewById(R.id.var_solver_solution);
+        scrollView = findViewById(R.id.var_solver_scroll_view);
 
         et1 = findViewById(R.id.var_solver_et1);
         et1.addTextChangedListener(new customTextWatcher());
@@ -80,6 +82,8 @@ public class VarSolver extends AppCompatActivity {
 
                         tvResult.setText(android.text.Html.fromHtml(resultParsed, android.text.Html.FROM_HTML_MODE_LEGACY));
                         tvResult.setVisibility(View.VISIBLE);
+
+                        scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult.getBottom()));
 
                         btnCopy.setVisibility(View.VISIBLE);
                         btnCopy.setOnClickListener(v1 -> {
@@ -175,7 +179,7 @@ public class VarSolver extends AppCompatActivity {
         List<String> resultSplitParsed = resultSplit.stream().map(s -> {
             if (s.contains("=")) {
                 String[] split = s.split("=");
-                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDD39'>" + split[1] + "</font>";
+                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDDC39'>" + split[1] + "</font>";
             } else {
                 return s;
             }
