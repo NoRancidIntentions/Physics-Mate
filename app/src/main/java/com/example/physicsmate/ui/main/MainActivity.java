@@ -3,6 +3,7 @@ package com.example.physicsmate.ui.main;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
 
@@ -21,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
         viewPager.setOffscreenPageLimit(1);
+
+        //in a new thread, calculate derivative of 3x
+        new Thread(() -> {
+            //calculate derivative of 3x
+            String derivative = Custom_methods.calculateNthDerivative("3x", "x", 1);
+        }).start();
 
     }
 }

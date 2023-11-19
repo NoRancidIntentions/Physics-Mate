@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import static com.example.physicsmate.Custom_methods.setupEditTextChangeListener;
@@ -76,11 +77,23 @@ public class VarSolver extends AppCompatActivity {
                             eqns.add(et.getText().toString());
                         }
                         String vars = etVars.getText().toString();
-                        //solve the equations
-                        String result = solveEquationNumeric(eqns, vars);
-                        String resultParsed = parseString(result);
+                        AtomicReference<String> resultParsed = new AtomicReference<>("");
 
-                        tvResult.setText(android.text.Html.fromHtml(resultParsed, android.text.Html.FROM_HTML_MODE_LEGACY));
+                        //solve the equations in a separate thread
+                        Thread thread = new Thread(() -> {
+                            String result = solveEquationNumeric(eqns, vars);
+                            resultParsed.set(parseString(result));
+                        });
+                        thread.start();
+
+                        //after the thread is done, display the result
+                        try {
+                            thread.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        tvResult.setText(android.text.Html.fromHtml(resultParsed.get(), android.text.Html.FROM_HTML_MODE_LEGACY));
                         tvResult.setVisibility(View.VISIBLE);
 
                         scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult.getBottom()));
