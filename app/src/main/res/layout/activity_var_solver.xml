@@ -55,7 +55,7 @@
                 android:text="Solution:"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style = "@style/custom_button_disabled"
+                style = "@style/custom_button_enabled"
                 android:id="@+id/btnCopy"
                 android:text="Copy to clipboard"/>
     </LinearLayout>

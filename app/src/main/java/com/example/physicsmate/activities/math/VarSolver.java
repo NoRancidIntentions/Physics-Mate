@@ -42,6 +42,7 @@ public class VarSolver extends AppCompatActivity {
         btnSolve = findViewById(R.id.var_solver_solve_button);
 
         tvResult.setVisibility(View.GONE);
+        btnCopy.setVisibility(View.GONE);
     }
 
     public class customTextWatcher implements android.text.TextWatcher {
@@ -83,7 +84,7 @@ public class VarSolver extends AppCompatActivity {
                         btnCopy.setVisibility(View.VISIBLE);
                         btnCopy.setOnClickListener(v1 -> {
                             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-                            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", result);
+                            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", tvResult.getText().toString());
                             clipboard.setPrimaryClip(clip);
                             Toast.makeText(VarSolver.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
                         });
@@ -138,6 +139,7 @@ public class VarSolver extends AppCompatActivity {
                 btnSolve.setBackgroundResource(R.drawable.btn_disabled);
                 btnSolve.setTextColor(getResources().getColor(R.color.app_bg));
                 btnSolve.setText("Enter all the fields");
+                btnCopy.setVisibility(View.GONE);
                 System.out.println("not clickable");
                 break;
             } else {
