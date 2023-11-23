@@ -137,7 +137,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
+                custom_keyboard1_initializer keyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
@@ -154,7 +154,7 @@ public class Gravitation extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, keyboard, et1, et2);
 
                 if (chooserV == 1) //needs work
                 {
@@ -703,7 +703,7 @@ public class Gravitation extends AppCompatActivity {
 
                 //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 //btnCalc.setClickable(false);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, et1, et2);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, et1, et2);
                 if (chooserA == 1) //needs work
                 {
                     tv1.setText("Enter Mass in kilograms");

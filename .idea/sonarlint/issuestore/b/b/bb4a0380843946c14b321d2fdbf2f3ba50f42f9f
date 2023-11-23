@@ -1,0 +1,15 @@
+
+V
+java:S1854"@Remove this useless assignment to local variable "btnHyperbola".(ацч÷
+Z
+java:S1854"?Remove this useless assignment to local variable "btnParabola".(©єД∞€€€€€
+T
+java:S1854">Remove this useless assignment to local variable "btnEllipse".(°бЧО
+b
+java:S1659"GDeclare "btnEllipse" and all following declarations on a separate line.(кƒмаю€€€€
+J
+java:S1481"/Remove this unused "btnEllipse" local variable.(кƒмаю€€€€
+K
+java:S1481"0Remove this unused "btnParabola" local variable.(кƒмаю€€€€
+L
+java:S1481"1Remove this unused "btnHyperbola" local variable.(кƒмаю€€€€

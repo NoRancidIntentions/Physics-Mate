@@ -1,0 +1,13 @@
+
+‡
+java:S1874""FRemove this use of "SYSTEM_UI_FLAG_HIDE_NAVIGATION"; it is deprecated.(èïˆ‰ûÿÿÿÿJ$a32ecc6b-4811-4d08-ad74-7a16520c0ada
+‚
+java:S1874#"ARemove this use of "SYSTEM_UI_FLAG_FULLSCREEN"; it is deprecated.(µÒšØúÿÿÿÿJ$fbd4a963-54bf-41de-bea1-ed3a700e668c
+~
+java:S1874$"=Remove this use of "setSystemUiVisibility"; it is deprecated.(ü†Ý©øÿÿÿÿJ$57dd1945-d63a-430c-84c8-c983fc0f21a9
+”
+AYvr5VnWt_DAQzs2e_f5	java:S125&"<This block of commented-out lines of code should be removed.(¡Œÿ8è¾¤ë1J$bfc3346a-7396-4d6f-ac2b-c7fe22decca8
+}
+java:S1161<":Add the "@Override" annotation above this method signature(¹§Òÿ8ÏÃÁá¾1J$0c85c569-10f5-4f75-b234-5a314021b9cc
+”
+AYvr5VnWt_DAQzs2e_f6	java:S125H"<This block of commented-out lines of code should be removed.(¨÷8è¾¤ë1J$6a7d32fc-865d-4661-9838-0bdc9fe0511f

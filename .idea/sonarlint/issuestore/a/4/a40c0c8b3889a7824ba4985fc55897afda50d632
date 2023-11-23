@@ -1,0 +1,28 @@
+
+l	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì‘Ææþÿÿÿÿ
+i	java:S116"TRename this field "DerInttv3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+i	java:S116"TRename this field "DerInttv2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+i	java:S116"TRename this field "DerInttv1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+`
+java:S1659"EDeclare "inputVar" and all following declarations on a separate line.(œüáÐøÿÿÿÿ
+L
+java:S1659"1Declare "cbNumericEvaluation" on a separate line.(ñØŽöüÿÿÿÿ
+]
+java:S1659"GDeclare "simpResult" and all following declarations on a separate line.(½ÛÇ–
+`
+java:S1659"EDeclare "btnGraph" and all following declarations on a separate line.(‡Î·¬ûÿÿÿÿ
+b
+java:S1659"GDeclare "latexView2" and all following declarations on a separate line.(œì¢¿úÿÿÿÿ
+Q	java:S125t"<This block of commented-out lines of code should be removed.(²Û–â
+Q
+java:S6213í":Rename this variable to not match a restricted identifier.(ú¥ê¤
+L
+java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
+L
+java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
+n
+java:S3776“"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(ÏÒžûÿÿÿÿÿ
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+J
+java:S1659Í".Declare "definiteIntegral" on a separate line.(ù¿ïßûÿÿÿÿ

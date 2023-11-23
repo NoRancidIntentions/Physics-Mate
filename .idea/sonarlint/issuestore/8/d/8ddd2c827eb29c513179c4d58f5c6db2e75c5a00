@@ -1,0 +1,38 @@
+
+l	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í†µøÿÿÿÿ
+l	java:S117Æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢»†”ûÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ê‡£×
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(–Â’ã
+g	java:S101S"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‰‚íÿÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ê‡£×
+M
+java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿ
+M
+java:S1135+"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿ
+_
+java:S1659<"IDeclare "btnVarSolver" and all following declarations on a separate line.(¬íã¤
+M
+java:S1135U"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿ
+M
+java:S1135d"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿ
+`
+java:S1659u"EDeclare "btnVEAdd" and all following declarations on a separate line.(˜ô±çÿÿÿÿÿ
+N
+java:S1135‹"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿ
+?
+java:S1185“"(Remove this method to simply inherit it.(ßìê¯
+N
+java:S1135•"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿ
+Y
+java:S1659¤"BDeclare "btnGB" and all following declarations on a separate line.(ƒŸØÿ
+V
+java:S1118³":Add a private constructor to hide the implicit public one.(•À ùÿÿÿÿ
+H
+java:S3011¿",This accessibility update should be removed.(ÏœôÒşÿÿÿÿ
+H
+java:S3011Ã",This accessibility bypass should be removed.(ÎíÛ‰úÿÿÿÿ
+C
+java:S3011Ç",This accessibility update should be removed.(ÈÍØƒ
+C
+java:S3011È",This accessibility bypass should be removed.(ıìÿò

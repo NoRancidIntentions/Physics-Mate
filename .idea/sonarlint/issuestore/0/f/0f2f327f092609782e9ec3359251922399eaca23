@@ -1,0 +1,24 @@
+
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì‘Ææþÿÿÿÿ
+i	java:S116"TRename this field "DerInttv3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+i	java:S116"TRename this field "DerInttv2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+i	java:S116"TRename this field "DerInttv1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
+`
+java:S1659"EDeclare "inputVar" and all following declarations on a separate line.(œüáÐøÿÿÿÿ
+L
+java:S1659"1Declare "cbNumericEvaluation" on a separate line.(ñØŽöüÿÿÿÿ
+]
+java:S1659"GDeclare "simpResult" and all following declarations on a separate line.(½ÛÇ–
+`
+java:S1659"EDeclare "btnGraph" and all following declarations on a separate line.(‡Î·¬ûÿÿÿÿ
+b
+java:S1659"GDeclare "latexView2" and all following declarations on a separate line.(œì¢¿úÿÿÿÿ
+K
+java:S1874k"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
+K
+java:S1874w"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
+m
+java:S3776}"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÏÒžûÿÿÿÿÿ
+u
+java:S2142ª"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(´í­Œ
+?	java:S108ª")Either remove or fill this block of code.(´í­Œ

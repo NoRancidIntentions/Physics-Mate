@@ -89,8 +89,7 @@ public class VarSolver extends AppCompatActivity {
                         //after the thread is done, display the result
                         try {
                             thread.join();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                        } catch (InterruptedException ignored) {
                         }
 
                         tvResult.setText(android.text.Html.fromHtml(resultParsed.get(), android.text.Html.FROM_HTML_MODE_LEGACY));
@@ -115,7 +114,7 @@ public class VarSolver extends AppCompatActivity {
         rowsLinearLayout.addView(rowItem);
         EditText et = (EditText) rowItem.getChildAt(0);
         View[] viewsToDissapear = {tvResult};
-        setupEditTextChangeListener(viewsToDissapear, btnSolve, et);
+        setupEditTextChangeListener(viewsToDissapear, btnSolve, null, et);
 
         solveButtonClickable();
 
@@ -157,7 +156,6 @@ public class VarSolver extends AppCompatActivity {
                 btnSolve.setTextColor(getResources().getColor(R.color.app_bg));
                 btnSolve.setText("Enter all the fields");
                 btnCopy.setVisibility(View.GONE);
-                System.out.println("not clickable");
                 break;
             } else {
                 btnSolve.setClickable(true);
@@ -165,30 +163,30 @@ public class VarSolver extends AppCompatActivity {
                 //set style of the button
                 Paris.styleBuilder(btnSolve).add(R.style.custom_button_enabled).apply();
                 btnSolve.setText("Solve");
-                System.out.println("clickable");
             }
 
         }
     }
 
     private static String parseString(String input) {
+        String br = "<br/>";
         // Replace },{ with <br/>OR<br/>
-        String result = input.replaceAll("\\},\\{", "<br/><br/>OR<br/><br/>");
+        String result = input.replace("},{", "<br/><br/>OR<br/><br/>");
         // Replace {{ with <br/>
-        result = result.replaceAll("\\{\\{", "<br/>");
+        result = result.replace("{{", br);
         // Replace }} with <br/>
-        result = result.replaceAll("\\}\\}", "<br/>");
+        result = result.replace("}}", br);
         // Replace { with <br/>
-        result = result.replaceAll("\\{", "<br/>");
+        result = result.replace("{", br);
         // Replace } with <br/>
-        result = result.replaceAll("\\}", "<br/>");
+        result = result.replace("}", br);
         // Replace , with <br/>
-        result = result.replaceAll(",", "<br/>");
+        result = result.replace(",", br);
         // Replace -> with =
-        result = result.replaceAll("->", "=");
+        result = result.replace("->", "=");
 
         //make the numerical part #CDDC39 and the text part in #6BBBE1
-        List<String> resultSplit = Arrays.asList(result.split("<br/>"));
+        List<String> resultSplit = Arrays.asList(result.split(br));
         List<String> resultSplitParsed = resultSplit.stream().map(s -> {
             if (s.contains("=")) {
                 String[] split = s.split("=");
@@ -198,7 +196,7 @@ public class VarSolver extends AppCompatActivity {
             }
         }).collect(Collectors.toList());
 
-        result = String.join("<br/>", resultSplitParsed);
+        result = String.join(br, resultSplitParsed);
 
         return result;
     }

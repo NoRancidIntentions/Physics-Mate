@@ -51,6 +51,9 @@ import java.util.regex.Pattern;
 import static de.lab4inf.math.util.Accuracy.round;
 
 public class Custom_methods {
+
+    static String StringError = "Error";
+
     /**
      * Returns the number of fraction digits in the given number.
      *
@@ -102,7 +105,6 @@ public class Custom_methods {
     public static double evalf(@NotNull final String str) {
         ExprEvaluator util = new ExprEvaluator();
         try {
-            System.out.println("evaluated" + (util.evalf(IExprConverter(str))));
             return util.evalf(IExprConverter(str));
 
         } catch (MathException e) {
@@ -121,8 +123,6 @@ public class Custom_methods {
             str = str.replaceAll("tan\\((.*?)\\)", "tan($1*pi/180)");
         }
 
-        System.out.println("str to eval:" + str);
-
         try {
             return util.evalf(IExprConverter(str));
         } catch (MathException e) {
@@ -139,8 +139,7 @@ public class Custom_methods {
                 eqns.append(s).append(",");
             }
             eqns = new StringBuilder(eqns.substring(0, eqns.length() - 1) + "}");
-            eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
-            System.out.println("eqns:" + eqns);
+            eqns = new StringBuilder(eqns.toString().replace("=", "=="));
 
             //solve the eqns
             ExprEvaluator evaluator = new ExprEvaluator();
@@ -153,11 +152,10 @@ public class Custom_methods {
         } catch (MathException me) {
             // catch Symja math errors here
             return "Math error";
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
 
         }
-        return "error";
+        return StringError;
     }
 
     public static String solveEquationNumeric(Iterable<String> equation, String variables) {
@@ -168,8 +166,7 @@ public class Custom_methods {
                 eqns.append(s).append(",");
             }
             eqns = new StringBuilder(eqns.substring(0, eqns.length() - 1) + "}");
-            eqns = new StringBuilder(eqns.toString().replaceAll("=", "=="));
-            System.out.println("eqns:" + eqns);
+            eqns = new StringBuilder(eqns.toString().replace("=", "=="));
 
             //solve the eqns
             ExprEvaluator evaluator = new ExprEvaluator(true, (short) 0);
@@ -186,10 +183,9 @@ public class Custom_methods {
         } catch (MathException me) {
             // catch Symja math errors here
             return "Math error";
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
-        return "error";
+        return StringError;
 
     }
 
@@ -237,7 +233,7 @@ public class Custom_methods {
      * @param  btnCalc           the button to enable or disable based on EditTexts' contents
      * @param  editTexts         an array of EditTexts to listen for changes
      */
-    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, EditText... editTexts) {
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, custom_keyboard1_initializer custom_keyboard, EditText... editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;
@@ -267,11 +263,11 @@ public class Custom_methods {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
                 }
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-
                     for (View view : viewsToDisappear) {
                         view.setVisibility(View.GONE);
                     }
@@ -334,13 +330,13 @@ public class Custom_methods {
      */
     public static String replaceConstants(String input) {
         // Replace "pi" with "Pi"
-        input = input.replaceAll("pi", String.valueOf(Math.PI));
+        input = input.replace("pi", String.valueOf(Math.PI));
 
         // Replace "e" with "E"
-        input = input.replaceAll("e", String.valueOf(Math.E));
+        input = input.replace("e", String.valueOf(Math.E));
 
         // Replace phi with Phi
-        input = input.replaceAll("phi", String.valueOf(1.61803398874989484820458683436563811772030917980576286213544862270526046281890));
+        input = input.replace("phi", String.valueOf(1.61803398874989484820458683436563811772030917980576286213544862270526046281890));
 
         //replace log10 with ln equivalent
         input = input.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
@@ -442,12 +438,9 @@ public class Custom_methods {
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            System.out.println(e.getMessage());
         } catch (MathException me) {
             // catch Symja math errors here
-            System.out.println(me.getMessage());
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return null;
     }
@@ -507,12 +500,9 @@ public class Custom_methods {
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            System.out.println(e.getMessage());
         } catch (MathException me) {
             // catch Symja math errors here
-            System.out.println(me.getMessage());
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return null;
     }
@@ -535,12 +525,12 @@ public class Custom_methods {
         }
     }
 
-    public static String evalAtPointXSymbolic(@NotNull final String str, CharSequence var, Double val) {
+    public static String evalAtPointXSymbolic(@NotNull final String str, CharSequence variable, Double val) {
         //replace x with val. If val is in decimal, convert it to fraction
         String frac = convertDecimalToFraction(val);
-        String str1 = str.replace(var, frac);
+        String str1 = str.replace(variable, frac);
 
-        return ((ExprSimplifier(str1))).toLowerCase();
+        return (ExprSimplifier(str1)).toLowerCase();
     }
 
     public static String replaceFractionalValues(CharSequence expression) {
@@ -690,8 +680,7 @@ public class Custom_methods {
             executor.shutdown();
             try {
                 executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ignored) {
             }
         }
 
@@ -711,14 +700,11 @@ public class Custom_methods {
             return result.toString();
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            System.out.println(e.getMessage());
         } catch (MathException me) {
             // catch Symja math errors here
-            System.out.println(me.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
-        return "error";
+        return StringError;
     }
 
     public static String calculateNthIntegral(String function, String var, int n) {
@@ -735,14 +721,11 @@ public class Custom_methods {
             return result.toString();
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            System.out.println(e.getMessage());
         } catch (MathException me) {
             // catch Symja math errors here
-            System.out.println(me.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
-        return "error";
+        return StringError;
     }
 
     public static String ExprSimplifier(String function) {
@@ -776,19 +759,15 @@ public class Custom_methods {
             texUtil.toTeX(IExprConverter(function), stw);
             // print: \sum_{i = 1}^{n}i
             return "$$ \\color{#D0D0D0}{" + stw + "}$$";
-            //return latex.replace("\\", "\\\\");
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            System.out.println(e.getMessage());
         } catch (MathException me) {
             // catch Symja math errors here
-            System.out.println(me.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
 
-        return "error";
+        return StringError;
     }
 
     public static void MathJaxConfig(MathView... mathViews) {

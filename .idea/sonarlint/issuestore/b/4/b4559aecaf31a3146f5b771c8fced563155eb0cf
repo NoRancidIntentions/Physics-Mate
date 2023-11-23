@@ -1,0 +1,50 @@
+
+k	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‰îÿÿÿÿÿ
+k	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™¡üŒıÿÿÿÿ
+f	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£†Ú£
+f	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª¡†é
+f	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÃ‹ù
+k	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¹¥°şÿÿÿÿ
+k	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç›¯Åüÿÿÿÿ
+l	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‰îÿÿÿÿÿ
+g	java:S117Œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£†Ú£
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¢¹z
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì—¼æùÿÿÿÿ
+g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éïóõ
+l	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ë¼ÿÿÿÿÿ
+l	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö«éÇúÿÿÿÿ
+g	java:S117¹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£†Ú£
+f	java:S117À"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¢¹z
+l	java:S117Ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì—¼æùÿÿÿÿ
+g	java:S117Å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éïóõ
+l	java:S117Ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ë¼ÿÿÿÿÿ
+l	java:S117É"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö«éÇúÿÿÿÿ
+l	java:S117×"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÆØŒıÿÿÿÿ
+l	java:S117Ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò‹×şÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(“»‰¥
+t	java:S116"_Rename this field "LagrangeAddRowButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹‡âà
+r	java:S116"]Rename this field "LagrangeCalcButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹‡âà
+o	java:S116"URename this field "Lagrangex1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä…¸ıÿÿÿÿ
+o	java:S116"URename this field "Lagrangey1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä…¸ıÿÿÿÿ
+o	java:S116"URename this field "Lagrangex2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä…¸ıÿÿÿÿ
+o	java:S116"URename this field "Lagrangey2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä…¸ıÿÿÿÿ
+p	java:S116"[Rename this field "LagrangeTvResult" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒšäƒ
+x	java:S116"cRename this field "LagrangeRowsLinearLayout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ñÃû
+p	java:S116"[Rename this field "LagrangeMathView" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ä“
+F
+java:S1659"0Declare "LagrangeCalcButton" on a separate line.(¹‡âà
+b
+java:S1659"GDeclare "Lagrangey1" and all following declarations on a separate line.(Ä…¸ıÿÿÿÿ
+K
+java:S18742"0Remove this use of "getColor"; it is deprecated.(ˆÃĞ½ıÿÿÿÿ
+Q	java:S1254"<This block of commented-out lines of code should be removed.(Ÿø«
+h	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒŸí‡ıÿÿÿÿ
+g
+java:S1117?"LRename "LagrangeRowsLinearLayout" which hides the field declared at line 23.(¢‰îÿÿÿÿÿ
+c	java:S100Š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İúÚ
+h
+java:S1117‹"LRename "LagrangeRowsLinearLayout" which hides the field declared at line 23.(¢‰îÿÿÿÿÿ
+L
+java:S1874—"0Remove this use of "getColor"; it is deprecated.(ˆÃĞ½ıÿÿÿÿ
+˜
+java:S1186¦"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ª¶Ú

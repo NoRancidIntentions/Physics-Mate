@@ -1,0 +1,65 @@
+
+³
+java:S1192|"—Define a constant instead of duplicating this literal "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" 4 times.(ÑÃÑ‡ûÿÿÿÿ
+^
+java:S1192}"HDefine a constant instead of duplicating this literal "</font>" 4 times.(¾øòŸ
+n
+java:S1192\"XDefine a constant instead of duplicating this literal "Please enter all fields" 4 times.(ÙçÃÖ
+i
+java:S1192P"SDefine a constant instead of duplicating this literal "Enter length of BC" 3 times.(ÓœÓĞ
+n
+java:S1192O"SDefine a constant instead of duplicating this literal "Enter length of AB" 4 times.(‡½âûÿÿÿÿ
+¦
+java:S1192y"ŠDefine a constant instead of duplicating this literal "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" 4 times.(ÈÛ’’ûÿÿÿÿ
+l
+java:S1192y"QDefine a constant instead of duplicating this literal "</font><br><br>" 12 times.(ÈÛ’’ûÿÿÿÿ
+¦
+java:S1192x"Define a constant instead of duplicating this literal "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>" 3 times.(ƒ¤¯“
+f	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¢úä
+f	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢ÔÈ
+k	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÙ®Üÿÿÿÿÿ
+k	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨±áùÿÿÿÿ
+k	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Û„¿ûÿÿÿÿ
+f	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÍ˜ 
+f	java:S117v"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’±õ
+g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¢úä
+g	java:S117Ÿ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢ÔÈ
+g	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì¯¯
+l	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Û×­ıÿÿÿÿ
+g	java:S117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¢úä
+g	java:S117å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢ÔÈ
+g	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖÀÉÃ
+g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô‰Ïß
+l	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢«Áúÿÿÿÿ
+l	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢«Áúÿÿÿÿ
+l	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢«Áúÿÿÿÿ
+g	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ŸÜ÷
+g	java:S117¢"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¢úä
+g	java:S117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úá¢„
+l	java:S117¤"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÙ®Üÿÿÿÿÿ
+g	java:S117Ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®›Â¯
+g	java:S117Ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ßçÊ
+l	java:S117Å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Ğİ÷ıÿÿÿÿ
+l	java:S117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š„ÁĞøÿÿÿÿ
+Y
+java:S1659"CDeclare "losac2" and all following declarations on a separate line.(¶™Ô…
+g	java:S116:"MRename this field "AB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øøğüÿÿÿÿ
+g	java:S116:"MRename this field "BC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øøğüÿÿÿÿ
+f	java:S116:"LRename this field "C" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øøğüÿÿÿÿ
+n	java:S116="TRename this field "SV_LOSAC1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¿±ùÿÿÿÿ
+Z
+java:S1659:"?Declare "BC" and all following declarations on a separate line.(Øøğüÿÿÿÿ
+c	java:S116"MRename this field "AB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶óüƒ
+c	java:S116"MRename this field "BC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶óüƒ
+b	java:S116"LRename this field "B" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶óüƒ
+o	java:S116"TRename this field "SV_LOSAC2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÉğùşÿÿÿÿ
+V
+java:S1659"?Declare "BC" and all following declarations on a separate line.(¶óüƒ
+b	java:S116Ò"MRename this field "AB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ÀÀ2
+b	java:S116Ò"MRename this field "BC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ÀÀ2
+b	java:S116Ò"MRename this field "AC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ÀÀ2
+j	java:S116Õ"TRename this field "SV_LOSAC3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ô¢
+U
+java:S1659Ò"?Declare "BC" and all following declarations on a separate line.(¿ÀÀ2
+Z
+java:S1659–">Declare "B" and all following declarations on a separate line.(¢«Áúÿÿÿÿ

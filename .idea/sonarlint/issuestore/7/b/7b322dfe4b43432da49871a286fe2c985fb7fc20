@@ -1,0 +1,104 @@
+
+ 
+java:S1192˜"ƒDefine a constant instead of duplicating this literal "<font color=#6BBBE1>Final velocity is </font> <font color=#CDDC39>" 4 times.(±Ï÷„ÿÿÿÿÿ
+•
+java:S1192ö"yDefine a constant instead of duplicating this literal "<font color=#6BBBE1>Time is </font> <font color=#CDDC39>" 3 times.(Şè—Òüÿÿÿÿ
+m
+java:S1192ö"QDefine a constant instead of duplicating this literal "</font><br><br>" 27 times.(Şè—Òüÿÿÿÿ
+™
+java:S1192¹"Define a constant instead of duplicating this literal "<font color=#6BBBE1>Displacement is </font> <font color=#CDDC39>" 4 times.(›¬Í³
+ƒ
+java:S1192¤"gDefine a constant instead of duplicating this literal "Please enter final velocity in SI unit" 5 times.(À¢Ìùÿÿÿÿ
+y
+java:S1192°"]Define a constant instead of duplicating this literal "Please enter time in SI unit" 6 times.(å×ù§üÿÿÿÿ
+
+java:S1192‚"…Define a constant instead of duplicating this literal "<font color=#6BBBE1>Initial velocity is </font> <font color=#CDDC39>" 4 times.(”È—®
+€
+java:S1192¨"iDefine a constant instead of duplicating this literal "Please enter initial velocity in SI unit" 6 times.(í‘ÀÀ
+
+java:S1192¬"eDefine a constant instead of duplicating this literal "Please enter acceleration in SI unit" 6 times.(‹‰‹Ëÿÿÿÿÿ
+
+java:S1192¡"eDefine a constant instead of duplicating this literal "Please enter displacement in SI unit" 4 times.(ƒ¾Ä‡ÿÿÿÿÿ
+k	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Çèäùÿÿÿÿ
+k	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Çèäùÿÿÿÿ
+k	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë·®ôúÿÿÿÿ
+k	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë·®ôúÿÿÿÿ
+k	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë·®ôúÿÿÿÿ
+k	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë·®ôúÿÿÿÿ
+k	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë·®ôúÿÿÿÿ
+e	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÀç
+e	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÀç
+k	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûåøÿÿÿÿ
+k	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ÑÌÚıÿÿÿÿ
+k	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š§ºÇşÿÿÿÿ
+f	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïª˜
+k	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù’È’ûÿÿÿÿ
+k	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ˆ“îûÿÿÿÿ
+l	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é¾¯›øÿÿÿÿ
+g	java:S117Œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š‰ä¤
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıª‘Œÿÿÿÿÿ
+g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÏÖ®
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø»ğüÿÿÿÿ
+g	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íİ¸Ü
+l	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ºˆóûÿÿÿÿ
+g	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à®•…
+g	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à®•…
+l	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½úáûÿÿÿÿ
+l	java:S117ˆ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß¹¥Íüÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÌ¡ıÿÿÿÿ
+c	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‡œ¢”
+c	java:S101ı"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(“ƒÆ
+<
+java:S1659 "!Declare "KE2" on a separate line.(¯Çèäùÿÿÿÿ
+\
+java:S16599"ADeclare "CB_u" and all following declarations on a separate line.(ë·®ôúÿÿÿÿ
+<
+java:S1659:"'Declare "btn_clear" on a separate line.(çÀç
+n
+java:S3776…"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(¨Œşÿÿÿÿ
+^
+java:S1659‰"GDeclare "textView39" and all following declarations on a separate line.(ùĞì
+c
+java:S1659Š"LDeclare "editTextNumber2" and all following declarations on a separate line.(Áªï¨
+J
+java:S1659‹".Declare "KE11_graphButton" on a separate line.(é¾¯›øÿÿÿÿ
+d	java:S100ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à®•…
+i	java:S100ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½úáûÿÿÿÿ
+Z
+java:S1659 ">Declare "Y" and all following declarations on a separate line.(ÔÌ¡ıÿÿÿÿ
+˜
+java:S1186³"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186¸"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186Ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186É"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186Ù"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186é"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186ù"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+˜
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+
+java:S1186™"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+ä
+java:S6541…"ÇA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 171 to 64, Complexity from 38 to 14, Nesting Level from 3 to 2, Number of Variables from 102 to 6.(¨Œşÿÿÿÿ

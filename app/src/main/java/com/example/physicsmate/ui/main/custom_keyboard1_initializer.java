@@ -1,19 +1,25 @@
 package com.example.physicsmate.ui.main;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 public class custom_keyboard1_initializer extends GridLayout {
 
     private EditText targetEditText;
+    Button button1, button2, button3, button4, button5, button6, button7, button8, button9,
+            button0, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonBackspace,
+            buttonExponent, buttonLn, buttonlog10, buttonFactorial, buttonModulus, buttonSin, buttonCos,
+            buttonTan, buttonPi, buttonE, buttonLeftBracket, buttonRightBracket, buttonArcSin, buttonArcCos, buttonArcTan,
+            buttonPhi, buttonImaginary;
     private View scrollView;
 
     public custom_keyboard1_initializer(Context context, AttributeSet attrs) {
@@ -22,12 +28,6 @@ public class custom_keyboard1_initializer extends GridLayout {
         // Inflate the custom keyboard layout
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View keyboardView = inflater.inflate(R.layout.custom_keyboard1, this, true);
-
-        Button button1, button2, button3, button4, button5, button6, button7, button8, button9,
-                button0, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonBackspace,
-                buttonExponent, buttonLn, buttonlog10, buttonFactorial, buttonModulus, buttonSin, buttonCos,
-                buttonTan, buttonPi, buttonE, buttonLeftBracket, buttonRightBracket, buttonArcSin, buttonArcCos, buttonArcTan,
-                buttonPhi, buttonImaginary;
 
         // Initialize buttons
         button1 = keyboardView.findViewById(R.id.button1);
@@ -47,7 +47,6 @@ public class custom_keyboard1_initializer extends GridLayout {
         buttonLn = keyboardView.findViewById(R.id.buttonLn);
         buttonlog10 = keyboardView.findViewById(R.id.buttonLog10);
         buttonFactorial = keyboardView.findViewById(R.id.button_factorial);
-        keyboardView.findViewById(R.id.button_modulus);
         buttonSin = keyboardView.findViewById(R.id.button_sin);
         buttonCos = keyboardView.findViewById(R.id.button_cos);
         buttonTan = keyboardView.findViewById(R.id.button_tan);
@@ -128,13 +127,92 @@ public class custom_keyboard1_initializer extends GridLayout {
 
     }
 
+    //if user presses keys 299792548, change all buttons to style button enabled for 0.5 sec
+    /*public void easterEgg() {
+        if (targetEditText.getText().toString().equals("299792548")) {
+            Paris.style(button1).apply(R.style.custom_button_enabled);
+            Paris.style(button2).apply(R.style.custom_button_enabled);
+            Paris.style(button3).apply(R.style.custom_button_enabled);
+            Paris.style(button4).apply(R.style.custom_button_enabled);
+            Paris.style(button5).apply(R.style.custom_button_enabled);
+            Paris.style(button6).apply(R.style.custom_button_enabled);
+            Paris.style(button7).apply(R.style.custom_button_enabled);
+            Paris.style(button8).apply(R.style.custom_button_enabled);
+            Paris.style(button9).apply(R.style.custom_button_enabled);
+            Paris.style(button0).apply(R.style.custom_button_enabled);
+            Paris.style(buttonPlus).apply(R.style.custom_button_enabled);
+            Paris.style(buttonMinus).apply(R.style.custom_button_enabled);
+            Paris.style(buttonMultiply).apply(R.style.custom_button_enabled);
+            Paris.style(buttonDivide).apply(R.style.custom_button_enabled);
+            Paris.style(buttonBackspace).apply(R.style.custom_button_enabled);
+            Paris.style(buttonExponent).apply(R.style.custom_button_enabled);
+            Paris.style(buttonLn).apply(R.style.custom_button_enabled);
+            Paris.style(buttonlog10).apply(R.style.custom_button_enabled);
+            Paris.style(buttonFactorial).apply(R.style.custom_button_enabled);
+            Paris.style(buttonModulus).apply(R.style.custom_button_enabled);
+            Paris.style(buttonSin).apply(R.style.custom_button_enabled);
+            Paris.style(buttonCos).apply(R.style.custom_button_enabled);
+            Paris.style(buttonTan).apply(R.style.custom_button_enabled);
+            Paris.style(buttonPi).apply(R.style.custom_button_enabled);
+            Paris.style(buttonE).apply(R.style.custom_button_enabled);
+            Paris.style(buttonLeftBracket).apply(R.style.custom_button_enabled);
+            Paris.style(buttonRightBracket).apply(R.style.custom_button_enabled);
+            Paris.style(buttonArcSin).apply(R.style.custom_button_enabled);
+            Paris.style(buttonArcCos).apply(R.style.custom_button_enabled);
+            Paris.style(buttonArcTan).apply(R.style.custom_button_enabled);
+            Paris.style(buttonPhi).apply(R.style.custom_button_enabled);
+            Paris.style(buttonImaginary).apply(R.style.custom_button_enabled);
+
+            Handler handler = new Handler();
+            handler.postDelayed(() -> {
+                Paris.style(button1).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button2).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button3).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button4).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button5).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button6).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button7).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button8).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button9).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(button0).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonPlus).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonMinus).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonMultiply).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonDivide).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonBackspace).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonExponent).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonLn).apply(R.style.custom_button_enabled_keyboard);
+                Paris.style(buttonlog10).apply(R.style.custom_button_enabled_keyboard);
+            }, 500);
+        } else {
+            Paris.style(button1).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button2).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button3).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button4).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button5).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button6).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button7).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button8).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button9).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(button0).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonPlus).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonMinus).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonMultiply).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonDivide).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonBackspace).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonExponent).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonLn).apply(R.style.custom_button_enabled_keyboard);
+            Paris.style(buttonlog10).apply(R.style.custom_button_enabled_keyboard);
+        }
+    }*/
+
     public void hideKeyboard() {
         scrollView.setPadding(0, 0, 0, 0);
         setVisibility(View.GONE);
 
     }
 
-    public String getKeyboardText(){
+    public String getKeyboardText() {
         return targetEditText.getText().toString();
     }
 
