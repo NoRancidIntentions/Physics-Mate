@@ -11,8 +11,6 @@ Capp/src/main/java/com/example/physicsmate/ui/main/SplashScreen.java,0\e\0ed78d
 Sapp/src/main/java/com/example/physicsmate/ui/main/custom_keyboard1_initializer.java,7\7\77fa81d6b436b8c3aa9f894ec166db71f7e671bb
 }
 Mapp/src/main/java/com/example/physicsmate/activities/physics/Gravitation.java,c\1\c13b6d0468f9ae07d3a5860d710f43bd082b9ba3
-‡
-Wapp/src/main/java/com/example/physicsmate/activities/physics/momentum_conservation.java,b\1\b16fa4f69a56734a40452ac28c991553ef9dba8a
 †
 Vapp/src/main/java/com/example/physicsmate/activities/physics/momentumConservation.java,5\5\5502d5fc42e1d84438f9e6fd35e9b64a7e41d148
 w
@@ -75,3 +73,6 @@ w
 G.idea/sonarlint/issuestore/1/c/1c7d8a8a9bde64a314907849ee1a37f52f51e913,f\6\f6eac26ac7050f72b5825c703816e238a43c2082
 w
 G.idea/sonarlint/issuestore/1/f/1fc23505a3dfbb530e3d9c3d9063cabfef39c55f,6\c\6c0090b14a928a36060bae143d20df7bdb495374
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

@@ -110,8 +110,6 @@ Aapp/src/test/java/com/example/physicsmate/Custom_methodsTest.java,e\7\e72f302d
 Mapp/src/main/java/com/example/physicsmate/activities/physics/Gravitation.java,c\1\c13b6d0468f9ae07d3a5860d710f43bd082b9ba3
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-‡
-Wapp/src/main/java/com/example/physicsmate/activities/physics/momentum_conservation.java,b\1\b16fa4f69a56734a40452ac28c991553ef9dba8a
 †
 Vapp/src/main/java/com/example/physicsmate/activities/physics/momentumConservation.java,5\5\5502d5fc42e1d84438f9e6fd35e9b64a7e41d148
 w
