@@ -123,6 +123,28 @@ public class Custom_methodsTest {
     }
 
     @Test
+    public void tempsolve() {
+        //v1*sin(b1)==u1*sin(a1)
+        //v2*sin(b2)==u2*sin(a2)
+        //v2*cos(b2) - v1*cos(b1) == e*(u1*cos(a1) + u2*cos(a2))
+        //m1*v1*cos(b1)+m2*v2*cos(b2)==m1*u1*cos(a1)+m2*u2*cos(a2)
+
+        ArrayList<String> eqns = new ArrayList<>();
+        eqns.add("v1*sin(b1)==u1*sin(a1)");
+        eqns.add("v2*sin(b2)==u2*sin(a2)");
+        eqns.add("v2*cos(b2) - v1*cos(b1) == e*(u1*cos(a1) - u2*cos(a2))");
+        eqns.add("m1*v1*cos(b1) + m2*v2*cos(b2) == m1*u1*cos(a1) + m2*u2*cos(a2)");
+        ArrayList<String> vars = new ArrayList<>();
+        vars.add("v1");
+        vars.add("v2");
+        vars.add("b1");
+        vars.add("b2");
+
+        System.out.println(solveEquationNumeric(eqns, vars));
+
+    }
+
+    @Test
     public void replaceNumbersInTrigWithRemainder() {
 
         String input = "sin(7*pi)";

@@ -19,6 +19,12 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
+                android:name=".ObliqeCollisionMenu"
+                android:exported="false"/>
+        <activity
+                android:name=".CollisionMenu"
+                android:exported="false"/>
+        <activity
                 android:name=".momentum_conservation"
                 android:exported="false"/>
         <activity

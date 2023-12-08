@@ -11,8 +11,6 @@ Capp/src/main/java/com/example/physicsmate/ui/main/SplashScreen.java,0\e\0ed78d
 Sapp/src/main/java/com/example/physicsmate/ui/main/custom_keyboard1_initializer.java,7\7\77fa81d6b436b8c3aa9f894ec166db71f7e671bb
 }
 Mapp/src/main/java/com/example/physicsmate/activities/physics/Gravitation.java,c\1\c13b6d0468f9ae07d3a5860d710f43bd082b9ba3
-†
-Vapp/src/main/java/com/example/physicsmate/activities/physics/momentumConservation.java,5\5\5502d5fc42e1d84438f9e6fd35e9b64a7e41d148
 w
 G.idea/sonarlint/issuestore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e,5\2\52114fdaa426e9b83a3c5df4e11c4f0ebbcd814b
 w
@@ -76,3 +74,9 @@ G.idea/sonarlint/issuestore/1/f/1fc23505a3dfbb530e3d9c3d9063cabfef39c55f,6\c\6c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+q
+Aapp/src/test/java/com/example/physicsmate/Custom_methodsTest.java,e\7\e72f302dd15d630696a25436acdc966d164f43ae
+
+Oapp/src/main/java/com/example/physicsmate/activities/physics/CollisionMenu.java,d\5\d595accc2371edee487b5899c1b24c48cb67ac16
+|
+Lapp/src/main/java/com/example/physicsmate/activities/physics/Kinematics.java,7\b\7b322dfe4b43432da49871a286fe2c985fb7fc20

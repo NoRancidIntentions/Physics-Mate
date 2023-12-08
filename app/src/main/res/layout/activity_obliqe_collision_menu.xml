@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/custom_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.physics.CollisionMenu$ObliqeCollisionMenu">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sv_oblique_collision_menu"/>
+
+    <TextView
+            style="@style/custom_textView"
+            android:text="Choose the known quantities"/>
+
+    <CheckBox
+            android:id="@+id/chkM1"
+            style="@style/custom_checkBox"
+            android:text="mass of object 1 (m1)"/>
+
+    <CheckBox
+            android:id="@+id/chkM2"
+            style="@style/custom_checkBox"
+            android:text="mass of object 2 (m2)"/>
+
+    <CheckBox
+            android:id="@+id/chkU1"
+            style="@style/custom_checkBox"
+            android:text="initial velocity of object 1 (u1)"/>
+
+    <CheckBox
+            android:id="@+id/chkU2"
+            style="@style/custom_checkBox"
+            android:text="initial velocity of object 2 (u2)"/>
+
+    <CheckBox
+            android:id="@+id/chkV1"
+            style="@style/custom_checkBox"
+            android:text="final velocity of object 1 (v1)"/>
+
+    <CheckBox
+            android:id="@+id/chkV2"
+            style="@style/custom_checkBox"
+            android:text="final velocity of object 2 (v2)"/>
+
+    <CheckBox
+            android:id="@+id/chkA1"
+            style="@style/custom_checkBox"
+            android:text="angle between initial velocity of first object and line of impact (a1)"/>
+
+    <CheckBox
+            android:id="@+id/chkA2"
+            style="@style/custom_checkBox"
+            android:text="angle between initial velocity of second object and line of impact (a2)"/>
+
+    <CheckBox
+            android:id="@+id/chkB1"
+            style="@style/custom_checkBox"
+            android:text="angle between final velocity of first object and line of impact (b1)"/>
+
+    <CheckBox
+            android:id="@+id/chkB2"
+            style="@style/custom_checkBox"
+            android:text="angle between final velocity of second object and line of impact (b2)"/>
+
+    <CheckBox
+            android:id="@+id/chkE"
+            style="@style/custom_checkBox"
+            android:text="coefficient of restitution (e)"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button_enabled"
+            android:id="@+id/btnNext"
+            android:text="next"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button_enabled"
+            android:id="@+id/btnClear"
+            android:text="clear all checkboxes"/>
+
+</LinearLayout>

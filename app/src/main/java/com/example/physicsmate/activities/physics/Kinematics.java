@@ -18,6 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -69,6 +71,7 @@ public class Kinematics extends AppCompatActivity {
             btn_clear.setVisibility(View.GONE);
 
             btn_next.setClickable(false);
+            btn_next.setEnabled(false);
             btn_next.setBackgroundResource(R.drawable.btn_disabled);
 
             final int[] a = {0};
@@ -88,21 +91,30 @@ public class Kinematics extends AppCompatActivity {
                 CB_u.setClickable(true);
 
                 btn_next.setClickable(false);
+                btn_next.setEnabled(false);
                 btn_next.setBackgroundResource(R.drawable.btn_disabled);
                 btn_clear.setVisibility(View.GONE);
 
                 a[0] = 0;
             });
 
-            CB_acc.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, CB_acc, CB_u, CB_v, CB_t, CB_s));
+            Collection<CheckBox> checkBoxes = new ArrayList<>();
+            checkBoxes.add(CB_acc);
+            checkBoxes.add(CB_u);
+            checkBoxes.add(CB_v);
+            checkBoxes.add(CB_t);
+            checkBoxes.add(CB_s);
 
-            CB_t.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, CB_acc, CB_u, CB_v, CB_t, CB_s));
 
-            CB_u.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, CB_acc, CB_u, CB_v, CB_t, CB_s));
+            CB_acc.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, checkBoxes));
 
-            CB_v.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, CB_acc, CB_u, CB_v, CB_t, CB_s));
+            CB_t.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, checkBoxes));
 
-            CB_s.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, CB_acc, CB_u, CB_v, CB_t, CB_s));
+            CB_u.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, checkBoxes));
+
+            CB_v.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, checkBoxes));
+
+            CB_s.setOnClickListener(view -> CB_MainMethod(btn_next, btn_clear, a, max_CB_Required, checkBoxes));
 
             btn_next.setOnClickListener(view -> {
 
@@ -128,7 +140,6 @@ public class Kinematics extends AppCompatActivity {
 
         public static class KE1_1 extends AppCompatActivity {
 
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);

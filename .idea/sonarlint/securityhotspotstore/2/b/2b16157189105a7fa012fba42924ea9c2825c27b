@@ -1,5 +1,6 @@
 
 
-java:S6362–"8Make sure that enabling JavaScript support is safe here.(ÃøŒşÿÿÿÿ8ÉîÔ–¿1J$e19d071d-0ef4-4d46-a719-c4e01fde2cfb
-Ã
-java:S5852™"Make sure the regex used here, which is vulnerable to polynomial runtime due to backtracking, cannot lead to denial of service.(ªÖ‘ø8ªóÔ–¿1J$6b2d15df-9d5b-4dbc-b1b6-336f126c68a2
+java:S6362–"8Make sure that enabling JavaScript support is safe here.(ÃøŒşÿÿÿÿ8ñÍøÔÄ1J$e5eb40db-b041-4622-bd4d-d47c023388d3
+Ù
+AYvr5Vnft_DAQzs2e_hY
+java:S5852™"Make sure the regex used here, which is vulnerable to polynomial runtime due to backtracking, cannot lead to denial of service.(ªÖ‘ø8¸á¹Â•1J$70c1de43-8d2c-48ee-bb8e-85a040536262

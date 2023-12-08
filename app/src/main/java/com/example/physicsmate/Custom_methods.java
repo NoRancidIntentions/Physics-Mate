@@ -988,6 +988,13 @@ public class Custom_methods {
 
     }
 
+    /**
+     * Increments the given integer array if the checkbox is checked and the first element of the array is less than the specified maximum value.
+     *
+     * @param  CB_acc             the checkbox to check
+     * @param  a                  the integer array to increment
+     * @param  max_CB_Required    the maximum value the first element can reach
+     */
     public static void CB_Incrementer_Till_Max(@NotNull CheckBox CB_acc, int[] a, int max_CB_Required) {
         if (CB_acc.isChecked() && a[0] < max_CB_Required) {
             a[0]++;
@@ -1000,7 +1007,8 @@ public class Custom_methods {
                 CB.setClickable(true);
             }
             btn_next.setClickable(false);
-            btn_next.setBackgroundResource(R.drawable.btn_disabled);
+            btn_next.setEnabled(false);
+            Paris.styleBuilder(btn_next).add(R.style.custom_button_disabled).apply();
             btn_clear.setVisibility(View.VISIBLE);
         }
     }
@@ -1011,28 +1019,38 @@ public class Custom_methods {
         }
     }
 
-    public static void CB_MainMethod(@NotNull Button btn_next, @NotNull Button btn_clear, int @NotNull [] a, int max_CB_Required, @NotNull CheckBox... CheckBoxes) {
+    /**
+     * Generates the function comment for the given function body.
+     *
+     * @param  btnNext          the next button
+     * @param  btnClear         the clear button
+     * @param  a                 the array of integers
+     * @param  max_CB_Required   the maximum number of checkboxes required
+     * @param  checkBoxes        the checkboxes
+     */
+    public static void CB_MainMethod(@NotNull Button btnNext, @NotNull Button btnClear, int @NotNull [] a, int max_CB_Required, Iterable<CheckBox> checkBoxes) {
 
-        for (CheckBox CB : CheckBoxes) {
+        for (CheckBox CB : checkBoxes) {
             CB_Incrementer_Till_Max(CB, a, max_CB_Required);
         }
 
         if (a[0] == max_CB_Required) {
-            btn_clear.setVisibility(View.VISIBLE);
-            btn_next.setClickable(true);
-            btn_next.setBackgroundResource(R.drawable.btn_enabled);
+            btnClear.setVisibility(View.VISIBLE);
+            btnNext.setClickable(true);
+            btnNext.setEnabled(true);
+            Paris.styleBuilder(btnNext).add(R.style.custom_button_enabled).apply();
 
-            for (CheckBox CB : CheckBoxes) {
+            for (CheckBox CB : checkBoxes) {
                 CB_disable_if3(CB);
             }
         }
 
         if (a[0] == 0) {
-            btn_clear.setVisibility(View.GONE);
+            btnClear.setVisibility(View.GONE);
         }
 
-        for (CheckBox CB : CheckBoxes) {
-            CB_LessThanMaxThen(btn_next, btn_clear, a, max_CB_Required, CB);
+        for (CheckBox CB : checkBoxes) {
+            CB_LessThanMaxThen(btnNext, btnClear, a, max_CB_Required, CB);
         }
 
         a[0] = 0;
