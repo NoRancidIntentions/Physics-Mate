@@ -80,3 +80,7 @@ Aapp/src/test/java/com/example/physicsmate/Custom_methodsTest.java,e\7\e72f302d
 Oapp/src/main/java/com/example/physicsmate/activities/physics/CollisionMenu.java,d\5\d595accc2371edee487b5899c1b24c48cb67ac16
 |
 Lapp/src/main/java/com/example/physicsmate/activities/physics/Kinematics.java,7\b\7b322dfe4b43432da49871a286fe2c985fb7fc20
+q
+Aapp/src/main/java/com/example/physicsmate/activities/math/QE.java,1\7\1753bc76900040640ac1ac0886425fdce93cadc1
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

@@ -60,7 +60,7 @@ public class Custom_methods {
      * @param number The number to check.
      * @return The number of fraction digits.
      */
-    public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
+    /*public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
         if (number == null) {
             return 0; // If the number is null, there are no fraction digits.
         }
@@ -72,10 +72,11 @@ public class Custom_methods {
         BigDecimal bd = new BigDecimal(number.toString());
         bd = bd.stripTrailingZeros(); // Remove trailing zeros to get the correct scale.
         return bd.scale();
-    }
+    }*/
 
 
     //method to round a number to the least number of decimal places from all the edit texts
+
     /**
      * Returns a rounded string representation of the given number, rounded to the least number
      * of decimal places from all the EditTexts.
@@ -85,22 +86,37 @@ public class Custom_methods {
      * @return a rounded string representation of the number
      */
     public static String rounded_String(double t, EditText... editTexts) {
-        int[] precision = new int[editTexts.length];
-        for (int i = 0; i < editTexts.length; i++) {
-            precision[i] = getNumberOfFractionDigits(Double.parseDouble(editTexts[i].getText().toString()));
+        //from the edittexts, get the least number of decimal places
+        int minDecimalPlaces = Integer.MAX_VALUE;
+
+        for (EditText editText : editTexts) {
+            String text = editText.getText().toString();
+            double number = Double.parseDouble(text);
+            int decimalPlaces = getNumberOfDecimalPlaces(number);
+
+            if (decimalPlaces < minDecimalPlaces) {
+                minDecimalPlaces = decimalPlaces;
+            }
         }
-        int min = precision[0];
-        for (int j : precision) {
-            if (j < min) min = j;
+
+        // Use the minDecimalPlaces value for rounding the number
+        // ...
+        return String.valueOf(round(t, minDecimalPlaces));
+    }
+
+    private static int getNumberOfDecimalPlaces(double number) {
+        String[] parts = String.valueOf(number).split("\\.");
+        if (parts.length == 2) {
+            return parts[1].length();
         }
-        return String.valueOf(round(t, min));
+        return 0;
     }
 
     /**
      * Evaluates a mathematical expression and returns the result as a double.
      *
-     * @param  str  the mathematical expression to be evaluated
-     * @return      the result of the evaluation as a double
+     * @param str the mathematical expression to be evaluated
+     * @return the result of the evaluation as a double
      */
     public static double evalf(@NotNull final String str) {
         ExprEvaluator util = new ExprEvaluator();
@@ -229,9 +245,9 @@ public class Custom_methods {
     /**
      * Sets up a change listener for the EditTexts and Button.
      *
-     * @param  viewsToDisappear  an array of views to disappear when any EditText is empty
-     * @param  btnCalc           the button to enable or disable based on EditTexts' contents
-     * @param  editTexts         an array of EditTexts to listen for changes
+     * @param viewsToDisappear an array of views to disappear when any EditText is empty
+     * @param btnCalc          the button to enable or disable based on EditTexts' contents
+     * @param editTexts        an array of EditTexts to listen for changes
      */
     public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, custom_keyboard1_initializer custom_keyboard, EditText... editTexts) {
 
@@ -306,7 +322,7 @@ public class Custom_methods {
     }
 
     //set up the edittext to use the custom keyboard
-    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, View scrollView, EditText ...editText) {
+    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, View scrollView, EditText... editText) {
 
         for (EditText editText1 : editText) {
             editText1.setShowSoftInputOnFocus(false);
@@ -325,8 +341,8 @@ public class Custom_methods {
     /**
      * Replaces constants in the input string with their corresponding values.
      *
-     * @param  input   the input string to be processed
-     * @return         the processed string with constants replaced
+     * @param input the input string to be processed
+     * @return the processed string with constants replaced
      */
     public static String replaceConstants(String input) {
         // Replace "pi" with "Pi"
@@ -349,8 +365,8 @@ public class Custom_methods {
      * Removes null values from the given array and returns a new array
      * without the null values.
      *
-     * @param  array  the array from which to remove null values
-     * @return        the new array without null values
+     * @param array the array from which to remove null values
+     * @return the new array without null values
      */
     public static String[] removeNullValues(String[] array) {
         List<String> resultList = new ArrayList<>();
@@ -366,11 +382,12 @@ public class Custom_methods {
     }
 
     //method to find number of extremas of a polynomial
+
     /**
      * This method finds the number of extrema of a polynomial.
      *
      * @param function the polynomial function
-     * @param var the variable of the polynomial function
+     * @param var      the variable of the polynomial function
      * @return an array of strings representing the extremas as (x, y) pairs
      */
     public static String[] ExtremasFinder(String function, String var) {
@@ -745,8 +762,8 @@ public class Custom_methods {
     /**
      * Retrieves the LaTeX representation of a mathematical function.
      *
-     * @param  function  the mathematical function to convert to LaTeX
-     * @return           the LaTeX representation of the function
+     * @param function the mathematical function to convert to LaTeX
+     * @return the LaTeX representation of the function
      */
     public static String getTex(String function) {
         try {
@@ -831,7 +848,7 @@ public class Custom_methods {
         mChart.setVisibility(View.VISIBLE);
     }
 
-    @NotNull
+    /*@NotNull
     public static String rounded_StringNLOG(double t) {
         if (getNumberOfFractionDigits(t) <= 4) {
             return String.valueOf(t);
@@ -841,7 +858,7 @@ public class Custom_methods {
             return (t == (int) t ? String.valueOf((int) t) : df.format(t));
         }
 
-    }
+    }*/
 
     public static void TextChangeListeners(@Nullable TextView tvresult, @NotNull EditText... editTexts) {
 
@@ -991,9 +1008,9 @@ public class Custom_methods {
     /**
      * Increments the given integer array if the checkbox is checked and the first element of the array is less than the specified maximum value.
      *
-     * @param  CB_acc             the checkbox to check
-     * @param  a                  the integer array to increment
-     * @param  max_CB_Required    the maximum value the first element can reach
+     * @param CB_acc          the checkbox to check
+     * @param a               the integer array to increment
+     * @param max_CB_Required the maximum value the first element can reach
      */
     public static void CB_Incrementer_Till_Max(@NotNull CheckBox CB_acc, int[] a, int max_CB_Required) {
         if (CB_acc.isChecked() && a[0] < max_CB_Required) {
@@ -1022,11 +1039,11 @@ public class Custom_methods {
     /**
      * Generates the function comment for the given function body.
      *
-     * @param  btnNext          the next button
-     * @param  btnClear         the clear button
-     * @param  a                 the array of integers
-     * @param  max_CB_Required   the maximum number of checkboxes required
-     * @param  checkBoxes        the checkboxes
+     * @param btnNext         the next button
+     * @param btnClear        the clear button
+     * @param a               the array of integers
+     * @param max_CB_Required the maximum number of checkboxes required
+     * @param checkBoxes      the checkboxes
      */
     public static void CB_MainMethod(@NotNull Button btnNext, @NotNull Button btnClear, int @NotNull [] a, int max_CB_Required, Iterable<CheckBox> checkBoxes) {
 

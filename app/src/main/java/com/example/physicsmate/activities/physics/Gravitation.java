@@ -1171,7 +1171,7 @@ public class Gravitation extends AppCompatActivity {
 
                         double result = ((0.00000000006674010551359 * m1 * m2) / (r * r));
 
-                        String res = "<font color = #CDDC39>" + rounded_StringNLOG(result) + "</font> <font color = #6BBBE1> N </font>";
+                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> N </font>";
                         tvNLOG1result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
                         SV_NLOG1.post(() -> SV_NLOG1.smoothScrollTo(0, btnCopy.getBottom()));
@@ -1243,7 +1243,7 @@ public class Gravitation extends AppCompatActivity {
                         double r = evalf(etNLOG2r.getText().toString().trim());
 
                         double result = ((n * r * r) / (m * 0.00000000006674010551359));
-                        String res = "<font color = #CDDC39>" + rounded_StringNLOG(result) + "</font> <font color = #6BBBE1> Kg </font>";
+                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> Kg </font>";
 
                         tvNLOG2result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
@@ -1318,7 +1318,7 @@ public class Gravitation extends AppCompatActivity {
                         double n = evalf(etNLOG3f.getText().toString().trim());
 
                         double result = (Math.sqrt((0.00000000006674010551359 * m1 * m2) / n));
-                        String res = "<font color = #CDDC39>" + rounded_StringNLOG(result) + "</font> <font color = #6BBBE1> m </font>";
+                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> m </font>";
 
                         tvNLOG3result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 

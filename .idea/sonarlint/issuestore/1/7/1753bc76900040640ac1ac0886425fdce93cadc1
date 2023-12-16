@@ -1,46 +1,77 @@
 
-^
-java:S1192¹"GDefine a constant instead of duplicating this literal "</font" 3 times.(œŸ Ì
-e	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øÜ¬=
-g	java:S117­"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ
-g	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá
-g	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»
-g	java:S117±"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ºùÖ
-g	java:S117é"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ
-g	java:S117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá
-g	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»
-g	java:S117ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïàîì
-g	java:S117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ
-g	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá
-g	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»
-g	java:S117È"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ú¢›
-l	java:S117É"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦÷’äùÿÿÿÿ
-l	java:S117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¿û«şÿÿÿÿ
-h	java:S101º"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÈÒé¦ÿÿÿÿÿ
-j	java:S116 "PRename this field "SV_QE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı€ï°ıÿÿÿÿ
-Y
-java:S1659">Declare "b" and all following declarations on a separate line.(âÇ†ìøÿÿÿÿ
-^
-java:S1659"CDeclare "btnQE2" and all following declarations on a separate line.(Œ¢á¬ıÿÿÿÿ
-m
-java:S3776$"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(¨Œşÿÿÿÿ
-—
-java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ
-—
-java:S1186V"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â
-—
-java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ
-—
-java:S1186g"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â
-—
-java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ
-—
-java:S1186x"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â
-˜
-java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ
-˜
-java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â
-˜
-java:S1186–"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ
-˜
-java:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â
+¡
+AYvr5VmJt_DAQzs2e_cr
+java:S1192¹"GDefine a constant instead of duplicating this literal "</font" 3 times.(œŸ Ì8è¾¤ë1J$7a42f4a1-ce64-4168-aa13-ed393e9c0e29
+¨
+AYvr5VmJt_DAQzs2e_cs	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øÜ¬=8è¾¤ë1J$67710f98-e60f-48f8-addf-71d213e1dd86
+ª
+AYvr5VmJt_DAQzs2e_ct	java:S117­"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ8«Ñ€±1J$17934bcb-f76b-4950-947a-1ddd1e6482c9
+ª
+AYvr5VmJt_DAQzs2e_cu	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá8«Ñ€±1J$90c59ae7-236a-49fe-98b3-b44231fed9c4
+ª
+AYvr5VmJt_DAQzs2e_cv	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»8«Ñ€±1J$a58b1d96-b3f3-413c-b926-86cf6c662626
+ª
+AYvr5VmJt_DAQzs2e_cw	java:S117±"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ºùÖ8è¾¤ë1J$8d282ddf-3c9b-4883-a4bd-4119b1329ca5
+ª
+AYvr5VmJt_DAQzs2e_cx	java:S117é"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ8«Ñ€±1J$e0ca3f38-96e0-42c3-8eec-912e54b2d9a1
+ª
+AYvr5VmJt_DAQzs2e_cy	java:S117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá8«Ñ€±1J$bd082fa8-ad56-4960-b5f6-7cdb53a99ddc
+ª
+AYvr5VmJt_DAQzs2e_cz	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»8«Ñ€±1J$534b6a3f-5826-4a9e-9153-500afff8c280
+ª
+AYvr5VmJt_DAQzs2e_c0	java:S117ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïàîì8è¾¤ë1J$1ad48b6d-fc2b-42ea-8a5b-e353b7770069
+ª
+AYvr5VmJt_DAQzs2e_c1	java:S117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ñââ8«Ñ€±1J$29fe5b0c-eb4c-48f4-9590-5802fdeec2ef
+ª
+AYvr5VmJt_DAQzs2e_c2	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çüá8«Ñ€±1J$fed931ad-9b04-4031-acab-65f03f24473d
+ª
+AYvr5VmJt_DAQzs2e_c3	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤æ»8«Ñ€±1J$a123b9fe-88b0-4fbd-98d7-9adf6f991b4c
+ª
+AYvr5VmJt_DAQzs2e_c4	java:S117È"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ú¢›8è¾¤ë1J$7f1ca023-3dc8-4a94-a93c-ff1a682a2601
+¯
+AYvr5VmJt_DAQzs2e_c5	java:S117É"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦÷’äùÿÿÿÿ8è¾¤ë1J$419589d5-4aad-4d17-8372-04323c36048e
+¯
+AYvr5VmJt_DAQzs2e_c6	java:S117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¿û«şÿÿÿÿ8è¾¤ë1J$010e80b9-3bd9-4c52-b28b-3957bbfe3a7b
+«
+AYvr5VmJt_DAQzs2e_c7	java:S101º"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÈÒé¦ÿÿÿÿÿ8è¾¤ë1J$6cb64587-c987-450a-8402-aeb5726adee1
+­
+AYvr5VmJt_DAQzs2e_c8	java:S116 "PRename this field "SV_QE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı€ï°ıÿÿÿÿ8è¾¤ë1J$66172ade-e4d8-461e-8d0f-fd37e7056cd5
+œ
+AYvr5VmJt_DAQzs2e_c9
+java:S1659">Declare "b" and all following declarations on a separate line.(âÇ†ìøÿÿÿÿ8è¾¤ë1J$4dc9dda3-41d7-45f5-86b3-a3994116eb97
+¡
+AYvr5VmJt_DAQzs2e_c-
+java:S1659"CDeclare "btnQE2" and all following declarations on a separate line.(Œ¢á¬ıÿÿÿÿ8è¾¤ë1J$fef59977-1803-47d5-bbb9-63f57246c3c5
+°
+AYvr5VmJt_DAQzs2e_c_
+java:S3776$"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(¨Œşÿÿÿÿ8è¾¤ë1J$5f20836c-daf9-4adb-8bc1-25c73a9fc3d9
+Ú
+AYvr5VmJt_DAQzs2e_dA
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8è¾¤ë1J$54c0676d-b7f7-49e3-ac95-6eea8404c7ee
+Ú
+AYvr5VmJt_DAQzs2e_dB
+java:S1186V"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8è¾¤ë1J$7ed34ef4-0eb8-4b16-92ad-7ecf822e9cef
+Ú
+AYvr5VmJt_DAQzs2e_dC
+java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8è¾¤ë1J$5210dbee-5b02-40b9-bf5e-9e6b397fd6f4
+Ú
+AYvr5VmJt_DAQzs2e_dD
+java:S1186g"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8è¾¤ë1J$d5769fe2-5d09-4fae-b91d-fcaca2cef402
+Ú
+AYvr5VmJt_DAQzs2e_dE
+java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8è¾¤ë1J$2db06b00-4394-43a3-bdfc-2f06e4cd63a7
+Ú
+AYvr5VmJt_DAQzs2e_dF
+java:S1186x"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8è¾¤ë1J$d9e1b2a2-cadc-4217-b6ab-2903904c0daa
+Û
+AYvr5VmJt_DAQzs2e_dG
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8è¾¤ë1J$678f0488-23ef-457e-b3a3-39fe2276eade
+Û
+AYvr5VmJt_DAQzs2e_dH
+java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8è¾¤ë1J$511c3bb5-88b6-4591-a521-249463f518e4
+Û
+AYvr5VmJt_DAQzs2e_dI
+java:S1186–"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8è¾¤ë1J$275ae92a-4d6b-488b-b9cc-2f598abd76da
+Û
+AYvr5VmJt_DAQzs2e_dJ
+java:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8è¾¤ë1J$4aedc35c-baf2-4d58-be23-54d4f86aa18e

@@ -8,31 +8,17 @@
             android:layout_height="match_parent"
             android:background="@color/app_bg">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="@color/app_bg"
             tools:context=".activities.math.QE">
 
         <TextView
                 android:id="@+id/textView22"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sans_bold"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="Please enter the coefficients"
-                android:textAllCaps="true"
-                android:textColor="@color/text_question"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                style = "@style/custom_textView"
+                android:text="Please enter the coefficients"/>
 
         <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
@@ -42,12 +28,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                android:background="@color/app_bg"
-                app:layout_constraintBottom_toTopOf="@+id/button9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22">
+                android:background="@color/app_bg">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -56,7 +37,6 @@
 
                 <EditText
                         android:singleLine="true"
-
                         android:id="@+id/editTextNumberDecimal19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -67,7 +47,7 @@
                         android:digits="+-0123*/456789." android:minHeight="48dp"
                         android:textColor="@android:color/white"
                         android:textColorHint="@color/text_hint"
-                        android:textSize="40sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal20"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -87,7 +67,7 @@
                         android:digits="+-0123*/456789." android:minHeight="48dp"
                         android:textColor="@android:color/white"
                         android:textColorHint="@color/text_hint"
-                        android:textSize="40sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal21"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -107,7 +87,7 @@
                         android:digits="+-0123*/456789." android:minHeight="48dp"
                         android:textColor="@android:color/white"
                         android:textColorHint="@color/text_hint"
-                        android:textSize="40sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -155,115 +135,31 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button9"
                 style="@style/custom_button_enabled"
-                app:layout_constraintBottom_toTopOf="@+id/textView23"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"/>
+        />
 
         <TextView
                 android:id="@+id/textView23"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sans_semi_bold"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="TextView"
-                android:textColor="@color/text_question"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView25"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button9"/>
+                style = "@style/custom_textView"/>
 
         <TextView
                 android:id="@+id/textView25"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sans_semi_bold"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="TextView"
-                android:textColor="@color/text_question"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView26"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView23"/>
+                style = "@style/custom_textView"/>
 
         <TextView
                 android:id="@+id/textView26"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sans_semi_bold"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="TextView"
-                android:textColor="@color/text_question"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toTopOf="@+id/btnQE2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25"/>
+                style = "@style/custom_textView"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnQE2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/btn_enabled"
-                android:fontFamily="@font/sans_bold"
-                android:paddingStart="10dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:text="Get area under the curve"
-                android:textColor="@drawable/dynamic_text"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView27"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView26"/>
+                style = "@style/custom_button_enabled"
+                android:text="Get area under the curve"/>
 
         <TextView
                 android:id="@+id/textView27"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sans_bold"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="Enter minimum value of 'x'"
-                android:textAllCaps="true"
-                android:textColor="@color/text_question"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal16"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnQE2"/>
+                style = "@style/custom_textView"
+                android:text="Enter minimum value of 'x'"/>
 
         <EditText
-                android:singleLine="true"
-
                 android:id="@+id/editTextNumberDecimal16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -395,6 +291,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal17"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

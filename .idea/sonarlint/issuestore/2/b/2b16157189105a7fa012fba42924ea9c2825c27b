@@ -1,184 +1,184 @@
 
 Ï
 AYvr5Vnft_DAQzs2e_f9
-java:S1319¤"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¾ÕâÅúÿÿÿÿ8è¾¤ë1J$888ed38e-fa75-4512-a8e1-2a539ccaaddd
+java:S1319µ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¾ÕâÅúÿÿÿÿ8è¾¤ë1J$c443cc2e-7680-4a7d-a06b-1438d293448e
 ª
-AYv9ECz6Ph8LdeImV_Wv	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§åÄ×8Ğß¿è¿1J$28b19b41-7c3d-426e-807a-68224659ae86
+AYv9ECz6Ph8LdeImV_Wv	java:S117ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§åÄ×8Ğß¿è¿1J$d655e7d4-ea80-478e-8cd0-fa538cecaeb4
 ¯
-AYvr5Vnft_DAQzs2e_f-	java:S117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒåæñüÿÿÿÿ8°õ«ô²1J$0de0358f-cb91-4cc6-ab97-0d5e0ef7c8bc
+AYvr5Vnft_DAQzs2e_f-	java:S117Å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒåæñüÿÿÿÿ8°õ«ô²1J$9bfacb19-22a5-428e-ac5a-ecb674abacbe
 ª
-AYvr5Vnft_DAQzs2e_f_	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬†¹8è¾¤ë1J$3e5705d8-73ad-4ccc-a52b-79a58d8d5751
+AYvr5Vnft_DAQzs2e_f_	java:S117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬†¹8è¾¤ë1J$03bfbc72-e2df-47d5-831b-151d333f3cba
 ¯
-AYvr5Vnft_DAQzs2e_gA	java:S117ˆ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’É²Íÿÿÿÿÿ8è¾¤ë1J$e2732a40-bc8f-400b-afd6-14cd57921549
+AYvr5Vnft_DAQzs2e_gA	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’É²Íÿÿÿÿÿ8è¾¤ë1J$b95ac3c9-9357-41e9-b63e-6968e2cefc80
 ©
-AYvr5Vnft_DAQzs2e_gB	java:S117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌĞûK8è¾¤ë1J$4a92c263-32fc-4ad3-b59b-c44f52f11d8c
+AYvr5Vnft_DAQzs2e_gB	java:S117¥"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌĞûK8è¾¤ë1J$521f6f63-5537-4fc7-98ea-d2416857c699
 ª
-AYvr5Vnft_DAQzs2e_gC	java:S117¢"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°éÎ¡8è¾¤ë1J$c4454e04-33fc-4667-84ad-6499a430bc1e
+AYvr5Vnft_DAQzs2e_gH	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°éÎ¡8è¾¤ë1J$af3e23b9-a267-4f95-8168-1ea8b93a014e
 ª
-AYvr5Vnft_DAQzs2e_gD	java:S117§"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¦¦ğ8è¾¤ë1J$04af7102-3f68-49f6-97c3-3965dc06172c
+AYvr5Vnft_DAQzs2e_gD	java:S117¸"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¦¦ğ8è¾¤ë1J$5885cf6c-aa6f-4f96-b5dd-733de299e02a
 ª
-AYvr5Vnft_DAQzs2e_gE	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¶«á8è¾¤ë1J$6e5dd2ad-6ffc-4851-81b9-cfd69bbb799d
+AYvr5Vnft_DAQzs2e_gJ	java:S117»"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¶«á8è¾¤ë1J$72368822-d9bb-431f-9e33-0e465ff2bc3d
 ª
-AYvr5Vnft_DAQzs2e_gF	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬†¹8è¾¤ë1J$3357c406-c347-471a-9f3e-ca8eb0103544
+AYvr5Vnft_DAQzs2e_gI	java:S117ß"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬†¹8è¾¤ë1J$13f3f3d5-7ad8-481f-a4a2-0cf1e298aab3
 ©
-AYvr5Vnft_DAQzs2e_gG	java:S117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌĞûK8è¾¤ë1J$5f6faa97-09af-4665-bd20-346c47f47b38
+AYvr5Vnft_DAQzs2e_gG	java:S117á"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌĞûK8è¾¤ë1J$4f2321de-711a-4f6e-a791-3b126a6e1219
 ª
-AYvr5Vnft_DAQzs2e_gH	java:S117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°éÎ¡8è¾¤ë1J$3bec724e-0081-4952-8c9e-40f7bf3eee2f
+AYvr5Vnft_DAQzs2e_gC	java:S117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°éÎ¡8è¾¤ë1J$9cf68242-dd5d-4cc6-8b8a-4ca22a960990
+”	java:S117ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›É·»8² êïÄ1J$fbf08d68-deff-4730-872b-7878879febba
 ª
-AYvr5Vnft_DAQzs2e_gI	java:S117Ş"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›É·»8è¾¤ë1J$e118b3ce-82f8-44d7-9831-c2451b8fd0ee
-ª
-AYvr5Vnft_DAQzs2e_gJ	java:S117á"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¶«á8è¾¤ë1J$f1dec5c1-6f9a-45bf-8d59-17c24b280161
+AYvr5Vnft_DAQzs2e_gE	java:S117ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¶«á8è¾¤ë1J$c7cfa013-e53a-40d2-99a3-cf7f7354a33f
 ¯
-AYvr5Vnft_DAQzs2e_gK	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇŞ·Êüÿÿÿÿ8è¾¤ë1J$6a82763c-f95b-4d3f-b884-fddec72773b2
+AYvr5Vnft_DAQzs2e_gK	java:S117÷"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇŞ·Êüÿÿÿÿ8è¾¤ë1J$868d713e-dccf-4966-9c54-1a6b682b0afb
 ¯
-AYvr5Vnft_DAQzs2e_gL	java:S117ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç„êñşÿÿÿÿ8è¾¤ë1J$1192c7e2-a96d-49ee-bd67-dcbd31831d2f
+AYvr5Vnft_DAQzs2e_gL	java:S117ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç„êñşÿÿÿÿ8è¾¤ë1J$0026decc-0401-42f8-8ed9-575cc9bbddab
 ª
-AYvr5Vnft_DAQzs2e_gM	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈàÜ‘8è¾¤ë1J$35702d9b-2551-45ce-87b2-c5ed9a28b97f
+AYvr5Vnft_DAQzs2e_gM	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈàÜ‘8è¾¤ë1J$a2aec396-4538-4d87-9310-78c6bd5a8c38
 ¯
-AYvr5Vnft_DAQzs2e_gN	java:S117¢"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ğíóşÿÿÿÿ8è¾¤ë1J$79a25d28-2815-40ea-8c89-fee010acb8d5
+AYvr5Vnft_DAQzs2e_gN	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ğíóşÿÿÿÿ8è¾¤ë1J$48c35a1b-bd73-4392-8bc5-88eaf2b784bf
 ¯
-AYvr5Vnft_DAQzs2e_gP	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8è¾¤ë1J$19306ace-6f34-4cb1-9477-e2182907c74e
+AYvr5Vnft_DAQzs2e_gO	java:S117÷"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8è¾¤ë1J$b2f391fc-cced-4a30-b0f7-4cd5e863ca22
 ¯
-AYvr5Vnft_DAQzs2e_gO	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8è¾¤ë1J$41d9db71-034d-4780-b4ff-4b92461f714f
+AYvr5Vnft_DAQzs2e_gP	java:S117÷"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8è¾¤ë1J$97293353-79ba-4e17-9068-22dea4f3639b
 ª
-AYvr5Vnft_DAQzs2e_gR	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$5f276b46-2d9e-4f57-b0f2-b604ac10865b
+AYvr5Vnft_DAQzs2e_gS	java:S117ı"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$3aaa60ff-53bd-4d20-81a4-d834243e7235
 ª
-AYvr5Vnft_DAQzs2e_gQ	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$6ef41460-1f5e-4cdf-abda-c3bb55fd0954
+AYvr5Vnft_DAQzs2e_gR	java:S117ı"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$709b1281-2bdf-4541-b293-18722217b62b
 ª
-AYvr5Vnft_DAQzs2e_gS	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$f3c5653f-83bf-464b-b09b-30ca6bef7c10
+AYvr5Vnft_DAQzs2e_gQ	java:S117ı"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$91630f80-5e5c-4fbe-a8be-c71644449201
 ¯
-AYvr5Vnft_DAQzs2e_gT	java:S117ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×”Ìÿÿÿÿÿ8è¾¤ë1J$ea5cf579-5c0c-48ed-83c8-8cbac8c05d57
-™	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂŠ¨¤ıÿÿÿÿ8·±øÔÄ1J$31dd9ef4-85b7-45c4-978c-2bc6a7fc69cd
+AYvr5Vnft_DAQzs2e_gT	java:S117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×”Ìÿÿÿÿÿ8è¾¤ë1J$61424f6b-bf54-40fd-b44e-8878ccb4a123
+¯
+AYxKqKZzjqw60iMBLBu4	java:S117˜"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂŠ¨¤ıÿÿÿÿ8¨ ŸÕÄ1J$ee457f72-bc2a-4752-8ab7-6dae1a91b87c
 ¥
-AYvr5Vnft_DAQzs2e_gY	java:S1015"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Öª‹8è¾¤ë1J$c5840cbf-0f17-400a-8146-64ed41310983
-
+AYvr5Vnft_DAQzs2e_gY	java:S1015"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Öª‹8è¾¤ë1J$69c220e6-b29f-49a1-8025-1b14dcc6a661
+‚
 AYvr5Vnft_DAQzs2e_gZ
-java:S5411x"(Use a primitive boolean expression here.(ÊµÔÒ8Øâ¤±¬1J$719805b8-2c68-4e2e-97b4-7c1d78600aa4
+java:S5411ˆ"(Use a primitive boolean expression here.(ÊµÔÒ8Øâ¤±¬1J$22c63cbc-34f2-4910-a046-829f7fcb8077
 ´
 AYv9ECz6Ph8LdeImV_Ww
-java:S30087"VRename this field "StringError" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ±­ûÿÿÿÿ8Ğß¿è¿1J$48a393c2-df9e-4d0e-b590-eb5b0c89963f
+java:S30087"VRename this field "StringError" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ±­ûÿÿÿÿ8Ğß¿è¿1J$795d0adf-f43f-44c1-907d-ce6dbb7d2b33
 “
 AYvr5Vnft_DAQzs2e_ga
-java:S11185":Add a private constructor to hide the implicit public one.(Öª‹8è¾¤ë1J$3c79ae4c-f5a5-465d-93aa-10b1b94366f1
+java:S11185":Add a private constructor to hide the implicit public one.(Öª‹8è¾¤ë1J$d2106a3b-2da6-447e-ae87-584c4c4ea13c
 «
-AYvr5Vnft_DAQzs2e_gb	java:S100W"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ë¬ûÿÿÿÿ8è¾¤ë1J$3ae521d5-86fa-4317-9b48-d97e9240a4ed
+AYvr5Vnft_DAQzs2e_gb	java:S100X"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ë¬ûÿÿÿÿ8è¾¤ë1J$1daa9c2e-2015-4581-a629-42c9bd00d4b1
+~	java:S125?"<This block of commented-out lines of code should be removed.(¡ñËé8ı´êïÄ1J$dae30b45-3a5a-413e-8217-b62aaa3688f5
 ‡
-AYv9ECz6Ph8LdeImV_Wx	java:S108›")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$ae2892c3-6cf7-4cfa-bd08-e1e1811c960f
+AYv9ECz6Ph8LdeImV_W7	java:S108«")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$4ede341a-6e7b-4ee1-8453-4df11ea8afde
 ‡
-AYv9ECz6Ph8LdeImV_Wy	java:S108º")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$19912600-7f48-4466-98dd-9254d818eb80
+AYv9ECz6Ph8LdeImV_W6	java:S108Ê")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$45dbb99a-d394-4b43-a47f-291890027367
 ¬
 AYv9ECz6Ph8LdeImV_Wz
-java:S3776ì"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(§åÄ×8Ğß¿è¿1J$f8abf2eb-b00f-4161-9edb-2e31192e47b0
+java:S3776ü"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(§åÄ×8Ğß¿è¿1J$293f3b3f-b5c7-4989-9419-cab00dec167e
 
 AYv9ECz6Ph8LdeImV_W0
-java:S1172ì"6Remove this unused method parameter "custom_keyboard".(§åÄ×8Ğß¿è¿1J$6a6d9070-ea9b-473b-9d1b-cc28cb5a054e
+java:S1172ü"6Remove this unused method parameter "custom_keyboard".(§åÄ×8Ğß¿è¿1J$2245b0d8-435e-4258-8cc5-5ec214829597
 İ
 AYvr5Vnft_DAQzs2e_gl
-java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8Ø›ºš1@J$23e099b8-54c8-45c1-be85-e2764e76d52f
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(á¬‡İ8Ø›ºš1@J$5db1c22d-d44e-4be0-a08c-252e3f3afae0
 İ
 AYvr5Vnft_DAQzs2e_gm
-java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8Ø›ºš1@J$d1c5568e-e9da-42cb-85fb-fa822f2fa438
+java:S1186™"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Œğ£Â8Ø›ºš1@J$474b91a9-2812-4538-8595-4e8362d376e7
 §
-AYvr5Vnft_DAQzs2e_gq	java:S100ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø“Ü‹8è¾¤ë1J$e24a8b71-e0ff-4916-a6a3-63d69d362957
+AYvr5Vnft_DAQzs2e_gq	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø“Ü‹8è¾¤ë1J$50e99213-a40f-427b-8444-279b73312cfe
 ¬
 AYvr5Vnft_DAQzs2e_gr
-java:S3776ø"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ø“Ü‹8è¾¤ë1J$ee0d8353-7642-4569-8119-e75d7f69182f
+java:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ø“Ü‹8è¾¤ë1J$fcfd64bb-4dad-45fb-9947-e4e8b6e69c3b
 ”
 AYvr5Vnft_DAQzs2e_gs
-java:S6213ø":Rename this variable to not match a restricted identifier.(Ø“Ü‹8è¾¤ë1J$c9b542f4-07e3-421d-a883-216378c248a9
+java:S6213‰":Rename this variable to not match a restricted identifier.(Ø“Ü‹8è¾¤ë1J$cf42d048-60b4-4e78-a82a-693b39c3d77f
 
-java:S2147¹"ECombine this catch with the one at line 439, which has the same body.(…ğƒŠÿÿÿÿÿ8ˆÌøÔÄ1J$91bcd4be-115b-4789-b839-05a096e47d85
+java:S2147Ê"ECombine this catch with the one at line 456, which has the same body.(…ğƒŠÿÿÿÿÿ8Ê¶êïÄ1J$dea8175f-bf42-478a-983b-1ad90276e42e
 ‰
-java:S2147»"ECombine this catch with the one at line 441, which has the same body.(”ı¾8‰ÌøÔÄ1J$2b992938-43d7-4b86-85a2-6e92287d6d64
+java:S2147Ì"ECombine this catch with the one at line 458, which has the same body.(”ı¾8Ë¶êïÄ1J$4db25a39-ca8d-45c9-a2b3-6c2fa45daf98
 €
 AYvr5Vnft_DAQzs2e_gt
-java:S1168"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$d446d78e-bd4d-4e62-9198-ba27d5881c7d
+java:S1168¯"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$13a3864c-416a-42d2-b13d-65fe9d4f3eca
 ‚
-AYv9ECz6Ph8LdeImV_W1	java:S108»")Either remove or fill this block of code.(”ı¾8Ğß¿è¿1J$aa8eff9b-6c4d-4edc-8e6b-b76052db32b7
-€
-AYvr5Vnft_DAQzs2e_gx
-java:S1168½"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$eb47adb4-90fb-4859-bbcf-1864a9707350
-”
-AYvr5Vnft_DAQzs2e_gy
-java:S6213À":Rename this variable to not match a restricted identifier.(ÛóÚí8è¾¤ë1J$8d0c06a8-f5b6-4fe5-a927-4081e292e441
-
-java:S2147÷"ECombine this catch with the one at line 501, which has the same body.(…ğƒŠÿÿÿÿÿ8¦ÌøÔÄ1J$04c96255-aa03-4814-8fb7-d7a365161546
-‰
-java:S2147ù"ECombine this catch with the one at line 503, which has the same body.(”ı¾8¦ÌøÔÄ1J$9db587f0-e1ea-4218-be6c-583e43981ec7
-‚
-AYv9ECz6Ph8LdeImV_W2	java:S108ù")Either remove or fill this block of code.(”ı¾8Ğß¿è¿1J$8bf05d76-4cd5-4f1f-9c8b-9241c0b44bed
+AYv9ECz6Ph8LdeImV_W2	java:S108Ì")Either remove or fill this block of code.(”ı¾8Ğß¿è¿1J$27e95e0d-2c21-491b-82b8-aa59f733ee80
 €
 AYvr5Vnft_DAQzs2e_g2
-java:S1168û"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$5e286029-eb23-4045-813e-ba4f3bcf8d27
-‹
-java:S1854"BRemove this useless assignment to local variable "variableSetter".(¼êìËıÿÿÿÿ8ÀÌøÔÄ1J$4aa93fe1-f39b-417a-98b9-e5e012205ea1
+java:S1168Î"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$3d3e5eb6-c2db-4a9c-87b8-319974b0910d
+”
+AYvr5Vnft_DAQzs2e_gy
+java:S6213Ñ":Rename this variable to not match a restricted identifier.(ÛóÚí8è¾¤ë1J$5c9fa367-b37f-4db5-b9c4-0de583945c43
 
-java:S2147ˆ"ECombine this catch with the one at line 517, which has the same body.(…ğƒŠÿÿÿÿÿ8ÂÌøÔÄ1J$f8d14b56-721e-48a4-bb22-e2453645a6fe
+java:S2147ˆ"ECombine this catch with the one at line 518, which has the same body.(…ğƒŠÿÿÿÿÿ8á¶êïÄ1J$83a736ba-e02e-46fd-9af7-1bfdea9a1339
 ‰
-java:S2147‹"ECombine this catch with the one at line 520, which has the same body.(”ı¾8ÃÌøÔÄ1J$8592d030-c7ce-4d7e-8f91-a01e6dfc76ab
+java:S2147Š"ECombine this catch with the one at line 520, which has the same body.(”ı¾8á¶êïÄ1J$b771e941-e7be-42f7-8973-29cd9f86e72a
+‚
+AYv9ECz6Ph8LdeImV_W1	java:S108Š")Either remove or fill this block of code.(”ı¾8Ğß¿è¿1J$b9f59b54-21f1-4041-a2cc-cb293eba276e
+€
+AYvr5Vnft_DAQzs2e_gx
+java:S1168Œ"&Return an empty array instead of null.(¥¹ï8è¾¤ë1J$9c3908c2-6c77-4766-8ea3-f2a891651385
+‹
+java:S1854’"BRemove this useless assignment to local variable "variableSetter".(¼êìËıÿÿÿÿ8ô¶êïÄ1J$da98bf90-f5ba-4b47-8866-2cb7fa81c731
+
+java:S2147™"ECombine this catch with the one at line 534, which has the same body.(…ğƒŠÿÿÿÿÿ8ö¶êïÄ1J$fc97a8bd-99fe-4d70-afc3-859fb75ca1eb
+‰
+java:S2147œ"ECombine this catch with the one at line 537, which has the same body.(”ı¾8ö¶êïÄ1J$c67be90e-e768-48cb-8e73-4b45d4f679e1
 ’
 AYvr5Vnft_DAQzs2e_g3
-java:S1481"3Remove this unused "variableSetter" local variable.(¼êìËıÿÿÿÿ8è¾¤ë1J$5099efcb-347c-4e4c-a254-b1a3d3c27537
+java:S1481’"3Remove this unused "variableSetter" local variable.(¼êìËıÿÿÿÿ8è¾¤ë1J$aac1b4b3-9eb6-4eec-a263-6d8898a4be32
 ½
 AYv9ECz6Ph8LdeImV_W3
-java:S2142«"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(®ûºöÿÿÿÿÿ8Ğß¿è¿1J$e8253593-1c93-413f-bfbc-d0cd9de539a1
+java:S2142¼"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(®ûºöÿÿÿÿÿ8Ğß¿è¿1J$7d795f36-03e7-4e9b-9d9d-25471f9ef76e
 ‡
-AYv9ECz6Ph8LdeImV_W4	java:S108«")Either remove or fill this block of code.(®ûºöÿÿÿÿÿ8Ğß¿è¿1J$62e0f475-1280-419e-8d56-e0245c514310
+AYv9ECz6Ph8LdeImV_W4	java:S108¼")Either remove or fill this block of code.(®ûºöÿÿÿÿÿ8Ğß¿è¿1J$eb6a3547-e650-4f3b-ba88-085ca21c3460
 ™
 AYvr5Vnft_DAQzs2e_g8
-java:S6213±":Rename this variable to not match a restricted identifier.(ÄÄèúÿÿÿÿ8è¾¤ë1J$2aedede5-7435-4a27-8444-5b9a3bf8f390
+java:S6213Â":Rename this variable to not match a restricted identifier.(ÄÄèúÿÿÿÿ8è¾¤ë1J$23c9425f-80f9-48cc-b3fa-706aa9c2311b
 
-java:S2147¿"ECombine this catch with the one at line 701, which has the same body.(…ğƒŠÿÿÿÿÿ8™ÍøÔÄ1J$3fedaf09-9e1a-4ad0-a1d3-a64cac755a3b
+java:S2147Ğ"ECombine this catch with the one at line 718, which has the same body.(…ğƒŠÿÿÿÿÿ8±·êïÄ1J$8ced7195-b4a9-4fe3-8bbf-db81a9b319e5
 
-java:S2147Á"ECombine this catch with the one at line 703, which has the same body.(Æ¸Û‚øÿÿÿÿ8šÍøÔÄ1J$e2e0df24-fc97-43ab-8a13-246911e171cd
+java:S2147Ò"ECombine this catch with the one at line 720, which has the same body.(Æ¸Û‚øÿÿÿÿ8±·êïÄ1J$ae269470-b44f-4a6b-809b-32e848b8e0d7
 ‡
-AYv9ECz6Ph8LdeImV_W5	java:S108Á")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$9a97aed0-de43-4c51-b9f8-52195f2e5a65
+AYv9ECz6Ph8LdeImV_W5	java:S108Ò")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$b7ad4000-e3f6-4eb5-aaf6-bedffbc55d0e
 ”
 AYvr5Vnft_DAQzs2e_hA
-java:S6213Æ":Rename this variable to not match a restricted identifier.(ëò8è¾¤ë1J$ae0d8317-d7ff-484c-bb1f-1681d91a50cd
+java:S6213×":Rename this variable to not match a restricted identifier.(ëò8è¾¤ë1J$1824e2f1-67cb-44e0-8a50-7b0af579903e
 
-java:S2147Ô"ECombine this catch with the one at line 722, which has the same body.(…ğƒŠÿÿÿÿÿ8§ÍøÔÄ1J$b37d43a2-8f75-4ad8-b62b-4393ae7d0ca8
+java:S2147å"ECombine this catch with the one at line 739, which has the same body.(…ğƒŠÿÿÿÿÿ8··êïÄ1J$71aa03bd-ce32-4bbb-a332-7ed8aa45d74e
 
-java:S2147Ö"ECombine this catch with the one at line 724, which has the same body.(Æ¸Û‚øÿÿÿÿ8¨ÍøÔÄ1J$5d0adb5e-5f6a-4621-8795-6414f025f264
+java:S2147ç"ECombine this catch with the one at line 741, which has the same body.(Æ¸Û‚øÿÿÿÿ8··êïÄ1J$cb2716f0-4af3-4427-95c4-1d9b440749bf
 ‡
-AYv9ECz6Ph8LdeImV_W6	java:S108Ö")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$794b3f1e-967e-418c-9c0c-e72a38d1bb77
+AYv9ECz6Ph8LdeImV_Wy	java:S108ç")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$14b829e2-4088-4926-8fec-91b6b7c86b6a
 ¬
-AYvr5Vnft_DAQzs2e_hE	java:S100Û"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ÛÚŠûÿÿÿÿ8è¾¤ë1J$015f64d4-d211-41ff-8c3c-87e13a0c7b67
+AYvr5Vnft_DAQzs2e_hE	java:S100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ÛÚŠûÿÿÿÿ8è¾¤ë1J$0ead04f3-e733-454f-9071-7d8485b346a6
 §
-AYvr5Vnft_DAQzs2e_hF	java:S100á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÀõË8è¾¤ë1J$1367ecff-1987-4ed2-bdbc-e42381c7631a
+AYvr5Vnft_DAQzs2e_hF	java:S100ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÀõË8è¾¤ë1J$d1c1226e-6f5b-4a9e-ac72-63ad22026856
 
-java:S2147ı"ECombine this catch with the one at line 763, which has the same body.(…ğƒŠÿÿÿÿÿ8´ÍøÔÄ1J$f7d1f2ad-2f45-46ae-9286-62946a21e7ea
+java:S2147"ECombine this catch with the one at line 780, which has the same body.(…ğƒŠÿÿÿÿÿ8Á·êïÄ1J$a9a113a3-0fdb-47a4-8c05-41754fae937a
 
-java:S2147ÿ"ECombine this catch with the one at line 765, which has the same body.(Æ¸Û‚øÿÿÿÿ8µÍøÔÄ1J$3980ba40-6a9d-49fd-b8fa-7dfa6ac32721
+java:S2147"ECombine this catch with the one at line 782, which has the same body.(Æ¸Û‚øÿÿÿÿ8Â·êïÄ1J$bb94c516-6f4d-44a3-9df8-0c8f4884a2c8
 ‡
-AYv9ECz6Ph8LdeImV_W7	java:S108ÿ")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$a5ab22a7-91cf-43d0-9a43-601732b9e685
+AYv9ECz6Ph8LdeImV_Wx	java:S108")Either remove or fill this block of code.(Æ¸Û‚øÿÿÿÿ8Ğß¿è¿1J$1a948cee-0f3a-47c6-9bb1-445029ae4dbf
 ¬
-AYvr5Vnft_DAQzs2e_hK	java:S100…"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ßöÚÿÿÿÿÿ8è¾¤ë1J$83cad794-471f-45db-8074-86dfb179c914
+AYvr5Vnft_DAQzs2e_hK	java:S100–"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ßöÚÿÿÿÿÿ8è¾¤ë1J$b5133c0e-3708-4609-b93d-f65ee194c1a2
 §
-AYvr5Vnft_DAQzs2e_hL	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ª¹Ë8è¾¤ë1J$0a81f148-ee8f-4c07-b5a8-9802a2cb512a
+AYvr5Vnft_DAQzs2e_hL	java:S100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ª¹Ë8è¾¤ë1J$7059bfdd-95f8-4665-8eaf-9ab05965006e
 §
-AYvr5Vnft_DAQzs2e_hM	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈàÜ‘8è¾¤ë1J$a61efe0a-dae5-4fde-a5e0-bbe6c136c8fa
-¬
-AYvr5Vnft_DAQzs2e_hN	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª”Òïşÿÿÿÿ8è¾¤ë1J$ec8b9631-3dfb-48d3-8858-75ab3d5a25c5
+AYvr5Vnft_DAQzs2e_hM	java:S100«"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈàÜ‘8è¾¤ë1J$ac5c4bd3-88bd-4ffb-a533-cba521e96dbb
 ‡
 AYvr5Vnft_DAQzs2e_hO
-java:S4274Ş"(Replace this assert with a proper check.(™áóûÿÿÿÿ8è¾¤ë1J$39c91367-1d16-4a75-a4d0-1c52e847b06c
+java:S4274ï"(Replace this assert with a proper check.(™áóûÿÿÿÿ8è¾¤ë1J$5df3abe6-24a1-48d9-8b83-c44358be9eb0
 §
-AYvr5Vnft_DAQzs2e_hP	java:S100Î"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù«æ¨8è¾¤ë1J$78c720a9-a79f-4b7d-9459-b26a90c557da
+AYvr5Vnft_DAQzs2e_hP	java:S100ß"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù«æ¨8è¾¤ë1J$f264db0a-9ee1-417b-9d80-6a232c615f5b
+„	java:S125Ô"<This block of commented-out lines of code should be removed.(ª”Òïşÿÿÿÿ8ˆ¸êïÄ1J$650bb2fc-b1c9-45c9-831a-79ec71221cd3
 Û
 AYvr5Vnft_DAQzs2e_hQ
-java:S1186Ó"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8è¾¤ë1J$353cb2da-a435-4246-855f-f9a05f1cb45b
+java:S1186ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8è¾¤ë1J$4d65f231-7f86-4129-a788-203a12721ebe
 à
 AYvr5Vnft_DAQzs2e_hR
-java:S1186Ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8è¾¤ë1J$86a0af3b-0139-40fa-ade7-8aa7fb97361b
+java:S1186é"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8è¾¤ë1J$cc17076f-047a-47aa-90d4-66381b0e227d
 §
-AYvr5Vnft_DAQzs2e_hS	java:S100Ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıüÂ×8è¾¤ë1J$cf778914-088b-443f-8816-8915eaf1de73
+AYvr5Vnft_DAQzs2e_hU	java:S100ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıüÂ×8è¾¤ë1J$058a69dc-ad4a-4cc6-a726-94f1fad276f5
 š
-AYvr5Vnft_DAQzs2e_hT	java:S125è"<This block of commented-out lines of code should be removed.(ÒÌâ–øÿÿÿÿ8è¾¤ë1J$88fa9e32-fcb3-4d81-bbdc-e9121f0d0e82
-¬
-AYvr5Vnft_DAQzs2e_hU	java:S100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8è¾¤ë1J$c6280a57-ea23-4b89-aa3c-229b17773cc8
+AYvr5Vnft_DAQzs2e_hT	java:S125ù"<This block of commented-out lines of code should be removed.(ÒÌâ–øÿÿÿÿ8è¾¤ë1J$aa3b947e-b4d2-4479-93b7-a3a0cca1b32d
+–	java:S100÷"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( —Íğüÿÿÿÿ8¤¸êïÄ1J$27dd274b-53e1-467d-a055-3489494265c3
 §
-AYvr5Vnft_DAQzs2e_hV	java:S100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$2cf45c36-5add-46f1-8eff-a2ac0abc80f7
+AYvr5Vnft_DAQzs2e_hV	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…äù½8è¾¤ë1J$a671f5f6-ad01-410c-a982-f257ec67e81d
 ¬
-AYvr5Vnft_DAQzs2e_hW	java:S100ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×”Ìÿÿÿÿÿ8è¾¤ë1J$aec1df68-f236-466c-bc16-7385d2aaf6cc
-–	java:S100‡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂŠ¨¤ıÿÿÿÿ8¯ÎøÔÄ1J$f72c3275-853e-459d-978e-060c61dd7de0
+AYvr5Vnft_DAQzs2e_hW	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶×”Ìÿÿÿÿÿ8è¾¤ë1J$5cc8ce84-c0da-41cf-8cfe-de88517af512
+¬
+AYxKqKZzjqw60iMBLBu5	java:S100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂŠ¨¤ıÿÿÿÿ8¨ ŸÕÄ1J$15b71eda-f1b2-46ab-bf45-6c8deadd0697
