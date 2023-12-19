@@ -35,8 +35,8 @@ public class CollisionMenu extends AppCompatActivity {
         });
 
         btnObliqueCollision.setOnClickListener(v -> {
-                Intent intent = new Intent(this, ObliqeCollisionMenu.class);
-                startActivity(intent);
+            Intent intent = new Intent(this, ObliqeCollisionMenu.class);
+            startActivity(intent);
         });
 
     }
@@ -69,7 +69,7 @@ public class CollisionMenu extends AppCompatActivity {
             btnNext.setBackgroundResource(R.drawable.btn_disabled);
 
             final int[] a = {0};
-            int max_CB_Required = 3;
+            int max_CB_Required = 7;
 
             Collection<CheckBox> checkBoxes = new ArrayList<>();
             checkBoxes.add(chkM1);
@@ -105,21 +105,22 @@ public class CollisionMenu extends AppCompatActivity {
 
             btnNext.setOnClickListener(view -> {
 
-                /*boolean bool_acc = CB_acc.isChecked();
-                boolean u_isChecked = CB_u.isChecked();
-                boolean v_isChecked = CB_v.isChecked();
-                boolean t_isChecked = CB_t.isChecked();
-                boolean s_isChecked = CB_s.isChecked();
+                //send the boolean values of the checkboxes to the momentumConservation activity
+                Intent intent = new Intent(this, momentumConservation.class);
+                intent.putExtra("chkM1", chkM1.isChecked());
+                intent.putExtra("chkM2", chkM2.isChecked());
+                intent.putExtra("chkV1", chkV1.isChecked());
+                intent.putExtra("chkV2", chkV2.isChecked());
+                intent.putExtra("chkA1", chkA1.isChecked());
+                intent.putExtra("chkA2", chkA2.isChecked());
+                intent.putExtra("chkB1", chkB1.isChecked());
+                intent.putExtra("chkB2", chkB2.isChecked());
+                intent.putExtra("chkE", chkE.isChecked());
+                intent.putExtra("chkU1", chkU1.isChecked());
+                intent.putExtra("chkU2", chkU2.isChecked());
 
-                Intent intent = new Intent(Kinematics.KE1.this, Kinematics.KE1.KE1_1.class);
+                startActivity(intent);
 
-                intent.putExtra("bool_acc", bool_acc);
-                intent.putExtra("u_isChecked", u_isChecked);
-                intent.putExtra("v_isChecked", v_isChecked);
-                intent.putExtra("s_isChecked", s_isChecked);
-                intent.putExtra("t_isChecked", t_isChecked);
-
-                startActivity(intent);*/
             });
 
             CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes);
@@ -158,7 +159,6 @@ public class CollisionMenu extends AppCompatActivity {
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
                 setupEditTextChangeListener(viewsToDisappear, btnCalc, keyboard, et1, et2);
-
 
 
             }

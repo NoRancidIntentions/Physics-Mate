@@ -19,6 +19,9 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
+                android:name=".KE_projectile"
+                android:exported="false"/>
+        <activity
                 android:name=".ObliqeCollisionMenu"
                 android:exported="false"/>
         <activity

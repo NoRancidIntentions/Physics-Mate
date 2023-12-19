@@ -1,25 +1,18 @@
 package com.example.physicsmate.activities.physics;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.Html;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -31,18 +24,18 @@ public class Kinematics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kinematics);
 
-        Button KE1, KE2;
+        Button KE1, KE_projectile;
 
         KE1 = findViewById(R.id.button16);
-        KE2 = findViewById(R.id.button14);
+        KE_projectile = findViewById(R.id.button14);
 
         KE1.setOnClickListener(view -> {
             Intent intent = new Intent(Kinematics.this, KE1.class);
             startActivity(intent);
         });
 
-        KE2.setOnClickListener(view -> {
-            Intent intent = new Intent(Kinematics.this, Kinematics.KE2.class);
+        KE_projectile.setOnClickListener(view -> {
+            Intent intent = new Intent(Kinematics.this, Kinematics.KE_projectile.class);
             startActivity(intent);
         });
 
@@ -416,7 +409,22 @@ public class Kinematics extends AppCompatActivity {
         }
     }
 
-    public static class KE2 extends AppCompatActivity {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public static class KE2_Temp extends AppCompatActivity {
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
@@ -648,6 +656,19 @@ public class Kinematics extends AppCompatActivity {
 
                 }
             });
+
+        }
+    }*/
+
+    public static class KE_projectile extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_ke_projectile);
+
+            EditText etX, etY, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
+                    etDensity, etArea;
 
         }
     }
