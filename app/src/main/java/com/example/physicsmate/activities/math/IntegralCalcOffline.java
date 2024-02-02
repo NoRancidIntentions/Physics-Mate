@@ -522,14 +522,14 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
                             // Execute simplification in a separate thread
                             new Thread(() -> {
-                                String simplifiedDerivative = ExprSimplifier(integral);
+                                String simplifiedIntegral = ExprSimplifier(integral);
                                 String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + integral;
 
 
                                 // Update UI with simplified derivative
                                 runOnUiThread(() -> {
 
-                                    latexView3.setText(getTex(simplifiedDerivative));
+                                    latexView3.setText(getTex(simplifiedIntegral));
                                     latexView3.setVisibility(View.VISIBLE);
                                     Toast.makeText(getApplicationContext(), "The integral has been simplified", Toast.LENGTH_SHORT).show();
                                     simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
@@ -540,7 +540,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
                                     btnCopy.setOnClickListener(v1 -> {
                                         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                        ClipData clip = ClipData.newPlainText("Simplified integral", simplifiedDerivative);
+                                        ClipData clip = ClipData.newPlainText("Simplified integral", simplifiedIntegral);
                                         clipboard.setPrimaryClip(clip);
                                         Toast.makeText(getApplicationContext(), "Simplified integral copied to clipboard", Toast.LENGTH_SHORT).show();
                                     });

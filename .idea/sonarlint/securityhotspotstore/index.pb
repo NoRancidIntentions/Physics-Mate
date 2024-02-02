@@ -84,3 +84,7 @@ q
 Aapp/src/main/java/com/example/physicsmate/activities/math/QE.java,1\7\1753bc76900040640ac1ac0886425fdce93cadc1
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+‚
+Rapp/src/main/java/com/example/physicsmate/activities/math/IntegralCalcOffline.java,a\4\a40c0c8b3889a7824ba4985fc55897afda50d632
+y
+Iapp/src/test/java/com/example/physicsmate/activities/airResistanceDE.java,b\7\b705dee96b028be1d8fb50c792ed7aa5a4a15a29

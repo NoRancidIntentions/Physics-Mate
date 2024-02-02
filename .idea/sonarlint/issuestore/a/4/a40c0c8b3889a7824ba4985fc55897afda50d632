@@ -1,28 +1,42 @@
 
-l	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì‘Ææþÿÿÿÿ
-i	java:S116"TRename this field "DerInttv3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
-i	java:S116"TRename this field "DerInttv2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
-i	java:S116"TRename this field "DerInttv1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–
-`
-java:S1659"EDeclare "inputVar" and all following declarations on a separate line.(œüáÐøÿÿÿÿ
-L
-java:S1659"1Declare "cbNumericEvaluation" on a separate line.(ñØŽöüÿÿÿÿ
-]
-java:S1659"GDeclare "simpResult" and all following declarations on a separate line.(½ÛÇ–
-`
-java:S1659"EDeclare "btnGraph" and all following declarations on a separate line.(‡Î·¬ûÿÿÿÿ
-b
-java:S1659"GDeclare "latexView2" and all following declarations on a separate line.(œì¢¿úÿÿÿÿ
-Q	java:S125t"<This block of commented-out lines of code should be removed.(²Û–â
-Q
-java:S6213í":Rename this variable to not match a restricted identifier.(ú¥ê¤
-L
-java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
-L
-java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿ
-n
-java:S3776“"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(ÏÒžûÿÿÿÿÿ
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
-J
-java:S1659Í".Declare "definiteIntegral" on a separate line.(ù¿ïßûÿÿÿÿ
+¯
+AYvr5Vlyt_DAQzs2e_cI	java:S117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì‘Ææþÿÿÿÿ8¸á¹Â•1J$e4e1f0b4-0826-4efc-a282-e5dfe077280a
+¬
+AYvr5Vlyt_DAQzs2e_cJ	java:S116"TRename this field "DerInttv3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–8¸á¹Â•1J$563296cd-b5ed-40f0-821a-6c12be3d8a2d
+¬
+AYvr5Vlyt_DAQzs2e_cK	java:S116"TRename this field "DerInttv2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–8¸á¹Â•1J$ae6f8507-a701-48ec-9916-d9cbae53614a
+¬
+AYvr5Vlyt_DAQzs2e_cL	java:S116"TRename this field "DerInttv1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÛÇ–8¸á¹Â•1J$9ead80f0-e6b1-4c5d-a55f-d0ad41fa8f3a
+£
+AYvr5Vlyt_DAQzs2e_cM
+java:S1659"EDeclare "inputVar" and all following declarations on a separate line.(œüáÐøÿÿÿÿ8àœÁÂ1J$d3875a2c-25c4-4ea8-b6b8-c765cdd03359
+
+AYvr5Vlyt_DAQzs2e_cN
+java:S1659"1Declare "cbNumericEvaluation" on a separate line.(ñØŽöüÿÿÿÿ8àœÁÂ1J$963e1f72-7706-4542-815a-651116a262d3
+ 
+AYvr5Vlyt_DAQzs2e_cO
+java:S1659"GDeclare "simpResult" and all following declarations on a separate line.(½ÛÇ–8¸á¹Â•1J$4bb4b7b3-37e9-43aa-bc42-7ee38c116b37
+£
+AYvr5Vlyt_DAQzs2e_cP
+java:S1659"EDeclare "btnGraph" and all following declarations on a separate line.(‡Î·¬ûÿÿÿÿ8¸á¹Â•1J$0ae79401-b3ee-483e-812d-a6abc3426626
+¥
+AYvr5Vlyt_DAQzs2e_cQ
+java:S1659"GDeclare "latexView2" and all following declarations on a separate line.(œì¢¿úÿÿÿÿ8€ªÖ½1J$f79e839c-fb38-41e7-96f2-b12fb1569d5a
+”
+AYvr5Vlyt_DAQzs2e_cR	java:S125t"<This block of commented-out lines of code should be removed.(²Û–â8¸á¹Â•1J$aed2b913-7869-48df-8e44-3dc5084de5f2
+”
+AYvr5Vlyt_DAQzs2e_cS
+java:S6213í":Rename this variable to not match a restricted identifier.(ú¥ê¤8¸á¹Â•1J$55e78034-7edb-464c-b800-2f63c7e1eeae
+r
+java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿJ$4785d8ce-7371-4e0d-8677-5d04c47e21e5
+r
+java:S1874"0Remove this use of "getColor"; it is deprecated.(Î¶ÿ²ûÿÿÿÿJ$e9ba74c3-d655-4999-97f6-70b9110d389d
+±
+AYvr5Vlyt_DAQzs2e_cT
+java:S3776“"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(ÏÒžûÿÿÿÿÿ8¸á¹Â•1J$bbf33205-fdfd-46e0-b47b-683d98d5d436
+à
+AYvr5Vlyt_DAQzs2e_cU
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8¸á¹Â•1J$2b2c9793-6a1e-4779-936a-8dd9c07aca6e
+
+AYvr5Vlyt_DAQzs2e_cV
+java:S1659Í".Declare "definiteIntegral" on a separate line.(ù¿ïßûÿÿÿÿ8¸á¹Â•1J$df55c8cb-32d1-4d5e-b2c1-8adc494fd692

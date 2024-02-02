@@ -170,3 +170,5 @@ w
 G.idea/sonarlint/issuestore/1/f/1fc23505a3dfbb530e3d9c3d9063cabfef39c55f,6\c\6c0090b14a928a36060bae143d20df7bdb495374
 
 Oapp/src/main/java/com/example/physicsmate/activities/physics/CollisionMenu.java,d\5\d595accc2371edee487b5899c1b24c48cb67ac16
+y
+Iapp/src/test/java/com/example/physicsmate/activities/airResistanceDE.java,b\7\b705dee96b028be1d8fb50c792ed7aa5a4a15a29
