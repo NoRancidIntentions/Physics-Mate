@@ -667,6 +667,19 @@ public class Kinematics extends AppCompatActivity {
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
 
+        EditText etX, etY, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
+                etDensity, etArea, etDragCoefficient;
+
+        Button btnCalc, btnGetGraph;
+
+        CheckBox cbAirResistance;
+
+        TextView tvResult, tvAirResistanceInfo;
+
+        RadDegSwitchInitializer radDegSwitch;
+
+        LineChart lc;
+
         @Override
         public void onBackPressed() {
             //if system back btn is pressed, and if keyboard is visible, hide it
@@ -683,18 +696,9 @@ public class Kinematics extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ke_projectile);
 
-            EditText etX, etY, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
-                    etDensity, etArea, etDragCoefficient;
-
-            Button btnCalc, btnGetGraph;
-
-            LineChart lc;
-
             customKeyboard = findViewById(R.id.custom_keyboard1_initializer_ke_projectile);
             sv = findViewById(R.id.SV_ke_projectile);
-            RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_AirResistance);
-
-            TextView tvResult, tvAirResistanceInfo;
+            radDegSwitch = findViewById(R.id.radDegSwitch_AirResistance);
 
             etX = findViewById(R.id.etX);
             etY = findViewById(R.id.etY);
@@ -707,7 +711,7 @@ public class Kinematics extends AppCompatActivity {
             etArea = findViewById(R.id.etArea);
             etDragCoefficient = findViewById(R.id.etDragCoefficient);
 
-            CheckBox cbAirResistance = findViewById(R.id.cbAirResistance);
+            cbAirResistance = findViewById(R.id.cbAirResistance);
 
             TextView tvMass = findViewById(R.id.textView48);
             TextView CSArea = findViewById(R.id.textView49);
@@ -776,9 +780,41 @@ public class Kinematics extends AppCompatActivity {
             });
 
             btnCalc.setOnClickListener(view -> {
-                tvResult.setVisibility(View.VISIBLE);
-                tvResult.setText("Testing");
+                if (cbAirResistance.isChecked()) {
+                    calculateProjectileWithAirResistance();
+                } else {
+                    calculateProjectile();
+                }
             });
+
+        }
+
+        public void calculateProjectileWithAirResistance() {
+
+        }
+
+        public void calculateProjectile() {
+            double u = evalf(etVelocityMagnitude.getText().toString(), radDegSwitch.isRad());
+            double beta = evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad());
+            double alpha = evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad());
+            double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad());
+            double x = evalf(etX.getText().toString(), radDegSwitch.isRad());
+            double y = evalf(etY.getText().toString(), radDegSwitch.isRad());
+
+            //range = 2*u^2*sin(alpha)*cos(alpha+beta)/(g*cos(beta)^2)
+            double range = 2 * Math.pow(u, 2) * Math.sin(alpha) * Math.cos(alpha + beta) / (g * Math.pow(Math.cos(beta), 2));
+
+            //time = 2*u*sin(alpha)/(g*cos(beta))
+            double time = 2 * u * Math.sin(alpha) / (g * Math.cos(beta));
+
+            //max height = (u*sin(alpha))^2/(2*g*cos(beta))
+            double maxHeight = Math.pow(u * Math.sin(alpha), 2) / (2 * g * Math.cos(beta));
+
+            //angle of projection for maximum range = pi/4 - beta/2
+            double maxAngle = Math.PI/4 - beta/2;
+
+            //show results
+            tvResult.setVisibility(View.VISIBLE);
 
         }
     }
