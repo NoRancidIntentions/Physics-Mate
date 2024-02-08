@@ -672,7 +672,7 @@ public class Kinematics extends AppCompatActivity {
             //if system back btn is pressed, and if keyboard is visible, hide it
             if (customKeyboard.getVisibility() == View.VISIBLE) {
                 customKeyboard.setVisibility(View.GONE);
-                sv.setPadding(0,0,0,0);
+                sv.setPadding(0, 0, 0, 0);
             } else {
                 super.onBackPressed();
             }
@@ -707,6 +707,13 @@ public class Kinematics extends AppCompatActivity {
             etArea = findViewById(R.id.etArea);
             etDragCoefficient = findViewById(R.id.etDragCoefficient);
 
+            CheckBox cbAirResistance = findViewById(R.id.cbAirResistance);
+
+            TextView tvMass = findViewById(R.id.textView48);
+            TextView CSArea = findViewById(R.id.textView49);
+            TextView AirDensity = findViewById(R.id.textView50);
+            TextView DragCoefficient = findViewById(R.id.textView51);
+
             btnCalc = findViewById(R.id.btnCalc);
             btnGetGraph = findViewById(R.id.btnGetGraphs);
 
@@ -719,16 +726,59 @@ public class Kinematics extends AppCompatActivity {
 
             View[] viewsToDissapear = {lc, tvResult};
 
-            tvResult.setVisibility(View.GONE);
-            btnGetGraph.setVisibility(View.GONE);
-
             setupEditTextForCustomKeyboard(customKeyboard, sv, etX, etY, etMass, etGravity,
                     etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
 
-            setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etX, etY, etMass, etGravity, etVelocityMagnitude,
-                    etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
+            tvAirResistanceInfo.setVisibility(View.GONE);
+            tvMass.setVisibility(View.GONE);
+            CSArea.setVisibility(View.GONE);
+            AirDensity.setVisibility(View.GONE);
+            DragCoefficient.setVisibility(View.GONE);
+            etMass.setVisibility(View.GONE);
+            etDensity.setVisibility(View.GONE);
+            etArea.setVisibility(View.GONE);
+            etDragCoefficient.setVisibility(View.GONE);
+            tvResult.setVisibility(View.GONE);
+            btnGetGraph.setVisibility(View.GONE);
+            lc.setVisibility(View.GONE);
 
+            setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
+                    etInclinedPlaneAngle, etProjectionAngle);
 
+            cbAirResistance.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+                if (isChecked) {
+                    tvAirResistanceInfo.setVisibility(View.VISIBLE);
+                    tvMass.setVisibility(View.VISIBLE);
+                    CSArea.setVisibility(View.VISIBLE);
+                    AirDensity.setVisibility(View.VISIBLE);
+                    DragCoefficient.setVisibility(View.VISIBLE);
+                    etMass.setVisibility(View.VISIBLE);
+                    etDensity.setVisibility(View.VISIBLE);
+                    etArea.setVisibility(View.VISIBLE);
+                    etDragCoefficient.setVisibility(View.VISIBLE);
+
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etX, etY, etMass, etGravity, etVelocityMagnitude,
+                            etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
+                } else {
+                    tvAirResistanceInfo.setVisibility(View.GONE);
+                    tvMass.setVisibility(View.GONE);
+                    CSArea.setVisibility(View.GONE);
+                    AirDensity.setVisibility(View.GONE);
+                    DragCoefficient.setVisibility(View.GONE);
+                    etMass.setVisibility(View.GONE);
+                    etDensity.setVisibility(View.GONE);
+                    etArea.setVisibility(View.GONE);
+
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
+                            etInclinedPlaneAngle, etProjectionAngle);
+                }
+            });
+
+            btnCalc.setOnClickListener(view -> {
+                tvResult.setVisibility(View.VISIBLE);
+                tvResult.setText("Testing");
+            });
 
         }
     }
