@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.RadDegSwitchInitializer;
+import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
@@ -662,13 +664,71 @@ public class Kinematics extends AppCompatActivity {
 
     public static class KE_projectile extends AppCompatActivity {
 
+        ScrollView sv;
+        custom_keyboard1_initializer customKeyboard;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0,0,0,0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ke_projectile);
 
             EditText etX, etY, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
-                    etDensity, etArea;
+                    etDensity, etArea, etDragCoefficient;
+
+            Button btnCalc, btnGetGraph;
+
+            LineChart lc;
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_ke_projectile);
+            sv = findViewById(R.id.SV_ke_projectile);
+            RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_AirResistance);
+
+            TextView tvResult, tvAirResistanceInfo;
+
+            etX = findViewById(R.id.etX);
+            etY = findViewById(R.id.etY);
+            etMass = findViewById(R.id.etMass);
+            etGravity = findViewById(R.id.etGravity);
+            etVelocityMagnitude = findViewById(R.id.etVelocityMagnitude);
+            etInclinedPlaneAngle = findViewById(R.id.etInclinedPlaneAngle);
+            etProjectionAngle = findViewById(R.id.etProjectionAngle);
+            etDensity = findViewById(R.id.etDensity);
+            etArea = findViewById(R.id.etArea);
+            etDragCoefficient = findViewById(R.id.etDragCoefficient);
+
+            btnCalc = findViewById(R.id.btnCalc);
+            btnGetGraph = findViewById(R.id.btnGetGraphs);
+
+            lc = findViewById(R.id.lineChart2);
+
+            tvResult = findViewById(R.id.tvResult);
+            tvAirResistanceInfo = findViewById(R.id.tvAirResistanceInfo);
+
+            btnCalc.setEnabled(false);
+
+            View[] viewsToDissapear = {lc, tvResult};
+
+            tvResult.setVisibility(View.GONE);
+            btnGetGraph.setVisibility(View.GONE);
+
+            setupEditTextForCustomKeyboard(customKeyboard, sv, etX, etY, etMass, etGravity,
+                    etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
+
+            setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etX, etY, etMass, etGravity, etVelocityMagnitude,
+                    etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
+
+
 
         }
     }

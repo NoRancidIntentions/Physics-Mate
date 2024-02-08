@@ -19,7 +19,7 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
-                android:name=".KE_projectile"
+                android:name=".activities.physics.Kinematics$KE_projectile"
                 android:exported="false"/>
         <activity
                 android:name=".ObliqeCollisionMenu"
@@ -302,9 +302,6 @@
         </activity>
         <activity
                 android:name=".activities.physics.Kinematics$KE1$KE1_1"
-                android:exported="true"/>
-        <activity
-                android:name=".activities.physics.Kinematics$KE2"
                 android:exported="true"/>
         <activity
                 android:name=".activities.physics.Kinematics$KE1"
