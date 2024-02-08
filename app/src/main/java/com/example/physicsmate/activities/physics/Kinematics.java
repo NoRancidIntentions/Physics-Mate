@@ -808,7 +808,7 @@ public class Kinematics extends AppCompatActivity {
                 beta = Math.toRadians(evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
                 alpha = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
             }
-            double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad());
+            double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad()); //
             double x = evalf(etX.getText().toString(), radDegSwitch.isRad());
             double y = evalf(etY.getText().toString(), radDegSwitch.isRad());
 
