@@ -746,6 +746,8 @@ public class Kinematics extends AppCompatActivity {
             btnGetGraph.setVisibility(View.GONE);
             lc.setVisibility(View.GONE);
 
+            radDegSwitch.setRad(false);
+
             setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
                     etInclinedPlaneAngle, etProjectionAngle);
 
@@ -795,11 +797,22 @@ public class Kinematics extends AppCompatActivity {
 
         public void calculateProjectile() {
             double u = evalf(etVelocityMagnitude.getText().toString(), radDegSwitch.isRad());
-            double beta = evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad());
-            double alpha = evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad());
+
+            double alpha, beta;
+
+            if (radDegSwitch.isRad()) {
+                beta = (evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
+                alpha = (evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
+            }
+            else {
+                beta = Math.toRadians(evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
+                alpha = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
+            }
             double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad());
             double x = evalf(etX.getText().toString(), radDegSwitch.isRad());
             double y = evalf(etY.getText().toString(), radDegSwitch.isRad());
+
+            System.out.println(u + " " + beta + " " + alpha + " " + g + " " + x + " " + y);
 
             //range = 2*u^2*sin(alpha)*cos(alpha+beta)/(g*cos(beta)^2)
             double range = 2 * Math.pow(u, 2) * Math.sin(alpha) * Math.cos(alpha + beta) / (g * Math.pow(Math.cos(beta), 2));
@@ -815,6 +828,15 @@ public class Kinematics extends AppCompatActivity {
 
             //show results
             tvResult.setVisibility(View.VISIBLE);
+
+            //use this string as a template:                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
+
+            String strRes = "<font color = #6BBBE1> Range = </font> <font color = #CDDC39>" + range + " m </font> <br>" +
+                    "<br><font color = #6BBBE1> Time = </font> <font color = #CDDC39>" + time + " s </font> <br>" +
+                    "<br><font color = #6BBBE1> Maximum height = </font> <font color = #CDDC39>" + maxHeight + " m </font> <br>" +
+                    "<br><font color = #6BBBE1> Maximum angle of projection = </font> <font color = #CDDC39>" + Math.toDegrees(maxAngle) + " degrees </font>";
+
+            tvResult.setText(Html.fromHtml(strRes));
 
         }
     }

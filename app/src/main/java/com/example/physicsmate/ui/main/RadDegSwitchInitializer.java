@@ -50,4 +50,16 @@ public class RadDegSwitchInitializer extends LinearLayout
         return isRad;
     }
 
+    public void setRad(Boolean rad) {
+        isRad = rad;
+        if (isRad)
+        {
+            findViewById(R.id.toggleRad).performClick();
+        }
+        else
+        {
+            findViewById(R.id.toggleDeg).performClick();
+        }
+    }
+
 }

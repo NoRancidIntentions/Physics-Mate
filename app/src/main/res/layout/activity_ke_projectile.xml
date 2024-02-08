@@ -48,14 +48,14 @@
                         android:orientation="horizontal">
                     <EditText
                             android:id="@+id/etX"
-                            style="@style/custom_integer_edittext"
+                            style="@style/custom_edittext"
                             android:hint="X - coordinate"
                             android:layout_marginBottom="0dp"/>
 
                     <EditText
                             android:id="@+id/etY"
                             android:hint="Y - coordinate"
-                            style="@style/custom_integer_edittext"
+                            style="@style/custom_edittext"
                             android:layout_marginBottom="0dp"
                     />
                 </LinearLayout>
@@ -69,7 +69,7 @@
 
             <EditText
                     android:id="@+id/etVelocityMagnitude"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="m/s"
             />
 
@@ -80,7 +80,7 @@
 
             <EditText
                     android:id="@+id/etInclinedPlaneAngle"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="Degrees"/>
 
             <TextView
@@ -90,7 +90,7 @@
 
             <EditText
                     android:id="@+id/etProjectionAngle"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="Degrees"/>
 
             <TextView
@@ -101,7 +101,7 @@
             <EditText
                     android:id="@+id/etGravity"
                     android:hint="m/s²"
-                    style="@style/custom_integer_edittext"/>
+                    style="@style/custom_edittext"/>
 
             <CheckBox
                     android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
 
             <EditText
                     android:id="@+id/etMass"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="2"/>
 
             <!--Also ask for cross section area, density of air -->
@@ -130,7 +130,7 @@
 
             <EditText
                     android:id="@+id/etArea"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="0.05"/>
 
             <TextView
@@ -140,7 +140,7 @@
 
             <EditText
                     android:id="@+id/etDensity"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="1.2"/>
 
             <TextView
@@ -150,7 +150,7 @@
 
             <EditText
                     android:id="@+id/etDragCoefficient"
-                    style="@style/custom_integer_edittext"
+                    style="@style/custom_edittext"
                     android:hint="0.47"/>
 
             <androidx.appcompat.widget.AppCompatButton
