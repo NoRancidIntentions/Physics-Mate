@@ -33,7 +33,7 @@
                     android:layout_gravity="end"/>
 
             <TextView
-                    android:text="Enter Coordinates (X, Y)"
+                    android:text="Enter Coordinates (Xp, Yp) for point of projection"
                     android:id="@+id/textView42"
                     style="@style/custom_textView"
             />
@@ -47,13 +47,41 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                     <EditText
-                            android:id="@+id/etX"
+                            android:id="@+id/etXp"
                             style="@style/custom_edittext"
                             android:hint="X - coordinate"
                             android:layout_marginBottom="0dp"/>
 
                     <EditText
-                            android:id="@+id/etY"
+                            android:id="@+id/etYp"
+                            android:hint="Y - coordinate"
+                            style="@style/custom_edittext"
+                            android:layout_marginBottom="0dp"
+                    />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                    android:text="Enter Coordinates (Xi, Yi) for starting point of inclined plane"
+                    style="@style/custom_textView"
+            />
+
+            <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <EditText
+                            android:id="@+id/etXi"
+                            style="@style/custom_edittext"
+                            android:hint="X - coordinate"
+                            android:layout_marginBottom="0dp"/>
+
+                    <EditText
+                            android:id="@+id/etYi"
                             android:hint="Y - coordinate"
                             style="@style/custom_edittext"
                             android:layout_marginBottom="0dp"

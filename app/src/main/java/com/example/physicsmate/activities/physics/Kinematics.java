@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -667,7 +668,7 @@ public class Kinematics extends AppCompatActivity {
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
 
-        EditText etX, etY, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
+        EditText etXi, etYi, etXp, etYp, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
                 etDensity, etArea, etDragCoefficient;
 
         Button btnCalc, btnGetGraph;
@@ -700,8 +701,10 @@ public class Kinematics extends AppCompatActivity {
             sv = findViewById(R.id.SV_ke_projectile);
             radDegSwitch = findViewById(R.id.radDegSwitch_AirResistance);
 
-            etX = findViewById(R.id.etX);
-            etY = findViewById(R.id.etY);
+            etXi = findViewById(R.id.etXi);
+            etYi = findViewById(R.id.etYi);
+            etXp = findViewById(R.id.etXp);
+            etYp = findViewById(R.id.etYp);
             etMass = findViewById(R.id.etMass);
             etGravity = findViewById(R.id.etGravity);
             etVelocityMagnitude = findViewById(R.id.etVelocityMagnitude);
@@ -730,7 +733,7 @@ public class Kinematics extends AppCompatActivity {
 
             View[] viewsToDissapear = {lc, tvResult};
 
-            setupEditTextForCustomKeyboard(customKeyboard, sv, etX, etY, etMass, etGravity,
+            setupEditTextForCustomKeyboard(customKeyboard, sv, etXi, etYi, etXp, etYp, etMass, etGravity,
                     etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
 
             tvAirResistanceInfo.setVisibility(View.GONE);
@@ -764,7 +767,7 @@ public class Kinematics extends AppCompatActivity {
                     etArea.setVisibility(View.VISIBLE);
                     etDragCoefficient.setVisibility(View.VISIBLE);
 
-                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etX, etY, etMass, etGravity, etVelocityMagnitude,
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etXi, etYi, etYp, etXp,  etMass, etGravity, etVelocityMagnitude,
                             etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
                 } else {
                     tvAirResistanceInfo.setVisibility(View.GONE);
@@ -809,34 +812,74 @@ public class Kinematics extends AppCompatActivity {
                 alpha = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
             }
             double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad()); //
-            double x = evalf(etX.getText().toString(), radDegSwitch.isRad());
-            double y = evalf(etY.getText().toString(), radDegSwitch.isRad());
+            double Xp = evalf(etXp.getText().toString(), radDegSwitch.isRad());
+            double Yp = evalf(etYp.getText().toString(), radDegSwitch.isRad());
+            double Xi = evalf(etXi.getText().toString(), radDegSwitch.isRad());
+            double Yi = evalf(etYi.getText().toString(), radDegSwitch.isRad());
 
-            System.out.println(u + " " + beta + " " + alpha + " " + g + " " + x + " " + y);
+            System.out.println(u + " " + beta + " " + alpha + " " + g + " " + Xp + " " + Yp);
 
-            //range = 2*u^2*sin(alpha)*cos(alpha+beta)/(g*cos(beta)^2)
-            double range = 2 * Math.pow(u, 2) * Math.sin(alpha) * Math.cos(alpha + beta) / (g * Math.pow(Math.cos(beta), 2));
+            if(Xi == Xp && Yi == Yp) {
+                //range = 2*u^2*sin(alpha)*cos(alpha+beta)/(g*cos(beta)^2)
+                double range = 2 * Math.pow(u, 2) * Math.sin(alpha) * Math.cos(alpha + beta) / (g * Math.pow(Math.cos(beta), 2));
 
-            //time = 2*u*sin(alpha)/(g*cos(beta))
-            double time = 2 * u * Math.sin(alpha) / (g * Math.cos(beta));
+                //time = 2*u*sin(alpha)/(g*cos(beta))
+                double time = 2 * u * Math.sin(alpha) / (g * Math.cos(beta));
 
-            //max height = (u*sin(alpha))^2/(2*g*cos(beta))
-            double maxHeight = Math.pow(u * Math.sin(alpha), 2) / (2 * g * Math.cos(beta));
+                //max height = (u*sin(alpha))^2/(2*g*cos(beta))
+                double maxHeight = Math.pow(u * Math.sin(alpha), 2) / (2 * g * Math.cos(beta));
 
-            //angle of projection for maximum range = pi/4 - beta/2
-            double maxAngle = Math.PI/4 - beta/2;
+                //angle of projection for maximum range = pi/4 - beta/2
+                double maxAngle = Math.PI/4 - beta/2;
 
-            //show results
-            tvResult.setVisibility(View.VISIBLE);
+                //show results
+                tvResult.setVisibility(View.VISIBLE);
 
-            //use this string as a template:                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
+                //use this string as a template:                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
 
-            String strRes = "<font color = #6BBBE1> Range = </font> <font color = #CDDC39>" + range + " m </font> <br>" +
-                    "<br><font color = #6BBBE1> Time = </font> <font color = #CDDC39>" + time + " s </font> <br>" +
-                    "<br><font color = #6BBBE1> Maximum height = </font> <font color = #CDDC39>" + maxHeight + " m </font> <br>" +
-                    "<br><font color = #6BBBE1> Maximum angle of projection = </font> <font color = #CDDC39>" + Math.toDegrees(maxAngle) + " degrees </font>";
+                String strRes = "<font color = #6BBBE1> Range = </font> <font color = #CDDC39>" + range + " m </font> <br>" +
+                        "<br><font color = #6BBBE1> Time = </font> <font color = #CDDC39>" + time + " s </font> <br>" +
+                        "<br><font color = #6BBBE1> Maximum height = </font> <font color = #CDDC39>" + maxHeight + " m </font> <br>" +
+                        "<br><font color = #6BBBE1> Maximum angle of projection = </font> <font color = #CDDC39>" + Math.toDegrees(maxAngle) + " degrees </font>";
 
-            tvResult.setText(Html.fromHtml(strRes));
+                tvResult.setText(Html.fromHtml(strRes));
+            }
+            else
+            {
+                //solve these two equations using symja:
+                //y - Yp = x*tan(alpha) - g*x*x/(2*u*u*cos(alpha)*cos(alpha))
+                //y - Yi = tan(beta)*(x - Xi)
+
+                ArrayList<String> equation = new ArrayList<>();
+                String trajectoryFormula = "y - Yp = x*tan(alpha) - g*x*x/(2*u*u*cos(alpha)*cos(alpha))";
+                String inclinationFormula = "y - Yi = tan(beta)*(x - Xi)";
+
+                //substitute values of variables alpha, beta, g, u, Xi, Yi, Xp, Yp in the strings
+                equation.add(trajectoryFormula.replaceAll("alpha", String.valueOf(alpha)));
+                equation.add(trajectoryFormula.replaceAll("beta", String.valueOf(beta)));
+                equation.add(trajectoryFormula.replaceAll("g", String.valueOf(g)));
+                equation.add(trajectoryFormula.replaceAll("u", String.valueOf(u)));
+                equation.add(trajectoryFormula.replaceAll("Xi", String.valueOf(Xi)));
+                equation.add(trajectoryFormula.replaceAll("Yi", String.valueOf(Yi)));
+                equation.add(trajectoryFormula.replaceAll("Xp", String.valueOf(Xp)));
+                equation.add(trajectoryFormula.replaceAll("Yp", String.valueOf(Yp)));
+
+                equation.add(inclinationFormula.replaceAll("alpha", String.valueOf(alpha)));
+                equation.add(inclinationFormula.replaceAll("beta", String.valueOf(beta)));
+                equation.add(inclinationFormula.replaceAll("g", String.valueOf(g)));
+                equation.add(inclinationFormula.replaceAll("u", String.valueOf(u)));
+                equation.add(inclinationFormula.replaceAll("Xi", String.valueOf(Xi)));
+                equation.add(inclinationFormula.replaceAll("Yi", String.valueOf(Yi)));
+                equation.add(inclinationFormula.replaceAll("Xp", String.valueOf(Xp)));
+                equation.add(inclinationFormula.replaceAll("Yp", String.valueOf(Yp)));
+
+                ArrayList<String> eqns = new ArrayList<>();
+                eqns.add(trajectoryFormula);
+                eqns.add(inclinationFormula);
+
+                String intersection = solveEquationNumeric(eqns, "x, y");
+                System.out.println("intersection: "+intersection);
+            }
 
         }
     }

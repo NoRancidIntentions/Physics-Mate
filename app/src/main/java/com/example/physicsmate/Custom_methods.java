@@ -174,6 +174,13 @@ public class Custom_methods {
         return StringError;
     }
 
+    /**
+     * A function to solve a system of numeric equations.
+     *
+     * @param  equation   the iterable of equations to be solved
+     * @param  variables  the string representation of the variables in the equations
+     * @return            the result of solving the equations as a string
+     */
     public static String solveEquationNumeric(Iterable<String> equation, String variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
