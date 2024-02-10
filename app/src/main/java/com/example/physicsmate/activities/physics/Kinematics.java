@@ -856,10 +856,10 @@ public class Kinematics extends AppCompatActivity {
                 //y - Yi = tan(beta)*(x - Xi)
 
                 ArrayList<String> equation = new ArrayList<>();
-                String trajectoryFormula = "y - Yp = x*tan(alpha) - g*x*x/(2*u*u*cos(alpha)*cos(alpha))";
+                String trajectoryFormula = "y - Yp = x*tan(alphaPlusBeta) - g*x*x/(2*u*u*cos(alphaPlusBeta)*cos(alphaPlusBeta))";
                 String inclinationFormula = "y - Yi = tan(beta)*(x - Xi)";
 
-                trajectoryFormula = trajectoryFormula.replaceAll("alpha", String.valueOf(alpha));
+                trajectoryFormula = trajectoryFormula.replaceAll("alphaPlusBeta", String.valueOf(alphaPlusBeta));
                 trajectoryFormula = trajectoryFormula.replaceAll("beta", String.valueOf(beta));
                 trajectoryFormula = trajectoryFormula.replaceAll("g", String.valueOf(g));
                 trajectoryFormula = trajectoryFormula.replaceAll("u", String.valueOf(u));
@@ -868,7 +868,7 @@ public class Kinematics extends AppCompatActivity {
                 trajectoryFormula = trajectoryFormula.replaceAll("Xp", String.valueOf(Xp));
                 trajectoryFormula = trajectoryFormula.replaceAll("Yp", String.valueOf(Yp));
 
-                inclinationFormula = inclinationFormula.replaceAll("alpha", String.valueOf(alpha));
+                inclinationFormula = inclinationFormula.replaceAll("alphaPlusBeta", String.valueOf(alphaPlusBeta));
                 inclinationFormula = inclinationFormula.replaceAll("beta", String.valueOf(beta));
                 inclinationFormula = inclinationFormula.replaceAll("g", String.valueOf(g));
                 inclinationFormula = inclinationFormula.replaceAll("u", String.valueOf(u));
@@ -880,7 +880,7 @@ public class Kinematics extends AppCompatActivity {
                 equation.add(trajectoryFormula);
                 equation.add(inclinationFormula);
 
-                List<String> eqns = new ArrayList<>();
+                Collection<String> eqns = new ArrayList<>();
                 eqns.add(trajectoryFormula);
                 eqns.add(inclinationFormula);
 
@@ -892,6 +892,25 @@ public class Kinematics extends AppCompatActivity {
                 ArrayList<String> xy = IntersectionExtractor(intersection);
                 System.out.println("x: "+xy.get(0));
                 System.out.println("y: "+xy.get(1));
+
+                double time = (Double.parseDouble(xy.get(0))-Xp)/(u*Math.cos(alphaPlusBeta));
+                double range = Double.parseDouble(xy.get(0))-Xp;
+                double tempTimeWithoutInclinedPlane = 2*u*Math.sin(alphaPlusBeta)/g;
+                double timeforMaxHeight = tempTimeWithoutInclinedPlane/2;
+
+                if (time > timeforMaxHeight)
+                {
+                    double timeWhenVerticalVelocityIsZero = u*Math.sin(alphaPlusBeta)/g;
+                    double maxHeight = u*Math.sin(alphaPlusBeta)*timeWhenVerticalVelocityIsZero - 0.5*g*timeWhenVerticalVelocityIsZero*timeWhenVerticalVelocityIsZero;
+                    System.out.println("maxHeight1: "+maxHeight);
+                    double maxHeight2 = u*u*Math.sin(alphaPlusBeta)*Math.sin(alphaPlusBeta)/(2*g);
+                    System.out.println("maxHeight2: "+maxHeight2);
+                }
+                else
+                {
+                    double maxHeight = Double.parseDouble(xy.get(1));
+                    System.out.println("maxHeight: "+maxHeight);
+                }
 
             }
 
