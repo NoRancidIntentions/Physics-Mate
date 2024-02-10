@@ -146,6 +146,30 @@ public class Custom_methods {
         }
     }
 
+        public static ArrayList<String> IntersectionExtractor(CharSequence str) {
+
+            // Define the regex pattern to match the x and y values in "{{y->0.279660012911754,x->1.4843853512085262}}"
+            String regex = "\\{\\{y->(.*?),x->(.*?)\\}\\}";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(str);
+
+            // Extract the x and y values if the pattern matches
+            if (matcher.find()) {
+                String yValue = matcher.group(1);
+                String xValue = matcher.group(2);
+                ArrayList<String> list = new ArrayList<>();
+                list.add(xValue);
+                list.add(yValue);
+
+                return list;
+
+            } else {
+                System.out.println("No intersection found.");
+            }
+
+            return null;
+        }
+
     //solver for multi variable equations
     public static String solveEquationSymbolic(Iterable<String> equation, String variables) {
         try {

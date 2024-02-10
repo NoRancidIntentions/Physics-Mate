@@ -888,6 +888,11 @@ public class Kinematics extends AppCompatActivity {
 
                 String intersection = solveEquationNumeric(eqns, "x, y");
                 System.out.println("intersection: "+intersection);
+
+                ArrayList<String> xy = IntersectionExtractor(intersection);
+                System.out.println("x: "+xy.get(0));
+                System.out.println("y: "+xy.get(1));
+
             }
 
         }
