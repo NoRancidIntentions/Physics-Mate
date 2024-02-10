@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -801,21 +802,25 @@ public class Kinematics extends AppCompatActivity {
         public void calculateProjectile() {
             double u = evalf(etVelocityMagnitude.getText().toString(), radDegSwitch.isRad());
 
-            double alpha, beta;
+            double alphaPlusBeta, beta;
 
             if (radDegSwitch.isRad()) {
                 beta = (evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
-                alpha = (evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
+                alphaPlusBeta = (evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
             }
             else {
                 beta = Math.toRadians(evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
-                alpha = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
+                alphaPlusBeta = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
             }
+
+            double alpha = alphaPlusBeta - beta;
+
             double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad()); //
             double Xp = evalf(etXp.getText().toString(), radDegSwitch.isRad());
             double Yp = evalf(etYp.getText().toString(), radDegSwitch.isRad());
             double Xi = evalf(etXi.getText().toString(), radDegSwitch.isRad());
             double Yi = evalf(etYi.getText().toString(), radDegSwitch.isRad());
+
 
             System.out.println(u + " " + beta + " " + alpha + " " + g + " " + Xp + " " + Yp);
 
@@ -854,28 +859,32 @@ public class Kinematics extends AppCompatActivity {
                 String trajectoryFormula = "y - Yp = x*tan(alpha) - g*x*x/(2*u*u*cos(alpha)*cos(alpha))";
                 String inclinationFormula = "y - Yi = tan(beta)*(x - Xi)";
 
-                //substitute values of variables alpha, beta, g, u, Xi, Yi, Xp, Yp in the strings
-                equation.add(trajectoryFormula.replaceAll("alpha", String.valueOf(alpha)));
-                equation.add(trajectoryFormula.replaceAll("beta", String.valueOf(beta)));
-                equation.add(trajectoryFormula.replaceAll("g", String.valueOf(g)));
-                equation.add(trajectoryFormula.replaceAll("u", String.valueOf(u)));
-                equation.add(trajectoryFormula.replaceAll("Xi", String.valueOf(Xi)));
-                equation.add(trajectoryFormula.replaceAll("Yi", String.valueOf(Yi)));
-                equation.add(trajectoryFormula.replaceAll("Xp", String.valueOf(Xp)));
-                equation.add(trajectoryFormula.replaceAll("Yp", String.valueOf(Yp)));
+                trajectoryFormula = trajectoryFormula.replaceAll("alpha", String.valueOf(alpha));
+                trajectoryFormula = trajectoryFormula.replaceAll("beta", String.valueOf(beta));
+                trajectoryFormula = trajectoryFormula.replaceAll("g", String.valueOf(g));
+                trajectoryFormula = trajectoryFormula.replaceAll("u", String.valueOf(u));
+                trajectoryFormula = trajectoryFormula.replaceAll("Xi", String.valueOf(Xi));
+                trajectoryFormula = trajectoryFormula.replaceAll("Yi", String.valueOf(Yi));
+                trajectoryFormula = trajectoryFormula.replaceAll("Xp", String.valueOf(Xp));
+                trajectoryFormula = trajectoryFormula.replaceAll("Yp", String.valueOf(Yp));
 
-                equation.add(inclinationFormula.replaceAll("alpha", String.valueOf(alpha)));
-                equation.add(inclinationFormula.replaceAll("beta", String.valueOf(beta)));
-                equation.add(inclinationFormula.replaceAll("g", String.valueOf(g)));
-                equation.add(inclinationFormula.replaceAll("u", String.valueOf(u)));
-                equation.add(inclinationFormula.replaceAll("Xi", String.valueOf(Xi)));
-                equation.add(inclinationFormula.replaceAll("Yi", String.valueOf(Yi)));
-                equation.add(inclinationFormula.replaceAll("Xp", String.valueOf(Xp)));
-                equation.add(inclinationFormula.replaceAll("Yp", String.valueOf(Yp)));
+                inclinationFormula = inclinationFormula.replaceAll("alpha", String.valueOf(alpha));
+                inclinationFormula = inclinationFormula.replaceAll("beta", String.valueOf(beta));
+                inclinationFormula = inclinationFormula.replaceAll("g", String.valueOf(g));
+                inclinationFormula = inclinationFormula.replaceAll("u", String.valueOf(u));
+                inclinationFormula = inclinationFormula.replaceAll("Xi", String.valueOf(Xi));
+                inclinationFormula = inclinationFormula.replaceAll("Yi", String.valueOf(Yi));
+                inclinationFormula = inclinationFormula.replaceAll("Xp", String.valueOf(Xp));
+                inclinationFormula = inclinationFormula.replaceAll("Yp", String.valueOf(Yp));
 
-                ArrayList<String> eqns = new ArrayList<>();
+                equation.add(trajectoryFormula);
+                equation.add(inclinationFormula);
+
+                List<String> eqns = new ArrayList<>();
                 eqns.add(trajectoryFormula);
                 eqns.add(inclinationFormula);
+
+                System.out.println("eqns: "+eqns);
 
                 String intersection = solveEquationNumeric(eqns, "x, y");
                 System.out.println("intersection: "+intersection);

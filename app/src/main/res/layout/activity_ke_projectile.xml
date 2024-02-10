@@ -112,7 +112,7 @@
                     android:hint="Degrees"/>
 
             <TextView
-                    android:text="Enter Enter angle b \n (Angle of Projection)"
+                    android:text="Enter Enter angle b \n (Angle of Projection wrt ground (horizontal))"
                     android:id="@+id/textView45"
                     style="@style/custom_textView"/>
 
