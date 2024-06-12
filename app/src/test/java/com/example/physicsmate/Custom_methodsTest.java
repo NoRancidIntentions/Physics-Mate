@@ -179,6 +179,20 @@ public class Custom_methodsTest {
         }
     }
 
+    @Test
+    public void evalf() {
+        String str = "sin(7*pi)";
+        System.out.println(Custom_methods.evalf(str));
+    }
+
+    @Test
+    public void evalf2() {
+        String str = "sin(180+90)";
+        System.out.println(Custom_methods.evalf(str));
+    }
+
+
+
     // Existing tests...
 
     @Test
@@ -230,7 +244,7 @@ public class Custom_methodsTest {
         double expected = 0.0;
 
         // Act
-        double result = Custom_methods.evalf(expression, isRad);
+        double result = Custom_methods.evalf(expression);
 
         // Assert
         assertEquals(expected, result, 0.001);
@@ -244,7 +258,7 @@ public class Custom_methodsTest {
         double expected = 0.0;
 
         // Act
-        double result = Custom_methods.evalf(expression, isRad);
+        double result = Custom_methods.evalf(expression);
         System.out.println("result: " + result);
 
         // Assert
@@ -259,7 +273,7 @@ public class Custom_methodsTest {
         double expected = 1536.786;
 
         // Act
-        double result = Custom_methods.evalf(expression, isRad);
+        double result = Custom_methods.evalf(expression);
 
         // Assert
         assertEquals(expected, result, 0.001);

@@ -26,12 +26,6 @@
                     style="@style/custom_imageview_fixedratio"
                     android:layout_marginTop="40dp"/>
 
-            <com.example.physicsmate.ui.main.RadDegSwitchInitializer
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radDegSwitch_AirResistance"
-                    android:layout_gravity="end"/>
-
             <TextView
                     android:text="Enter Coordinates (Xp, Yp) for point of projection"
                     android:id="@+id/textView42"
@@ -65,6 +59,13 @@
                     android:text="Enter Coordinates (Xi, Yi) for starting point of inclined plane"
                     style="@style/custom_textView"
             />
+
+            <TextView
+                    android:text="Note that the ground level is at Y = 0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/blue_text_answer"/>
 
             <HorizontalScrollView
                     android:layout_width="wrap_content"

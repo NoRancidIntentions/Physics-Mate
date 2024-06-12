@@ -7,16 +7,13 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.RadDegSwitchInitializer;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -678,7 +675,6 @@ public class Kinematics extends AppCompatActivity {
 
         TextView tvResult, tvAirResistanceInfo;
 
-        RadDegSwitchInitializer radDegSwitch;
 
         LineChart lc;
 
@@ -700,7 +696,6 @@ public class Kinematics extends AppCompatActivity {
 
             customKeyboard = findViewById(R.id.custom_keyboard1_initializer_ke_projectile);
             sv = findViewById(R.id.SV_ke_projectile);
-            radDegSwitch = findViewById(R.id.radDegSwitch_AirResistance);
 
             etXi = findViewById(R.id.etXi);
             etYi = findViewById(R.id.etYi);
@@ -750,8 +745,6 @@ public class Kinematics extends AppCompatActivity {
             btnGetGraph.setVisibility(View.GONE);
             lc.setVisibility(View.GONE);
 
-            radDegSwitch.setRad(false);
-
             setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
                     etInclinedPlaneAngle, etProjectionAngle);
 
@@ -768,7 +761,7 @@ public class Kinematics extends AppCompatActivity {
                     etArea.setVisibility(View.VISIBLE);
                     etDragCoefficient.setVisibility(View.VISIBLE);
 
-                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etXi, etYi, etYp, etXp,  etMass, etGravity, etVelocityMagnitude,
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etXi, etYi, etYp, etXp, etMass, etGravity, etVelocityMagnitude,
                             etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
                 } else {
                     tvAirResistanceInfo.setVisibility(View.GONE);
@@ -800,31 +793,25 @@ public class Kinematics extends AppCompatActivity {
         }
 
         public void calculateProjectile() {
-            double u = evalf(etVelocityMagnitude.getText().toString(), radDegSwitch.isRad());
+            double u = evalf(etVelocityMagnitude.getText().toString());
 
             double alphaPlusBeta, beta;
 
-            if (radDegSwitch.isRad()) {
-                beta = (evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
-                alphaPlusBeta = (evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
-            }
-            else {
-                beta = Math.toRadians(evalf(etInclinedPlaneAngle.getText().toString(), radDegSwitch.isRad()));
-                alphaPlusBeta = Math.toRadians(evalf(etProjectionAngle.getText().toString(), radDegSwitch.isRad()));
-            }
+            beta = evalf(etInclinedPlaneAngle.getText().toString());
+            alphaPlusBeta = (evalf(etProjectionAngle.getText().toString()));
 
             double alpha = alphaPlusBeta - beta;
 
-            double g = evalf(etGravity.getText().toString(), radDegSwitch.isRad()); //
-            double Xp = evalf(etXp.getText().toString(), radDegSwitch.isRad());
-            double Yp = evalf(etYp.getText().toString(), radDegSwitch.isRad());
-            double Xi = evalf(etXi.getText().toString(), radDegSwitch.isRad());
-            double Yi = evalf(etYi.getText().toString(), radDegSwitch.isRad());
+            double g = evalf(etGravity.getText().toString()); //
+            double Xp = evalf(etXp.getText().toString());
+            double Yp = evalf(etYp.getText().toString());
+            double Xi = evalf(etXi.getText().toString());
+            double Yi = evalf(etYi.getText().toString());
 
 
             System.out.println(u + " " + beta + " " + alpha + " " + g + " " + Xp + " " + Yp);
 
-            if(Xi == Xp && Yi == Yp) {
+            if (Xi == Xp && Yi == Yp) {
                 //range = 2*u^2*sin(alpha)*cos(alpha+beta)/(g*cos(beta)^2)
                 double range = 2 * Math.pow(u, 2) * Math.sin(alpha) * Math.cos(alpha + beta) / (g * Math.pow(Math.cos(beta), 2));
 
@@ -835,7 +822,7 @@ public class Kinematics extends AppCompatActivity {
                 double maxHeight = Math.pow(u * Math.sin(alpha), 2) / (2 * g * Math.cos(beta));
 
                 //angle of projection for maximum range = pi/4 - beta/2
-                double maxAngle = Math.PI/4 - beta/2;
+                double maxAngle = Math.PI / 4 - beta / 2;
 
                 //show results
                 tvResult.setVisibility(View.VISIBLE);
@@ -848,16 +835,14 @@ public class Kinematics extends AppCompatActivity {
                         "<br><font color = #6BBBE1> Maximum angle of projection = </font> <font color = #CDDC39>" + Math.toDegrees(maxAngle) + " degrees </font>";
 
                 tvResult.setText(Html.fromHtml(strRes));
-            }
-            else
-            {
+            } else {
                 //solve these two equations using symja:
                 //y - Yp = x*tan(alpha) - g*x*x/(2*u*u*cos(alpha)*cos(alpha))
                 //y - Yi = tan(beta)*(x - Xi)
 
-                ArrayList<String> equation = new ArrayList<>();
                 String trajectoryFormula = "y - Yp = x*tan(alphaPlusBeta) - g*x*x/(2*u*u*cos(alphaPlusBeta)*cos(alphaPlusBeta))";
                 String inclinationFormula = "y - Yi = tan(beta)*(x - Xi)";
+                String constraint1 = "x>=0";
 
                 trajectoryFormula = trajectoryFormula.replaceAll("alphaPlusBeta", String.valueOf(alphaPlusBeta));
                 trajectoryFormula = trajectoryFormula.replaceAll("beta", String.valueOf(beta));
@@ -877,39 +862,34 @@ public class Kinematics extends AppCompatActivity {
                 inclinationFormula = inclinationFormula.replaceAll("Xp", String.valueOf(Xp));
                 inclinationFormula = inclinationFormula.replaceAll("Yp", String.valueOf(Yp));
 
-                equation.add(trajectoryFormula);
-                equation.add(inclinationFormula);
-
                 Collection<String> eqns = new ArrayList<>();
                 eqns.add(trajectoryFormula);
                 eqns.add(inclinationFormula);
+                //eqns.add(constraint1);
 
-                System.out.println("eqns: "+eqns);
+                System.out.println("eqns: " + eqns);
 
                 String intersection = solveEquationNumeric(eqns, "x, y");
-                System.out.println("intersection: "+intersection);
+                System.out.println("intersection: " + intersection);
 
                 ArrayList<String> xy = IntersectionExtractor(intersection);
-                System.out.println("x: "+xy.get(0));
-                System.out.println("y: "+xy.get(1));
+                System.out.println("x: " + xy.get(0));
+                System.out.println("y: " + xy.get(1));
 
-                double time = (Double.parseDouble(xy.get(0))-Xp)/(u*Math.cos(alphaPlusBeta));
-                double range = Double.parseDouble(xy.get(0))-Xp;
-                double tempTimeWithoutInclinedPlane = 2*u*Math.sin(alphaPlusBeta)/g;
-                double timeforMaxHeight = tempTimeWithoutInclinedPlane/2;
+                double time = (Double.parseDouble(xy.get(0)) - Xp) / (u * Math.cos(alphaPlusBeta));
+                double range = Double.parseDouble(xy.get(0)) - Xp;
+                double tempTimeWithoutInclinedPlane = 2 * u * Math.sin(alphaPlusBeta) / g;
+                double timeforMaxHeight = tempTimeWithoutInclinedPlane / 2;
 
-                if (time > timeforMaxHeight)
-                {
-                    double timeWhenVerticalVelocityIsZero = u*Math.sin(alphaPlusBeta)/g;
-                    double maxHeight = u*Math.sin(alphaPlusBeta)*timeWhenVerticalVelocityIsZero - 0.5*g*timeWhenVerticalVelocityIsZero*timeWhenVerticalVelocityIsZero;
-                    System.out.println("maxHeight1: "+maxHeight);
-                    double maxHeight2 = u*u*Math.sin(alphaPlusBeta)*Math.sin(alphaPlusBeta)/(2*g);
-                    System.out.println("maxHeight2: "+maxHeight2);
-                }
-                else
-                {
+                if (time > timeforMaxHeight) {
+                    double timeWhenVerticalVelocityIsZero = u * Math.sin(alphaPlusBeta) / g;
+                    double maxHeight = u * Math.sin(alphaPlusBeta) * timeWhenVerticalVelocityIsZero - 0.5 * g * timeWhenVerticalVelocityIsZero * timeWhenVerticalVelocityIsZero;
+                    System.out.println("maxHeight1: " + maxHeight);
+                    double maxHeight2 = u * u * Math.sin(alphaPlusBeta) * Math.sin(alphaPlusBeta) / (2 * g);
+                    System.out.println("maxHeight2: " + maxHeight2);
+                } else {
                     double maxHeight = Double.parseDouble(xy.get(1));
-                    System.out.println("maxHeight: "+maxHeight);
+                    System.out.println("maxHeight: " + maxHeight);
                 }
 
             }

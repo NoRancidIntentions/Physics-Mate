@@ -21,7 +21,6 @@ public class Lagrange_Interpolation extends AppCompatActivity {
     EditText Lagrangex1, Lagrangey1, Lagrangex2, Lagrangey2;
     TextView LagrangeTvResult;
     LinearLayout LagrangeRowsLinearLayout;
-    MathView LagrangeMathView;
 
     @SuppressLint("ResourceType")
     @Override
@@ -49,11 +48,8 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         LagrangeCalcButton.setBackgroundResource(R.drawable.btn_disabled);
         LagrangeCalcButton.setTextColor(getResources().getColor(R.color.app_bg));
         LagrangeCalcButton.setText("Enter all the fields");
-        //LagrangeMathView = findViewById(R.id.LagrangeMathView);
 
         LagrangeTvResult.setVisibility(View.GONE);
-        LagrangeMathView.setVisibility(View.GONE);
-        MathJaxConfig(LagrangeMathView);
 
         LagrangeAddRowButton.setOnClickListener(this::LagrangeAddRow);
 
@@ -214,8 +210,6 @@ public class Lagrange_Interpolation extends AppCompatActivity {
                     String poly = getPolynomialFunction(x, y);
                     String TvLagrangePoly = "<font color=#6BBBE1>The polynomial satisfying the above points is </font> <font color=#CDDC39> y = " + poly + "</font>";
                     String TexPoly = getTex("y= " + poly);
-                    LagrangeMathView.setText(TexPoly);
-                    LagrangeMathView.setVisibility(View.VISIBLE);
 
                     LagrangeTvResult.setText(Html.fromHtml(TvLagrangePoly, Html.FROM_HTML_MODE_LEGACY));
                     LagrangeTvResult.setVisibility(View.VISIBLE);

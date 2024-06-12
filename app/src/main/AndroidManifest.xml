@@ -21,15 +21,7 @@
         <activity
                 android:name=".activities.physics.Kinematics$KE_projectile"
                 android:exported="false"/>
-        <activity
-                android:name=".ObliqeCollisionMenu"
-                android:exported="false"/>
-        <activity
-                android:name=".CollisionMenu"
-                android:exported="false"/>
-        <activity
-                android:name=".momentum_conservation"
-                android:exported="false"/>
+
         <activity
                 android:name=".activities.math.VarSolver"
                 android:exported="false"/>

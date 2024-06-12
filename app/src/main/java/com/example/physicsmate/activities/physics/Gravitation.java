@@ -11,11 +11,8 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.RadDegSwitchInitializer;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import io.github.kexanie.library.MathView;
-
-import java.util.ArrayList;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -683,7 +680,6 @@ public class Gravitation extends AppCompatActivity {
                 MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-                RadDegSwitchInitializer radDegSwitch = findViewById(R.id.radDegSwitch_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
 
@@ -715,10 +711,14 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
 
-                        double m = evalf(et1.getText().toString(), radDegSwitch.isRad());
-                        double r = evalf(et2.getText().toString(), radDegSwitch.isRad());
+                        double m = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
                         double acc = G * m / Math.pow(r, 2);
+
+                        System.out.println(m);
+                        System.out.println(acc);
+
                         String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
                         tvRes.setText(Html.fromHtml(strRes));
 

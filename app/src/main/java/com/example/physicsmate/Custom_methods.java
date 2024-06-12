@@ -50,6 +50,8 @@ import static de.lab4inf.math.util.Accuracy.round;
 public class Custom_methods {
 
     static String StringError = "Error";
+    static String eString = "2.71828182845904523536";
+    static String phiString = "1.61803398874989484820";
 
     /**
      * Returns the number of fraction digits in the given number.
@@ -115,57 +117,44 @@ public class Custom_methods {
      * @param str the mathematical expression to be evaluated
      * @return the result of the evaluation as a double
      */
-    public static double evalf(@NotNull final String str) {
+    public static double evalf(@NotNull String str) {
         ExprEvaluator util = new ExprEvaluator();
-        try {
-            return util.evalf(IExprConverter(str));
-
-        } catch (MathException e) {
-            return 1536.786;
-        }
-    }
-
-    public static double evalf(@NotNull String str, Boolean isRad) {
-        ExprEvaluator util = new ExprEvaluator();
-        str = str.replace("e", "E");
+        str = str.replace("e", eString);
         str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
-
-        if (!isRad) {
-            str = str.replaceAll("sin\\((.*?)\\)", "sin($1*pi/180)");
-            str = str.replaceAll("cos\\((.*?)\\)", "cos($1*pi/180)");
-            str = str.replaceAll("tan\\((.*?)\\)", "tan($1*pi/180)");
-        }
-
+        str = str.replaceAll("phi", phiString);
         try {
-            return util.evalf(IExprConverter(str));
+            String temp = String.valueOf(util.eval(IExprConverter(str)));
+            return util.evalf(temp);
+
         } catch (MathException e) {
             return 1536.786;
         }
     }
 
-        public static ArrayList<String> IntersectionExtractor(CharSequence str) {
 
-            // Define the regex pattern to match the x and y values in "{{y->0.279660012911754,x->1.4843853512085262}}"
-            String regex = "\\{\\{y->(.*?),x->(.*?)\\}\\}";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(str);
+    public static ArrayList<String> IntersectionExtractor(CharSequence str) {
 
-            // Extract the x and y values if the pattern matches
-            if (matcher.find()) {
-                String yValue = matcher.group(1);
-                String xValue = matcher.group(2);
-                ArrayList<String> list = new ArrayList<>();
-                list.add(xValue);
-                list.add(yValue);
+        // Define the regex pattern to match the x and y values in "{{y->0.279660012911754,x->1.4843853512085262}}"
+        String regex = "\\{\\{y->(.*?),x->(.*?)\\}\\}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
 
-                return list;
+        // Extract the x and y values if the pattern matches
+        if (matcher.find()) {
+            String yValue = matcher.group(1);
+            String xValue = matcher.group(2);
+            ArrayList<String> list = new ArrayList<>();
+            list.add(xValue);
+            list.add(yValue);
 
-            } else {
-                System.out.println("No intersection found.");
-            }
+            return list;
 
-            return null;
+        } else {
+            System.out.println("No intersection found.");
         }
+
+        return null;
+    }
 
     //solver for multi variable equations
     public static String solveEquationSymbolic(Iterable<String> equation, String variables) {
@@ -198,9 +187,9 @@ public class Custom_methods {
     /**
      * A function to solve a system of numeric equations.
      *
-     * @param  equation   the iterable of equations to be solved
-     * @param  variables  the string representation of the variables in the equations
-     * @return            the result of solving the equations as a string
+     * @param equation  the iterable of equations to be solved
+     * @param variables the string representation of the variables in the equations
+     * @return the result of solving the equations as a string
      */
     public static String solveEquationNumeric(Iterable<String> equation, String variables) {
         try {
