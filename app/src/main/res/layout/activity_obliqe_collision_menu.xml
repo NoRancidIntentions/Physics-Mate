@@ -66,11 +66,6 @@
             style="@style/custom_checkBox"
             android:text="angle between final velocity of second object and line of impact (b2)"/>
 
-    <CheckBox
-            android:id="@+id/chkE"
-            style="@style/custom_checkBox"
-            android:text="coefficient of restitution (e)"/>
-
     <androidx.appcompat.widget.AppCompatButton
             style="@style/custom_button_enabled"
             android:id="@+id/btnNext"

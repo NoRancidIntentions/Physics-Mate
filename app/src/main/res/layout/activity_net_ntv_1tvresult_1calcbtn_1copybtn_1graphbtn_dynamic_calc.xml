@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            android:orientation="vertical">
+
+        <io.github.kexanie.library.MathView
+                style="@style/LatexStyle"
+                android:id="@+id/latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                app:engine="MathJax"
+                app:text="G" />
+
+        <ImageView
+                style="@style/custom_imageview_fixedratio"
+                android:src="@drawable/losac"
+                android:id="@+id/imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc" />
+
+        <!-- Dynamically added TextViews and EditTexts -->
+        <LinearLayout
+                android:id="@+id/linearLayout_dynamic_fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                android:text="find the remaining values"
+                style="@style/custom_button_enabled" />
+
+        <TextView
+                android:id="@+id/tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                android:text="TextView"
+                style="@style/custom_textView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:text="Copy to clipboard"
+                android:id="@+id/btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                style="@style/custom_button_enabled"
+                android:layout_marginBottom="45dp" />
+    </LinearLayout>
+</ScrollView>

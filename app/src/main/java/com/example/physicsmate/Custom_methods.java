@@ -56,7 +56,7 @@ public class Custom_methods {
     /**
      * Returns the number of fraction digits in the given number.
      *
-     * @param number The number to check.
+     * @param The number to check.
      * @return The number of fraction digits.
      */
     /*public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
@@ -72,6 +72,23 @@ public class Custom_methods {
         bd = bd.stripTrailingZeros(); // Remove trailing zeros to get the correct scale.
         return bd.scale();
     }*/
+
+
+    public static void et_tv_dynamic_adder(LinearLayout linearLayout, int N, Context context) {
+        for (int i = 1; i <= N; i++) {
+            TextView textView = new TextView(context);
+            textView.setText("Enter value " + i);
+            textView.setId(View.generateViewId());
+            Paris.styleBuilder(textView).add(R.style.custom_textView).apply();
+
+            EditText editText = new EditText(context);
+            editText.setId(View.generateViewId());
+            Paris.styleBuilder(editText).add(R.style.custom_edittext).apply();
+
+            linearLayout.addView(textView);
+            linearLayout.addView(editText);
+        }
+    }
 
 
     //method to round a number to the least number of decimal places from all the edit texts

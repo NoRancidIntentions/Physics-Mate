@@ -1,13 +1,16 @@
 package com.example.physicsmate.activities.physics;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.airbnb.paris.Paris;
+import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,7 +59,6 @@ public class CollisionMenu extends AppCompatActivity {
             CheckBox chkA2 = findViewById(R.id.chkA2);
             CheckBox chkB1 = findViewById(R.id.chkB1);
             CheckBox chkB2 = findViewById(R.id.chkB2);
-            CheckBox chkE = findViewById(R.id.chkE);
             CheckBox chkU1 = findViewById(R.id.chkU1);
             CheckBox chkU2 = findViewById(R.id.chkU2);
             Button btnNext = findViewById(R.id.btnNext);
@@ -69,7 +71,7 @@ public class CollisionMenu extends AppCompatActivity {
             btnNext.setBackgroundResource(R.drawable.btn_disabled);
 
             final int[] a = {0};
-            int max_CB_Required = 7;
+            int max_CB_Required = 6;
 
             Collection<CheckBox> checkBoxes = new ArrayList<>();
             checkBoxes.add(chkM1);
@@ -80,7 +82,6 @@ public class CollisionMenu extends AppCompatActivity {
             checkBoxes.add(chkA2);
             checkBoxes.add(chkB1);
             checkBoxes.add(chkB2);
-            checkBoxes.add(chkE);
             checkBoxes.add(chkU1);
             checkBoxes.add(chkU2);
 
@@ -115,7 +116,6 @@ public class CollisionMenu extends AppCompatActivity {
                 intent.putExtra("chkA2", chkA2.isChecked());
                 intent.putExtra("chkB1", chkB1.isChecked());
                 intent.putExtra("chkB2", chkB2.isChecked());
-                intent.putExtra("chkE", chkE.isChecked());
                 intent.putExtra("chkU1", chkU1.isChecked());
                 intent.putExtra("chkU2", chkU2.isChecked());
 
@@ -132,22 +132,17 @@ public class CollisionMenu extends AppCompatActivity {
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                setContentView(R.layout.activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                TextView tv1 = findViewById(R.id.tv1_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tv2 = findViewById(R.id.tv2_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tv3 = findViewById(R.id.tv3_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tv4 = findViewById(R.id.tv4_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvRes = findViewById(R.id.tvResults_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText et1 = findViewById(R.id.et1_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText et2 = findViewById(R.id.et2_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText et3 = findViewById(R.id.et3_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText et4 = findViewById(R.id.et4_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                Button btnCalc = findViewById(R.id.btnCalc_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                Button btnCopy = findViewById(R.id.btnCopy_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                custom_keyboard1_initializer keyboard = findViewById(R.id.custom_keyboard1_initializer_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ScrollView sv = findViewById(R.id.SV_activity_4et_4tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                int N = 6;
+                Context context = this;
+                LinearLayout linearLayout_dynamic_fields = findViewById(R.id.linearLayout_dynamic_fields);
+                Custom_methods.et_tv_dynamic_adder(linearLayout_dynamic_fields, N, context);
+
+                TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Button btnCalc = findViewById(R.id.btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 View[] viewsToDisappear = {btnCopy, tvRes};
 
@@ -158,7 +153,6 @@ public class CollisionMenu extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, keyboard, et1, et2);
 
 
             }
