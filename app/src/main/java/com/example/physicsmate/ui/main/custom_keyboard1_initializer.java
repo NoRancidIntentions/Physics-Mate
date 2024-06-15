@@ -1,15 +1,14 @@
 package com.example.physicsmate.ui.main;
 
 import android.content.Context;
-import android.os.Handler;
 import android.text.Editable;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
-import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 public class custom_keyboard1_initializer extends GridLayout {
@@ -19,7 +18,8 @@ public class custom_keyboard1_initializer extends GridLayout {
             button0, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonBackspace,
             buttonExponent, buttonLn, buttonlog10, buttonFactorial, buttonModulus, buttonSin, buttonCos,
             buttonTan, buttonPi, buttonE, buttonLeftBracket, buttonRightBracket, buttonArcSin, buttonArcCos, buttonArcTan,
-            buttonPhi, buttonImaginary;
+            buttonElectronMass, buttonProtonMass, buttonNeutronMass, buttonElectronCharge, buttonPermittivity, buttonPermeability,
+            buttonPlank, buttonG, buttonC, buttonDecimal;
     private View scrollView;
 
     public custom_keyboard1_initializer(Context context, AttributeSet attrs) {
@@ -57,11 +57,26 @@ public class custom_keyboard1_initializer extends GridLayout {
         buttonArcSin = keyboardView.findViewById(R.id.button_arcsin);
         buttonArcCos = keyboardView.findViewById(R.id.button_arccos);
         buttonArcTan = keyboardView.findViewById(R.id.button_arctan);
-        buttonPhi = keyboardView.findViewById(R.id.buttonPhi);
-        buttonImaginary = keyboardView.findViewById(R.id.button_i);
         buttonBackspace = keyboardView.findViewById(R.id.buttonBackspace);
         buttonExponent = keyboardView.findViewById(R.id.button_power);
         buttonModulus = keyboardView.findViewById(R.id.button_modulus);
+        buttonElectronMass = keyboardView.findViewById(R.id.buttonElectronMass);
+        buttonProtonMass = keyboardView.findViewById(R.id.buttonProtonMass);
+        buttonNeutronMass = keyboardView.findViewById(R.id.buttonNeutronMass);
+        buttonElectronCharge = keyboardView.findViewById(R.id.buttonElectronCharge);
+        buttonPermittivity = keyboardView.findViewById(R.id.buttonPermittivity);
+        buttonPermeability = keyboardView.findViewById(R.id.buttonPermeability);
+        buttonPlank = keyboardView.findViewById(R.id.buttonPlank);
+        buttonG = keyboardView.findViewById(R.id.buttonG);
+        buttonC = keyboardView.findViewById(R.id.buttonLightSpeed);
+        buttonDecimal = keyboardView.findViewById(R.id.buttonDecimal);
+
+        buttonElectronMass.setText(Html.fromHtml("m<sub>e</sub>"));
+        buttonProtonMass.setText(Html.fromHtml("m<sub>p</sub>"));
+        buttonNeutronMass.setText(Html.fromHtml("m<sub>n</sub>"));
+        buttonElectronCharge.setText(Html.fromHtml("e<sup>-</sup>"));
+        buttonPermittivity.setText(Html.fromHtml("ε<sub>0</sub>"));
+        buttonPermeability.setText(Html.fromHtml("μ<sub>0</sub>"));
 
         // Set button click listeners
         button1.setOnClickListener(v -> insertText("1"));
@@ -103,8 +118,17 @@ public class custom_keyboard1_initializer extends GridLayout {
         buttonArcSin.setOnClickListener(v -> insertText("arcsin("));
         buttonArcCos.setOnClickListener(v -> insertText("arccos("));
         buttonArcTan.setOnClickListener(v -> insertText("arctan("));
-        buttonPhi.setOnClickListener(v -> insertText("phi"));
-        buttonImaginary.setOnClickListener(v -> insertText("i"));
+        buttonDecimal.setOnClickListener(v -> insertText("."));
+
+        buttonElectronMass.setOnClickListener(v -> insertText("9.1093837*10^(-31)"));
+        buttonProtonMass.setOnClickListener(v -> insertText("1.6726219*10^(-27)"));
+        buttonNeutronMass.setOnClickListener(v -> insertText("1.674927*10^(-27)"));
+        buttonElectronCharge.setOnClickListener(v -> insertText("1.60217662*10^(-19)"));
+        buttonPermittivity.setOnClickListener(v -> insertText("8.854187817*10^(-12)"));
+        buttonPermeability.setOnClickListener(v -> insertText("4*pi*10^(-7)"));
+        buttonPlank.setOnClickListener(v -> insertText("6.62607015*10^(-34)"));
+        buttonG.setOnClickListener(v -> insertText("6.6743*10^(-11)"));
+        buttonC.setOnClickListener(v -> insertText("299792458"));
 
         setVisibility(View.GONE);
     }

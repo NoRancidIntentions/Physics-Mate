@@ -45,7 +45,7 @@
                 android:layout_column="9"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonElectronMass"
+                android:id="@+id/buttonLightSpeed"
                 style="@style/custom_button_enabled_keyboard"
                 android:text="c"
                 android:layout_row="3"
@@ -301,7 +301,7 @@
                 android:layout_column="7"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_decimal"
+                android:id="@+id/buttonDecimal"
                 style="@style/custom_button_enabled_keyboard"
                 android:text="."
                 android:fontFamily="sans-serif-black"
