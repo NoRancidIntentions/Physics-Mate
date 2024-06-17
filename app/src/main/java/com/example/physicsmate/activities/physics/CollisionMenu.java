@@ -134,24 +134,12 @@ public class CollisionMenu extends AppCompatActivity {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                int N = 6;
-                Context context = this;
-                LinearLayout linearLayout_dynamic_fields = findViewById(R.id.linearLayout_dynamic_fields);
-                Custom_methods.et_tv_dynamic_adder(linearLayout_dynamic_fields, N, context);
-                List[] viewList;
-
+                LinearLayout linearLayout = findViewById(R.id.linearLayout_dynamic_fields);
                 TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCalc = findViewById(R.id.btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
-                //retrieve the ids of the dynamically added fields
-                viewList = et_tv_dynamic_adder(linearLayout_dynamic_fields, N, context);
-
-
-                View[] viewsToDisappear = {btnCopy, tvRes};
-                Custom_methods.setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, viewList[1]);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -161,9 +149,48 @@ public class CollisionMenu extends AppCompatActivity {
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
 
+                //retrieve the intents
+                Intent intent = getIntent();
+                boolean chkM1 = intent.getBooleanExtra("chkM1", false);
+                boolean chkM2 = intent.getBooleanExtra("chkM2", false);
+                boolean chkV1 = intent.getBooleanExtra("chkV1", false);
+                boolean chkV2 = intent.getBooleanExtra("chkV2", false);
+                boolean chkA1 = intent.getBooleanExtra("chkA1", false);
+                boolean chkA2 = intent.getBooleanExtra("chkA2", false);
+                boolean chkB1 = intent.getBooleanExtra("chkB1", false);
+                boolean chkB2 = intent.getBooleanExtra("chkB2", false);
+                boolean chkU1 = intent.getBooleanExtra("chkU1", false);
+                boolean chkU2 = intent.getBooleanExtra("chkU2", false);
 
+                // Create a list of all checkboxes and their corresponding labels
+                boolean[] checkboxStates = {chkM1, chkM2, chkV1, chkV2, chkA1, chkA2, chkB1, chkB2, chkU1, chkU2};
+                String[] labels = {"M1", "M2", "V1", "V2", "A1", "A2", "B1", "B2", "U1", "U2"};
 
+                // Add TextViews dynamically based on the boolean values
+                for (int i = 0; i < checkboxStates.length; i++) {
+                    if (checkboxStates[i]) {
+                        TextView textView = new TextView(this);
+                        EditText editText = new EditText(this);
 
+                        textView.setText("Please enter the value of " + labels[i] + "in SI units");
+                        textView.setId(i*10); //0 in ones place correspond to textview,
+                        // and the digits left of ones place is the row number of the textview
+
+                        editText.setId(i*10+1); //1 in ones place correspond to edittext
+
+                        Paris.styleBuilder(textView).add(R.style.custom_textView).apply();
+                        linearLayout.addView(textView);
+                    }
+                }
+
+                //get the values entered by the user
+                String[] values = new String[checkboxStates.length];
+                for (int i = 0; i < checkboxStates.length; i++) {
+                    if (checkboxStates[i]) {
+                        EditText editText = findViewById(i*10+1);
+                        values[i] = editText.getText().toString();
+                    }
+                }
 
 
             }
