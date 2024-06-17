@@ -5,7 +5,7 @@
         style="@style/custom_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.physics.CollisionMenu$ObliqeCollisionMenu">
+        tools:context=".activities.physics.CollisionMenu$ObliqueCollisionMenu">
 
     <ScrollView
             android:layout_width="match_parent"

@@ -53,12 +53,7 @@ public class Custom_methods {
     static String eString = "2.71828182845904523536";
     static String phiString = "1.61803398874989484820";
 
-    /**
-     * Returns the number of fraction digits in the given number.
-     *
-     * @param The number to check.
-     * @return The number of fraction digits.
-     */
+
     /*public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
         if (number == null) {
             return 0; // If the number is null, there are no fraction digits.
@@ -74,9 +69,18 @@ public class Custom_methods {
     }*/
 
 
-    public static void et_tv_dynamic_adder(LinearLayout linearLayout, int N, Context context) {
+    public static List[] et_tv_dynamic_adder(LinearLayout linearLayout, int N, Context context) {
+        List<EditText> editTextList = null;
+        List[] viewList = null;
+        List<TextView> textViewList = null;
         for (int i = 1; i <= N; i++) {
             TextView textView = new TextView(context);
+
+            textViewList = new ArrayList<>();
+            editTextList = new ArrayList<>();
+
+            viewList = new List[2];
+
             textView.setText("Enter value " + i);
             textView.setId(View.generateViewId());
             Paris.styleBuilder(textView).add(R.style.custom_textView).apply();
@@ -86,8 +90,17 @@ public class Custom_methods {
             Paris.styleBuilder(editText).add(R.style.custom_edittext).apply();
 
             linearLayout.addView(textView);
+            textViewList.add(textView);
+
             linearLayout.addView(editText);
+            editTextList.add(editText);
         }
+
+        assert viewList != null;
+        viewList[0] = textViewList;
+        viewList[1] = editTextList;
+
+        return viewList;
     }
 
 
@@ -283,7 +296,7 @@ public class Custom_methods {
      * @param btnCalc          the button to enable or disable based on EditTexts' contents
      * @param editTexts        an array of EditTexts to listen for changes
      */
-    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, custom_keyboard1_initializer custom_keyboard, EditText... editTexts) {
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, custom_keyboard1_initializer custom_keyboard, List<EditText> editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;

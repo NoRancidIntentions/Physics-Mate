@@ -10,13 +10,13 @@ import com.airbnb.paris.Paris;
 import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.CB_MainMethod;
-import static com.example.physicsmate.Custom_methods.setupEditTextChangeListener;
+import static com.example.physicsmate.Custom_methods.et_tv_dynamic_adder;
 
 public class CollisionMenu extends AppCompatActivity {
 
@@ -38,13 +38,13 @@ public class CollisionMenu extends AppCompatActivity {
         });
 
         btnObliqueCollision.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ObliqeCollisionMenu.class);
+            Intent intent = new Intent(this, ObliqueCollisionMenu.class);
             startActivity(intent);
         });
 
     }
 
-    public static class ObliqeCollisionMenu extends AppCompatActivity {
+    public static class ObliqueCollisionMenu extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -138,13 +138,20 @@ public class CollisionMenu extends AppCompatActivity {
                 Context context = this;
                 LinearLayout linearLayout_dynamic_fields = findViewById(R.id.linearLayout_dynamic_fields);
                 Custom_methods.et_tv_dynamic_adder(linearLayout_dynamic_fields, N, context);
+                List[] viewList;
 
                 TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCalc = findViewById(R.id.btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+                //retrieve the ids of the dynamically added fields
+                viewList = et_tv_dynamic_adder(linearLayout_dynamic_fields, N, context);
+
 
                 View[] viewsToDisappear = {btnCopy, tvRes};
+                Custom_methods.setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, viewList[1]);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -153,6 +160,10 @@ public class CollisionMenu extends AppCompatActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
+
+
+
+
 
 
             }
