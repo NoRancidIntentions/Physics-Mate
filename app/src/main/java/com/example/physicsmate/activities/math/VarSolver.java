@@ -113,8 +113,10 @@ public class VarSolver extends AppCompatActivity {
         LinearLayout rowItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_rows, null, false);
         rowsLinearLayout.addView(rowItem);
         EditText et = (EditText) rowItem.getChildAt(0);
+        List<EditText> editTexts = new ArrayList<>();
+        editTexts.add(et);
         View[] viewsToDissapear = {tvResult};
-        setupEditTextChangeListener(viewsToDissapear, btnSolve, null, et);
+        setupEditTextChangeListener(viewsToDissapear, btnSolve, null, editTexts);
 
         solveButtonClickable();
 

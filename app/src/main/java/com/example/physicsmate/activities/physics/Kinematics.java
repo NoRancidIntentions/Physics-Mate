@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -745,8 +746,11 @@ public class Kinematics extends AppCompatActivity {
             btnGetGraph.setVisibility(View.GONE);
             lc.setVisibility(View.GONE);
 
-            setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
+            //add etGravity, etVelocityMagnitude,etInclinedPlaneAngle, etProjectionAngle to a Collection<EditText>
+            Collection<EditText> editTexts = Arrays.asList(etGravity, etVelocityMagnitude,
                     etInclinedPlaneAngle, etProjectionAngle);
+
+            setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard,editTexts);
 
             cbAirResistance.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
@@ -761,8 +765,10 @@ public class Kinematics extends AppCompatActivity {
                     etArea.setVisibility(View.VISIBLE);
                     etDragCoefficient.setVisibility(View.VISIBLE);
 
-                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etXi, etYi, etYp, etXp, etMass, etGravity, etVelocityMagnitude,
+                    Collection<EditText> editTexts2 = Arrays.asList(etXi, etYi, etYp, etXp, etMass, etGravity, etVelocityMagnitude,
                             etInclinedPlaneAngle, etProjectionAngle, etDensity, etArea, etDragCoefficient);
+
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, editTexts2);
                 } else {
                     tvAirResistanceInfo.setVisibility(View.GONE);
                     tvMass.setVisibility(View.GONE);
@@ -773,8 +779,10 @@ public class Kinematics extends AppCompatActivity {
                     etDensity.setVisibility(View.GONE);
                     etArea.setVisibility(View.GONE);
 
-                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard, etGravity, etVelocityMagnitude,
+                    Collection<EditText> editTexts3 = Arrays.asList( etGravity, etVelocityMagnitude,
                             etInclinedPlaneAngle, etProjectionAngle);
+
+                    setupEditTextChangeListener(viewsToDissapear, btnCalc, customKeyboard,editTexts3);
                 }
             });
 
