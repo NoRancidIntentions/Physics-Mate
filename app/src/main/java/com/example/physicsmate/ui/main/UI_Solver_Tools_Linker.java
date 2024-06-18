@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.physicsmate.R;
 import com.example.physicsmate.activities.math.*;
+import com.example.physicsmate.activities.physics.CollisionMenu;
 import com.example.physicsmate.activities.physics.Gravitation;
 import com.example.physicsmate.activities.physics.Kinematics;
 import com.example.physicsmate.activities.physics.MPLSim;
@@ -114,12 +115,13 @@ public class UI_Solver_Tools_Linker {
         public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin;
+            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin, btnCollision;
 
             btnGravitation = requireView().findViewById(R.id.btnGravitation);
             btnVEAdd = requireView().findViewById(R.id.button12);
             btnVEmultiply = requireView().findViewById(R.id.button13);
             btnKin = requireView().findViewById(R.id.button17);
+            btnCollision = requireView().findViewById(R.id.btnCollision);
 
             btnGravitation.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), Gravitation.class)));
 
@@ -128,6 +130,8 @@ public class UI_Solver_Tools_Linker {
             btnVEmultiply.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), VEMultiply.class)));
 
             btnKin.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), Kinematics.class)));
+
+            btnCollision.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), CollisionMenu.class)));
         }
     }
 

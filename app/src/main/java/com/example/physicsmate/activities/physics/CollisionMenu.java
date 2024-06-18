@@ -183,15 +183,66 @@ public class CollisionMenu extends AppCompatActivity {
                     }
                 }
 
-                //get the values entered by the user
-                String[] values = new String[checkboxStates.length];
-                for (int i = 0; i < checkboxStates.length; i++) {
-                    if (checkboxStates[i]) {
-                        EditText editText = findViewById(i*10+1);
-                        values[i] = editText.getText().toString();
+                double M1 = 0, M2 = 0, V1 = 0, V2 = 0, A1 = 0, A2 = 0, B1 = 0, B2 = 0, U1 = 0, U2 = 0;
+
+                //get the values entered by the user and assign them to the respective variables
+                // Loop through all child views of the LinearLayout
+                for (int i = 0; i < linearLayout.getChildCount()/2; i++) {
+                    View child = linearLayout.getChildAt(i);
+                    if (child instanceof EditText) {
+                        EditText editText = (EditText) child;
+                        String tag = (String) editText.getTag();
+                        try {
+                            double value = Double.parseDouble(editText.getText().toString());
+                            switch (tag) {
+                                case "M1":
+                                    M1 = value;
+                                    break;
+                                case "M2":
+                                    M2 = value;
+                                    break;
+                                case "V1":
+                                    V1 = value;
+                                    break;
+                                case "V2":
+                                    V2 = value;
+                                    break;
+                                case "A1":
+                                    A1 = value;
+                                    break;
+                                case "A2":
+                                    A2 = value;
+                                    break;
+                                case "B1":
+                                    B1 = value;
+                                    break;
+                                case "B2":
+                                    B2 = value;
+                                    break;
+                                case "U1":
+                                    U1 = value;
+                                    break;
+                                case "U2":
+                                    U2 = value;
+                                    break;
+                            }
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(this, "Please enter valid numbers for " + tag, Toast.LENGTH_SHORT).show();
+                        }
+
+                        System.out.println("M1: " + M1);
+                        System.out.println("M2: " + M2);
+                        System.out.println("V1: " + V1);
+                        System.out.println("V2: " + V2);
+                        System.out.println("A1: " + A1);
+                        System.out.println("A2: " + A2);
+                        System.out.println("B1: " + B1);
+                        System.out.println("B2: " + B2);
+                        System.out.println("U1: " + U1);
+                        System.out.println("U2: " + U2);
+
                     }
                 }
-
 
             }
         }
