@@ -67,6 +67,11 @@
                 style="@style/custom_checkBox"
                 android:text="angle between final velocity of second object and line of impact (b2)"/>
 
+        <CheckBox
+                android:id="@+id/chkPhi"
+                style="@style/custom_checkBox"
+                android:text="Contact angle (phi)"/>
+
         <androidx.appcompat.widget.AppCompatButton
                 style="@style/custom_button_enabled"
                 android:id="@+id/btnNext"

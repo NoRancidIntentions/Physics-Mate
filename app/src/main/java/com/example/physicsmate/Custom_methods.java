@@ -38,12 +38,14 @@ import org.matheclipse.parser.client.math.MathException;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static de.lab4inf.math.util.Accuracy.round;
 
@@ -214,6 +216,14 @@ public class Custom_methods {
         return StringError;
     }
 
+    public static Double extractValue(String input, String variable) {
+        Matcher matcher = Pattern.compile(variable + "= </font><font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
+        if (matcher.find()) {
+            return Double.parseDouble(matcher.group(1));
+        }
+        return null;
+    }
+
     /**
      * A function to solve a system of numeric equations.
      *
@@ -250,6 +260,39 @@ public class Custom_methods {
         }
         return StringError;
 
+    }
+
+    public static String parseStringAfterSolvingEqn(String input) {
+        String br = "<br/>";
+        // Replace },{ with <br/>OR<br/>
+        String result = input.replace("},{", "<br/><br/>OR<br/><br/>");
+        // Replace {{ with <br/>
+        result = result.replace("{{", br);
+        // Replace }} with <br/>
+        result = result.replace("}}", br);
+        // Replace { with <br/>
+        result = result.replace("{", br);
+        // Replace } with <br/>
+        result = result.replace("}", br);
+        // Replace , with <br/>
+        result = result.replace(",", br);
+        // Replace -> with =
+        result = result.replace("->", "=");
+
+        //make the numerical part #CDDC39 and the text part in #6BBBE1
+        List<String> resultSplit = Arrays.asList(result.split(br));
+        List<String> resultSplitParsed = resultSplit.stream().map(s -> {
+            if (s.contains("=")) {
+                String[] split = s.split("=");
+                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDDC39'>" + split[1] + "</font>";
+            } else {
+                return s;
+            }
+        }).collect(Collectors.toList());
+
+        result = String.join(br, resultSplitParsed);
+
+        return result;
     }
 
     public static String replaceNumbersInTrigWithRemainder(String expression) {

@@ -8,14 +8,11 @@ import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
 
-import static com.example.physicsmate.Custom_methods.setupEditTextChangeListener;
-import static com.example.physicsmate.Custom_methods.solveEquationNumeric;
+import static com.example.physicsmate.Custom_methods.*;
 
 public class VarSolver extends AppCompatActivity {
 
@@ -82,7 +79,7 @@ public class VarSolver extends AppCompatActivity {
                         //solve the equations in a separate thread
                         Thread thread = new Thread(() -> {
                             String result = solveEquationNumeric(eqns, vars);
-                            resultParsed.set(parseString(result));
+                            resultParsed.set(parseStringAfterSolvingEqn(result));
                         });
                         thread.start();
 
@@ -169,40 +166,5 @@ public class VarSolver extends AppCompatActivity {
 
         }
     }
-
-    private static String parseString(String input) {
-        String br = "<br/>";
-        // Replace },{ with <br/>OR<br/>
-        String result = input.replace("},{", "<br/><br/>OR<br/><br/>");
-        // Replace {{ with <br/>
-        result = result.replace("{{", br);
-        // Replace }} with <br/>
-        result = result.replace("}}", br);
-        // Replace { with <br/>
-        result = result.replace("{", br);
-        // Replace } with <br/>
-        result = result.replace("}", br);
-        // Replace , with <br/>
-        result = result.replace(",", br);
-        // Replace -> with =
-        result = result.replace("->", "=");
-
-        //make the numerical part #CDDC39 and the text part in #6BBBE1
-        List<String> resultSplit = Arrays.asList(result.split(br));
-        List<String> resultSplitParsed = resultSplit.stream().map(s -> {
-            if (s.contains("=")) {
-                String[] split = s.split("=");
-                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDDC39'>" + split[1] + "</font>";
-            } else {
-                return s;
-            }
-        }).collect(Collectors.toList());
-
-        result = String.join(br, resultSplitParsed);
-
-        return result;
-    }
-
-
 
 }
