@@ -10,7 +10,6 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import io.github.kexanie.library.MathView;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import static com.example.physicsmate.Custom_methods.*;
