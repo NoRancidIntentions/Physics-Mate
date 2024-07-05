@@ -17,7 +17,6 @@ import io.github.kexanie.library.MathView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -451,7 +450,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserU[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
                 finish();
             });
 
@@ -459,7 +458,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -467,7 +466,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserR[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserR", chooserR[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserR", chooserR[0]));
                 finish();
             });
 
@@ -632,7 +631,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserA[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserA", chooserA[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserA", chooserA[0]));
                 finish();
             });
 
@@ -640,7 +639,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -648,7 +647,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserR[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserR", chooserR[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserR", chooserR[0]));
                 finish();
             });
 
@@ -741,7 +740,7 @@ public class Gravitation extends AppCompatActivity {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Escape velocity", tvRes.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
-                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });
                     });
                 } else if (chooserM == 1) {
@@ -769,7 +768,7 @@ public class Gravitation extends AppCompatActivity {
                                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                                 ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
                                 clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
 
                     });
@@ -798,7 +797,7 @@ public class Gravitation extends AppCompatActivity {
                                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                                 ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
                                 clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                             });
 
                     });
@@ -1111,21 +1110,21 @@ public class Gravitation extends AppCompatActivity {
 
             btnNLOG1.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG1.class);
+                Intent intent = new Intent(NLOG.this, NLOG1.class);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG2.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG2.class);
+                Intent intent = new Intent(NLOG.this, NLOG2.class);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG3.setOnClickListener(view ->
             {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG3.class);
+                Intent intent = new Intent(NLOG.this, NLOG3.class);
                 startActivity(intent);
                 finish();
             });

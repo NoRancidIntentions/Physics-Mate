@@ -119,7 +119,7 @@ public class Kinematics extends AppCompatActivity {
                 boolean t_isChecked = CB_t.isChecked();
                 boolean s_isChecked = CB_s.isChecked();
 
-                Intent intent = new Intent(KE1.this, KE1.KE1_1.class);
+                Intent intent = new Intent(KE1.this, KE1_1.class);
 
                 intent.putExtra("bool_acc", bool_acc);
                 intent.putExtra("u_isChecked", u_isChecked);
@@ -235,7 +235,7 @@ public class Kinematics extends AppCompatActivity {
 
                 cal.setOnClickListener(view -> {
                     if (editTextNumber.getText().toString().trim().isEmpty() || editTextNumber2.getText().toString().trim().isEmpty() || editTextNumber3.getText().toString().trim().isEmpty()) {
-                        Toast.makeText(KE1.KE1_1.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(KE1_1.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
                     } else {
 
                         ScrollView SV_KE11 = findViewById(R.id.SV_KE11);
@@ -376,7 +376,7 @@ public class Kinematics extends AppCompatActivity {
 
             private void KE11_graphStarter(@NotNull Button KE11_graph, double u, double a, double t) {
                 KE11_graph.setOnClickListener(view1 -> {
-                    Intent intent = new Intent(this, KE1.KE1_1.ke11_graph.class);
+                    Intent intent = new Intent(this, ke11_graph.class);
                     intent.putExtra("u_intent", u);
                     intent.putExtra("a_intent", a);
                     intent.putExtra("t_intent", t);
