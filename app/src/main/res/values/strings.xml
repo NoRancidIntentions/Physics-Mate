@@ -5,5 +5,6 @@
     <string name="External_Links_tab_text">External Links</string>
     <string name="title_activity_grav_acc3_calc">GravAcc3Calc</string>
     <string name="backspace">←</string>
+    <string name="title_activity_curvature_calc">CurvatureCalc</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
