@@ -19,10 +19,14 @@
         android:theme="@style/Theme.PhysicsMate"
         tools:targetApi="q" >
         <activity
-            android:name=".activities.math.CurvatureCalc"
-            android:exported="false"
-            android:label="@string/title_activity_curvature_calc"
-            android:theme="@style/Theme.PhysicsMate" />
+            android:name=".activities.math.CurvatureMenu"
+            android:exported="false"/>
+        <activity
+                android:name=".activities.math.CurvatureMenu$CurvatureParametric"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.math.CurvatureMenu$CurvatureCartesian"
+                android:exported="false"/>
         <activity
             android:name=".activities.physics.Kinematics$KE_projectile"
             android:exported="false" />

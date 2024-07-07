@@ -58,7 +58,7 @@ public class UI_Solver_Tools_Linker {
         public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            Button btnLOSAC, btnVarSolver, btnQE, btnCS, btnExpEval, btnDerivativeCalcOffline, btnIntegralCalcOffline, btnLagrange;
+            Button btnLOSAC, btnCurvature, btnVarSolver, btnQE, btnCS, btnExpEval, btnDerivativeCalcOffline, btnIntegralCalcOffline, btnLagrange;
 
             btnLOSAC = requireView().findViewById(R.id.btnLOSAC);
             btnQE = requireView().findViewById(R.id.button8);
@@ -68,6 +68,7 @@ public class UI_Solver_Tools_Linker {
             btnIntegralCalcOffline = requireView().findViewById(R.id.btnIntegralCalcOffline);
             btnLagrange = requireView().findViewById(R.id.btnLagrange);
             btnVarSolver = requireView().findViewById(R.id.btnVarSolver);
+            btnCurvature = requireView().findViewById(R.id.btnCurvature);
 
             btnLOSAC.setOnClickListener(v -> startActivity(new Intent(getActivity(), LOSAC.class)));
             btnQE.setOnClickListener(v -> startActivity(new Intent(getActivity(), QE.class)));
@@ -77,6 +78,7 @@ public class UI_Solver_Tools_Linker {
             btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline.class)));
             btnLagrange.setOnClickListener(v -> startActivity(new Intent(getActivity(), Lagrange_Interpolation.class)));
             btnVarSolver.setOnClickListener(v -> startActivity(new Intent(getActivity(), VarSolver.class)));
+            btnCurvature.setOnClickListener(v -> startActivity(new Intent(getActivity(), CurvatureMenu.class)));
         }
     }
 

@@ -74,7 +74,7 @@ public class CurvatureMenu extends AppCompatActivity {
             MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-            mathView.setText(getTex("r(t) = x(t) i + y(t) j + z(t) k"));
+            mathView.setText(getTex("r(t) = ( x(t), y(t), z(t) )"));
             btnCopy.setVisibility(View.GONE);
 
             View[] viewsToDissapear = {tvResult, btnCopy};
@@ -115,27 +115,29 @@ public class CurvatureMenu extends AppCompatActivity {
 
                     IExpr result = util.eval("Abs[" + numerator + " / " + denominator + "]");
 
+                    MathView mathView2 = new MathView(CurvatureParametric.this, null);
+                    ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(mathView2);
+                    mathView2.setText(getTex(result.toString()));
+
                     tvResult.setText(result.toString());
                     tvResult.setVisibility(View.VISIBLE);
-                    scrollView.setVisibility(View.VISIBLE);
-                    img.setVisibility(View.VISIBLE);
-                    mathView.setVisibility(View.VISIBLE);
                     btnCopy.setVisibility(View.VISIBLE);
 
                     //add a button to ask if user wants to evaluate the curvature at a specific point
-                    Button btnEvaluateAtPoint = new Button(this);
+                    Button btnEvaluateAtPoint = new Button(CurvatureParametric.this);
+                    ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(btnEvaluateAtPoint);
                     btnEvaluateAtPoint.setText("Evaluate Curvature at a specific point");
                     btnEvaluateAtPoint.setOnClickListener(v1 -> {
                         //dynamically add value of 't' in editText, and a textview to ask for that value
-                        EditText etEvaluate = new EditText(this);
+                        EditText etEvaluate = new EditText(CurvatureParametric.this);
                         etEvaluate.setHint("t");
-                        ((LinearLayout) findViewById(R.id.generalMenuLinearLayout)).addView(etEvaluate);
-                        TextView tvEvaluate = new TextView(this);
+                        ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(etEvaluate);
+                        TextView tvEvaluate = new TextView(CurvatureParametric.this);
                         tvEvaluate.setText("Enter numeric value for t: ");
-                        ((LinearLayout) findViewById(R.id.generalMenuLinearLayout)).addView(tvEvaluate);
-                        Button btnCalc2 = new Button(this);
+                        ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(tvEvaluate);
+                        Button btnCalc2 = new Button(CurvatureParametric.this);
                         btnCalc2.setText("Calculate");
-                        ((LinearLayout) findViewById(R.id.generalMenuLinearLayout)).addView(btnCalc2);
+                        ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(btnCalc2);
 
 
                         btnCalc2.setOnClickListener(v2 -> {
@@ -144,13 +146,13 @@ public class CurvatureMenu extends AppCompatActivity {
                             String expression = tvResult.getText().toString();
                             double result2 = evalAtPointX(expression, t);
 
-                            TextView tvResult2 = new TextView(this);
+                            TextView tvResult2 = new TextView(CurvatureParametric.this);
                             tvResult2.setText(formatText("Curvature at t = " + t + " is " + result2));
-                            ((LinearLayout) findViewById(R.id.generalMenuLinearLayout)).addView(tvResult2);
+                            ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(tvResult2);
 
                             setupEditTextChangeListener(new View[]{tvResult2}, btnCalc2, null, Collections.singletonList(etEvaluate));
                         });
-                        ((LinearLayout) findViewById(R.id.generalMenuLinearLayout)).addView(btnEvaluateAtPoint);
+                        ((LinearLayout) findViewById(R.id.LinearLayout_latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc)).addView(btnEvaluateAtPoint);
                         Paris.styleBuilder(btnEvaluateAtPoint).add(R.style.custom_button_enabled).apply();
 
                     });
