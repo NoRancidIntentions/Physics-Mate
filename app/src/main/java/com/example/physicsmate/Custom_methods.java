@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -135,6 +137,32 @@ public class Custom_methods {
         return String.valueOf(round(t, minDecimalPlaces));
     }
 
+    public static Spanned formatText(String input) {
+        String regex = "\\d+\\.?\\d*"; // Regular expression to find numbers
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        String textColor = "#6BBBE1";
+        String numberColor = "#CDDC39";
+
+        StringBuffer sb = new StringBuffer();
+
+        int lastMatchEnd = 0;
+        while (matcher.find()) {
+            sb.append(input, lastMatchEnd, matcher.start());
+            sb.append("<font color='").append(numberColor).append("'>");
+            sb.append(matcher.group());
+            sb.append("</font>");
+            lastMatchEnd = matcher.end();
+        }
+        sb.append(input, lastMatchEnd, input.length());
+
+        // Apply text color to the non-number parts
+        String result = sb.toString().replaceAll("([^\\d<>]+)", "<font color='" + textColor + "'>$1</font>");
+
+        return Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY);
+    }
+
     private static int getNumberOfDecimalPlaces(double number) {
         String[] parts = String.valueOf(number).split("\\.");
         if (parts.length == 2) {
@@ -216,6 +244,13 @@ public class Custom_methods {
         return StringError;
     }
 
+    /**
+     * Extracts the value of a variable from a given input string.
+     *
+     * @param  input    the input string from which the value needs to be extracted
+     * @param  variable the variable whose value needs to be extracted
+     * @return           the extracted value as a Double, or null if the variable is not found
+     */
     public static Double extractValue(String input, String variable) {
         Matcher matcher = Pattern.compile(variable + "= </font><font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
         if (matcher.find()) {
