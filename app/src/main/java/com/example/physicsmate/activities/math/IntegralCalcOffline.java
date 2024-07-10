@@ -356,8 +356,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
     private double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
 
-        double upperValue = evalAtPointX(integral, upperBound);
-        double lowerValue = evalAtPointX(integral, lowerBound);
+        double upperValue = evalAtPointX(integral, upperBound, "x");
+        double lowerValue = evalAtPointX(integral, lowerBound, "x");
         return upperValue - lowerValue;
 
     }

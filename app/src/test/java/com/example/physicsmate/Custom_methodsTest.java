@@ -59,6 +59,13 @@ public class Custom_methodsTest {
     }
 
     @Test
+    public void formatTextTest() {
+        String input = "Curvature at t = 0.0 is 1.0";
+        String result = Custom_methods.formatText(input);
+        System.out.println(result);
+    }
+
+    @Test
     public void solveEquationSymbolicTester() {
         ArrayList<String> eqns = new ArrayList<>();
         eqns.add("x^2 + y^2 + z^2 = 2");

@@ -137,31 +137,40 @@ public class Custom_methods {
         return String.valueOf(round(t, minDecimalPlaces));
     }
 
-    public static Spanned formatText(String input) {
-        String regex = "\\d+\\.?\\d*"; // Regular expression to find numbers
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-
+    public static String formatText(String input) {
         String textColor = "#6BBBE1";
         String numberColor = "#CDDC39";
 
-        StringBuffer sb = new StringBuffer();
+        // Regex to find numbers, including decimals
+        String regex = "\\b\\d+\\.\\d+|\\b\\d+\\b";
 
-        int lastMatchEnd = 0;
+        // Create a StringBuilder to construct the formatted string
+        StringBuilder formattedInput = new StringBuilder();
+
+        // Find numbers in the input and color them
+        int lastIndex = 0;
+        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(regex).matcher(input);
         while (matcher.find()) {
-            sb.append(input, lastMatchEnd, matcher.start());
-            sb.append("<font color='").append(numberColor).append("'>");
-            sb.append(matcher.group());
-            sb.append("</font>");
-            lastMatchEnd = matcher.end();
+            // Append the text before the number
+            formattedInput.append("<font color='").append(textColor).append("'>")
+                    .append(input, lastIndex, matcher.start()).append("</font>");
+
+            // Append the formatted number
+            formattedInput.append("<font color='").append(numberColor).append("'>")
+                    .append(matcher.group()).append("</font>");
+
+            lastIndex = matcher.end();
         }
-        sb.append(input, lastMatchEnd, input.length());
 
-        // Apply text color to the non-number parts
-        String result = sb.toString().replaceAll("([^\\d<>]+)", "<font color='" + textColor + "'>$1</font>");
+        // Append any remaining text after the last number
+        if (lastIndex < input.length()) {
+            formattedInput.append("<font color='").append(textColor).append("'>")
+                    .append(input.substring(lastIndex)).append("</font>");
+        }
 
-        return Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY);
+        return formattedInput.toString();
     }
+
 
     private static int getNumberOfDecimalPlaces(double number) {
         String[] parts = String.valueOf(number).split("\\.");
@@ -566,7 +575,7 @@ public class Custom_methods {
 
                 for (int i = 0; i < ExtremasX.length; i++) {
                     double ExtremaX = ExtremasX[i];
-                    ExtremasY[i] = evalAtPointX(function, ExtremaX);
+                    ExtremasY[i] = evalAtPointX(function, ExtremaX, "x");
                 }
 
                 String[] pairs = new String[ExtremasX.length];
@@ -621,7 +630,7 @@ public class Custom_methods {
 
             for (int i = 0; i < ExtremasX.length; i++) {
                 double ExtremaX = ExtremasX[i];
-                SecDerY[i] = evalAtPointX(stringSecondDerivative, ExtremaX);
+                SecDerY[i] = evalAtPointX(stringSecondDerivative, ExtremaX, "x");
             }
 
             int[] numOfExtremas = new int[ExtremasString.length];
@@ -649,10 +658,10 @@ public class Custom_methods {
         return null;
     }
 
-    public static double evalAtPointX(@NotNull final String str, Double val) {
+    public static double evalAtPointX(@NotNull final String str, Double val, String variable) {
         ExprEvaluator util = new ExprEvaluator(false, (short) 10);
         try {
-            IExpr variableSetter = util.eval("x=" + val);
+            IExpr variableSetter = util.eval(variable+ "=" + val);
 
             return util.evalf(str);
 
@@ -806,7 +815,7 @@ public class Custom_methods {
                 float finalLineChartX = lineChartX;
                 float finalLineChartX1 = lineChartX;
                 executor.submit(() -> {
-                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX1));
+                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX1, "x"));
                     synchronized (inputLineArray) {
                         //add entry to the array only if y is not equal to 1536.786 +- 0.1
                         if (Math.abs(entry.getY() - 1536.786) > 0.1) {

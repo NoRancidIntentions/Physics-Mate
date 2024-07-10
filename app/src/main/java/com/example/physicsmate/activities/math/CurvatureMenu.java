@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -78,6 +79,8 @@ public class CurvatureMenu extends AppCompatActivity {
             View[] viewsToDissapear = {tvResult, btnCopy};
             Iterable<EditText> ets = Arrays.asList(et1, et2, et3);
 
+            ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
             setupEditTextChangeListener(viewsToDissapear, calcButton, null, ets);
 
             calcButton.setOnClickListener(v -> {
@@ -128,33 +131,39 @@ public class CurvatureMenu extends AppCompatActivity {
                     btnEvaluateAtPoint.setText("Evaluate Curvature at a specific point");
                     linearLayout.addView(btnEvaluateAtPoint);
                     Paris.styleBuilder(btnEvaluateAtPoint).add(R.style.custom_button_enabled).apply();
+                    sv.post(() -> sv.smoothScrollTo(0, btnEvaluateAtPoint.getBottom()));
 
                     btnEvaluateAtPoint.setOnClickListener(v1 -> {
                         // Dynamically add value of 't' in EditText, and a TextView to ask for that value
                         TextView tvEvaluate = new TextView(this);
-                        tvEvaluate.setText("Enter numeric value for t: ");
                         Paris.styleBuilder(tvEvaluate).add(R.style.custom_textView).apply();
+                        tvEvaluate.setText("Enter numeric value for t: ");
                         linearLayout.addView(tvEvaluate);
 
                         EditText etEvaluate = new EditText(this);
-                        etEvaluate.setHint("t");
                         Paris.styleBuilder(etEvaluate).add(R.style.custom_edittext).apply();
+                        etEvaluate.setHint("t");
                         linearLayout.addView(etEvaluate);
 
                         Button btnCalc2 = new Button(this);
-                        btnCalc2.setText("Calculate");
                         Paris.styleBuilder(btnCalc2).add(R.style.custom_button_enabled).apply();
+                        btnCalc2.setText("Calculate");
                         linearLayout.addView(btnCalc2);
+                        sv.post(() -> sv.smoothScrollTo(0, btnCalc2.getBottom()));
 
                         btnCalc2.setOnClickListener(v2 -> {
                             Double t = evalf(etEvaluate.getText().toString());
-                            String expression = tvResult.getText().toString();
-                            double result2 = evalAtPointX(expression, t);
+                            String expression = result.toString();
+                            System.out.println("Expression: " + expression);
+                            System.out.println("t: " + t);
+                            double result2 = evalAtPointX(expression, t, "t");
+                            System.out.println("Result: " + result2);
 
                             TextView tvResult2 = new TextView(this);
-                            tvResult2.setText(formatText("Curvature at t = " + t + " is " + result2));
                             Paris.styleBuilder(tvResult2).add(R.style.custom_textView).apply();
+                            tvResult2.setText(Html.fromHtml(formatText("Curvature at t = " + t + " is " + result2), Html.FROM_HTML_MODE_LEGACY));
                             linearLayout.addView(tvResult2);
+                            sv.post(() -> sv.smoothScrollTo(0, tvResult2.getBottom()));
 
                             setupEditTextChangeListener(new View[]{tvResult2}, btnCalc2, null, Collections.singletonList(etEvaluate));
                         });
