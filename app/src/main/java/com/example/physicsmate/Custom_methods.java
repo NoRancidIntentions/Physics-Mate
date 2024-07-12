@@ -5,8 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -152,8 +150,7 @@ public class Custom_methods {
         java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(regex).matcher(input);
         while (matcher.find()) {
             // Append the text before the number
-            formattedInput.append("<font color='").append(textColor).append("'>")
-                    .append(input, lastIndex, matcher.start()).append("</font>");
+            formattedInput.append("<font color='").append(textColor).append("'>")                    .append(input, lastIndex, matcher.start()).append("</font>");
 
             // Append the formatted number
             formattedInput.append("<font color='").append(numberColor).append("'>")
@@ -251,6 +248,80 @@ public class Custom_methods {
 
         }
         return StringError;
+    }
+
+    public static String calculateDivergence(String vectorField, String vars) {
+        ExprEvaluator evaluator = new ExprEvaluator();
+        //remove first and last brackets
+        vectorField = vectorField.substring(1, vectorField.length() - 1);
+        vars = vars.substring(1, vars.length() - 1);
+        System.out.println("vectorField: " + vectorField);
+        try {
+            IExpr Divergence = evaluator.eval("Divergence({" + vectorField + "}, {" + vars + "})");
+            IExpr divergence = evaluator.eval("Simplify(" + Divergence + ")");
+
+            return divergence.toString();
+
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+        } catch (MathException me) {
+            // catch Symja math errors here
+        } catch (Exception e) {
+        }
+        return StringError;
+    }
+
+    public static String calculateCurl(String vectorField, String variables)
+    {
+        int dimension = variables.split(",").length;
+        //remove first and last brackets
+        vectorField = vectorField.substring(1, vectorField.length() - 1);
+        variables = variables.substring(1, variables.length() - 1);
+        if (dimension == 2 || dimension == 3)
+        {
+            ExprEvaluator evaluator = new ExprEvaluator();
+            try
+            {
+                IExpr Curl = evaluator.eval("Curl({" + vectorField + "}, {" + variables + "})");
+                IExpr curl = evaluator.eval("Simplify(" + Curl + ")");
+
+                return curl.toString();
+
+            } catch (SyntaxError e)
+            {
+                // catch Symja parser errors here
+            } catch (MathException me)
+            {
+                // catch Symja math errors here
+            } catch (Exception e)
+            {
+            }
+        }
+        return StringError;
+    }
+
+    public static String evaluateAtMultiPoint(String vectorField, String variables, String point)
+    {
+        try {
+            String[] vectorFieldArray = vectorField.split(",");
+            String[] variablesArray = variables.split(",");
+            String[] pointArray = point.substring(1, point.length() - 1).split(",");
+
+            if(vectorFieldArray.length != variablesArray.length || vectorFieldArray.length != pointArray.length)
+            {
+                return "Error";
+            }
+
+            String result = "";
+            for(int i = 0; i < vectorFieldArray.length; i++)
+            {
+                result += vectorFieldArray[i].replace(variablesArray[i], pointArray[i]) + ",";
+            }
+            result = result.substring(0, result.length() - 1);
+            return calculateDivergence(result, variables);
+        } catch (Exception e) {
+            return "Error";
+        }
     }
 
     /**
