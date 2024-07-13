@@ -135,7 +135,7 @@ public class Custom_methods {
         return String.valueOf(round(t, minDecimalPlaces));
     }
 
-    public static String formatText(String input) {
+    public static String numberColor(String input) {
         String textColor = "#6BBBE1";
         String numberColor = "#CDDC39";
 
@@ -168,8 +168,13 @@ public class Custom_methods {
         return formattedInput.toString();
     }
 
+    public static String formatText(String txt, String ans)
+    {
+        return "<font color='#6BBBE1'>" + txt + "</font>" + "<font color='#CDDC39'>" + ans + "</font>";
+    }
 
-    private static int getNumberOfDecimalPlaces(double number) {
+
+    public static int getNumberOfDecimalPlaces(double number) {
         String[] parts = String.valueOf(number).split("\\.");
         if (parts.length == 2) {
             return parts[1].length();

@@ -59,9 +59,9 @@ public class Custom_methodsTest {
     }
 
     @Test
-    public void formatTextTest() {
+    public void numberColorTest() {
         String input = "Curvature at t = 0.0 is 1.0";
-        String result = Custom_methods.formatText(input);
+        String result = Custom_methods.numberColor(input);
         System.out.println(result);
     }
 

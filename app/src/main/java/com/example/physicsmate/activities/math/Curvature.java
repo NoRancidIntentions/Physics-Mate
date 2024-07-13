@@ -136,7 +136,7 @@ public class Curvature extends AppCompatActivity {
 
                         TextView tvResult2 = new TextView(this);
                         Paris.styleBuilder(tvResult2).add(R.style.custom_textView).apply();
-                        tvResult2.setText(Html.fromHtml(formatText("Curvature at t = " + t + " is " + result2), Html.FROM_HTML_MODE_LEGACY));
+                        tvResult2.setText(Html.fromHtml(numberColor("Curvature at t = " + t + " is " + result2), Html.FROM_HTML_MODE_LEGACY));
                         linearLayout.addView(tvResult2);
                         sv.post(() -> sv.smoothScrollTo(0, tvResult2.getBottom()));
 

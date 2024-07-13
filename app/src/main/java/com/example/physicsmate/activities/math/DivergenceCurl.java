@@ -97,7 +97,7 @@ public class DivergenceCurl extends AppCompatActivity {
                     tvResult.setText("Error while evaluating. Please check your input.");
                     tvResult.setVisibility(View.VISIBLE);
                 } else {
-                    tvResult.setText(Html.fromHtml(formatText("Divergence of the vector field " + vectorField + " is " + result)));
+                    tvResult.setText(Html.fromHtml(formatText("Divergence of the vector field " + vectorField + " is ", result)));
                     tvResult.setVisibility(View.VISIBLE);
                     mathView.setText(getTex(result));
                     mathView.setVisibility(View.VISIBLE);
@@ -118,6 +118,9 @@ public class DivergenceCurl extends AppCompatActivity {
 
                     String finalVectorField = vectorField;
                     btnEvaluate.setOnClickListener(v1 -> {
+                        //disable button
+                        btnEvaluate.setEnabled(false);
+                        Paris.style(btnEvaluate).apply(R.style.custom_button_disabled);
                         TextView tvEvaluate = new TextView(this);
                         Paris.style(tvEvaluate).apply(R.style.custom_textView);
                         tvEvaluate.setText("Enter the point to evaluate at");
@@ -143,7 +146,7 @@ public class DivergenceCurl extends AppCompatActivity {
                             } else {
                                 TextView tvResult2 = new TextView(this);
                                 Paris.style(tvResult2).apply(R.style.custom_textView);
-                                tvResult2.setText(Html.fromHtml(formatText("Divergence at " + point + " is " + result2)));
+                                tvResult2.setText(Html.fromHtml(formatText("Divergence at " + point + " is ", result2)));
                                 linearLayout.addView(tvResult2);
                                 scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult2.getBottom()));
                             }
@@ -209,7 +212,7 @@ public class DivergenceCurl extends AppCompatActivity {
                     tvResult.setText("Error while evaluating. Please check your input.");
                     tvResult.setVisibility(View.VISIBLE);
                 } else {
-                    tvResult.setText(Html.fromHtml(formatText("Divergence of the vector field " + vectorField + " is " + result)));
+                    tvResult.setText(Html.fromHtml(formatText("Divergence of the vector field " + vectorField + " is ", result)));
                     tvResult.setVisibility(View.VISIBLE);
                     mathView.setText(getTex(result));
                     mathView.setVisibility(View.VISIBLE);
@@ -255,7 +258,7 @@ public class DivergenceCurl extends AppCompatActivity {
                             } else {
                                 TextView tvResult2 = new TextView(this);
                                 Paris.style(tvResult2).apply(R.style.custom_textView);
-                                tvResult2.setText(Html.fromHtml(formatText("Curl at " + point + " is " + result2)));
+                                tvResult2.setText(Html.fromHtml(formatText("Curl at " + point + " is ", result2)));
                                 linearLayout.addView(tvResult2);
                                 scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult2.getBottom()));
                             }
