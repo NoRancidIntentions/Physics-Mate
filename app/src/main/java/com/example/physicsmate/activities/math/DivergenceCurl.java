@@ -12,7 +12,9 @@ import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import io.github.kexanie.library.MathView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -32,21 +34,13 @@ public class DivergenceCurl extends AppCompatActivity {
         btnCurl.setText("Curl");
         linearLayout.addView(btnCurl);
 
-        btnDivergence.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Divergence.class));
-            }
-        });
-        btnCurl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Curl.class));
-            }
-        });
+        btnDivergence.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Divergence.class)));
+        btnCurl.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Curl.class)));
     }
 
     public static class Divergence extends AppCompatActivity {
+
+        private List<View> addedViews = new ArrayList<>();
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +74,6 @@ public class DivergenceCurl extends AppCompatActivity {
 
             LinearLayout linearLayout = findViewById(R.id.linearlayout_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-
             btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             btnCopy.setText("Copy to Clipboard");
             btnCopy.setVisibility(View.GONE);
@@ -90,6 +83,7 @@ public class DivergenceCurl extends AppCompatActivity {
             mathView.setVisibility(View.GONE);
 
             btnCalc.setOnClickListener(v -> {
+                clearAddedViews(linearLayout);
                 String vectorField = et1.getText().toString();
                 String variables = et2.getText().toString();
                 String result = calculateDivergence(vectorField, variables);
@@ -114,27 +108,30 @@ public class DivergenceCurl extends AppCompatActivity {
                     Paris.style(btnEvaluate).apply(R.style.custom_button_enabled);
                     btnEvaluate.setText("Evaluate at a point");
                     linearLayout.addView(btnEvaluate);
+                    addedViews.add(btnEvaluate);
                     scrollView.post(() -> scrollView.smoothScrollTo(0, btnEvaluate.getBottom()));
 
                     String finalVectorField = vectorField;
                     btnEvaluate.setOnClickListener(v1 -> {
-                        //disable button
                         btnEvaluate.setEnabled(false);
                         Paris.style(btnEvaluate).apply(R.style.custom_button_disabled);
                         TextView tvEvaluate = new TextView(this);
                         Paris.style(tvEvaluate).apply(R.style.custom_textView);
                         tvEvaluate.setText("Enter the point to evaluate at");
                         linearLayout.addView(tvEvaluate);
+                        addedViews.add(tvEvaluate);
 
                         EditText etEvaluate = new EditText(this);
                         Paris.style(etEvaluate).apply(R.style.custom_edittext);
                         etEvaluate.setHint("(2, e^3, sin(0.43))");
                         linearLayout.addView(etEvaluate);
+                        addedViews.add(etEvaluate);
 
                         Button btnCalc2 = new Button(this);
                         Paris.style(btnCalc2).apply(R.style.custom_button_enabled);
                         btnCalc2.setText("Calculate");
                         linearLayout.addView(btnCalc2);
+                        addedViews.add(btnCalc2);
                         scrollView.post(() -> scrollView.smoothScrollTo(0, btnCalc2.getBottom()));
 
                         btnCalc2.setOnClickListener(v2 -> {
@@ -148,20 +145,28 @@ public class DivergenceCurl extends AppCompatActivity {
                                 Paris.style(tvResult2).apply(R.style.custom_textView);
                                 tvResult2.setText(Html.fromHtml(formatText("Divergence at " + point + " is ", result2)));
                                 linearLayout.addView(tvResult2);
+                                addedViews.add(tvResult2);
                                 scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult2.getBottom()));
                             }
                         });
                     });
-
                 }
             });
 
             setupEditTextChangeListener(new View[]{tvResult, btnCopy, mathView}, btnCalc, null, Arrays.asList(et1, et2));
         }
 
+        private void clearAddedViews(LinearLayout linearLayout) {
+            for (View view : addedViews) {
+                linearLayout.removeView(view);
+            }
+            addedViews.clear();
+        }
     }
 
     public static class Curl extends AppCompatActivity {
+
+        private List<View> addedViews = new ArrayList<>();
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -182,8 +187,8 @@ public class DivergenceCurl extends AppCompatActivity {
             tv2.setText("enter the variables (in order)");
 
             et1 = findViewById(R.id.et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            et2 = findViewById(R.id.et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             et1.setHint("(x^2, sin(yz), e^z)");
+            et2 = findViewById(R.id.et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             et2.setHint("(x, y, z)");
 
             btnCalc = findViewById(R.id.btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -195,7 +200,6 @@ public class DivergenceCurl extends AppCompatActivity {
 
             LinearLayout linearLayout = findViewById(R.id.linearlayout_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-
             btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             btnCopy.setText("Copy to Clipboard");
             btnCopy.setVisibility(View.GONE);
@@ -205,6 +209,7 @@ public class DivergenceCurl extends AppCompatActivity {
             mathView.setVisibility(View.GONE);
 
             btnCalc.setOnClickListener(v -> {
+                clearAddedViews(linearLayout);
                 String vectorField = et1.getText().toString();
                 String variables = et2.getText().toString();
                 String result = calculateCurl(vectorField, variables);
@@ -212,7 +217,7 @@ public class DivergenceCurl extends AppCompatActivity {
                     tvResult.setText("Error while evaluating. Please check your input.");
                     tvResult.setVisibility(View.VISIBLE);
                 } else {
-                    tvResult.setText(Html.fromHtml(formatText("Divergence of the vector field " + vectorField + " is ", result)));
+                    tvResult.setText(Html.fromHtml(formatText("Curl of the vector field " + vectorField + " is ", result)));
                     tvResult.setVisibility(View.VISIBLE);
                     mathView.setText(getTex(result));
                     mathView.setVisibility(View.VISIBLE);
@@ -229,24 +234,30 @@ public class DivergenceCurl extends AppCompatActivity {
                     Paris.style(btnEvaluate).apply(R.style.custom_button_enabled);
                     btnEvaluate.setText("Evaluate at a point");
                     linearLayout.addView(btnEvaluate);
+                    addedViews.add(btnEvaluate);
                     scrollView.post(() -> scrollView.smoothScrollTo(0, btnEvaluate.getBottom()));
 
                     String finalVectorField = vectorField;
                     btnEvaluate.setOnClickListener(v1 -> {
+                        btnEvaluate.setEnabled(false);
+                        Paris.style(btnEvaluate).apply(R.style.custom_button_disabled);
                         TextView tvEvaluate = new TextView(this);
                         Paris.style(tvEvaluate).apply(R.style.custom_textView);
                         tvEvaluate.setText("Enter the point to evaluate at");
                         linearLayout.addView(tvEvaluate);
+                        addedViews.add(tvEvaluate);
 
                         EditText etEvaluate = new EditText(this);
                         Paris.style(etEvaluate).apply(R.style.custom_edittext);
                         etEvaluate.setHint("(2, e^3, sin(0.43))");
                         linearLayout.addView(etEvaluate);
+                        addedViews.add(etEvaluate);
 
                         Button btnCalc2 = new Button(this);
                         Paris.style(btnCalc2).apply(R.style.custom_button_enabled);
                         btnCalc2.setText("Calculate");
                         linearLayout.addView(btnCalc2);
+                        addedViews.add(btnCalc2);
                         scrollView.post(() -> scrollView.smoothScrollTo(0, btnCalc2.getBottom()));
 
                         btnCalc2.setOnClickListener(v2 -> {
@@ -260,17 +271,22 @@ public class DivergenceCurl extends AppCompatActivity {
                                 Paris.style(tvResult2).apply(R.style.custom_textView);
                                 tvResult2.setText(Html.fromHtml(formatText("Curl at " + point + " is ", result2)));
                                 linearLayout.addView(tvResult2);
+                                addedViews.add(tvResult2);
                                 scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult2.getBottom()));
                             }
                         });
                     });
-
                 }
             });
 
             setupEditTextChangeListener(new View[]{tvResult, btnCopy, mathView}, btnCalc, null, Arrays.asList(et1, et2));
         }
 
-
+        private void clearAddedViews(LinearLayout linearLayout) {
+            for (View view : addedViews) {
+                linearLayout.removeView(view);
+            }
+            addedViews.clear();
+        }
     }
 }
