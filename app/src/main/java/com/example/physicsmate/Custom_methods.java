@@ -150,7 +150,7 @@ public class Custom_methods {
         java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(regex).matcher(input);
         while (matcher.find()) {
             // Append the text before the number
-            formattedInput.append("<font color='").append(textColor).append("'>")                    .append(input, lastIndex, matcher.start()).append("</font>");
+            formattedInput.append("<font color='").append(textColor).append("'>").append(input, lastIndex, matcher.start()).append("</font>");
 
             // Append the formatted number
             formattedInput.append("<font color='").append(numberColor).append("'>")
