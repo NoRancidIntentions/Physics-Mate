@@ -6,5 +6,6 @@
     <string name="title_activity_grav_acc3_calc">GravAcc3Calc</string>
     <string name="backspace">←</string>
     <string name="title_activity_curvature_calc">CurvatureCalc</string>
+    <string name="title_activity_divergence">Divergence</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
