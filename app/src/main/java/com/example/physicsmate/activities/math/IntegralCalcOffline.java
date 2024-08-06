@@ -523,7 +523,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             // Execute simplification in a separate thread
                             new Thread(() -> {
                                 String simplifiedIntegral = ExprSimplifier(integral);
-                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + integral;
+                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified integral is </font> <font color=#CDDC39>" + integral;
 
 
                                 // Update UI with simplified derivative
