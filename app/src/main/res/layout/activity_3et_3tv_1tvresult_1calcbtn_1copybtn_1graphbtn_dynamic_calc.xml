@@ -12,8 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            android:orientation="vertical"
-            android:id="@+id/LinearLayout_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc">
+            android:orientation="vertical">
 
         <io.github.kexanie.library.MathView
                 style="@style/LatexStyle"

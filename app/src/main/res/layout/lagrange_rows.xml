@@ -27,7 +27,7 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
             android:background="@color/app_bg"
-            android:id="@+id/imageButton"
+            android:id="@+id/varSolverRowsDel"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"

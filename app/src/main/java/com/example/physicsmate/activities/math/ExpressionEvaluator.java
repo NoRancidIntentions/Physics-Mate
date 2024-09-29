@@ -64,7 +64,7 @@ public class ExpressionEvaluator extends AppCompatActivity {
                 System.out.println(val);
 
 
-                double result = Double.parseDouble(rounded_String(evalAtPointX(strexpression, val, "x"), etval));
+                double result = Double.parseDouble(rounded_String(evalAtPointX(strexpression, val), etval));
                 System.out.println(result);
 
                 String StrResult = "<font color = #6BBBE1> f("

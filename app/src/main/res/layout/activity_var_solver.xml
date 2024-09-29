@@ -29,32 +29,45 @@
 
         </LinearLayout>
 
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                style="custom_linearLayout"
+                android:id="@+id/var_solver_MVs">
+            <io.github.kexanie.library.MathView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/var_solver_mv1"
+            />
+        </LinearLayout>
+
         <androidx.appcompat.widget.AppCompatButton
-                style = "@style/custom_button_enabled"
+                style="@style/custom_button_enabled"
                 android:id="@+id/var_solver_add_button"
                 android:text="Add another row"/>
 
         <TextView
-            style = "@style/custom_textView"
-            android:text="Please enter the variables present"/>
+                style="@style/custom_textView"
+                android:text="Please enter the variables present"/>
 
         <EditText
-            style = "@style/custom_edittext"
-            android:id="@+id/var_solver_variables"
-            android:hint="x, y"/>
+                style="@style/custom_edittext"
+                android:id="@+id/var_solver_variables"
+                android:hint="x, y"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style = "@style/custom_button_disabled"
+                style="@style/custom_button_disabled"
                 android:id="@+id/var_solver_solve_button"
                 android:text="Solve"/>
 
         <TextView
-                style = "@style/custom_textView"
+                style="@style/custom_textView"
                 android:id="@+id/var_solver_solution"
                 android:text="Solution:"/>
 
         <androidx.appcompat.widget.AppCompatButton
-                style = "@style/custom_button_enabled"
+                style="@style/custom_button_enabled"
                 android:id="@+id/btnCopy"
                 android:text="Copy to clipboard"/>
     </LinearLayout>

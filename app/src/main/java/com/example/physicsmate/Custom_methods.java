@@ -135,46 +135,7 @@ public class Custom_methods {
         return String.valueOf(round(t, minDecimalPlaces));
     }
 
-    public static String numberColor(String input) {
-        String textColor = "#6BBBE1";
-        String numberColor = "#CDDC39";
-
-        // Regex to find numbers, including decimals
-        String regex = "\\b\\d+\\.\\d+|\\b\\d+\\b";
-
-        // Create a StringBuilder to construct the formatted string
-        StringBuilder formattedInput = new StringBuilder();
-
-        // Find numbers in the input and color them
-        int lastIndex = 0;
-        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(regex).matcher(input);
-        while (matcher.find()) {
-            // Append the text before the number
-            formattedInput.append("<font color='").append(textColor).append("'>").append(input, lastIndex, matcher.start()).append("</font>");
-
-            // Append the formatted number
-            formattedInput.append("<font color='").append(numberColor).append("'>")
-                    .append(matcher.group()).append("</font>");
-
-            lastIndex = matcher.end();
-        }
-
-        // Append any remaining text after the last number
-        if (lastIndex < input.length()) {
-            formattedInput.append("<font color='").append(textColor).append("'>")
-                    .append(input.substring(lastIndex)).append("</font>");
-        }
-
-        return formattedInput.toString();
-    }
-
-    public static String formatText(String txt, String ans)
-    {
-        return "<font color='#6BBBE1'>" + txt + "</font>" + "<font color='#CDDC39'>" + ans + "</font>";
-    }
-
-
-    public static int getNumberOfDecimalPlaces(double number) {
+    private static int getNumberOfDecimalPlaces(double number) {
         String[] parts = String.valueOf(number).split("\\.");
         if (parts.length == 2) {
             return parts[1].length();
@@ -255,87 +216,6 @@ public class Custom_methods {
         return StringError;
     }
 
-    public static String calculateDivergence(String vectorField, String vars) {
-        ExprEvaluator evaluator = new ExprEvaluator();
-        //remove first and last brackets
-        vectorField = vectorField.substring(1, vectorField.length() - 1);
-        vars = vars.substring(1, vars.length() - 1);
-        System.out.println("vectorField: " + vectorField);
-        try {
-            IExpr Divergence = evaluator.eval("Divergence({" + vectorField + "}, {" + vars + "})");
-            IExpr divergence = evaluator.eval("Simplify(" + Divergence + ")");
-
-            return divergence.toString();
-
-        } catch (SyntaxError e) {
-            // catch Symja parser errors here
-        } catch (MathException me) {
-            // catch Symja math errors here
-        } catch (Exception e) {
-        }
-        return StringError;
-    }
-
-    public static String calculateCurl(String vectorField, String variables)
-    {
-        int dimension = variables.split(",").length;
-        //remove first and last brackets
-        vectorField = vectorField.substring(1, vectorField.length() - 1);
-        variables = variables.substring(1, variables.length() - 1);
-        if (dimension == 2 || dimension == 3)
-        {
-            ExprEvaluator evaluator = new ExprEvaluator();
-            try
-            {
-                IExpr Curl = evaluator.eval("Curl({" + vectorField + "}, {" + variables + "})");
-                IExpr curl = evaluator.eval("Simplify(" + Curl + ")");
-
-                return curl.toString();
-
-            } catch (SyntaxError e)
-            {
-                // catch Symja parser errors here
-            } catch (MathException me)
-            {
-                // catch Symja math errors here
-            } catch (Exception e)
-            {
-            }
-        }
-        return StringError;
-    }
-
-    public static String evaluateAtMultiPoint(String vectorField, String variables, String point)
-    {
-        try {
-            String[] vectorFieldArray = vectorField.split(",");
-            String[] variablesArray = variables.split(",");
-            String[] pointArray = point.substring(1, point.length() - 1).split(",");
-
-            if(vectorFieldArray.length != variablesArray.length || vectorFieldArray.length != pointArray.length)
-            {
-                return "Error";
-            }
-
-            String result = "";
-            for(int i = 0; i < vectorFieldArray.length; i++)
-            {
-                result += vectorFieldArray[i].replace(variablesArray[i], pointArray[i]) + ",";
-            }
-            result = result.substring(0, result.length() - 1);
-            return calculateDivergence(result, variables);
-        } catch (Exception e) {
-            return "Error";
-        }
-    }
-
-    /**
-     * Extracts the value of a variable from a given input string.
-     *
-     * @param  input    the input string from which the value needs to be extracted
-     * @param  variable the variable whose value needs to be extracted
-     * @return           the extracted value as a Double, or null if the variable is not found
-     */
     public static Double extractValue(String input, String variable) {
         Matcher matcher = Pattern.compile(variable + "= </font><font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
         if (matcher.find()) {
@@ -651,7 +531,7 @@ public class Custom_methods {
 
                 for (int i = 0; i < ExtremasX.length; i++) {
                     double ExtremaX = ExtremasX[i];
-                    ExtremasY[i] = evalAtPointX(function, ExtremaX, "x");
+                    ExtremasY[i] = evalAtPointX(function, ExtremaX);
                 }
 
                 String[] pairs = new String[ExtremasX.length];
@@ -706,7 +586,7 @@ public class Custom_methods {
 
             for (int i = 0; i < ExtremasX.length; i++) {
                 double ExtremaX = ExtremasX[i];
-                SecDerY[i] = evalAtPointX(stringSecondDerivative, ExtremaX, "x");
+                SecDerY[i] = evalAtPointX(stringSecondDerivative, ExtremaX);
             }
 
             int[] numOfExtremas = new int[ExtremasString.length];
@@ -734,10 +614,10 @@ public class Custom_methods {
         return null;
     }
 
-    public static double evalAtPointX(@NotNull final String str, Double val, String variable) {
+    public static double evalAtPointX(@NotNull final String str, Double val) {
         ExprEvaluator util = new ExprEvaluator(false, (short) 10);
         try {
-            IExpr variableSetter = util.eval(variable+ "=" + val);
+            IExpr variableSetter = util.eval("x=" + val);
 
             return util.evalf(str);
 
@@ -891,7 +771,7 @@ public class Custom_methods {
                 float finalLineChartX = lineChartX;
                 float finalLineChartX1 = lineChartX;
                 executor.submit(() -> {
-                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX1, "x"));
+                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX1));
                     synchronized (inputLineArray) {
                         //add entry to the array only if y is not equal to 1536.786 +- 0.1
                         if (Math.abs(entry.getY() - 1536.786) > 0.1) {

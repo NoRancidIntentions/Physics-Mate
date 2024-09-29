@@ -19,17 +19,10 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
-                android:name=".activities.math.DivergenceCurl"
-                android:exported="false"/>
-        <activity
-                android:name=".activities.math.DivergenceCurl$Divergence"
-                android:exported="false"/>
-        <activity
-                android:name=".activities.math.DivergenceCurl$Curl"
-                android:exported="false"/>
-        <activity
-                android:name=".activities.math.Curvature"
-                android:exported="false"/>
+                android:name=".activities.math.CurvatureMenu"
+                android:exported="false"
+                android:label="@string/title_activity_curvature_menu"
+                android:theme="@style/Theme.PhysicsMate"/>
         <activity
                 android:name=".activities.physics.Kinematics$KE_projectile"
                 android:exported="false"/>
