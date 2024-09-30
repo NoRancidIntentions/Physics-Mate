@@ -164,11 +164,8 @@ public class VarSolver extends AppCompatActivity {
             btnSolve.setText("Solve");
 
             mathView.setText(getTex(et1.getText().toString()));
-        }
-        else
-        {
-            if (et1.getText().toString().isEmpty())
-            {
+        } else {
+            if (et1.getText().toString().isEmpty()) {
                 btnSolve.setClickable(false);
                 btnSolve.setEnabled(false);
                 btnSolve.setBackgroundResource(R.drawable.btn_disabled);
@@ -176,16 +173,11 @@ public class VarSolver extends AppCompatActivity {
                 btnSolve.setText("Enter all the fields");
                 btnCopy.setVisibility(View.GONE);
 
-                mathView.setText(null);
-            }
-            else
-            {
-                for (int i = 1; i < numOfEqns; i++)
-                {
+            } else {
+                for (int i = 1; i < numOfEqns; i++) {
                     LinearLayout eqnRowItem = (LinearLayout) rowsLinearLayout.getChildAt(i);
                     EditText et = (EditText) eqnRowItem.getChildAt(0);
-                    if (et.getText().toString().isEmpty())
-                    {
+                    if (et.getText().toString().isEmpty()) {
                         btnSolve.setClickable(false);
                         btnSolve.setEnabled(false);
                         btnSolve.setBackgroundResource(R.drawable.btn_disabled);
@@ -195,9 +187,7 @@ public class VarSolver extends AppCompatActivity {
 
                         mathView.setText(null);
                         break;
-                    }
-                    else
-                    {
+                    } else {
                         btnSolve.setClickable(true);
                         btnSolve.setEnabled(true);
                         //set style of the button
@@ -206,12 +196,11 @@ public class VarSolver extends AppCompatActivity {
 
                         mathView.setText(getTex(et1.getText().toString()));
                         //iterate through all mathviews and set the text
-                        for (int j = 1; j < numOfEqns; j++)
-                        {
-                            LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(j);
-                            MathView mv = (MathView) mvItem.getChildAt(0);
-                            mv.setText(getTex(et.getText().toString()));
-                        }
+
+                        LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(i);
+                        MathView mv = (MathView) mvItem.getChildAt(0);
+                        mv.setText(getTex(et.getText().toString()));
+
                     }
 
                 }

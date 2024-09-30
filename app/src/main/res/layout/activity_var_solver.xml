@@ -27,6 +27,7 @@
                     style="@style/custom_edittext"
                     android:hint="3x + 2y = 10"/>
 
+
         </LinearLayout>
 
         <LinearLayout
