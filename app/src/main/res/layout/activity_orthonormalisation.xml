@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter the dimension of the vector space:"
+                style="@style/custom_textView"/>
+
+        <EditText
+                android:id="@+id/orthonormalisation_dim"
+                style="@style/custom_integer_edittext"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/orthonormalisation_btn"
+                style="@style/custom_button_enabled"
+                android:text="next"/>
+
+    </LinearLayout>
+</ScrollView>

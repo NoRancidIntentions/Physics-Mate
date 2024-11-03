@@ -19,6 +19,11 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
+                android:name=".activities.math.Orthonormalisation"
+                android:exported="false"
+                android:label="@string/title_activity_orthonormalisation"
+                android:theme="@style/Theme.PhysicsMate"/>
+        <activity
                 android:name=".activities.math.CurvatureMenu"
                 android:exported="false"
                 android:label="@string/title_activity_curvature_menu"

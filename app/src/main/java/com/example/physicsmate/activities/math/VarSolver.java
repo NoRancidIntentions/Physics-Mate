@@ -111,7 +111,8 @@ public class VarSolver extends AppCompatActivity {
     }
 
     public void addRow() {
-        @SuppressLint("InflateParams") LinearLayout rowItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_rows, null, false);
+        @SuppressLint("InflateParams")
+        LinearLayout rowItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_rows, null, false);
         rowsLinearLayout.addView(rowItem);
         EditText et = (EditText) rowItem.getChildAt(0);
         Collection<EditText> editTexts = new ArrayList<>();
@@ -119,9 +120,11 @@ public class VarSolver extends AppCompatActivity {
         View[] viewsToDissapear = {tvResult};
         setupEditTextChangeListener(viewsToDissapear, btnSolve, null, editTexts);
 
-        //add a mathview
-        @SuppressLint("InflateParams") LinearLayout mvItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_mv, null, false);
+        //add mathview
+        @SuppressLint("InflateParams")
+        LinearLayout mvItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_mv, null, false);
         MVsLinearLayout.addView(mvItem);
+
 
         solveButtonClickable();
 
@@ -185,7 +188,14 @@ public class VarSolver extends AppCompatActivity {
                         btnSolve.setText("Enter all the fields");
                         btnCopy.setVisibility(View.GONE);
 
-                        mathView.setText(null);
+                        //remove all mathviews from the linearlayout
+                        MVsLinearLayout.removeAllViews();
+
+                        try {
+                            mathView.setText(null);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
                         break;
                     } else {
                         btnSolve.setClickable(true);
@@ -195,8 +205,8 @@ public class VarSolver extends AppCompatActivity {
                         btnSolve.setText("Solve");
 
                         mathView.setText(getTex(et1.getText().toString()));
-                        //iterate through all mathviews and set the text
 
+                        //iterate through all mathviews and set the text
                         LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(i);
                         MathView mv = (MathView) mvItem.getChildAt(0);
                         mv.setText(getTex(et.getText().toString()));
