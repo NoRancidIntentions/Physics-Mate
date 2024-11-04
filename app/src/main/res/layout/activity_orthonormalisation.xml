@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/orthonormalisation_LL"
+            android:padding="16dp">
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Enter the dimension of the vector space:"
                 style="@style/custom_textView"/>
 
@@ -24,6 +22,13 @@
                 android:id="@+id/orthonormalisation_btn"
                 style="@style/custom_button_enabled"
                 android:text="next"/>
+
+        <!-- Placeholder for dynamically added vector input fields -->
+        <LinearLayout
+                android:id="@+id/vectorsContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

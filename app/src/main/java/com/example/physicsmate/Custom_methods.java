@@ -841,6 +841,12 @@ public class Custom_methods {
         return result.toString();
     }
 
+    public static String Orthogonalize(String vector) {
+        ExprEvaluator evaluator = new ExprEvaluator();
+        IExpr result = evaluator.eval("Orthogonalize(" + vector + ")");
+        return result.toString();
+    }
+
     public static IExpr IExprConverter(String function) {
         ExprEvaluator evaluator = new ExprEvaluator();
         return evaluator.parse(function);
