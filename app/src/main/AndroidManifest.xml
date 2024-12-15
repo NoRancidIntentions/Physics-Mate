@@ -19,6 +19,9 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
+                android:name=".activities.math.VEAdd2"
+                android:exported="false"/>
+        <activity
                 android:name=".activities.math.Orthonormalisation"
                 android:exported="false"
                 android:label="@string/title_activity_orthonormalisation"
