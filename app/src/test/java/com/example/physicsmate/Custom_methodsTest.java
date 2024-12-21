@@ -83,8 +83,8 @@ public class Custom_methodsTest {
     @Test
     public void PolarVectorAdditionTester() {
         String[] polars = new String[3];
-        polars[0] = "(2,54.74, 45)";
-        polars[1] = "(2,125.26, 225)";
+        polars[0] = "(2,arccos(1/sqrt(3)), pi/4)";
+        polars[1] = "(2,arccos(-1/sqrt(3)), 5*pi/4)";
         polars[2] = "(4,0, 0)";
         System.out.println(addPolarVectors(polars));
 

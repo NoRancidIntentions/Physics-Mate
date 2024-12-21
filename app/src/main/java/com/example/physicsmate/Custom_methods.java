@@ -316,7 +316,12 @@ public class Custom_methods {
 
         // Process each polar vector
         for (String polarVector : polarVectors) {
-            String[] components = polarVector.replaceAll("[()]", "").split(",");
+
+            //remove the first and last characters, and then split at ,
+            String vector = polarVector.substring(1, polarVector.length() - 1);
+            String[] components = vector.split(",");
+
+            // Ensure all vectors have the same dimension
             if (components.length != dimension) {
                 throw new IllegalArgumentException("All vectors must have the same dimension.");
             }
@@ -343,6 +348,43 @@ public class Custom_methods {
         result.append(")");
 
         return result.toString();
+    }
+
+    // Convert polar coordinates to Cartesian coordinates
+    private static double[] polarToCartesian(String[] polarComponents) {
+        int n = polarComponents.length;
+        double[] cartesian = new double[n];
+
+        double r = Double.parseDouble(polarComponents[0].trim()); // Magnitude
+        double[] angles = new double[n - 1];
+        for (int i = 1; i < n; i++) {
+            angles[i - 1] = evalf(polarComponents[i].trim()); // Angle is given in radians
+        }
+
+        // Compute Cartesian coordinates
+        cartesian[0] = r * Math.cos(angles[0]); // First axis (x-axis)
+        for (int i = 1; i < n - 1; i++) {
+            cartesian[i] = r * Math.cos(angles[i]) * Arrays.stream(angles, 0, i).map(Math::sin).reduce(1, (a, b) -> a * b); // Multiply by sines of previous angles
+        }
+        cartesian[n - 1] = r * Arrays.stream(angles).map(Math::sin).reduce(1, (a, b) -> a * b); // Last component
+
+        return cartesian;
+    }
+
+    // Convert Cartesian coordinates to polar coordinates
+    private static double[] cartesianToPolar(double[] cartesian) {
+        int n = cartesian.length;
+        double[] polar = new double[n];
+
+        // Compute radius
+        polar[0] = Math.sqrt(Arrays.stream(cartesian).map(x -> x * x).sum());
+
+        // Compute angles
+        for (int i = 1; i < n; i++) {
+            polar[i] = Math.toDegrees(Math.acos(cartesian[i - 1] / polar[0]));
+        }
+
+        return polar;
     }
 
     public static String addPolarVectorsDirnCosines(String[] vectors) throws IllegalArgumentException {
@@ -415,42 +457,7 @@ public class Custom_methods {
     }
 
 
-    // Convert polar coordinates to Cartesian coordinates
-    private static double[] polarToCartesian(String[] polarComponents) {
-        int n = polarComponents.length;
-        double[] cartesian = new double[n];
 
-        double r = Double.parseDouble(polarComponents[0].trim()); // Magnitude
-        double[] angles = new double[n - 1];
-        for (int i = 1; i < n; i++) {
-            angles[i - 1] = Math.toRadians(evalf(polarComponents[i].trim())); // Convert angles to radians
-        }
-
-        // Compute Cartesian coordinates
-        cartesian[0] = r * Math.cos(angles[0]); // First axis (x-axis)
-        for (int i = 1; i < n - 1; i++) {
-            cartesian[i] = r * Math.cos(angles[i]) * Arrays.stream(angles, 0, i).map(Math::sin).reduce(1, (a, b) -> a * b); // Multiply by sines of previous angles
-        }
-        cartesian[n - 1] = r * Arrays.stream(angles).map(Math::sin).reduce(1, (a, b) -> a * b); // Last component
-
-        return cartesian;
-    }
-
-    // Convert Cartesian coordinates to polar coordinates
-    private static double[] cartesianToPolar(double[] cartesian) {
-        int n = cartesian.length;
-        double[] polar = new double[n];
-
-        // Compute radius
-        polar[0] = Math.sqrt(Arrays.stream(cartesian).map(x -> x * x).sum());
-
-        // Compute angles
-        for (int i = 1; i < n; i++) {
-            polar[i] = Math.toDegrees(Math.acos(cartesian[i - 1] / polar[0]));
-        }
-
-        return polar;
-    }
 
     public static String parseStringAfterSolvingEqn(String input) {
         String br = "<br/>";
