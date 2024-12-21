@@ -262,6 +262,196 @@ public class Custom_methods {
 
     }
 
+    public static String addVectors(String[] vectors) {
+        if (vectors == null || vectors.length == 0) {
+            return "Empty input";
+        }
+
+        // Split the first vector to determine its dimension
+        String[] firstVector = vectors[0].replaceAll("[()]", "").split(",");
+        int dimension = firstVector.length;
+
+        // Initialize an array to hold the sum of components
+        double[] sum = new double[dimension];
+
+        // Process each vector
+        for (String vector : vectors) {
+            String[] components = vector.replaceAll("[()]", "").split(",");
+
+            // Ensure all vectors have the same dimension
+            if (components.length != dimension) {
+                throw new IllegalArgumentException("All vectors must have the same dimension.");
+            }
+
+            // Add components to the sum array
+            for (int i = 0; i < dimension; i++) {
+                sum[i] += Double.parseDouble(components[i].trim());
+            }
+        }
+
+        // Convert the sum array back to a string in Cartesian form
+        StringBuilder result = new StringBuilder("(");
+        for (int i = 0; i < dimension; i++) {
+            result.append(sum[i]);
+            if (i < dimension - 1) {
+                result.append(", ");
+            }
+        }
+        result.append(")");
+
+        return result.toString();
+    }
+
+    public static String addPolarVectors(String[] polarVectors) {
+        if (polarVectors == null || polarVectors.length == 0) {
+            return "Empty input";
+        }
+
+        // Determine the dimension from the first vector
+        String[] firstVector = polarVectors[0].replaceAll("[()]", "").split(",");
+        int dimension = firstVector.length;
+
+        // Initialize an array to hold the sum in Cartesian form
+        double[] cartesianSum = new double[dimension];
+
+        // Process each polar vector
+        for (String polarVector : polarVectors) {
+            String[] components = polarVector.replaceAll("[()]", "").split(",");
+            if (components.length != dimension) {
+                throw new IllegalArgumentException("All vectors must have the same dimension.");
+            }
+
+            // Convert polar coordinates to Cartesian and add
+            double[] cartesian = polarToCartesian(components);
+            for (int i = 0; i < dimension; i++) {
+                cartesianSum[i] += cartesian[i];
+            }
+        }
+
+
+        // Convert the resultant Cartesian sum back to polar coordinates
+        double[] resultantPolar = cartesianToPolar(cartesianSum);
+
+        // Format the result as a polar coordinate string
+        StringBuilder result = new StringBuilder("(");
+        for (int i = 0; i < resultantPolar.length; i++) {
+            result.append(resultantPolar[i]);
+            if (i < resultantPolar.length - 1) {
+                result.append(", ");
+            }
+        }
+        result.append(")");
+
+        return result.toString();
+    }
+
+    public static String addPolarVectorsDirnCosines(String[] vectors) throws IllegalArgumentException {
+        // Parse the input strings into magnitudes and direction cosines
+        List<Double> magnitudes = new ArrayList<>();
+        List<double[]> directionCosines = new ArrayList<>();
+
+        for (String vector : vectors) {
+            // Remove parentheses and split the string
+            vector = vector.replace("(", "").replace(")", "");
+            String[] components = vector.split(",");
+
+            // Parse the magnitude and direction cosines
+            double magnitude = evalf(components[0]);
+            magnitudes.add(magnitude);
+
+            double[] cosines = new double[components.length - 1];
+            double sumOfSquares = 0.0;
+
+            for (int i = 1; i < components.length; i++) {
+                cosines[i - 1] = evalf(components[i]);
+                sumOfSquares += cosines[i - 1] * cosines[i - 1];
+            }
+
+            // Check if the sum of squares of direction cosines equals 1 (within tolerance)
+            if (Math.abs(sumOfSquares - 1.0) > 1e-6) {
+                throw new IllegalArgumentException("Invalid direction cosines for vector: (" + vector + "). Sum of squares = " + sumOfSquares + " (must be 1).");
+            }
+
+            directionCosines.add(cosines);
+        }
+
+        // Check the number of dimensions
+        int dimensions = directionCosines.get(0).length;
+        double[] sumCartesian = new double[dimensions];
+
+        // Convert each vector to Cartesian form and add them
+        for (int i = 0; i < magnitudes.size(); i++) {
+            double magnitude = magnitudes.get(i);
+            double[] cosines = directionCosines.get(i);
+
+            for (int j = 0; j < dimensions; j++) {
+                sumCartesian[j] += magnitude * cosines[j]; // Add Cartesian components
+            }
+        }
+
+        // Calculate the resulting magnitude
+        double rSum = 0;
+        for (double component : sumCartesian) {
+            rSum += component * component;
+        }
+        rSum = Math.sqrt(rSum);
+
+        // Calculate the resulting direction cosines
+        double[] resultCosines = new double[dimensions];
+        for (int i = 0; i < dimensions; i++) {
+            resultCosines[i] = sumCartesian[i] / rSum;
+        }
+
+        // Format the output
+        StringBuilder resultCosineStr = new StringBuilder();
+        for (int i = 0; i < dimensions; i++) {
+            resultCosineStr.append(resultCosines[i]);
+            if (i < dimensions - 1) {
+                resultCosineStr.append(", ");
+            }
+        }
+
+        return "Magnitude: " + rSum + ", Direction Cosines: (" + resultCosineStr.toString() + ")";
+    }
+
+
+    // Convert polar coordinates to Cartesian coordinates
+    private static double[] polarToCartesian(String[] polarComponents) {
+        int n = polarComponents.length;
+        double[] cartesian = new double[n];
+
+        double r = Double.parseDouble(polarComponents[0].trim()); // Magnitude
+        double[] angles = new double[n - 1];
+        for (int i = 1; i < n; i++) {
+            angles[i - 1] = Math.toRadians(evalf(polarComponents[i].trim())); // Convert angles to radians
+        }
+
+        // Compute Cartesian coordinates
+        cartesian[0] = r * Math.cos(angles[0]); // First axis (x-axis)
+        for (int i = 1; i < n - 1; i++) {
+            cartesian[i] = r * Math.cos(angles[i]) * Arrays.stream(angles, 0, i).map(Math::sin).reduce(1, (a, b) -> a * b); // Multiply by sines of previous angles
+        }
+        cartesian[n - 1] = r * Arrays.stream(angles).map(Math::sin).reduce(1, (a, b) -> a * b); // Last component
+
+        return cartesian;
+    }
+
+    // Convert Cartesian coordinates to polar coordinates
+    private static double[] cartesianToPolar(double[] cartesian) {
+        int n = cartesian.length;
+        double[] polar = new double[n];
+
+        // Compute radius
+        polar[0] = Math.sqrt(Arrays.stream(cartesian).map(x -> x * x).sum());
+
+        // Compute angles
+        for (int i = 1; i < n; i++) {
+            polar[i] = Math.toDegrees(Math.acos(cartesian[i - 1] / polar[0]));
+        }
+
+        return polar;
+    }
+
     public static String parseStringAfterSolvingEqn(String input) {
         String br = "<br/>";
         // Replace },{ with <br/>OR<br/>
@@ -293,6 +483,14 @@ public class Custom_methods {
         result = String.join(br, resultSplitParsed);
 
         return result;
+    }
+
+    //a method, when given a string, makes the number, comma and brackets in yellow color, and the text in blue
+    public static String HtmlNumberFormatter(String input) {
+
+        //surround any number and decimal with yellow color
+        input = input.replaceAll("([\\d.]+)", "<font color='#CDDC39'>$1</font>");
+        return input;
     }
 
     public static String replaceNumbersInTrigWithRemainder(String expression) {
@@ -886,13 +1084,7 @@ public class Custom_methods {
     public static void MathJaxConfig(MathView... mathViews) {
 
         for (MathView mathView : mathViews) {
-            mathView.config(
-                    "MathJax.Hub.Config({\n" +
-                            "  \"HTML-CSS\" : {\n" +
-                            "        webFont : \"Latin-Modern\",\n" +
-                            "        linebreaks: { automatic: true },\n" +
-                            "    }" +
-                            "});");
+            mathView.config("MathJax.Hub.Config({\n" + "  \"HTML-CSS\" : {\n" + "        webFont : \"Latin-Modern\",\n" + "        linebreaks: { automatic: true },\n" + "    }" + "});");
         }
     }
 

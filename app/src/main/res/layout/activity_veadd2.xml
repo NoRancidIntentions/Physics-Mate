@@ -4,19 +4,36 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        style="@style/custom_linearLayout"
         tools:context=".activities.math.VEAdd2">
 
-    <androidx.appcompat.widget.AppCompatButton
-           style="@style/custom_button_enabled"
-           android:id="@+id/veadd2_btn_cartesian"
-           android:text="n-th dimension cartesian"
-           />
+    <TextView
+            style="@style/custom_textView"
+            android:text="enter the number of vectors to add"
+    />
+
+    <EditText
+        style="@style/custom_integer_edittext"
+        android:id="@+id/editText_activity_veadd2"
+        android:hint="3"
+    />
+
+    <CheckBox
+        style="@style/custom_checkBox"
+        android:id="@+id/checkbox_Cartesian"
+        android:text="Cartesian"
+    />
+
+    <CheckBox
+        style="@style/custom_checkBox"
+        android:id="@+id/checkbox_Polar"
+        android:text="Polar"
+    />
 
     <androidx.appcompat.widget.AppCompatButton
-           style="@style/custom_button_enabled"
-           android:id="@+id/veadd2_btn_polar"
-           android:text="n-th dimension polar"
-           />
-
+        style="@style/custom_button_enabled"
+        android:id="@+id/btnNext_activity_veadd2"
+        android:text="next"
+    />
 
 </LinearLayout>

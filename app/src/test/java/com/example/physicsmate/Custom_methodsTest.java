@@ -71,6 +71,37 @@ public class Custom_methodsTest {
         System.out.println(solveEquationSymbolic(eqns, vars));
     }
 
+    @Test
+    public void VectorAdditionTester() {
+        String[] vectors = new String[3];
+        vectors[0] = "(1,2,3,4)";
+        vectors[1] = "(4,5,6,7)";
+        vectors[2] = "(7,8,9,10)";
+        System.out.println(addVectors(vectors));
+    }
+
+    @Test
+    public void PolarVectorAdditionTester() {
+        String[] polars = new String[3];
+        polars[0] = "(2,54.74, 45)";
+        polars[1] = "(2,125.26, 225)";
+        polars[2] = "(4,0, 0)";
+        System.out.println(addPolarVectors(polars));
+
+    }
+
+    @Test
+    public void PolarVectorADditionTesterCosines(){
+        String[] vectors = {
+                "(5,0.6,0.8)",
+                "(7,0.8,0.6)"
+        };
+
+        System.out.println(addPolarVectorsDirnCosines(vectors));
+    }
+
+
+
     public static String solveEquationNumeric(ArrayList<String> equation, ArrayList<String> variables) {
         try {
             //store the eqns in string form: "{eqn1, eqn2, eqn3, ...}"
