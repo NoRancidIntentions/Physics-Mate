@@ -19,10 +19,16 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
-                android:name=".activities.math.VEAdd2$VEAdd2Cart"
+                android:name=".activities.physics.VEAdd2$VEAdd2Cart"
                 android:exported="false"/>
         <activity
-                android:name=".activities.math.VEAdd2"
+                android:name=".activities.physics.VEAdd2$VEAdd2Polar"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.VEAdd2$VEAdd2PolarCosines"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.VEAdd2"
                 android:exported="false"/>
         <activity
                 android:name=".activities.math.Orthonormalisation"
@@ -338,7 +344,7 @@
                 android:name=".activities.math.VEMultiply"
                 android:exported="true"/>
         <activity
-                android:name=".activities.math.VEAdd"
+                android:name=".activities.physics.VEAdd"
                 android:exported="true"/>
         <activity
                 android:name=".activities.math.LOSAC$LOSAC3"

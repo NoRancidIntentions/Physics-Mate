@@ -1,4 +1,4 @@
-package com.example.physicsmate.activities.math;
+package com.example.physicsmate.activities.physics;
 
 import android.os.Bundle;
 import android.text.Html;

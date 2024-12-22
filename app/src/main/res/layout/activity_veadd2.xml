@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/custom_linearLayout"
-        tools:context=".activities.math.VEAdd2">
+        tools:context=".activities.physics.VEAdd2">
 
     <TextView
             style="@style/custom_textView"

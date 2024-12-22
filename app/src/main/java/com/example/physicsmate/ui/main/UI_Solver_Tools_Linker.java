@@ -14,10 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.physicsmate.R;
 import com.example.physicsmate.activities.math.*;
-import com.example.physicsmate.activities.physics.CollisionMenu;
-import com.example.physicsmate.activities.physics.Gravitation;
-import com.example.physicsmate.activities.physics.Kinematics;
-import com.example.physicsmate.activities.physics.MPLSim;
+import com.example.physicsmate.activities.physics.*;
 import org.apache.logging.log4j.util.StackLocator;
 import org.jetbrains.annotations.NotNull;
 
@@ -127,7 +124,7 @@ public class UI_Solver_Tools_Linker {
 
             btnGravitation.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), Gravitation.class)));
 
-            btnVEAdd.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), VEAdd.class)));
+            btnVEAdd.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), VEAdd2.class)));
 
             btnVEmultiply.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), VEMultiply.class)));
 
