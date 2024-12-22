@@ -93,8 +93,9 @@ public class Custom_methodsTest {
     @Test
     public void PolarVectorADditionTesterCosines(){
         String[] vectors = {
-                "(5,0.6,0.8)",
-                "(7,0.8,0.6)"
+                "(2, (1/sqrt(2)), 1/sqrt(2))",
+                "(2, (-1/sqrt(2)), -1/sqrt(2))",
+                "(4, 0, 1)"
         };
 
         System.out.println(addPolarVectorsDirnCosines(vectors));

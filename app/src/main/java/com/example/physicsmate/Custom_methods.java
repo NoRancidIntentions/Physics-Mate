@@ -394,7 +394,7 @@ public class Custom_methods {
 
         for (String vector : vectors) {
             // Remove parentheses and split the string
-            vector = vector.replace("(", "").replace(")", "");
+            vector = vector.substring(1, vector.length() - 1);
             String[] components = vector.split(",");
 
             // Parse the magnitude and direction cosines
@@ -453,7 +453,7 @@ public class Custom_methods {
             }
         }
 
-        return "Magnitude: " + rSum + ", Direction Cosines: (" + resultCosineStr.toString() + ")";
+        return "Magnitude: " + rSum + ", Direction Cosines: (" + resultCosineStr + ")";
     }
 
 

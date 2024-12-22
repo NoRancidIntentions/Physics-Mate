@@ -1,11 +1,9 @@
 package com.example.physicsmate.activities.math;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
 
@@ -14,7 +12,6 @@ import static com.example.physicsmate.Custom_methods.*;
 
 public class VEAdd extends AppCompatActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,30 +72,43 @@ public class VEAdd extends AppCompatActivity {
                 double BCangle = DoubleNanChecker(Math.toDegrees(Math.acos(((Ci * Bi) + (Cj * Bj) + (Ck * Bk)) / (Cmag * Bmag))));
                 double ACangle = DoubleNanChecker(Math.toDegrees(Math.acos(((Ai * Ci) + (Aj * Cj) + (Ak * Ck)) / (Amag * Cmag))));
 
+                EditText[] editTextList = {etAi, etAj, etAk, etBi, etBj, etBk};
+
 
                 if (Cj < 0.0 && Ck > 0.0) {
-                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci) + "i - " + rounded_String(-Cj) + "j + " + rounded_String(Ck) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
+                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci, editTextList) + "i - " +
+                            rounded_String(-Cj, editTextList) + "j + " + rounded_String(Ck, editTextList) + "k </font>" +
+                            "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" +
+                            rounded_String(Amag, editTextList) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" +
+                            rounded_String(Bmag, editTextList) + "</font>" + "<br>" + "<br>" +
+                            "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" +
+                            rounded_String(Cmag, editTextList) + "</font>" + "<br>" + "<br>" +
+                            "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + rounded_String(ABangle, editTextList) +
+                            "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" +
+                            rounded_String(BCangle, editTextList) + "</font>" + "<br>" + "<br>" +
+                            "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + rounded_String(ACangle, editTextList) + "</font>";
 
                     tvVEAddResults.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                     tvVEAddResults.setVisibility(View.VISIBLE);
 
 
                 } else if (Cj > 0.0 && Ck < 0.0) {
-                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci) + "i + " + rounded_String(Cj) + "j - " + rounded_String(-Ck) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
+                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci, editTextList) + "i + " + rounded_String(Cj, editTextList) + "j - " + rounded_String(-Ck, editTextList) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag, editTextList) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag, editTextList) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
 
                     tvVEAddResults.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                     tvVEAddResults.setVisibility(View.VISIBLE);
 
                 } else if (Cj < 0.0 && Ck < 0.0) {
-                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci) + "i - " + rounded_String(-Cj) + "j - " + rounded_String(-Ck) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
+                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci, editTextList) + "i - " + rounded_String(-Cj, editTextList) + "j - " + rounded_String(-Ck, editTextList) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag, editTextList) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag, editTextList) + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "</font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
 
                     tvVEAddResults.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                     tvVEAddResults.setVisibility(View.VISIBLE);
 
 
                 } else {
-                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci) + "i + " + rounded_String(Cj) + "j + " + rounded_String(Ck) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
+                    //String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci) + "i + " + rounded_String(Cj) + "j + " + rounded_String(Ck) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + Amag + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + ABangle + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + BCangle + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + ACangle + "</font>";
 
+                    String result = "<font color = #6BBBE1> Vector C =  </font> <font color = #CDDC39>" + rounded_String(Ci, editTextList) + "i + " + rounded_String(Cj, editTextList) + "j + " + rounded_String(Ck, editTextList) + "k </font>" + "<br>" + "<br>" + "<font color = #6BBBE1> Magnitude of Vector A is  </font> <font color = #CDDC39>" + rounded_String(Amag, editTextList) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector B is  </font> <font color = #CDDC39>" + rounded_String(Bmag, editTextList) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Magnitude of Vector C is  </font> <font color = #CDDC39>" + rounded_String(Cmag, editTextList) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and B is  </font> <font color = #CDDC39>" + rounded_String(ABangle, editTextList) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector B and C is  </font> <font color = #CDDC39>" + rounded_String(BCangle, editTextList) + "<br>" + "<br>" + "</font>" + "<font color = #6BBBE1> Angle between vector A and C is  </font> <font color = #CDDC39>" + rounded_String(ACangle, editTextList) + "</font>";
                     tvVEAddResults.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                     tvVEAddResults.setVisibility(View.VISIBLE);
                 }

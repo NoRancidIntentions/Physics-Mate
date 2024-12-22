@@ -18,22 +18,22 @@
         android:hint="3"
     />
 
-    <CheckBox
-        style="@style/custom_checkBox"
-        android:id="@+id/checkbox_Cartesian"
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button_enabled"
+            android:id="@+id/btnPolar"
         android:text="Cartesian"
     />
 
-    <CheckBox
-        style="@style/custom_checkBox"
-        android:id="@+id/checkbox_Polar"
+    <androidx.appcompat.widget.AppCompatButton
+            style="@style/custom_button_enabled"
+            android:id="@+id/btnCartesian"
         android:text="Polar"
     />
 
     <androidx.appcompat.widget.AppCompatButton
         style="@style/custom_button_enabled"
-        android:id="@+id/btnNext_activity_veadd2"
-        android:text="next"
+        android:id="@+id/btnPolarCosines"
+        android:text="Polar (Direction cosines)"
     />
 
 </LinearLayout>
