@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import io.github.kexanie.library.MathView;
 
 import java.util.Arrays;
 
@@ -29,14 +30,14 @@ public class VEAdd2 extends AppCompatActivity {
         btnCartesian.setOnClickListener(view -> {
             int num = Integer.parseInt(etNum.getText().toString().trim());
             Intent intent = new Intent(VEAdd2.this, VEAdd2Cart.class);
-            intent.putExtra("dim", num);
+            intent.putExtra("num", num);
             startActivity(intent);
         });
 
         btnPolar.setOnClickListener(view -> {
             int num = Integer.parseInt(etNum.getText().toString().trim());
             Intent intent = new Intent(VEAdd2.this, VEAdd2Polar.class);
-            intent.putExtra("dim", num);
+            intent.putExtra("num", num);
             startActivity(intent);
         });
 
@@ -62,10 +63,11 @@ public class VEAdd2 extends AppCompatActivity {
             Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            MathView mv = findViewById(R.id.latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             btnCopy.setVisibility(View.GONE);
             tvRes.setVisibility(View.GONE);
-
+            mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
@@ -79,6 +81,7 @@ public class VEAdd2 extends AppCompatActivity {
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
+                Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
             }
@@ -89,7 +92,7 @@ public class VEAdd2 extends AppCompatActivity {
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
-            tv.setText("Enter the vectors in Cartesian coordinates");
+            tv.setText("Enter the vectors in cartesian coordinates");
             linearLayout.addView(tv, 0);
 
             btnCalc.setOnClickListener(v -> {
@@ -99,11 +102,14 @@ public class VEAdd2 extends AppCompatActivity {
                     vectors[i] = editTexts[i].getText().toString();
                 }
                 //calculate the result
-                String result = "Result = " + addVectors(vectors);
+                String result = addVectors(vectors);
                 tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
-            });
 
+                tvRes.setVisibility(View.VISIBLE);
+                btnCopy.setVisibility(View.VISIBLE);
+            });
         }
+
     }
 
     public static class VEAdd2Polar extends AppCompatActivity {
@@ -119,10 +125,11 @@ public class VEAdd2 extends AppCompatActivity {
             Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            MathView mv = findViewById(R.id.latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             btnCopy.setVisibility(View.GONE);
             tvRes.setVisibility(View.GONE);
-
+            mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
@@ -136,6 +143,7 @@ public class VEAdd2 extends AppCompatActivity {
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
+                Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
             }
@@ -156,11 +164,14 @@ public class VEAdd2 extends AppCompatActivity {
                     vectors[i] = editTexts[i].getText().toString();
                 }
                 //calculate the result
-                String result = "Result = " + addPolarVectors(vectors);
+                String result = addPolarVectors(vectors);
                 tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
-            });
 
+                tvRes.setVisibility(View.VISIBLE);
+                btnCopy.setVisibility(View.VISIBLE);
+            });
         }
+
     }
 
     public static class VEAdd2PolarCosines extends AppCompatActivity {
@@ -176,10 +187,11 @@ public class VEAdd2 extends AppCompatActivity {
             Button btnCopy = findViewById(R.id.btnCopy_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            MathView mv = findViewById(R.id.latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             btnCopy.setVisibility(View.GONE);
             tvRes.setVisibility(View.GONE);
-
+            mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
@@ -193,6 +205,7 @@ public class VEAdd2 extends AppCompatActivity {
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
+                Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
             }
@@ -213,8 +226,11 @@ public class VEAdd2 extends AppCompatActivity {
                     vectors[i] = editTexts[i].getText().toString();
                 }
                 //calculate the result
-                String result = "Result = " + addPolarVectorsDirnCosines(vectors);
+                String result = addPolarVectorsDirnCosines(vectors);
                 tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
+
+                tvRes.setVisibility(View.VISIBLE);
+                btnCopy.setVisibility(View.VISIBLE);
             });
         }
 
