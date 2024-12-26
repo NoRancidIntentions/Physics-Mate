@@ -122,7 +122,7 @@ public class Custom_methods {
 
         for (EditText editText : editTexts) {
             String text = editText.getText().toString();
-            double number = Double.parseDouble(text);
+            double number = evalf(text);
             int decimalPlaces = getNumberOfDecimalPlaces(number);
 
             if (decimalPlaces < minDecimalPlaces) {
@@ -219,7 +219,7 @@ public class Custom_methods {
     public static Double extractValue(String input, String variable) {
         Matcher matcher = Pattern.compile(variable + "= </font><font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
         if (matcher.find()) {
-            return Double.parseDouble(matcher.group(1));
+            return evalf(matcher.group(1));
         }
         return null;
     }
@@ -268,7 +268,7 @@ public class Custom_methods {
         }
 
         // Split the first vector to determine its dimension
-        String[] firstVector = vectors[0].replaceAll("[()]", "").split(",");
+        String[] firstVector = vectors[0].substring(1, vectors[0].length() - 1).split(",");
         int dimension = firstVector.length;
 
         // Initialize an array to hold the sum of components
@@ -276,7 +276,7 @@ public class Custom_methods {
 
         // Process each vector
         for (String vector : vectors) {
-            String[] components = vector.replaceAll("[()]", "").split(",");
+            String[] components = vector.substring(1, vector.length() - 1).split(",");
 
             // Ensure all vectors have the same dimension
             if (components.length != dimension) {
@@ -285,7 +285,7 @@ public class Custom_methods {
 
             // Add components to the sum array
             for (int i = 0; i < dimension; i++) {
-                sum[i] += Double.parseDouble(components[i].trim());
+                sum[i] += evalf(components[i].trim());
             }
         }
 
@@ -355,7 +355,7 @@ public class Custom_methods {
         int n = polarComponents.length;
         double[] cartesian = new double[n];
 
-        double r = Double.parseDouble(polarComponents[0].trim()); // Magnitude
+        double r = evalf(polarComponents[0].trim()); // Magnitude
         double[] angles = new double[n - 1];
         for (int i = 1; i < n; i++) {
             angles[i - 1] = evalf(polarComponents[i].trim()); // Angle is given in radians
@@ -798,9 +798,9 @@ public class Custom_methods {
             int Maximas = 0;
             int Minimas = 0;
             for (int i = 0; i < ExtremasString.length; i++) {
-                if (Double.parseDouble(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) > 0) {
+                if (evalf(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) > 0) {
                     Minimas++;
-                } else if (Double.parseDouble(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) < 0) {
+                } else if (evalf(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) < 0) {
                     Maximas++;
                 }
             }
@@ -853,8 +853,8 @@ public class Custom_methods {
         while (matcher.find()) {
             String fraction = matcher.group();
             String[] parts = fraction.split("/");
-            double numerator = Double.parseDouble(parts[0]);
-            double denominator = Double.parseDouble(parts[1]);
+            double numerator = evalf(parts[0]);
+            double denominator = evalf(parts[1]);
             double decimalValue = numerator / denominator;
             String replacement = Double.toString(decimalValue);
             matcher.appendReplacement(buffer, Matcher.quoteReplacement(replacement));
@@ -907,7 +907,7 @@ public class Custom_methods {
             // Simplify the log terms
             double result = 0;
             for (String term : terms) {
-                result += Math.log(Double.parseDouble(term));
+                result += Math.log(evalf(term));
             }
 
             // Replace the log term with the simplified version in the output
@@ -1253,7 +1253,7 @@ public class Custom_methods {
                     } else if ((ch >= '0' && ch <= '9') || ch == '.')
                     { // numbers
                         while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
-                        x = Double.parseDouble(str.substring(startPos, this.pos));
+                        x = evalf(str.substring(startPos, this.pos));
                     } else if (ch >= 'a' && ch <= 'z')
                     { // functions
                         while (ch >= 'a' && ch <= 'z') nextChar();

@@ -92,8 +92,14 @@ public class VEAdd2 extends AppCompatActivity {
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
+            Paris.styleBuilder(tv).add(R.style.custom_textView).apply();
             tv.setText("Enter the vectors in cartesian coordinates");
             linearLayout.addView(tv, 0);
+
+            TextView tvHelp = new TextView(this);
+            Paris.styleBuilder(tv).add(R.style.custom_textViewSmallNotice).apply();
+            tvHelp.setText("Use the format (x,y,z,...)");
+            linearLayout.addView(tv, 1);
 
             btnCalc.setOnClickListener(v -> {
                 //add the vectors
@@ -154,8 +160,14 @@ public class VEAdd2 extends AppCompatActivity {
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
+            Paris.styleBuilder(tv).add(R.style.custom_textView).apply();
             tv.setText("Enter the vectors in polar coordinates");
             linearLayout.addView(tv, 0);
+
+            TextView tvHelp = new TextView(this);
+            Paris.styleBuilder(tvHelp).add(R.style.custom_textViewSmallNotice).apply();
+            tvHelp.setText("Use the format (r, theta1, theta2, ..., theta(n-1)) [for n-dimensional vectors], where theta is in radians. \n\n the theta1 angle is measured from the vector to x1 axis. theta2, theta3, ... theta(n-1) are measured from the projection of vector to x2-x3, x4-x5, ... x(n-1)-xn planes from the x2, x3, ... x(n-1) axes.");
+            linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
                 //add the vectors
@@ -216,8 +228,14 @@ public class VEAdd2 extends AppCompatActivity {
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
+            Paris.styleBuilder(tv).add(R.style.custom_textView).apply();
             tv.setText("Enter the vectors in polar coordinates");
             linearLayout.addView(tv, 0);
+
+            TextView tvHelp = new TextView(this);
+            Paris.styleBuilder(tvHelp).add(R.style.custom_textViewSmallNotice).apply();
+            tvHelp.setText("Use the format (r, cos(theta1), (theta2), ..., cos(theta(n))) [for n-dimensional vectors], where theta is in radians. \n\n theta1, theta2, ... theta(n) are measured from the vector to the x2, x3, ... x(n) axes.");
+            linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
                 //add the vectors

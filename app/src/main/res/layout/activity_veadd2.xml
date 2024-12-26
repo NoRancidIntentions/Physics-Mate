@@ -20,13 +20,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
             style="@style/custom_button_enabled"
-            android:id="@+id/btnPolar"
+            android:id="@+id/btnCartesian"
         android:text="Cartesian"
     />
 
     <androidx.appcompat.widget.AppCompatButton
             style="@style/custom_button_enabled"
-            android:id="@+id/btnCartesian"
+            android:id="@+id/btnPolar"
         android:text="Polar"
     />
 
