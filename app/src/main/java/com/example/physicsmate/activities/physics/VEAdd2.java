@@ -97,9 +97,9 @@ public class VEAdd2 extends AppCompatActivity {
             linearLayout.addView(tv, 0);
 
             TextView tvHelp = new TextView(this);
-            Paris.styleBuilder(tv).add(R.style.custom_textViewSmallNotice).apply();
+            Paris.styleBuilder(tvHelp).add(R.style.custom_textViewSmallNotice).apply();
             tvHelp.setText("Use the format (x,y,z,...)");
-            linearLayout.addView(tv, 1);
+            linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
                 //add the vectors

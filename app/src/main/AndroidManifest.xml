@@ -19,6 +19,12 @@
             android:theme="@style/Theme.PhysicsMate"
             tools:targetApi="q">
         <activity
+                android:name=".activities.physics.SpecRelativity$LengthContraction"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.SpecRelativity"
+                android:exported="false"/>
+        <activity
                 android:name=".activities.physics.VEAdd2$VEAdd2Cart"
                 android:exported="false"/>
         <activity

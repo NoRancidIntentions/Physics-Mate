@@ -114,13 +114,14 @@ public class UI_Solver_Tools_Linker {
         public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin, btnCollision;
+            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin, btnCollision, btnSpecRelativity;
 
             btnGravitation = requireView().findViewById(R.id.btnGravitation);
             btnVEAdd = requireView().findViewById(R.id.button12);
             btnVEmultiply = requireView().findViewById(R.id.button13);
             btnKin = requireView().findViewById(R.id.button17);
             btnCollision = requireView().findViewById(R.id.btnCollision);
+            btnSpecRelativity = requireView().findViewById(R.id.btnSpecRelativity);
 
             btnGravitation.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), Gravitation.class)));
 
@@ -131,6 +132,8 @@ public class UI_Solver_Tools_Linker {
             btnKin.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), Kinematics.class)));
 
             btnCollision.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), CollisionMenu.class)));
+
+            btnSpecRelativity.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), SpecRelativity.class)));
         }
     }
 
