@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/custom_linearLayout"
-        android:id="@+id/linear_layout">
+        style="@style/custom_scrollView">
 
+    <LinearLayout
+            style="@style/custom_linearLayout"
+            android:id="@+id/linear_layout">
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

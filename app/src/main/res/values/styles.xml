@@ -15,6 +15,11 @@
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
     </style>
+    <style name="custom_scrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/app_bg</item>
+    </style>
     <style name="custom_button_enabled" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

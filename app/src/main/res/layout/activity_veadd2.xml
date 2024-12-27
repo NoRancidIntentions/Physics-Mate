@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<ScrollView
+        style="@style/custom_scrollView"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/custom_linearLayout"
-        tools:context=".activities.physics.VEAdd2">
+>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/custom_linearLayout"
+            tools:context=".activities.physics.VEAdd2">
 
-    <TextView
-            style="@style/custom_textView"
-            android:text="enter the number of vectors to add"
-    />
+        <TextView
+                style="@style/custom_textView"
+                android:text="enter the number of vectors to add"
+        />
 
-    <EditText
-        style="@style/custom_integer_edittext"
-        android:id="@+id/editText_activity_veadd2"
-        android:hint="3"
-    />
+        <EditText
+                style="@style/custom_integer_edittext"
+                android:id="@+id/editText_activity_veadd2"
+                android:hint="3"
+        />
 
-    <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button_enabled"
-            android:id="@+id/btnCartesian"
-        android:text="Cartesian"
-    />
+        <androidx.appcompat.widget.AppCompatButton
+                style="@style/custom_button_enabled"
+                android:id="@+id/btnCartesian"
+                android:text="Cartesian"
+        />
 
-    <androidx.appcompat.widget.AppCompatButton
-            style="@style/custom_button_enabled"
-            android:id="@+id/btnPolar"
-        android:text="Polar"
-    />
+        <androidx.appcompat.widget.AppCompatButton
+                style="@style/custom_button_enabled"
+                android:id="@+id/btnPolar"
+                android:text="Polar"
+        />
 
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/custom_button_enabled"
-        android:id="@+id/btnPolarCosines"
-        android:text="Polar (Direction cosines)"
-    />
+        <androidx.appcompat.widget.AppCompatButton
+                style="@style/custom_button_enabled"
+                android:id="@+id/btnPolarCosines"
+                android:text="Polar (Direction cosines)"
+        />
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
