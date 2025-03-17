@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -19,21 +18,23 @@ android {
 
     defaultConfig {
         applicationId "com.example.physicsmate"
+        resConfig("en")
         minSdk 26
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 10
+        versionName "10.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
     }
+
     buildTypes {
         release {
 
-            //minifyEnabled true
-            //shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -48,18 +49,15 @@ android {
     buildFeatures{
         dataBinding = true
         viewBinding = true
-        compose true
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.4.3'
     }
 
 }
@@ -73,58 +71,65 @@ configurations.configureEach {
         }
 }
 
+configurations.implementation {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+}
+
 repositories
         {
             google()
             mavenCentral()
             jcenter()
             maven { url 'https://jitpack.io' }
+            maven { url "https://andob.io/repository/open_source" }
         }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation("androidx.core:core-splashscreen:1.0.0") //dont update, else debugDuplicateError
+    //implementation("androidx.core:core-splashscreen:1.0.0") //dont update, else debugDuplicateError
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-    implementation 'androidx.activity:activity-compose:1.7.0'
-    implementation platform('androidx.compose:compose-bom:2023.03.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.ui:ui-graphics'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
-    implementation platform('androidx.compose:compose-bom:2023.03.00')
-    implementation platform('androidx.compose:compose-bom:2023.08.00')
-    implementation platform('androidx.compose:compose-bom:2023.08.00')//must be 2.5.1
+    //implementation 'androidx.activity:activity-compose:1.7.0'
+    //implementation platform('androidx.compose:compose-bom:2023.03.00')
+    //implementation 'androidx.compose.ui:ui'
+    //implementation 'androidx.compose.ui:ui-graphics'
+    //implementation 'androidx.compose.ui:ui-tooling-preview'
+    //implementation 'androidx.compose.material3:material3'
+    //implementation platform('androidx.compose:compose-bom:2023.03.00')
+    //implementation platform('androidx.compose:compose-bom:2023.08.00')
+    //implementation platform('androidx.compose:compose-bom:2023.08.00')//must be 2.5.1
+
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //_______________________________________________________________________________
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' //graphs
     implementation 'org.matheclipse:matheclipse-core:2.0.0' //symbolic java
-    implementation 'io.github.kexanie.library:MathView:0.0.6' //latex
+    //implementation 'ro.andob.androidawt:androidawt:1.0.4'
+    //implementation 'io.github.kexanie.library:MathView:0.0.6' //latex
+    //implementation 'com.github.frhnfrq:MathView:1.2'
     implementation 'com.airbnb.android:paris:2.0.0'
-    androidTestImplementation platform('androidx.compose:compose-bom:2023.03.00')
+    /*androidTestImplementation platform('androidx.compose:compose-bom:2023.03.00')
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     androidTestImplementation platform('androidx.compose:compose-bom:2023.03.00')
-    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
-    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-    debugImplementation 'androidx.compose.ui:ui-test-manifest'//styling
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')*/
+    //androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
+    //debugImplementation 'androidx.compose.ui:ui-tooling'
+    //debugImplementation 'androidx.compose.ui:ui-test-manifest'//styling
 //_______________________________________________________________________________
 
     //________________________________________________________________________________
-    //annotationProcessor 'org.apache.logging.log4j:log4j-core:2.13.3'
-    //implementation('org.slf4j:slf4j-api:1.7.30')
-    //{
-    //exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    //exclude group: 'org.slf4j', module: 'slf4j-jdk14'
-    //exclude group: 'org.slf4j', module: 'slf4j-simple'
-    //}
-    //implementation('org.slf4j:slf4j-nop:1.7.30')
+    annotationProcessor 'org.apache.logging.log4j:log4j-core:2.13.3'
+    implementation('org.slf4j:slf4j-api:1.7.30')
+            {
+                exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+                exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+                exclude group: 'org.slf4j', module: 'slf4j-simple'
+            }
+    implementation('org.slf4j:slf4j-nop:1.7.30')
     //implementation 'org.matheclipse:matheclipse-core:2.0.0' //symja differentiation
 
     //________________________________________________________________________________
@@ -138,8 +143,8 @@ dependencies {
 
 
     //__________________________________________________________________________________________
-    //implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
-    //implementation group: 'org.apache.commons', name: 'commons-math4-core', version: '4.0-beta1' //lagrange
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    implementation group: 'org.apache.commons', name: 'commons-math4-core', version: '4.0-beta1' //lagrange
 
     //________________________________________________________________________________________
 

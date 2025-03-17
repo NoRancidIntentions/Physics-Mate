@@ -15,12 +15,10 @@
             tools:context=".activities.math.LOSAC">
 
         <ImageView
-                android:id="@+id/imageView2"
                 style="@style/custom_imageview_fixedratio"
                 app:srcCompat="@drawable/losac"/>
 
         <TextView
-                android:id="@+id/textView16"
                 style="@style/custom_textView"
                 android:text="Please choose one of these as per your requirement"
         />

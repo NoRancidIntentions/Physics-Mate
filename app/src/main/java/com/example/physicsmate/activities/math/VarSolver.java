@@ -7,7 +7,6 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import io.github.kexanie.library.MathView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +21,7 @@ public class VarSolver extends AppCompatActivity {
     TextView tvResult;
     LinearLayout rowsLinearLayout, MVsLinearLayout;
     ScrollView scrollView;
-    MathView mathView;
+    //MathView mathView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class VarSolver extends AppCompatActivity {
 
         btnSolve = findViewById(R.id.var_solver_solve_button);
 
-        mathView = findViewById(R.id.var_solver_mv1);
+        //mathView = findViewById(R.id.var_solver_mv1);
         MVsLinearLayout = findViewById(R.id.var_solver_MVs);
 
         tvResult.setVisibility(View.GONE);
@@ -166,7 +165,7 @@ public class VarSolver extends AppCompatActivity {
             Paris.styleBuilder(btnSolve).add(R.style.custom_button_enabled).apply();
             btnSolve.setText("Solve");
 
-            mathView.setText(getTex(et1.getText().toString()));
+            //mathView.setText(getTex(et1.getText().toString()));
         } else {
             if (et1.getText().toString().isEmpty()) {
                 btnSolve.setClickable(false);
@@ -192,7 +191,7 @@ public class VarSolver extends AppCompatActivity {
                         MVsLinearLayout.removeAllViews();
 
                         try {
-                            mathView.setText(null);
+                            //mathView.setText(null);
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
@@ -204,12 +203,12 @@ public class VarSolver extends AppCompatActivity {
                         Paris.styleBuilder(btnSolve).add(R.style.custom_button_enabled).apply();
                         btnSolve.setText("Solve");
 
-                        mathView.setText(getTex(et1.getText().toString()));
+                        //mathView.setText(getTex(et1.getText().toString()));
 
                         //iterate through all mathviews and set the text
                         LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(i);
-                        MathView mv = (MathView) mvItem.getChildAt(0);
-                        mv.setText(getTex(et.getText().toString()));
+                        //MathView mv = (MathView) mvItem.getChildAt(0);
+                        //mv.setText(getTex(et.getText().toString()));
 
                     }
 

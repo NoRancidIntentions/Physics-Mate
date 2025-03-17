@@ -2,10 +2,9 @@ package com.example.physicsmate.activities.physics;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
@@ -13,9 +12,11 @@ import com.example.physicsmate.R;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static com.example.physicsmate.Custom_methods.CB_MainMethod;
+import static com.example.physicsmate.Custom_methods.*;
 
 public class SpecRelativity extends AppCompatActivity {
+
+    public static int c = 299792458;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +120,9 @@ public class SpecRelativity extends AppCompatActivity {
             checkBoxes.add(chkContractedLength);
             checkBoxes.add(chkVelocity);
 
+            chkProperLength.setChecked(true);
+            chkVelocity.setChecked(true);
+
             Button btnNext = new Button(this);
             Button btnClear = new Button(this);
 
@@ -138,6 +142,100 @@ public class SpecRelativity extends AppCompatActivity {
             linear_layout.addView(btnClear, 4);
 
             btnNext.setOnClickListener(view -> {
+
+                TextView tv1 = new TextView(this);
+                TextView tv2 = new TextView(this);
+
+                Paris.styleBuilder(tv1).add(R.style.custom_textView).apply();
+                Paris.styleBuilder(tv2).add(R.style.custom_textView).apply();
+
+                linear_layout.addView(tv1, 5);
+                linear_layout.addView(tv2, 7);
+
+                EditText et1 = new EditText(this);
+                EditText et2 = new EditText(this);
+
+                Paris.styleBuilder(et1).add(R.style.custom_edittext).apply();
+                Paris.styleBuilder(et2).add(R.style.custom_edittext).apply();
+
+                linear_layout.addView(et1, 6);
+                linear_layout.addView(et2, 8);
+
+                String s = checkBoxes.stream().filter(CB -> !CB.isChecked()).findFirst().map(CB -> CB.getText().toString()).orElse("Contracted Length");
+
+                //find which checkbox is not checked
+
+                //add textviews to linear layout which is checked
+                switch (s) {
+                    case "Proper Length":
+                        tv1.setText("Enter the contracted length of the moving object, as viewed from the stationary observer");
+                        tv2.setText("Enter the velocity of the moving object, as viewed from the stationary observer");
+                        break;
+                    case "Contracted Length":
+                        tv1.setText("Enter the proper length of the moving object, as viewed from the stationary observer");
+                        tv2.setText("Enter the velocity of the moving object, as viewed from the stationary observer");
+                        break;
+                    case "Velocity":
+                        tv1.setText("Enter the proper length of the moving object, as viewed from the stationary observer");
+                        tv2.setText("Enter the contracted length of the moving object, as viewed from the stationary observer");
+                        break;
+                }
+
+                Button btnCalc = new Button(this);
+
+                Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
+
+                btnCalc.setText("Calculate");
+
+                linear_layout.addView(btnCalc, 9);
+
+                TextView tvRes = new TextView(this);
+
+                Paris.styleBuilder(tvRes).add(R.style.custom_textView).apply();
+
+                linear_layout.addView(tvRes, 10);
+
+                //setupEditTextChangeListener(tvRes, btnCalc, cust);
+
+                btnCalc.setOnClickListener(view1 ->
+                {
+                    switch (s) {
+                        case "Proper Length":
+                            double contracted_length = evalf(et1.getText().toString());
+                            double velocity = evalf(et2.getText().toString());
+
+                            double gamma = 1 / Math.sqrt(1 - (velocity * velocity) / (c * c)); //always greater than 1
+                            double proper_length = gamma * contracted_length;
+
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The proper length of the moving object is " + proper_length + "units")));
+
+                            break;
+
+                        case "Contracted Length":
+                            double proper_length1 = evalf(et1.getText().toString());
+                            double velocity1 = evalf(et2.getText().toString());
+
+                            double gamma1 = 1 / Math.sqrt(1 - (velocity1 * velocity1) / (c * c)); //always greater than 1
+                            double contracted_length1 = proper_length1 / gamma1;
+
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The contracted length of the moving object is " + contracted_length1 + "units")));
+
+                            break;
+
+                        case "Velocity":
+                            double proper_length2 = evalf(et1.getText().toString());
+                            double contracted_length2 = evalf(et2.getText().toString());
+
+                            double gamma2 = proper_length2 / contracted_length2;
+                            double velocity2 = gamma2 * c;
+
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The velocity of the moving object is " + velocity2 + "units")));
+
+                            break;
+                    }
+
+
+                });
 
             });
 

@@ -11,7 +11,6 @@
             style="custom_linearLayout"
             android:orientation="vertical">
         <TextView
-                android:id="@+id/var_solver_text_view"
                 style="@style/custom_textView"
                 android:text="Please add the system of equations"
         />
@@ -36,11 +35,7 @@
                 android:orientation="vertical"
                 style="custom_linearLayout"
                 android:id="@+id/var_solver_MVs">
-            <io.github.kexanie.library.MathView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/var_solver_mv1"
-            />
+
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton

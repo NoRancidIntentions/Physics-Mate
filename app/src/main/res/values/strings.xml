@@ -4,7 +4,6 @@
     <string name="Mathematical_Tools_tab_text">Mathematical Tools</string>
     <string name="External_Links_tab_text">External Links</string>
     <string name="title_activity_grav_acc3_calc">GravAcc3Calc</string>
-    <string name="backspace">←</string>
     <string name="title_activity_curvature_menu">CurvatureMenu</string>
     <string name="title_activity_orthonormalisation">Orthonormalisation</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -12,12 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
-import io.github.kexanie.library.MathView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -45,16 +43,6 @@ public class Gravitation extends AppCompatActivity {
         btnOrbVel = findViewById(R.id.button37);
         btnKepThirdLaw = findViewById(R.id.button26);
         btnGravTimeDil = findViewById(R.id.button33);
-        btnGravLensing = findViewById(R.id.button35);
-        btnGravTorque = findViewById(R.id.button40);
-        btnSchRad = findViewById(R.id.button39);
-        btnRoche = findViewById(R.id.btnRoche);
-        btnTidalForce = findViewById(R.id.btnTidalForce);
-        btnGravWaveEnergy = findViewById(R.id.btnGravWaveEnergy);
-        btnGravWaveFrequency = findViewById(R.id.btnGravWaveFrequency);
-        btnGravWaveLuminosity = findViewById(R.id.btnGravWaveLuminosity);
-        btnGravRedShift = findViewById(R.id.btnGravRedShift);
-        btnJeansMass = findViewById(R.id.btnJeansMass);
 
 
         btnNLOG.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, NLOG.class)));
@@ -66,17 +54,6 @@ public class Gravitation extends AppCompatActivity {
         btnOrbVel.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, OrbVelMenu.class)));
         btnKepThirdLaw.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, KepThirdLaw.class)));
         btnGravTimeDil.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravTimeDilation.class)));
-        btnGravLensing.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravLensing.class)));
-        btnGravTorque.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravTorque.class)));
-        btnSchRad.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, SchRadius.class)));
-        btnRoche.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, RocheLimit.class)));
-        btnTidalForce.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, TidalForce.class)));
-        btnGravWaveEnergy.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravWaveEnergy.class)));
-        btnGravWaveFrequency.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravWaveFrequency.class)));
-        btnGravWaveLuminosity.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravWaveLuminosity.class)));
-        btnGravRedShift.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravRedshift.class)));
-        btnJeansMass.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, JeansMass.class)));
-
     }
 
     public static class EscVelMenu extends AppCompatActivity {
@@ -491,7 +468,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
@@ -685,7 +662,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
@@ -696,8 +673,8 @@ public class Gravitation extends AppCompatActivity {
                 btnGraph.setVisibility(View.GONE);
 
                 img.setVisibility(View.GONE);
-                MathJaxConfig(mathView);
-                mathView.setText(getTex("g = G*M/r^2"));
+                //MathJaxConfig(mathView);
+                //mathView.setText(getTex("g = G*M/r^2"));
 
                 setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 
@@ -1005,96 +982,6 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravLensing extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_lensing);
-        }
-    }
-
-    public static class GravTorque extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_torque);
-        }
-    }
-
-    public static class SchRadius extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_sch_radius);
-        }
-    }
-
-    public static class RocheLimit extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_roche_limit);
-        }
-    }
-
-    public static class TidalForce extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_tidal_force);
-        }
-    }
-
-    public static class GravWaveEnergy extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_wave_energy);
-        }
-    }
-
-    public static class GravWaveFrequency extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_wave_frequency);
-        }
-    }
-
-    public static class GravWaveLuminosity extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_wave_luminosity);
-        }
-    }
-
-    public static class GravRedshift extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_grav_redshift);
-        }
-    }
-
-    public static class JeansMass extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_jeans_mass);
-        }
-    }
-
     public static class NLOG extends AppCompatActivity {
 
         ImageButton btnNLOG1, btnNLOG2, btnNLOG3;
@@ -1150,7 +1037,7 @@ public class Gravitation extends AppCompatActivity {
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
                 tvNLOG1.setText("Mass of the first object");
@@ -1222,7 +1109,7 @@ public class Gravitation extends AppCompatActivity {
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
 
@@ -1297,7 +1184,7 @@ public class Gravitation extends AppCompatActivity {
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //athView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setImageResource(R.drawable.nlogpic);
                 tvNLOG1.setText("Mass of the first object");

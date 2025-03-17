@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/airResistanceConstraintView">
+>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +28,6 @@
 
             <TextView
                     android:text="Enter Coordinates (Xp, Yp) for point of projection"
-                    android:id="@+id/textView42"
                     style="@style/custom_textView"
             />
 
@@ -92,7 +91,6 @@
 
             <TextView
                     android:text="Enter Magnitude of velocity in SI unit"
-                    android:id="@+id/textView43"
                     style="@style/custom_textView"
             />
 
@@ -104,7 +102,6 @@
 
             <TextView
                     android:text="Enter Angle A \n (Inclined plane angle)"
-                    android:id="@+id/textView44"
                     style="@style/custom_textView"/>
 
             <EditText
@@ -114,7 +111,6 @@
 
             <TextView
                     android:text="Enter Enter angle b \n (Angle of Projection wrt ground (horizontal))"
-                    android:id="@+id/textView45"
                     style="@style/custom_textView"/>
 
             <EditText
@@ -124,7 +120,6 @@
 
             <TextView
                     android:text="Enter gravity in SI unit"
-                    android:id="@+id/textView46"
                     style="@style/custom_textView"/>
 
             <EditText

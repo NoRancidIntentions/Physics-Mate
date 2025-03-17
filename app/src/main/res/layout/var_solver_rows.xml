@@ -14,11 +14,10 @@
             android:layout_width="wrap_content"
             android:layout_marginBottom="0dp"
             android:layout_weight="1.75"
-            android:hint="2x + 3y = 13" android:id="@+id/ETvar"/>
+            android:hint="2x + 3y = 13"/>
 
     <androidx.appcompat.widget.AppCompatImageButton
             android:background="@color/app_bg"
-            android:id="@+id/varSolverRowsDel"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"

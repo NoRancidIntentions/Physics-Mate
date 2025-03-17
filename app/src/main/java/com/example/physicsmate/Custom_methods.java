@@ -24,7 +24,6 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.Utils;
-import io.github.kexanie.library.MathView;
 import org.jetbrains.annotations.NotNull;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
@@ -1088,12 +1087,12 @@ public class Custom_methods {
         return StringError;
     }
 
-    public static void MathJaxConfig(MathView... mathViews) {
+    /*public static void MathJaxConfig(MathView... mathViews) {
 
         for (MathView mathView : mathViews) {
             mathView.config("MathJax.Hub.Config({\n" + "  \"HTML-CSS\" : {\n" + "        webFont : \"Latin-Modern\",\n" + "        linebreaks: { automatic: true },\n" + "    }" + "});");
         }
-    }
+    }*/
 
     @SuppressLint("SetJavaScriptEnabled")
     public static void WebViewLoader(@NotNull WebView webView, String url) {

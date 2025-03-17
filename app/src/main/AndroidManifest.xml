@@ -142,35 +142,7 @@
                     android:value=""/>
         </activity>
         <activity
-                android:name=".activities.physics.Gravitation$JeansMass"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravRedshift"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
                 android:name=".activities.physics.Gravitation$GravTimeDilation"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravLensing"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravTorque"
                 android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"
@@ -185,48 +157,6 @@
         </activity>
         <activity
                 android:name=".activities.physics.Gravitation$OrbVelMenu"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$SchRadius"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravWaveFrequency"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravWaveEnergy"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$GravWaveLuminosity"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$RocheLimit"
-                android:exported="true">
-            <meta-data
-                    android:name="android.app.lib_name"
-                    android:value=""/>
-        </activity>
-        <activity
-                android:name=".activities.physics.Gravitation$TidalForce"
                 android:exported="true">
             <meta-data
                     android:name="android.app.lib_name"

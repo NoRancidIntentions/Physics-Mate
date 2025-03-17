@@ -5,7 +5,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/constraintView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc">
+>
 
     <ScrollView
             android:id="@+id/SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
@@ -18,12 +18,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/app_bg"
                 android:orientation="vertical">
-
-            <io.github.kexanie.library.MathView
-                    style="@style/LatexStyle"
-                    android:id="@+id/latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                    app:engine="MathJax"
-                    app:text="G"/>
 
             <ImageView
                     style="@style/custom_imageview_fixedratio"

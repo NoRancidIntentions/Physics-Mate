@@ -13,11 +13,9 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import io.github.kexanie.library.MathView;
 import org.matheclipse.core.eval.ExprEvaluator;
 
 import static com.example.physicsmate.Custom_methods.*;
-import static org.matheclipse.core.expression.F.HoldForm;
 
 public class IntegralCalcOffline extends AppCompatActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
@@ -26,7 +24,6 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
     Button calculateDerivative, btnGraph, btnGraphInfo, btnCopy, btnCopyDefInt;
 
-    MathView latexView1, latexView2, latexView3;
     ScrollView derIntSymjaSV;
 
     @Override
@@ -45,9 +42,9 @@ public class IntegralCalcOffline extends AppCompatActivity {
         btnCopy = findViewById(R.id.btnCopy);
         result = findViewById(R.id.result);
         simpResult = findViewById(R.id.simp_result);
-        latexView1 = findViewById(R.id.latexView1);
-        latexView2 = findViewById(R.id.latexView2);
-        latexView3 = findViewById(R.id.latexView3);
+        //latexView1 = findViewById(R.id.latexView1);
+        //latexView2 = findViewById(R.id.latexView2);
+        //latexView3 = findViewById(R.id.latexView3);
         derIntSymjaSV = findViewById(R.id.derIntSymjaSV);
         minX = findViewById(R.id.etXMinDerInt);
         maxX = findViewById(R.id.etXMaxDerInt);
@@ -67,8 +64,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
 
         setClickability();
 
-        latexView2.setVisibility(View.GONE);
-        latexView3.setVisibility(View.GONE);
+        //latexView2.setVisibility(View.GONE);
+        //latexView3.setVisibility(View.GONE);
         simpResult.setVisibility(View.GONE);
         result.setVisibility(View.GONE);
         btnGraph.setVisibility(View.GONE);
@@ -91,7 +88,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
         DerInttv1.setText("Enter the function to integrate");
         calculateDerivative.setText("Calculate Integral");
 
-        MathJaxConfig(latexView1, latexView2, latexView3);
+        //MathJaxConfig(latexView1, latexView2, latexView3);
 
         customTextChangeListener(inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);
 
@@ -386,11 +383,11 @@ public class IntegralCalcOffline extends AppCompatActivity {
         } else {
             double number = Double.parseDouble(nthDer.getText().toString().trim());
             if (number >= 0 && Math.floor(number) == number) {
-                latexView1.setText(getTex(inputFunction.getText().toString().trim()));
+                //latexView1.setText(getTex(inputFunction.getText().toString().trim()));
                 calculateDerivative.setClickable(true);
                 //set style of the button
                 Paris.styleBuilder(calculateDerivative).add(R.style.custom_button_enabled).apply();
-                latexView1.setVisibility(View.VISIBLE);
+                //latexView1.setVisibility(View.VISIBLE);
             } else {
                 calculateDerivative.setClickable(false);
                 calculateDerivative.setBackgroundResource(R.drawable.btn_disabled);
@@ -422,12 +419,12 @@ public class IntegralCalcOffline extends AppCompatActivity {
                     tvDefInt.setVisibility(View.GONE);
                     btnCopy.setVisibility(View.GONE);
                     btnCopyDefInt.setVisibility(View.GONE);
-                    latexView2.setVisibility(View.GONE);
-                    latexView3.setVisibility(View.GONE);
-                    latexView1.setText(getTex(inputFunction.getText().toString().trim()));
+                    //latexView2.setVisibility(View.GONE);
+                    //latexView3.setVisibility(View.GONE);
+                    //latexView1.setText(getTex(inputFunction.getText().toString().trim()));
 
                     if (!inputFunction.getText().toString().isEmpty()) {
-                        latexView1.setVisibility(View.VISIBLE);
+                        //latexView1.setVisibility(View.VISIBLE);
                     }
 
                     if (calculateDerivative.isClickable()) {
@@ -451,8 +448,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
 
-                            latexView2.setText(getTex(integral));
-                            latexView2.setVisibility(View.VISIBLE);
+                            //latexView2.setText(getTex(integral));
+                            //latexView2.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
                             btnGraphInfo.setVisibility(View.VISIBLE);
 
@@ -529,8 +526,8 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                 // Update UI with simplified derivative
                                 runOnUiThread(() -> {
 
-                                    latexView3.setText(getTex(simplifiedIntegral));
-                                    latexView3.setVisibility(View.VISIBLE);
+                                    //latexView3.setText(getTex(simplifiedIntegral));
+                                    //latexView3.setVisibility(View.VISIBLE);
                                     Toast.makeText(getApplicationContext(), "The integral has been simplified", Toast.LENGTH_SHORT).show();
                                     simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
                                     simpResult.setVisibility(View.VISIBLE);
