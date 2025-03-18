@@ -1,6 +1,5 @@
 package com.example.physicsmate.activities.physics;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -16,11 +15,6 @@ import java.util.Arrays;
 import static com.example.physicsmate.Custom_methods.*;
 
 public class VEAdd2 extends AppCompatActivity {
-
-    @SuppressLint("StaticFieldLeak")
-    static ScrollView sv;
-    @SuppressLint("StaticFieldLeak")
-    static custom_keyboard1_initializer customKeyboard;
 
 
     @Override
@@ -58,6 +52,26 @@ public class VEAdd2 extends AppCompatActivity {
 
     public static class VEAdd2Cart extends AppCompatActivity {
 
+        ScrollView sv;
+        custom_keyboard1_initializer customKeyboard;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
+        public void copyToClipboard(CharSequence string) {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", string);
+            clipboard.setPrimaryClip(clip);
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -90,6 +104,8 @@ public class VEAdd2 extends AppCompatActivity {
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
+
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
             }
 
             //setup the edittext change listener
@@ -120,11 +136,36 @@ public class VEAdd2 extends AppCompatActivity {
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
             });
+
+            btnCopy.setOnClickListener(v -> {
+                copyToClipboard(tvRes.getText().toString());
+                Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            });
         }
 
     }
 
     public static class VEAdd2Polar extends AppCompatActivity {
+
+        ScrollView sv;
+        custom_keyboard1_initializer customKeyboard;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
+        public void copyToClipboard(CharSequence string) {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", string);
+            clipboard.setPrimaryClip(clip);
+        }
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +199,8 @@ public class VEAdd2 extends AppCompatActivity {
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
+
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
             }
 
             //setup the edittext change listener
@@ -188,12 +231,19 @@ public class VEAdd2 extends AppCompatActivity {
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
             });
+
+            btnCopy.setOnClickListener(v -> {
+                copyToClipboard(tvRes.getText().toString());
+                Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            });
         }
 
     }
 
     public static class VEAdd2PolarCosines extends AppCompatActivity {
 
+        ScrollView sv;
+        custom_keyboard1_initializer customKeyboard;
 
         @Override
         public void onBackPressed() {
@@ -204,6 +254,12 @@ public class VEAdd2 extends AppCompatActivity {
             } else {
                 super.onBackPressed();
             }
+        }
+
+        public void copyToClipboard(CharSequence string) {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", string);
+            clipboard.setPrimaryClip(clip);
         }
 
         @Override
@@ -239,9 +295,9 @@ public class VEAdd2 extends AppCompatActivity {
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
                 editTexts[i] = et;
-            }
 
-            setupEditTextForCustomKeyboard(customKeyboard, sv, (EditText) Arrays.asList(editTexts));
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
+            }
 
             //setup the edittext change listener
             View[] viewsToDissappear = new View[]{tvRes, btnCopy};
@@ -302,12 +358,6 @@ public class VEAdd2 extends AppCompatActivity {
                 copyToClipboard(tvRes.getText().toString());
                 Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
-        }
-
-        public void copyToClipboard(CharSequence string) {
-            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", string);
-            clipboard.setPrimaryClip(clip);
         }
 
     }
