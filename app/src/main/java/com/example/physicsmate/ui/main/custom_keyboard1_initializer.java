@@ -119,6 +119,11 @@ public class custom_keyboard1_initializer extends GridLayout {
         buttonArcCos.setOnClickListener(v -> insertText("arccos("));
         buttonArcTan.setOnClickListener(v -> insertText("arctan("));
         buttonDecimal.setOnClickListener(v -> insertText("."));
+        //on long press of buttonDecimal, insert a comma
+        buttonDecimal.setOnLongClickListener(v -> {
+            insertText(", ");
+            return true;
+        });
 
         buttonElectronMass.setOnClickListener(v -> insertText("9.1093837*10^(-31)"));
         buttonProtonMass.setOnClickListener(v -> insertText("1.6726219*10^(-27)"));

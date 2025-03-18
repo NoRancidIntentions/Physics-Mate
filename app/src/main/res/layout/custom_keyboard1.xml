@@ -303,7 +303,9 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonDecimal"
                 style="@style/custom_button_enabled_keyboard"
-                android:text="."
+                android:padding="0dp"
+                android:layout_marginTop="-8dp"
+                android:text=".\n           ,"
                 android:fontFamily="sans-serif-black"
                 android:layout_row="3"
                 android:layout_column="0"/>

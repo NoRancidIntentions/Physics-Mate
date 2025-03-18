@@ -28,6 +28,12 @@ public class VEAdd2 extends AppCompatActivity {
         EditText etNum = findViewById(R.id.editText_activity_veadd2);
 
         btnCartesian.setOnClickListener(view -> {
+
+            if (etNum.getText().toString().trim().isEmpty()) {
+                Toast.makeText(this, "Please enter the number of vectors", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int num = Integer.parseInt(etNum.getText().toString().trim());
             Intent intent = new Intent(VEAdd2.this, VEAdd2Cart.class);
             intent.putExtra("num", num);
@@ -35,6 +41,12 @@ public class VEAdd2 extends AppCompatActivity {
         });
 
         btnPolar.setOnClickListener(view -> {
+
+            if (etNum.getText().toString().trim().isEmpty()) {
+                Toast.makeText(this, "Please enter the number of vectors", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int num = Integer.parseInt(etNum.getText().toString().trim());
             Intent intent = new Intent(VEAdd2.this, VEAdd2Polar.class);
             intent.putExtra("num", num);
@@ -42,6 +54,12 @@ public class VEAdd2 extends AppCompatActivity {
         });
 
         btnPolarCosines.setOnClickListener(view -> {
+
+            if (etNum.getText().toString().trim().isEmpty()) {
+                Toast.makeText(this, "Please enter the number of vectors", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int num = Integer.parseInt(etNum.getText().toString().trim());
             Intent intent = new Intent(VEAdd2.this, VEAdd2PolarCosines.class);
             intent.putExtra("num", num);

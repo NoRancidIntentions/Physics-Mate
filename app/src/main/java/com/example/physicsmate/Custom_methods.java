@@ -153,6 +153,29 @@ public class Custom_methods {
         str = str.replace("e", eString);
         str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
         str = str.replaceAll("phi", phiString);
+        str = str.replaceAll("π", "Pi");
+        str = str.replaceAll(",", "");
+        try {
+            String temp = String.valueOf(util.eval(IExprConverter(str)));
+            return util.evalf(temp);
+
+        } catch (MathException e) {
+            return 1536.786;
+        }
+    }
+
+    public static double evalf(@NotNull String str, boolean isComma) {
+
+        ExprEvaluator util = new ExprEvaluator();
+        str = str.replace("e", eString);
+        str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
+        str = str.replaceAll("phi", phiString);
+        str = str.replaceAll("π", "Pi");
+
+        if (!isComma) {
+            str = str.replace(",", "");
+        }
+
         try {
             String temp = String.valueOf(util.eval(IExprConverter(str)));
             return util.evalf(temp);
