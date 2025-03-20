@@ -9,6 +9,7 @@
 
     <LinearLayout
             style="@style/custom_linearLayout"
+            android:layout_height="match_parent"
             android:id="@+id/homeMenuLinearLayout">
 
         <com.google.android.material.tabs.TabLayout

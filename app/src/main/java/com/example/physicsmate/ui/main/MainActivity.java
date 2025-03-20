@@ -18,6 +18,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_menu);
 
+        //in a new thread, calculate derivative of 3x
+        new Thread(() -> {
+            //calculate derivative of 3x
+            String derivative = Custom_methods.calculateNthDerivative("3x", "x", 1);
+        }).start();
+
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager2);
         newViewPagerAdapter = new NewViewPagerAdapter(this);
@@ -47,12 +54,5 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-
-        //in a new thread, calculate derivative of 3x
-        new Thread(() -> {
-            //calculate derivative of 3x
-            String derivative = Custom_methods.calculateNthDerivative("3x", "x", 1);
-        }).start();
-
     }
 }

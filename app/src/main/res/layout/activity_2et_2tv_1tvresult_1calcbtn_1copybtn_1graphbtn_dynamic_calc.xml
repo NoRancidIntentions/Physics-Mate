@@ -21,7 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/ll_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc">
 
             <ImageView
                     style="@style/custom_imageview_fixedratio"

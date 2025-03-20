@@ -1,5 +1,9 @@
 package com.example.physicsmate.activities.physics;
 
+import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -8,8 +12,10 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -18,11 +24,11 @@ public class SpecRelativity extends AppCompatActivity {
 
     public static int c = 299792458;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blank_activity);
-
         Button btnLengthContraction, btnTimeDilation, btnVelocityAddition, btnDopplerEffect, btnRelativisiticPosition, btnRelativisticTime;
         LinearLayout linear_layout = findViewById(R.id.linear_layout);
 
@@ -87,12 +93,32 @@ public class SpecRelativity extends AppCompatActivity {
 
     public static class LengthContraction extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
 
             CheckBox chkProperLength, chkContractedLength, chkVelocity;
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
+
+            customKeyboard.setVisibility(View.GONE);
 
             chkProperLength = new CheckBox(this);
             chkContractedLength = new CheckBox(this);
@@ -125,6 +151,7 @@ public class SpecRelativity extends AppCompatActivity {
 
             Button btnNext = new Button(this);
             Button btnClear = new Button(this);
+            Button btnCopy = new Button(this);
 
             chkProperLength.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes));
 
@@ -134,32 +161,30 @@ public class SpecRelativity extends AppCompatActivity {
 
             Paris.styleBuilder(btnNext).add(R.style.custom_button_enabled).apply();
             Paris.styleBuilder(btnClear).add(R.style.custom_button_enabled).apply();
+            Paris.styleBuilder(btnCopy).add(R.style.custom_button_enabled).apply();
 
             btnNext.setText("Next");
             btnClear.setText("Clear");
+            btnCopy.setText("Copy");
 
             linear_layout.addView(btnNext, 3);
             linear_layout.addView(btnClear, 4);
 
+            btnCopy.setVisibility(View.GONE);
+
+            TextView tv1 = new TextView(this);
+            TextView tv2 = new TextView(this);
+
+            Paris.styleBuilder(tv1).add(R.style.custom_textView).apply();
+            Paris.styleBuilder(tv2).add(R.style.custom_textView).apply();
+
+            EditText et1 = new EditText(this);
+            EditText et2 = new EditText(this);
+
+            Paris.styleBuilder(et1).add(R.style.custom_edittext).apply();
+            Paris.styleBuilder(et2).add(R.style.custom_edittext).apply();
+
             btnNext.setOnClickListener(view -> {
-
-                TextView tv1 = new TextView(this);
-                TextView tv2 = new TextView(this);
-
-                Paris.styleBuilder(tv1).add(R.style.custom_textView).apply();
-                Paris.styleBuilder(tv2).add(R.style.custom_textView).apply();
-
-                linear_layout.addView(tv1, 5);
-                linear_layout.addView(tv2, 7);
-
-                EditText et1 = new EditText(this);
-                EditText et2 = new EditText(this);
-
-                Paris.styleBuilder(et1).add(R.style.custom_edittext).apply();
-                Paris.styleBuilder(et2).add(R.style.custom_edittext).apply();
-
-                linear_layout.addView(et1, 6);
-                linear_layout.addView(et2, 8);
 
                 String s = checkBoxes.stream().filter(CB -> !CB.isChecked()).findFirst().map(CB -> CB.getText().toString()).orElse("Contracted Length");
 
@@ -181,6 +206,13 @@ public class SpecRelativity extends AppCompatActivity {
                         break;
                 }
 
+
+                linear_layout.addView(tv1, 5);
+                linear_layout.addView(et1, 6);
+                linear_layout.addView(tv2, 7);
+                linear_layout.addView(et2, 8);
+
+
                 Button btnCalc = new Button(this);
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
@@ -191,23 +223,32 @@ public class SpecRelativity extends AppCompatActivity {
 
                 TextView tvRes = new TextView(this);
 
-                Paris.styleBuilder(tvRes).add(R.style.custom_textView).apply();
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 linear_layout.addView(tvRes, 10);
+                linear_layout.addView(btnCopy, 11);
 
-                //setupEditTextChangeListener(tvRes, btnCalc, cust);
+                tvRes.setVisibility(View.GONE);
 
-                btnCalc.setOnClickListener(view1 ->
-                {
+                View[] viewsToHide = {tvRes};
+                setupEditTextChangeListener(viewsToHide, btnCalc, customKeyboard, Arrays.asList(et1, et2));
+
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+
+                btnCalc.setVisibility(View.VISIBLE);
+
+                btnCalc.setOnClickListener(view1 -> {
                     switch (s) {
                         case "Proper Length":
                             double contracted_length = evalf(et1.getText().toString());
                             double velocity = evalf(et2.getText().toString());
 
-                            double gamma = 1 / Math.sqrt(1 - (velocity * velocity) / (c * c)); //always greater than 1
+                            double beta = velocity / c;
+                            double gamma = 1 / (Math.sqrt(1 - beta * beta));
+
                             double proper_length = gamma * contracted_length;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The proper length of the moving object is " + proper_length + "units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The proper length of the moving object is " + proper_length + " units")));
 
                             break;
 
@@ -215,10 +256,13 @@ public class SpecRelativity extends AppCompatActivity {
                             double proper_length1 = evalf(et1.getText().toString());
                             double velocity1 = evalf(et2.getText().toString());
 
-                            double gamma1 = 1 / Math.sqrt(1 - (velocity1 * velocity1) / (c * c)); //always greater than 1
+                            double beta1 = velocity1 / c;
+
+                            double gamma1 = 1 / (Math.sqrt(1 - beta1 * beta1));
+                            System.out.println(gamma1);
                             double contracted_length1 = proper_length1 / gamma1;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The contracted length of the moving object is " + contracted_length1 + "units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The contracted length of the moving object is " + contracted_length1 + " units")));
 
                             break;
 
@@ -227,14 +271,25 @@ public class SpecRelativity extends AppCompatActivity {
                             double contracted_length2 = evalf(et2.getText().toString());
 
                             double gamma2 = proper_length2 / contracted_length2;
-                            double velocity2 = gamma2 * c;
+                            double beta2 = 1 - 1 / (gamma2 * gamma2);
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The velocity of the moving object is " + velocity2 + "units")));
+                            double velocity2 = beta2 * c;
+
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The velocity of the moving object is " + velocity2 + " units")));
 
                             break;
                     }
 
+                    tvRes.setVisibility(View.VISIBLE);
+                    btnCopy.setVisibility(View.VISIBLE);
 
+                });
+
+                btnCopy.setOnClickListener(view1 -> {
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Copied Text", tvRes.getText());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
                 });
 
             });
@@ -260,46 +315,131 @@ public class SpecRelativity extends AppCompatActivity {
 
     public static class TimeDilation extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
         }
     }
 
     public static class VelocityAddition extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
         }
     }
 
     public static class DopplerEffect extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
         }
     }
 
     public static class RelativisiticPosition extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
         }
     }
 
     public static class RelativisticTime extends AppCompatActivity {
 
+        custom_keyboard1_initializer customKeyboard;
+        ScrollView sv;
+
+        @Override
+        public void onBackPressed() {
+            //if system back btn is pressed, and if keyboard is visible, hide it
+            if (customKeyboard.getVisibility() == View.VISIBLE) {
+                customKeyboard.setVisibility(View.GONE);
+                sv.setPadding(0, 0, 0, 0);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.blank_activity);
+
+            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
+            sv = findViewById(R.id.sv_blank_activity);
         }
     }
 

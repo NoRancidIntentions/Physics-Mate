@@ -519,6 +519,7 @@ public class Custom_methods {
 
         //surround any number and decimal with yellow color
         input = input.replaceAll("([\\d.]+)", "<font color='#CDDC39'>$1</font>");
+
         return input;
     }
 

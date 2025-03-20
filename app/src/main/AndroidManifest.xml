@@ -248,12 +248,15 @@
         <activity
                 android:name=".activities.physics.Kinematics$KE1$KE1_1$ke11_graph"
                 android:exported="true"/>
-        <activity
-                android:name=".ui.main.UI_Solver_Tools_Linker$Tools_frag"
+        <!--activity
+                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
                 android:exported="true"/>
         <activity
                 android:name=".ui.main.UI_Solver_Tools_Linker$ExtLinks"
                 android:exported="true"/>
+        <activity
+                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
+                android:exported="true"/-->
         <activity
                 android:name=".ui.main.MainActivity"
                 android:exported="true">
@@ -306,9 +309,5 @@
         <activity
                 android:name=".activities.physics.Gravitation$NLOG"
                 android:exported="true"/>
-        <activity
-                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
-                android:exported="true"/>
     </application>
-
 </manifest>
