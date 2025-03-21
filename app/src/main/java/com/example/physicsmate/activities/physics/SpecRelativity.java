@@ -152,12 +152,20 @@ public class SpecRelativity extends AppCompatActivity {
             Button btnNext = new Button(this);
             Button btnClear = new Button(this);
             Button btnCopy = new Button(this);
+            Button btnCalc = new Button(this);
 
-            chkProperLength.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes));
+            TextView tv1 = new TextView(this);
+            TextView tv2 = new TextView(this);
+            TextView tvRes = new TextView(this);
 
-            chkContractedLength.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes));
+            EditText et1 = new EditText(this);
+            EditText et2 = new EditText(this);
 
-            chkVelocity.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes));
+            chkProperLength.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes, tv1, tv2, et1, et2, btnCalc, tvRes, btnCopy));
+
+            chkContractedLength.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes, tv1, tv2, et1, et2, btnCalc, tvRes, btnCopy));
+
+            chkVelocity.setOnClickListener(view -> CB_MainMethod(btnNext, btnClear, a, max_CB_Required, checkBoxes, tv1, tv2, et1, et2, btnCalc, tvRes, btnCopy));
 
             Paris.styleBuilder(btnNext).add(R.style.custom_button_enabled).apply();
             Paris.styleBuilder(btnClear).add(R.style.custom_button_enabled).apply();
@@ -171,18 +179,44 @@ public class SpecRelativity extends AppCompatActivity {
             linear_layout.addView(btnClear, 4);
 
             btnCopy.setVisibility(View.GONE);
-
-            TextView tv1 = new TextView(this);
-            TextView tv2 = new TextView(this);
+            btnCalc.setVisibility(View.GONE);
+            tvRes.setVisibility(View.GONE);
+            btnCopy.setVisibility(View.GONE);
 
             Paris.styleBuilder(tv1).add(R.style.custom_textView).apply();
             Paris.styleBuilder(tv2).add(R.style.custom_textView).apply();
 
-            EditText et1 = new EditText(this);
-            EditText et2 = new EditText(this);
 
             Paris.styleBuilder(et1).add(R.style.custom_edittext).apply();
             Paris.styleBuilder(et2).add(R.style.custom_edittext).apply();
+
+            linear_layout.addView(tv1, 5);
+            linear_layout.addView(et1, 6);
+            linear_layout.addView(tv2, 7);
+            linear_layout.addView(et2, 8);
+
+            tv1.setVisibility(View.GONE);
+            tv2.setVisibility(View.GONE);
+            et1.setVisibility(View.GONE);
+            et2.setVisibility(View.GONE);
+
+            Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
+
+            btnCalc.setText("Calculate");
+
+            linear_layout.addView(btnCalc, 9);
+
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
+            linear_layout.addView(tvRes, 10);
+            linear_layout.addView(btnCopy, 11);
+
+            tvRes.setVisibility(View.GONE);
+
+            View[] viewsToHide = {tvRes};
+            setupEditTextChangeListener(viewsToHide, btnCalc, customKeyboard, Arrays.asList(et1, et2));
+
+            setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 
             btnNext.setOnClickListener(view -> {
 
@@ -206,34 +240,10 @@ public class SpecRelativity extends AppCompatActivity {
                         break;
                 }
 
-
-                linear_layout.addView(tv1, 5);
-                linear_layout.addView(et1, 6);
-                linear_layout.addView(tv2, 7);
-                linear_layout.addView(et2, 8);
-
-
-                Button btnCalc = new Button(this);
-
-                Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
-
-                btnCalc.setText("Calculate");
-
-                linear_layout.addView(btnCalc, 9);
-
-                TextView tvRes = new TextView(this);
-
-                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
-
-                linear_layout.addView(tvRes, 10);
-                linear_layout.addView(btnCopy, 11);
-
-                tvRes.setVisibility(View.GONE);
-
-                View[] viewsToHide = {tvRes};
-                setupEditTextChangeListener(viewsToHide, btnCalc, customKeyboard, Arrays.asList(et1, et2));
-
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                tv1.setVisibility(View.VISIBLE);
+                tv2.setVisibility(View.VISIBLE);
+                et1.setVisibility(View.VISIBLE);
+                et2.setVisibility(View.VISIBLE);
 
                 btnCalc.setVisibility(View.VISIBLE);
 
@@ -287,7 +297,7 @@ public class SpecRelativity extends AppCompatActivity {
 
                 btnCopy.setOnClickListener(view1 -> {
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Copied Text", tvRes.getText());
+                    ClipData clip = ClipData.newPlainText("Copied Text", extractNumberFromString(tvRes.getText().toString()));
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
                 });

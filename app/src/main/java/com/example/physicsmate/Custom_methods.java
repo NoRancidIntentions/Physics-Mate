@@ -39,6 +39,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -236,6 +237,16 @@ public class Custom_methods {
 
         }
         return StringError;
+    }
+
+    //a function to extract numerical values from a string
+    public static String extractNumberFromString(String input) {
+
+        Matcher matcher = Pattern.compile("<font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
+        if (matcher.find()) {
+            return (Objects.requireNonNull(matcher.group(1)));
+        }
+        return "0.0";
     }
 
     public static Double extractValue(String input, String variable) {
@@ -1389,6 +1400,45 @@ public class Custom_methods {
         }
 
         a[0] = 0;
+    }
+
+    public static void CB_MainMethod(@NotNull Button btnNext, @NotNull Button btnClear, int @NotNull [] a, int max_CB_Required, Iterable<CheckBox> checkBoxes, View... views) {
+
+        for (CheckBox CB : checkBoxes) {
+            CB_Incrementer_Till_Max(CB, a, max_CB_Required);
+        }
+
+        if (a[0] == max_CB_Required) {
+            btnClear.setVisibility(View.VISIBLE);
+            btnNext.setClickable(true);
+            btnNext.setEnabled(true);
+            Paris.styleBuilder(btnNext).add(R.style.custom_button_enabled).apply();
+
+            for (CheckBox CB : checkBoxes) {
+                CB_disable_if3(CB);
+            }
+        }
+
+        if (a[0] == 0) {
+            btnClear.setVisibility(View.GONE);
+        }
+
+        for (CheckBox CB : checkBoxes) {
+            CB_LessThanMaxThen(btnNext, btnClear, a, max_CB_Required, CB);
+        }
+
+        a[0] = 0;
+
+
+        //if any of the checkbox is checked to unchecked, or vice versa, clear the textviews
+        for (CheckBox CB : checkBoxes) {
+            CB.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                for (View view : views) {
+                    view.setVisibility(View.GONE);
+                }
+            });
+        }
+
     }
 
     @NotNull
