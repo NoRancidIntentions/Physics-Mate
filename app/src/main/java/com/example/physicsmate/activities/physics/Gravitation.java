@@ -694,7 +694,6 @@ public class Gravitation extends AppCompatActivity {
                     et1.setHint("5.97 * 10^24");
                     et2.setHint("6400000");
 
-
                     btnCalc.setOnClickListener(v -> {
 
                         double m = evalf(et1.getText().toString());
