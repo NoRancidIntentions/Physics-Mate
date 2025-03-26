@@ -161,7 +161,7 @@ public class Custom_methods {
             return util.evalf(temp);
 
         } catch (MathException e) {
-            return 1536.786;
+            return 12.342;
         }
     }
 
@@ -182,7 +182,7 @@ public class Custom_methods {
             return util.evalf(temp);
 
         } catch (MathException e) {
-            return 1536.786;
+            return 12.342;
         }
     }
 
@@ -853,21 +853,41 @@ public class Custom_methods {
         return null;
     }
 
+    /**
+     * Evaluates a mathematical expression and returns the result as a double.
+     * Replaces any instances of 'x' in the expression with the given value.
+     *
+     * @param str the mathematical expression to be evaluated
+     * @param val the value to replace 'x' with
+     * @return the result of the evaluation as a double
+     */
+
     public static double evalAtPointX(@NotNull final String str, Double val) {
-        ExprEvaluator util = new ExprEvaluator(false, (short) 10);
+        ExprEvaluator util = new ExprEvaluator(false, (short) 2);
         try {
             IExpr variableSetter = util.eval("x=" + val);
-
             return util.evalf(str);
-
         } catch (SyntaxError e) {
             // catch Symja parser errors here
-            return 1536.786;
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", x -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
         } catch (MathException me) {
             // catch Symja math errors here
-            return 1536.786;
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", x -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
         } catch (Exception e) {
-            return 1536.786;
+            // catch other exceptions here
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", x -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
         }
     }
 
@@ -1006,17 +1026,27 @@ public class Custom_methods {
             int numThreads = Runtime.getRuntime().availableProcessors();
             ExecutorService executor = Executors.newFixedThreadPool(numThreads);
 
-            for (float lineChartX = xmin; lineChartX < xmax; lineChartX = lineChartX + ((xmax - xmin) / 1000)) {
+            Entry entry1 = new Entry(0f, (float) evalAtPointX(input, 0.0));
+
+            for (float lineChartX = xmin; lineChartX < xmax; lineChartX = lineChartX + ((xmax - xmin) / 100)) {
                 float finalLineChartX = lineChartX;
-                float finalLineChartX1 = lineChartX;
                 executor.submit(() -> {
-                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX1));
+                    Entry entry = new Entry(finalLineChartX, (float) evalAtPointX(input, (double) finalLineChartX));
                     synchronized (inputLineArray) {
-                        //add entry to the array only if y is not equal to 1536.786 +- 0.1
-                        if (Math.abs(entry.getY() - 1536.786) > 0.1) {
+                        //add entry to the array only if y is not equal to 12.342 +- 0.01 or if x != 0
+                        if (Math.abs(entry.getY() - 12.342) > 0.01 || Math.abs(entry.getX()) > 0.009) {
                             inputLineArray.add(entry);
                         }
 
+                        //remove all entires which |x| < 0.00001
+                        inputLineArray.removeIf(entry2 -> Math.abs(entry2.getX()) < 0.00001);
+
+                        //remove all entries which |y - 12.342| < 0.0001
+                        inputLineArray.removeIf(entry2 -> Math.abs(entry2.getY() - 12.342) < 0.0001);
+
+                        inputLineArray.add(entry1);
+
+                        //inputLineArray.add(entry1);
                         inputLineArray.sort((e1, e2) -> Float.compare(e1.getX(), e2.getX()));
 
                     }

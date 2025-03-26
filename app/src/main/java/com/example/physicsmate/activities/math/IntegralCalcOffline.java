@@ -443,7 +443,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             String StrInputVar = inputVar.getText().toString().trim();
 
                             String integral = calculateNthIntegral(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase();
-                            String finalStringResult = "<font color=#6BBBE1>The integral is </font> <font color=#CDDC39>" + integral;
+                            String finalStringResult = "The integral is </font> <font color=#CDDC39>" + integral;
 
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
@@ -520,7 +520,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             // Execute simplification in a separate thread
                             new Thread(() -> {
                                 String simplifiedIntegral = ExprSimplifier(integral);
-                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + integral;
+                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified integral is </font> <font color=#CDDC39>" + integral;
 
 
                                 // Update UI with simplified derivative
