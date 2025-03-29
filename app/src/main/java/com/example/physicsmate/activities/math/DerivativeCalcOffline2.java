@@ -94,6 +94,9 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
 
         customTextChangeListener(inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);
 
+        Paris.styleBuilder(result).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(simpResult).add(R.style.answer_textView).apply();
+
     }
 
     //method to set clickability of the calculate button

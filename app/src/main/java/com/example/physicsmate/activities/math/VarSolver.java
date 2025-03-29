@@ -82,7 +82,7 @@ public class VarSolver extends AppCompatActivity {
                     //solve the equations in a separate thread
                     Thread thread = new Thread(() -> {
                         String result = solveEquationNumeric(eqns, vars);
-                        resultParsed.set(parseStringAfterSolvingEqn(result));
+                        resultParsed.set(parseStringAfterSolvingEqn(VarSolver.this, result));
                     });
                     thread.start();
 
@@ -91,6 +91,8 @@ public class VarSolver extends AppCompatActivity {
                         thread.join();
                     } catch (InterruptedException ignored) {
                     }
+
+                    Paris.styleBuilder(tvResult).add(R.style.answer_textView).apply();
 
                     tvResult.setText(android.text.Html.fromHtml(resultParsed.get(), android.text.Html.FROM_HTML_MODE_LEGACY));
                     tvResult.setVisibility(View.VISIBLE);

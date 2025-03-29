@@ -490,9 +490,7 @@ public class Custom_methods {
     }
 
 
-
-
-    public static String parseStringAfterSolvingEqn(String input) {
+    public static String parseStringAfterSolvingEqn(Context context, String input) {
         String br = "<br/>";
         // Replace },{ with <br/>OR<br/>
         String result = input.replace("},{", "<br/><br/>OR<br/><br/>");
@@ -514,7 +512,7 @@ public class Custom_methods {
         List<String> resultSplitParsed = resultSplit.stream().map(s -> {
             if (s.contains("=")) {
                 String[] split = s.split("=");
-                return "<font color='#6BBBE1'>" + split[0] + "= </font>" + "<font color='#CDDC39'>" + split[1] + "</font>";
+                return HtmlNumberFormatter(context, split[0] + " = " + split[1]);
             } else {
                 return s;
             }
@@ -533,7 +531,7 @@ public class Custom_methods {
         String hexColor = String.format("#%06X", (0xFFFFFF & color));
 
         // Replace numbers (including decimals) with formatted color
-        input = input.replaceAll("([\\d.]+)", "<font color='" + hexColor + "'>$1</font>");
+        input = input.replaceAll("(-?\\d*\\.?\\d+([eE][-+]?\\d+)?)", "<font color='" + hexColor + "'>$1</font>");
 
         return input;
     }

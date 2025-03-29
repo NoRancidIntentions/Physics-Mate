@@ -118,6 +118,8 @@ public class Gravitation extends AppCompatActivity {
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
 
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -293,6 +295,8 @@ public class Gravitation extends AppCompatActivity {
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -468,6 +472,8 @@ public class Gravitation extends AppCompatActivity {
                 //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -664,6 +670,8 @@ public class Gravitation extends AppCompatActivity {
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -855,6 +863,7 @@ public class Gravitation extends AppCompatActivity {
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -1021,7 +1030,7 @@ public class Gravitation extends AppCompatActivity {
 
                 Button btnNLOG1calc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG1result = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1m1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1r = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -1037,14 +1046,17 @@ public class Gravitation extends AppCompatActivity {
                 tvNLOG2.setText("Mass of the second object");
                 tvNLOG3.setText("Distance between the centre of the objects");
 
-                tvNLOG1result.setVisibility(View.GONE);
+                Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
+
+                tvRes.setVisibility(View.GONE);
                 btnCopy.setVisibility(View.GONE);
 
                 et_Scroller(etNLOG1r, NLOG1.this);
                 et_Scroller(etNLOG1m1, NLOG1.this);
                 et_Scroller(etNLOG1m2, NLOG1.this);
 
-                TextChangeListeners(tvNLOG1result, etNLOG1r, etNLOG1m1, etNLOG1m2);
+                TextChangeListeners(tvRes, etNLOG1r, etNLOG1m1, etNLOG1m2);
 
 
                 btnNLOG1calc.setOnClickListener(view -> {
@@ -1060,18 +1072,18 @@ public class Gravitation extends AppCompatActivity {
                         double result = ((0.00000000006674010551359 * m1 * m2) / (r * r));
 
                         String res = HtmlNumberFormatter(NLOG1.this, String.valueOf(result));
-                        tvNLOG1result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
+                        tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
                         SV_NLOG1.post(() -> SV_NLOG1.smoothScrollTo(0, btnCopy.getBottom()));
 
 
-                        tvNLOG1result.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
                         btnCopy.setVisibility(View.VISIBLE);
 
                         btnCopy.setOnClickListener(view1 -> {
 
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("force of attraction", tvNLOG1result.getText().toString().trim());
+                            ClipData clip = ClipData.newPlainText("force of attraction", tvRes.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
                             Toast.makeText(NLOG1.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });

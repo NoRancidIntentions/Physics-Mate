@@ -88,6 +88,9 @@ public class IntegralCalcOffline extends AppCompatActivity {
         DerInttv1.setText("Enter the function to integrate");
         calculateDerivative.setText("Calculate Integral");
 
+        Paris.styleBuilder(result).add(R.style.answer_textView);
+        Paris.styleBuilder(simpResult).add(R.style.answer_textView);
+
         //MathJaxConfig(latexView1, latexView2, latexView3);
 
         customTextChangeListener(inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);

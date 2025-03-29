@@ -9,6 +9,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -42,6 +43,8 @@ public class ExpressionEvaluator extends AppCompatActivity {
         tvResult.setVisibility(View.GONE);
         img.setVisibility(View.GONE);
         btnGraph.setVisibility(View.GONE);
+
+        Paris.styleBuilder(tvResult).add(R.style.answer_textView);
 
         tv1.setText("enter the function to evaluate");
         tv2.setText("Enter value of 'x'");

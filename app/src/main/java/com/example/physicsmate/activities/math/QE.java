@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.*;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -54,6 +55,10 @@ public class QE extends AppCompatActivity {
         tvxmin = findViewById(R.id.textView27);
         tvxmax = findViewById(R.id.textView24);
         btngraphcalc = findViewById(R.id.button11);
+
+        Paris.styleBuilder(results1).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(results2).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(results3).add(R.style.answer_textView).apply();
 
 
         tvQEArea.setVisibility(View.GONE);

@@ -6,6 +6,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -81,6 +82,7 @@ public class LOSAC extends AppCompatActivity {
             Ctv.setText("Enter value of angle C in degrees");
 
             tvresult.setVisibility(View.GONE);
+            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
 
 
             TextChangeListeners(tvresult, AB, BC, C);
@@ -161,6 +163,8 @@ public class LOSAC extends AppCompatActivity {
             Btv.setText("Enter value of angle B in degrees");
 
             tvresult.setVisibility(View.GONE);
+            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+
 
             TextChangeListeners(tvresult, AB, BC, B);
 
@@ -237,6 +241,8 @@ public class LOSAC extends AppCompatActivity {
             TextChangeListeners(tvresult, AB, BC, AC);
 
             tvresult.setVisibility(View.GONE);
+            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+
 
             btnCalculate.setOnClickListener(view ->
             {
@@ -301,6 +307,8 @@ public class LOSAC extends AppCompatActivity {
             Ctv.setText("Enter the value of angle C in degrees");
 
             tvresult.setVisibility(View.GONE);
+            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+
 
             TextChangeListeners(tvresult, AB, B, C);
 

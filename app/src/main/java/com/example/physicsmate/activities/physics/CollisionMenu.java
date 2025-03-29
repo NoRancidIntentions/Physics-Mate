@@ -1,11 +1,11 @@
 package com.example.physicsmate.activities.physics;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
@@ -393,7 +393,7 @@ public class CollisionMenu extends AppCompatActivity {
                             //solve the equations in a separate thread
                             Thread thread = new Thread(() -> {
                                 String result = solveEquationNumeric(equations, "m1,m2,v1x,v1y,v2x,v2y,v1,v2,a1,a2,b1,b2,u1,u2");
-                                resultParsed.set(parseStringAfterSolvingEqn(result));
+                                resultParsed.set(parseStringAfterSolvingEqn(momentumConservation.this, result));
                             });
                             thread.start();
 

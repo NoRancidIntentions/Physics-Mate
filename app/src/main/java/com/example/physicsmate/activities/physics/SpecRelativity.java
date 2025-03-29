@@ -158,6 +158,8 @@ public class SpecRelativity extends AppCompatActivity {
             TextView tv2 = new TextView(this);
             TextView tvRes = new TextView(this);
 
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
             EditText et1 = new EditText(this);
             EditText et2 = new EditText(this);
 

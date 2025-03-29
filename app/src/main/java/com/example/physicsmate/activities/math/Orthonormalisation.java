@@ -100,7 +100,7 @@ public class Orthonormalisation extends AppCompatActivity {
 
         //insert textview result
         TextView tvResult = new TextView(this);
-        Paris.styleBuilder(tvResult).add(R.style.custom_textView).apply();
+        Paris.styleBuilder(tvResult).add(R.style.answer_textView).apply();
         orthonormalisation_LL.addView(tvResult);
 
         tvResult.setText(Html.fromHtml(parseStringForOrthonormalisation(orthogonalizeWithSymja(vectors)), Html.FROM_HTML_MODE_LEGACY));
@@ -113,7 +113,7 @@ public class Orthonormalisation extends AppCompatActivity {
         s = s.replace("},{", "<br><br>");
         s = s.replace("{{", "");
         s = s.replace("}}", "");
-        s = "<br>The orthonormalised vectors are " + HtmlNumberFormatter(Orthonormalisation.this, s);
+        s = "<br>The orthonormalised vectors are <br><br>" + HtmlNumberFormatter(Orthonormalisation.this, s);
         //remove any { or } left
         s = s.replace("{", "");
         s = s.replace("}", "");

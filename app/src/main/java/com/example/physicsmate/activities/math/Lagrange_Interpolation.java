@@ -30,6 +30,8 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         LagrangeRowsLinearLayout = findViewById(R.id.LagrangeRowsLinearLayout);
         LagrangeTvResult = findViewById(R.id.LagrangeTvResult);
 
+        Paris.styleBuilder(LagrangeTvResult).add(R.style.answer_textView).apply();
+
         Lagrangex1 = findViewById(R.id.Lagrangex1);
         Lagrangey1 = findViewById(R.id.Lagrangey1);
         Lagrangex2 = findViewById(R.id.Lagrangex2);
