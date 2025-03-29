@@ -249,7 +249,7 @@ public class Kinematics extends AppCompatActivity {
                             double t = 2 * s / (v - u);
                             double a = (v - u) / t;
 
-                            String text = "<font color=#6BBBE1>Time is </font> <font color=#CDDC39>" + rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Acceleration is is </font> <font color=#CDDC39>" + rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Time is " + HtmlNumberFormatter(KE1_1.this, rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "br><br>" + "Acceleration is is " + HtmlNumberFormatter(KE1_1.this, rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case2) {
@@ -261,7 +261,7 @@ public class Kinematics extends AppCompatActivity {
                             double t = (v - u) / a;
 
 
-                            String text = "<font color=#6BBBE1>Initial velocity is </font> <font color=#CDDC39>" + rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Time is </font> <font color=#CDDC39>" + rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Time is " + HtmlNumberFormatter(KE1_1.this, rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case3) {
@@ -272,7 +272,7 @@ public class Kinematics extends AppCompatActivity {
                             double u = 2 * s / t - v;
                             double a = (v - u) / t;
 
-                            String text = "<font color=#6BBBE1>Initial velocity is </font> <font color=#CDDC39>" + rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>acceleration is </font> <font color=#CDDC39>" + rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "acceleration is " + HtmlNumberFormatter(KE1_1.this, rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case4) {
@@ -283,7 +283,7 @@ public class Kinematics extends AppCompatActivity {
                             double v = Math.sqrt(u * u + 2 * a * s);
                             double t = (v - u) / a;
 
-                            String text = "<font color=#6BBBE1>time is </font> <font color=#CDDC39>" + rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Final velocity is </font> <font color=#CDDC39>" + rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "time is " + HtmlNumberFormatter(KE1_1.this, rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case5) {
@@ -294,7 +294,7 @@ public class Kinematics extends AppCompatActivity {
                             double v = 2 * s / t - u;
                             double a = (v - u) / t;
 
-                            String text = "<font color=#6BBBE1>Acceleration is </font> <font color=#CDDC39>" + rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Final velocity is </font> <font color=#CDDC39>" + rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Acceleration is " + HtmlNumberFormatter(KE1_1.this, rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case6) {
@@ -305,7 +305,7 @@ public class Kinematics extends AppCompatActivity {
                             double u = (s - (a * t * t / 2)) / t;
                             double v = u + a * t;
 
-                            String text = "<font color=#6BBBE1>Initial velocity is </font> <font color=#CDDC39>" + rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Final velocity is </font> <font color=#CDDC39>" + rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case7) {
@@ -316,7 +316,7 @@ public class Kinematics extends AppCompatActivity {
                             double s = (v * v - u * u) / (2 * a);
                             double t = (v - u) / a;
 
-                            String text = "<font color=#6BBBE1>Displacement is </font> <font color=#CDDC39>" + rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Time is </font> <font color=#CDDC39>" + rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Displacement is " + HtmlNumberFormatter(KE1_1.this, rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Time is " + HtmlNumberFormatter(KE1_1.this, rounded_String(t, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case8) {
@@ -327,7 +327,7 @@ public class Kinematics extends AppCompatActivity {
                             double a = (v - u) / t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "<font color=#6BBBE1>Acceleration is </font> <font color=#CDDC39>" + rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Displacement is </font> <font color=#CDDC39>" + rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Acceleration is " + HtmlNumberFormatter(KE1_1.this, rounded_String(a, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1_1.this, rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else if (case9) {
@@ -338,7 +338,7 @@ public class Kinematics extends AppCompatActivity {
                             double u = v - a * t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "<font color=#6BBBE1>Initial velocity is </font> <font color=#CDDC39>" + rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Displacement is </font> <font color=#CDDC39>" + rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(u, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1_1.this, rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         } else //case10
@@ -350,7 +350,7 @@ public class Kinematics extends AppCompatActivity {
                             double v = u + a * t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "<font color=#6BBBE1>Final velocity is </font> <font color=#CDDC39>" + rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "<font color=#6BBBE1>Displacement is </font> <font color=#CDDC39>" + rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>";
+                            String text = "Final velocity is " + HtmlNumberFormatter(KE1_1.this, rounded_String(v, editTextNumber, editTextNumber2, editTextNumber3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1_1.this, rounded_String(s, editTextNumber, editTextNumber2, editTextNumber3))) + "</font><br><br>";
 
                             ResultAndGraphStarterButton(KE11_graphButton, tv_results, u, a, t, text);
                         }
@@ -642,15 +642,15 @@ public class Kinematics extends AppCompatActivity {
                     x = x * Math.cos(a1);
                     y = x * Math.tan(a1);
 
-                    String resultText = "<font color=#6BBBE1> x:  </font> <font color=#CDDC39>" + df.format(x) + "</font><br><br>" +
-                            "<font color=#6BBBE1> y: </font> <font color=#CDDC39>" + df.format(y) + "</font><br><br>" +
-                            "<font color=#6BBBE1> t:  </font> <font color=#CDDC39>" + df.format(t) + "</font><br><br>" +
-                            "<font color=#6BBBE1> Velocity along x when striking the incline/ground:  </font> <font color=#CDDC39>" + df.format(v0x) + "</font><br><br>" +
-                            "<font color=#6BBBE1> Velocity along y when striking the incline/ground :  </font> <font color=#CDDC39>" + df.format(v0y) + "</font><br><br>" +
-                            "<font color=#6BBBE1> Acceleration along x when striking the incline/ground:  </font> <font color=#CDDC39>" + df.format(ax) + "</font><br><br>" +
-                            "<font color=#6BBBE1> Acceleration along y when striking the incline/ground:  </font> <font color=#CDDC39>" + df.format(ay) + "</font><br><br>" +
-                            "<font color=#6BBBE1> Distance travelled:  </font> <font color=#CDDC39>" + df.format(distanceTravelled) + "</font> <font color=#6BBBE1> </font><br><br>" +
-                            "<font color=#6BBBE1> Time taken before striking incline/ground:  </font> <font color=#CDDC39>" + df.format(t) + "</font>";
+                    String resultText = " x:  " + df.format(x) + "</font><br><br>" +
+                            " y: " + df.format(y) + "</font><br><br>" +
+                            " t:  " + df.format(t) + "</font><br><br>" +
+                            " Velocity along x when striking the incline/ground:  " + df.format(v0x) + "</font><br><br>" +
+                            " Velocity along y when striking the incline/ground :  " + df.format(v0y) + "</font><br><br>" +
+                            " Acceleration along x when striking the incline/ground:  " + df.format(ax) + "</font><br><br>" +
+                            " Acceleration along y when striking the incline/ground:  " + df.format(ay) + "</font><br><br>" +
+                            " Distance travelled:  " + df.format(distanceTravelled) + "</font>  </font><br><br>" +
+                            " Time taken before striking incline/ground:  " + df.format(t) + "</font>";
                     result.setText(Html.fromHtml(resultText, Html.FROM_HTML_MODE_LEGACY));
                     result.setVisibility(View.VISIBLE);
                     btnCalc.setEnabled(true);

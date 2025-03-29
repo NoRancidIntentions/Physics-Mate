@@ -110,245 +110,6 @@ public class IntegralCalcOffline extends AppCompatActivity {
             }
         });
 
-        /*IntegralTextChangeListener(btnGraph, btnGraphInfo, btnCopy, latexView1, latexView2, latexView3, inputFunction, inputVar, nthDer);
-
-
-
-    }
-
-    //see if the button is clickable, when the edittext is empty, the button is not clickable
-    private void buttonIsClickable() {
-        if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty() || (tvLowerBound.getVisibility() == View.VISIBLE && tvUpperBound.getVisibility() == View.VISIBLE && etLowerBound.getText().toString().trim().isEmpty() || etUpperBound.getText().toString().trim().isEmpty())) {
-            calculateDerivative.setClickable(false);
-            calculateDerivative.setBackgroundResource(R.drawable.btn_disabled);
-            calculateDerivative.setTextColor(getResources().getColor(R.color.app_bg));
-            calculateDerivative.setText("Enter all the fields");
-        }
-        else {
-            calculateDerivative.setClickable(true);
-            //set style of the button
-            Paris.styleBuilder(calculateDerivative).add(R.style.custom_button).apply();
-            calculateDerivative.setText("Calculate integral");
-        }
-    }
-
-    private void IntegralTextChangeListener(Button btnGraph, Button btnGraphInfo, Button btnCopy, MathView latexView1, MathView latexView2, MathView latexView3, EditText... editTexts) {
-
-        for (EditText a : editTexts) {
-            a.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    buttonIsClickable();
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                    buttonIsClickable();
-
-                    if (calculateDerivative.isClickable()) {
-
-                        System.out.println("Clickable");
-
-                        calculateDerivative.setOnClickListener(v ->
-
-                        {
-                            System.out.println("btn set");
-
-                            String function = inputFunction.getText().toString().trim();
-                            String StrInputVar = inputVar.getText().toString().trim();
-                            double n = eval(nthDer.getText().toString().trim());
-                            double lowerBound = eval(etLowerBound.getText().toString().trim());
-                            double upperBound = eval(etUpperBound.getText().toString().trim());
-
-                            //if inputs are empty, show toast
-                            if (inputFunction.getText().toString().trim().isEmpty() || inputVar.getText().toString().trim().isEmpty() || nthDer.getText().toString().trim().isEmpty()) {
-                                Toast.makeText(IntegralCalcOffline.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                            } else if (n < 0) {
-                                Toast.makeText(IntegralCalcOffline.this, "Please enter a positive integer", Toast.LENGTH_SHORT).show();
-                            } else if (n % 1 != 0) {
-                                Toast.makeText(IntegralCalcOffline.this, "Please enter a positive integer", Toast.LENGTH_SHORT).show();
-                            } else {
-
-                                if (function.isEmpty() || StrInputVar.isEmpty() || nthDer.getText().toString().trim().isEmpty()) {
-                                    Toast.makeText(IntegralCalcOffline.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                                } else if (n < 0) {
-                                    Toast.makeText(IntegralCalcOffline.this, "Please enter a positive integer", Toast.LENGTH_SHORT).show();
-                                } else if (n % 1 != 0) {
-                                    Toast.makeText(IntegralCalcOffline.this, "Please enter a positive integer", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    String integral = calculateNthIntegral(function, StrInputVar, (int) eval(nthDer.getText().toString().trim())).toLowerCase();
-                                    String finalStringResult = "<font color=#6BBBE1>The integral is </font> <font color=#CDDC39>" + integral;
-
-                                    result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
-                                    result.setVisibility(View.VISIBLE);
-
-                                    latexView2.setText(getTex(integral));
-                                    latexView2.setVisibility(View.VISIBLE);
-                                    btnCopy.setVisibility(View.VISIBLE);
-                                    btnGraphInfo.setVisibility(View.VISIBLE);
-
-                                    if (cbDefiniteIntegral.isChecked()) {
-
-                                        String finalDefiniteIntegral;
-
-                                        if (cbNumericEvaluation.isChecked()) {
-                                            double definiteIntegral = evalDefiniteIntegral(integral, lowerBound, upperBound);
-                                            finalDefiniteIntegral = "<font color=#6BBBE1>The definite integral is </font> <font color=#CDDC39>" + definiteIntegral;
-
-                                            tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
-                                            tvDefInt.setVisibility(View.VISIBLE);
-
-                                            latexView2.setText(getTex(String.valueOf(definiteIntegral)));
-                                        } else {
-                                            String definiteIntegral = evalDefiniteIntegralSymbolic(integral, lowerBound, upperBound);
-                                            finalDefiniteIntegral = "<font color=#6BBBE1>The definite integral is </font> <font color=#CDDC39>" + definiteIntegral;
-
-                                            tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
-                                            tvDefInt.setVisibility(View.VISIBLE);
-
-                                            latexView2.setText(getTex(definiteIntegral));
-                                        }
-                                        latexView2.setVisibility(View.VISIBLE);
-                                        btnCopy.setVisibility(View.VISIBLE);
-                                        btnGraphInfo.setVisibility(View.VISIBLE);
-
-                                        btnCopyDefInt.setOnClickListener(view -> {
-                                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                            ClipData clip = ClipData.newPlainText("Definite Integral", finalDefiniteIntegral);
-                                            clipboard.setPrimaryClip(clip);
-                                            Toast.makeText(getApplicationContext(), "Definite Integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                                        });
-
-                                    }
-
-                                    btnCopy.setOnClickListener(v1 -> {
-                                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                        ClipData clip = ClipData.newPlainText("Integral", integral);
-                                        clipboard.setPrimaryClip(clip);
-                                        Toast.makeText(getApplicationContext(), "Integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                                    });
-
-                                    derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraphInfo.getBottom()));
-
-                                    btnGraphInfo.setOnClickListener(v12 ->
-                                    {
-                                        derInttvMax.setVisibility(View.VISIBLE);
-                                        derInttvMin.setVisibility(View.VISIBLE);
-                                        minX.setVisibility(View.VISIBLE);
-                                        maxX.setVisibility(View.VISIBLE);
-                                        btnGraph.setVisibility(View.VISIBLE);
-
-                                        //create a toast to display message that smaller ranges will give more  accurate graph
-                                        Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
-
-                                        derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraph.getBottom()));
-
-                                        btnGraph.setOnClickListener(v1 -> {
-                                            if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
-                                                Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
-                                                intent.putExtra("input", function);
-                                                intent.putExtra("DerInt", integral);
-                                                intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                                intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
-                                                startActivity(intent);
-                                            }
-
-                                        });
-                                    });
-
-
-                                    // Execute simplification in a separate thread
-                                    new Thread(() -> {
-                                        String simplifiedDerivative = ExprSimplifier(integral);
-                                        String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + integral;
-
-
-                                        // Update UI with simplified derivative
-                                        runOnUiThread(() -> {
-
-                                            latexView3.setText(getTex(simplifiedDerivative));
-                                            latexView3.setVisibility(View.VISIBLE);
-                                            Toast.makeText(getApplicationContext(), "The integral has been simplified", Toast.LENGTH_SHORT).show();
-                                            simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
-                                            simpResult.setVisibility(View.VISIBLE);
-                                            btnCopy.setVisibility(View.VISIBLE);
-
-                                            derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraphInfo.getBottom()));
-
-                                            btnCopy.setOnClickListener(v1 -> {
-                                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                                ClipData clip = ClipData.newPlainText("Simplified integral", simplifiedDerivative);
-                                                clipboard.setPrimaryClip(clip);
-                                                Toast.makeText(getApplicationContext(), "Simplified integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                                            });
-
-
-                                            btnGraphInfo.setOnClickListener(v12 ->
-                                            {
-                                                derInttvMax.setVisibility(View.VISIBLE);
-                                                derInttvMin.setVisibility(View.VISIBLE);
-                                                minX.setVisibility(View.VISIBLE);
-                                                maxX.setVisibility(View.VISIBLE);
-                                                btnGraph.setVisibility(View.VISIBLE);
-
-                                                derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraph.getBottom()));
-
-                                                //create a toast to display message that smaller ranges will give more  accurate graph
-                                                Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
-
-
-                                                btnGraph.setOnClickListener(v1 -> {
-                                                    if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
-                                                        Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
-                                                    } else {
-                                                        Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
-                                                        intent.putExtra("input", function);
-                                                        intent.putExtra("DerInt", integral);
-                                                        intent.putExtra("minX", eval(minX.getText().toString().trim()));
-                                                        intent.putExtra("maxX", eval(maxX.getText().toString().trim()));
-                                                        startActivity(intent);
-                                                    }
-
-                                                });
-                                            });
-                                        });
-                                    }).start();
-                                }
-
-                            }
-                        });
-
-                    }
-
-                    if(!inputFunction.getText().toString().isEmpty()) {
-                        latexView1.setVisibility(View.VISIBLE);
-                    }
-
-
-                    /*if (inputFunction.getText().toString().isEmpty() || nthDer.getText().toString().isEmpty()) {
-                        calculateDerivative.setClickable(false);
-                        calculateDerivative.setBackgroundResource(R.drawable.btn_disabled);
-                        calculateDerivative.setTextColor(getResources().getColor(R.color.app_bg));
-                        latexView1.setVisibility(View.GONE);
-                    } else {
-                        latexView1.setText(getTex(inputFunction.getText().toString().trim()));
-                        calculateDerivative.setClickable(true);
-                        //set style of the button
-                        Paris.styleBuilder(calculateDerivative).add(R.style.custom_button).apply();
-                        latexView1.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
-        }*/
-
     }
 
     private double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
@@ -443,7 +204,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             String StrInputVar = inputVar.getText().toString().trim();
 
                             String integral = calculateNthIntegral(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase();
-                            String finalStringResult = "The integral is </font> <font color=#CDDC39>" + integral;
+                            String finalStringResult = "The integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
 
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
@@ -464,7 +225,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                                     definiteIntegral = evalDefiniteIntegralSymbolic(integral, StrInputVar, lowerBound, upperBound);
 
                                 }
-                                finalDefiniteIntegral = "<font color=#6BBBE1>The definite integral is </font> <font color=#CDDC39>" + definiteIntegral;
+                                finalDefiniteIntegral = "The definite integral is " + HtmlColoriser(IntegralCalcOffline.this, definiteIntegral);
                                 tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
                                 tvDefInt.setVisibility(View.VISIBLE);
 
@@ -520,7 +281,7 @@ public class IntegralCalcOffline extends AppCompatActivity {
                             // Execute simplification in a separate thread
                             new Thread(() -> {
                                 String simplifiedIntegral = ExprSimplifier(integral);
-                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified integral is </font> <font color=#CDDC39>" + integral;
+                                String finalSimplifiedStringResult = "The simplified integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
 
 
                                 // Update UI with simplified derivative

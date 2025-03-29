@@ -35,9 +35,14 @@ public class VEAdd2 extends AppCompatActivity {
             }
 
             int num = Integer.parseInt(etNum.getText().toString().trim());
-            Intent intent = new Intent(VEAdd2.this, VEAdd2Cart.class);
-            intent.putExtra("num", num);
-            startActivity(intent);
+
+            if (etNum.getText().toString().trim().isEmpty()) {
+                Toast.makeText(this, "Please enter the number of vectors", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(VEAdd2.this, VEAdd2Cart.class);
+                intent.putExtra("num", num);
+                startActivity(intent);
+            }
         });
 
         btnPolar.setOnClickListener(view -> {
@@ -95,6 +100,8 @@ public class VEAdd2 extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
+            sv = findViewById(R.id.SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
             LinearLayout linearLayout = findViewById(R.id.linearLayout_dynamic_fields);
             TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             Button btnCalc = findViewById(R.id.btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -149,7 +156,7 @@ public class VEAdd2 extends AppCompatActivity {
                 }
                 //calculate the result
                 String result = addVectors(vectors);
-                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
+                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2Cart.this, result), Html.FROM_HTML_MODE_LEGACY));
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
@@ -189,6 +196,8 @@ public class VEAdd2 extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+            sv = findViewById(R.id.SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             LinearLayout linearLayout = findViewById(R.id.linearLayout_dynamic_fields);
             TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -244,7 +253,7 @@ public class VEAdd2 extends AppCompatActivity {
                 }
                 //calculate the result
                 String result = addPolarVectors(vectors);
-                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
+                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2Polar.this, result), Html.FROM_HTML_MODE_LEGACY));
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
@@ -285,6 +294,8 @@ public class VEAdd2 extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
+            sv = findViewById(R.id.SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
             LinearLayout linearLayout = findViewById(R.id.linearLayout_dynamic_fields);
             TextView tvRes = findViewById(R.id.tvResults_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             Button btnCalc = findViewById(R.id.btnCalc_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -292,7 +303,6 @@ public class VEAdd2 extends AppCompatActivity {
             ImageView img = findViewById(R.id.imageView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             //MathView mv = findViewById(R.id.latexView_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            sv = findViewById(R.id.SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             btnCopy.setVisibility(View.GONE);
             tvRes.setVisibility(View.GONE);
@@ -363,7 +373,7 @@ public class VEAdd2 extends AppCompatActivity {
                 }
                 //calculate the result
                 String result = addPolarVectorsDirnCosines(vectors);
-                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(result), Html.FROM_HTML_MODE_LEGACY));
+                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2PolarCosines.this, result), Html.FROM_HTML_MODE_LEGACY));
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);

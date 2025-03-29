@@ -526,12 +526,26 @@ public class Custom_methods {
     }
 
     //a method, when given a string, makes the number, comma and brackets in yellow color, and the text in blue
-    public static String HtmlNumberFormatter(String input) {
+    public static String HtmlNumberFormatter(Context context, String input) {
+        // Retrieve the color from colors.xml
+        int color = ContextCompat.getColor(context, R.color.yellow_num_answer);
+        // Convert color to hex string
+        String hexColor = String.format("#%06X", (0xFFFFFF & color));
 
-        //surround any number and decimal with yellow color
-        input = input.replaceAll("([\\d.]+)", "<font color='#CDDC39'>$1</font>");
+        // Replace numbers (including decimals) with formatted color
+        input = input.replaceAll("([\\d.]+)", "<font color='" + hexColor + "'>$1</font>");
 
         return input;
+    }
+
+    //a method, when given a string, makes it surrounded by yellow color
+    public static String HtmlColoriser(Context context, String input) {
+        // Retrieve the color from resources
+        int color = ContextCompat.getColor(context, R.color.yellow_num_answer);
+        // Convert the color integer to a hexadecimal string
+        String hexColor = String.format("#%06X", (0xFFFFFF & color));
+        // Return the input string wrapped in a span with the specified color
+        return "<span style=\"color:" + hexColor + "\">" + input + "</span>";
     }
 
     public static String replaceNumbersInTrigWithRemainder(String expression) {

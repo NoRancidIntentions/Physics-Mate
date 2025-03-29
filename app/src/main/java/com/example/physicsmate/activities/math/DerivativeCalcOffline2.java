@@ -168,7 +168,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                 thread.join();
                             } catch (InterruptedException ignored) {}
 
-                            String finalStringResult = "<font color=#6BBBE1>The derivative is </font> <font color=#CDDC39>" + derivative[0];
+                            String finalStringResult = "The derivative is " + HtmlColoriser(DerivativeCalcOffline2.this, derivative[0]);
 
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
@@ -221,7 +221,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                             // Execute simplification in a separate thread
                             new Thread(() -> {
                                 String simplifiedDerivative = ExprSimplifier(derivative[0]);
-                                String finalSimplifiedStringResult = "<font color=#6BBBE1>The simplified derivative is </font> <font color=#CDDC39>" + derivative[0];
+                                String finalSimplifiedStringResult = "The simplified derivative is " + HtmlColoriser(DerivativeCalcOffline2.this, simplifiedDerivative);
 
 
                                 // Update UI with simplified derivative

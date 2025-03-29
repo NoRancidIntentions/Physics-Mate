@@ -176,18 +176,18 @@ public class QE extends AppCompatActivity {
 
                 double D = (B * B) - (4 * A * C);
                 if (D < 0) {
-                    String result = "<font color = #6BBBE1> The given equation does not have any real roots </font>";
+                    String result = "The given equation does not have any real roots";
                     results1.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                 } else {
                     double x1 = (-B + Math.sqrt(D)) / (2 * A);
                     double x2 = (-B - Math.sqrt(D)) / (2 * A);
 
-                    String result = "<font color = #6BBBE1> The roots of the given equation are  </font> <font color = #CDDC39> " + rounded_String(x1, a, b, c) + "</font> <font color = #6BBBE1>  and </font> <font color = #CDDC39> " + rounded_String(x2, a, b, c) + "</font";
+                    String result = "The roots of the given equation are " + HtmlNumberFormatter(QE.this, rounded_String(x1, a, b, c)) + " and " + HtmlNumberFormatter(QE.this, rounded_String(x2, a, b, c));
                     results1.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
                 }
                 results1.setVisibility(View.VISIBLE);
 
-                String result2 = "<font color = #6BBBE1> The derivative of the equation is </font> <font color = #CDDC39> " + rounded_String(2 * A, a, b, c) + "</font> <font color = #6BBBE1>x +  </font> <font color = #CDDC39>" + rounded_String(B, a, b, c);
+                String result2 = "The derivative of the equation is " + HtmlColoriser(QE.this, rounded_String(2 * A, a, b, c) + "x +  " + rounded_String(B, a, b, c));
                 results2.setText(Html.fromHtml(result2, Html.FROM_HTML_MODE_LEGACY));
                 results2.setVisibility(View.VISIBLE);
 
@@ -197,9 +197,9 @@ public class QE extends AppCompatActivity {
 
                 if (A < 0)  //maxima
                 {
-                    result = "<font color = #6BBBE1> At x = </font> <font color = #CDDC39>" + rounded_String(pom) + "</font> <font color = #6BBBE1>, the value of the given equation will be maximum, that is, y = </font> <font color = #CDDC39>" + rounded_String(valy) + "</font";
+                    result = "At x = " + HtmlNumberFormatter(QE.this, rounded_String(pom)) + ", the value of the given equation will be maximum, that is, y = " + HtmlNumberFormatter(QE.this, rounded_String(valy));
                 } else {
-                    result = "<font color = #6BBBE1> At x = </font> <font color = #CDDC39>" + rounded_String(pom) + "</font> <font color = #6BBBE1>, the value of the given equation will be minimum, that is, y = </font> <font color = #CDDC39>" + rounded_String(valy) + "</font";
+                    result = "At x = " + HtmlNumberFormatter(QE.this, rounded_String(pom)) + ", the value of the given equation will be minimum, that is, y = " + HtmlNumberFormatter(QE.this, rounded_String(valy));
                 }
 
                 results3.setText(Html.fromHtml(result, Html.FROM_HTML_MODE_LEGACY));
@@ -245,7 +245,7 @@ public class QE extends AppCompatActivity {
 
                         double tot_area = (A * (xmax * xmax * xmax) / 3) + (B * (xmax * xmax)) / 2 + C * (xmax) - ((A * (xmin * xmin * xmin) / 3) + (B * (xmin * xmin)) / 2 + C * (xmin));
 
-                        String area = "<font color = #6BBBE1> Area under the curve between " + rounded_String(xmin) + " and " + rounded_String(xmax) + " is </font><font color = #CDDC39>" + rounded_String(tot_area) + "</font><br><br>";
+                        String area = "Area under the curve between " + rounded_String(xmin) + " and " + rounded_String(xmax) + " is " + HtmlNumberFormatter(QE.this, rounded_String(tot_area)) + "<br><br>";
 
                         tvQEArea.setText(Html.fromHtml(area, Html.FROM_HTML_MODE_LEGACY));
                         tvQEArea.setVisibility(View.VISIBLE);

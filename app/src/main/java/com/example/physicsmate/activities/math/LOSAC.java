@@ -117,15 +117,12 @@ public class LOSAC extends AppCompatActivity {
                     double area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ac));
                     String AREA = rounded_String(area, AB, C, BC);
 
-                    String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>" + AC +
-                            "</font><br><br>" + "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" +
-                            ADEGREE + "</font><br><br>" +
-                            "<font color=#6BBBE1>Angle c is approximately </font> <font color=#CDDC39>" + BDEGREE +
-                            "</font><br><br>" + "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" +
-                            AREA + "</font>";
+                    String text = "Length of AC is approximately " + AC + "<br><br>" + "Angle a is approximately " +
+                            ADEGREE + "Angle c is approximately " + BDEGREE + "<Area of the triangle is approximately " +
+                            AREA;
 
 
-                    tvresult.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
+                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC1.this, text), Html.FROM_HTML_MODE_LEGACY));
                     tvresult.setVisibility(View.VISIBLE);
 
                     SV_LOSAC1.post(() -> SV_LOSAC1.smoothScrollTo(0, btnCalculate.getBottom()));
@@ -189,14 +186,18 @@ public class LOSAC extends AppCompatActivity {
                     double area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ac));
                     String AREA = rounded_String(area, AB, B, BC);
 
-                    String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>"
+                    /*String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>"
                             + rounded_String(ac, AB, B, BC) + "</font><br><br>" + "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>"
                             + rounded_String(Math.toDegrees(a), AB, B, BC) + "</font><br><br>" + "<font color=#6BBBE1>Angle b is approximately </font> <font color=#CDDC39>"
                             + rounded_String(Math.toDegrees(c), AB, B, BC) + "</font><br><br>" + "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>"
-                            + AREA + "</font>";
+                            + AREA + "</font>";*/
+
+                    String text = "Length of AC is approximately " + rounded_String(ac, AB, B, BC) + "<br><br>" + "Angle a is approximately " +
+                            rounded_String(Math.toDegrees(a), AB, B, BC) + "Angle c is approximately " + rounded_String(Math.toDegrees(c), AB, B, BC) + "<Area of the triangle is approximately " +
+                            AREA;
 
 
-                    tvresult.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
+                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC2.this, text), Html.FROM_HTML_MODE_LEGACY));
                     tvresult.setVisibility(View.VISIBLE);
 
                     SV_LOSAC2.post(() -> SV_LOSAC2.smoothScrollTo(0, btnCalculate.getBottom()));
@@ -256,9 +257,13 @@ public class LOSAC extends AppCompatActivity {
                     double area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ac));
                     String AREA = rounded_String(area, AB, BC, AC);
 
-                    String text = "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" + a + "</font><br><br>" + "<font color=#6BBBE1>Angle b is approximately </font> <font color=#CDDC39>" + b + "</font><br><br>" + "<font color=#6BBBE1>Angle c is approximately </font> <font color=#CDDC39>" + c + "</font><br><br>" + "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" + AREA + "</font>";
+                    //String text = "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" + a + "</font><br><br>" + "<font color=#6BBBE1>Angle b is approximately </font> <font color=#CDDC39>" + b + "</font><br><br>" + "<font color=#6BBBE1>Angle c is approximately </font> <font color=#CDDC39>" + c + "</font><br><br>" + "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" + AREA + "</font>";
 
-                    tvresult.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
+                    String text = "Angle a is approximately " + a + "<br><br>" + "Angle b is approximately " +
+                            b + "<br><br>" + "Angle c is approximately " + c + "<br><br>" +
+                            "Area of the triangle is approximately " + AREA;
+
+                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC3.this, text), Html.FROM_HTML_MODE_LEGACY));
                     tvresult.setVisibility(View.VISIBLE);
 
                     SV_LOSAC3.post(() -> SV_LOSAC3.smoothScrollTo(0, btnCalculate.getBottom()));
@@ -329,16 +334,20 @@ public class LOSAC extends AppCompatActivity {
                     double area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ac));
                     String AREA = rounded_String(area, AB, B, C);
 
-                    String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>" + AC +
+                    /*String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>" + AC +
                             "</font><br><br>" + "<font color=#6BBBE1>BC is approximately </font> <font color=#CDDC39>" +
                             BC + "</font><br><br>" +
                             "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" +
                             ADEGREE + "</font><br><br>" +
                             "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" +
-                            AREA + "</font>";
+                            AREA + "</font>";*/
+
+                    String text = "Length of AC is approximately " + AC + "<br><br>" + "Length of BC is approximately " +
+                            BC + "<br><br>" + "Angle a is approximately " + ADEGREE + "<br><br>" +
+                            "Area of the triangle is approximately " + AREA;
 
 
-                    tvresult.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
+                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC4.this, text), Html.FROM_HTML_MODE_LEGACY));
                     tvresult.setVisibility(View.VISIBLE);
 
                     SV_LOSAC4.post(() -> SV_LOSAC4.smoothScrollTo(0, btnCalculate.getBottom()));

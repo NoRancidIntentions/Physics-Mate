@@ -258,7 +258,7 @@ public class SpecRelativity extends AppCompatActivity {
 
                             double proper_length = gamma * contracted_length;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The proper length of the moving object is " + proper_length + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The proper length of the moving object is " + proper_length + " units")));
 
                             break;
 
@@ -272,7 +272,7 @@ public class SpecRelativity extends AppCompatActivity {
                             System.out.println(gamma1);
                             double contracted_length1 = proper_length1 / gamma1;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The contracted length of the moving object is " + contracted_length1 + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The contracted length of the moving object is " + contracted_length1 + " units")));
 
                             break;
 
@@ -285,7 +285,7 @@ public class SpecRelativity extends AppCompatActivity {
 
                             double velocity2 = beta2 * c;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter("The velocity of the moving object is " + velocity2 + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The velocity of the moving object is " + velocity2 + " units")));
 
                             break;
                     }

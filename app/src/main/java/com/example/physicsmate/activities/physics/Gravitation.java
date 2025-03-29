@@ -28,10 +28,7 @@ public class Gravitation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravitation);
 
-        Button btnNLOG, btnGravPot, btnGravPotEnergy, btnGravAcc, btnBinEnergy, btnEscVel, btnOrbVel,
-                btnKepThirdLaw, btnGravTimeDil, btnGravLensing, btnGravTorque, btnSchRad,
-                btnRoche, btnTidalForce, btnGravWaveEnergy, btnGravWaveFrequency, btnGravWaveLuminosity,
-                btnGravRedShift, btnJeansMass;
+        Button btnNLOG, btnGravPot, btnGravPotEnergy, btnGravAcc, btnBinEnergy, btnEscVel, btnOrbVel, btnKepThirdLaw, btnGravTimeDil, btnGravLensing, btnGravTorque, btnSchRad, btnRoche, btnTidalForce, btnGravWaveEnergy, btnGravWaveFrequency, btnGravWaveLuminosity, btnGravRedShift, btnJeansMass;
 
 
         btnNLOG = findViewById(R.id.button24);
@@ -147,26 +144,26 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double vel = Math.sqrt(2 * G * m / r);
-                            String strRes = "<font color = #6BBBE1> Escape velocity = </font> <font color = #CDDC39>" + vel + " m/s </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double vel = Math.sqrt(2 * G * m / r);
+                        String strRes = "Escape velocity = " + vel + " m/s";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(EscVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v1 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Escape velocity", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Escape velocity", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });
+                    });
 
                 } else if (chooserM == 1) {
                     tv1.setText("Enter Escape Velocity in m/s");
@@ -176,25 +173,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double vel = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double vel = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double m = Math.pow(vel, 2) * r / (2 * G);
-                            String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double m = Math.pow(vel, 2) * r / (2 * G);
+                        String strRes = "Mass = " + m + " kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(EscVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v12 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v12 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserR == 1) {
@@ -205,25 +202,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = evalf(et1.getText().toString());
-                            double vel = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double vel = evalf(et2.getText().toString());
 
-                            double r = (2 * G * m) / Math.pow(vel, 2);
-                            String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double r = (2 * G * m) / Math.pow(vel, 2);
+                        String strRes = "Radius = " + r + " metres";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(EscVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v13 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v13 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(EscVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 }
@@ -316,25 +313,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double m = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double v = -(G * m / r);
-                            String strRes = "<font color = #6BBBE1> Gravitational Potential = </font> <font color = #CDDC39>" + v + " J/Kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double v = -(G * m / r);
+                        String strRes = "Gravitational Potential = " + v + " J/Kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotential3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v2 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Gravitational Potential", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v2 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Gravitational Potential", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserM == 1) {
@@ -345,25 +342,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double v = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double v = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double m = -v * r / G;
-                            String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double m = -v * r / G;
+                        String strRes = "Mass = " + m + " kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotential3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v12 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v12 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserR == 1) {
@@ -374,25 +371,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("11180");
 
                     btnCalc.setOnClickListener(v1 -> {
-                            double m = evalf(et1.getText().toString());
-                            double v = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double v = evalf(et2.getText().toString());
 
-                            double r = -G * m / v;
-                            String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double r = -G * m / v;
+                        String strRes = "Radius = " + r + " metres";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotential3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v13 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v13 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotential3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 }
@@ -490,26 +487,26 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m1 = evalf(et1.getText().toString());
-                            double m2 = evalf(et2.getText().toString());
-                            double r = evalf(et3.getText().toString());
+                        double m1 = evalf(et1.getText().toString());
+                        double m2 = evalf(et2.getText().toString());
+                        double r = evalf(et3.getText().toString());
 
-                            double u = G * m1 * m2 / r;
-                            String strRes = "<font color = #6BBBE1> Gravitational potential energy = </font> <font color = #CDDC39>" + u + " m/s </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double u = G * m1 * m2 / r;
+                        String strRes = "Gravitational potential energy = " + u + " m/s";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotentialEnergyCalc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v1 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Gravitational Potential Energy", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Gravitational Potential Energy", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserM == 1) {
@@ -522,27 +519,27 @@ public class Gravitation extends AppCompatActivity {
                     et3.setHint("384400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            //find m1
-                            double u = evalf(et1.getText().toString());
-                            double m2 = evalf(et2.getText().toString());
-                            double r = evalf(et3.getText().toString());
+                        //find m1
+                        double u = evalf(et1.getText().toString());
+                        double m2 = evalf(et2.getText().toString());
+                        double r = evalf(et3.getText().toString());
 
-                            double m1 = u * r / (G * m2);
-                            String strRes = "<font color = #6BBBE1> Mass of first object = </font> <font color = #CDDC39>" + m1 + " kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double m1 = u * r / (G * m2);
+                        String strRes = "Mass of first object = " + m1 + " kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotentialEnergyCalc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v1 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Mass of first object", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Mass of first object", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserR == 1) { //find r
@@ -555,27 +552,27 @@ public class Gravitation extends AppCompatActivity {
                     et3.setHint("7.3 * 10^22");
 
                     btnCalc.setOnClickListener(v -> {
-                            //find r
-                            double u = evalf(et1.getText().toString());
-                            double m1 = evalf(et2.getText().toString());
-                            double m2 = evalf(et3.getText().toString());
+                        //find r
+                        double u = evalf(et1.getText().toString());
+                        double m1 = evalf(et2.getText().toString());
+                        double m2 = evalf(et3.getText().toString());
 
-                            double r = G * m1 * m2 / u;
-                            String strRes = "<font color = #6BBBE1> Distance = </font> <font color = #CDDC39>" + r + " m </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double r = G * m1 * m2 / u;
+                        String strRes = "Distance = " + r + " m";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravPotentialEnergyCalc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v1 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravPotentialEnergyCalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
 
                     });
@@ -641,7 +638,7 @@ public class Gravitation extends AppCompatActivity {
                 //if system back btn is pressed, and if keyboard is visible, hide it
                 if (customKeyboard.getVisibility() == View.VISIBLE) {
                     customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0,0,0,0);
+                    sv.setPadding(0, 0, 0, 0);
                 } else {
                     super.onBackPressed();
                 }
@@ -704,8 +701,8 @@ public class Gravitation extends AppCompatActivity {
                         System.out.println(m);
                         System.out.println(acc);
 
-                        String strRes = "<font color = #6BBBE1> Gravitational acceleration = </font> <font color = #CDDC39>" + acc + " m/s </font>";
-                        tvRes.setText(Html.fromHtml(strRes));
+                        String strRes = "Gravitational acceleration = " + acc + " m/s";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
 
 
                         tvRes.setVisibility(View.VISIBLE);
@@ -728,25 +725,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                            double acc = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double acc = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double m = acc * Math.pow(r, 2) / G;
-                            String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double m = acc * Math.pow(r, 2) / G;
+                        String strRes = "Mass = " + m + " kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v12 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v12 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserR == 1) {
@@ -757,25 +754,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("9.8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = evalf(et1.getText().toString());
-                            double acc = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double acc = evalf(et2.getText().toString());
 
-                            double r = Math.sqrt(G * m / acc);
-                            String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double r = Math.sqrt(G * m / acc);
+                        String strRes = "Radius = " + r + " metres";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v13 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v13 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 }
@@ -877,25 +874,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double vel = Math.sqrt(G * m / r);
-                            String strRes = "<font color = #6BBBE1> Orbital velocity = </font> <font color = #CDDC39>" + vel + " m/s </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double vel = Math.sqrt(G * m / r);
+                        String strRes = "Orbital velocity = " + vel + " m/s";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(OrbVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v1 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance between the masses", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v1 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance between the masses", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserM == 1) {
@@ -906,25 +903,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double vel = evalf(et1.getText().toString());
-                            double r = evalf(et2.getText().toString());
+                        double vel = evalf(et1.getText().toString());
+                        double r = evalf(et2.getText().toString());
 
-                            double m = Math.pow(vel, 2) * r / (G);
-                            String strRes = "<font color = #6BBBE1> Mass = </font> <font color = #CDDC39>" + m + " kg </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double m = Math.pow(vel, 2) * r / (G);
+                        String strRes = "Mass = " + m + " kg";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(OrbVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v12 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v12 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 } else if (chooserR == 1) {
@@ -935,25 +932,25 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("3.844 * 10^8");
 
                     btnCalc.setOnClickListener(v -> {
-                            double m = evalf(et1.getText().toString());
-                            double vel = evalf(et2.getText().toString());
+                        double m = evalf(et1.getText().toString());
+                        double vel = evalf(et2.getText().toString());
 
-                            double r = (G * m) / Math.pow(vel, 2);
-                            String strRes = "<font color = #6BBBE1> Radius = </font> <font color = #CDDC39>" + r + " metres </font>";
-                            tvRes.setText(Html.fromHtml(strRes));
+                        double r = (G * m) / Math.pow(vel, 2);
+                        String strRes = "Radius = " + r + " metres";
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(OrbVel3Calc.this, strRes)));
 
 
-                            tvRes.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
+                        tvRes.setVisibility(View.VISIBLE);
+                        btnCopy.setVisibility(View.VISIBLE);
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
-                            btnCopy.setOnClickListener(v13 -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                            });
+                        btnCopy.setOnClickListener(v13 -> {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(OrbVel3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                        });
 
                     });
                 }
@@ -995,22 +992,19 @@ public class Gravitation extends AppCompatActivity {
             btnNLOG2 = findViewById(R.id.btnNLOG2);
             btnNLOG3 = findViewById(R.id.btnNLOG3);
 
-            btnNLOG1.setOnClickListener(view ->
-            {
+            btnNLOG1.setOnClickListener(view -> {
                 Intent intent = new Intent(NLOG.this, NLOG.NLOG1.class);
                 startActivity(intent);
                 finish();
             });
 
-            btnNLOG2.setOnClickListener(view ->
-            {
+            btnNLOG2.setOnClickListener(view -> {
                 Intent intent = new Intent(NLOG.this, NLOG.NLOG2.class);
                 startActivity(intent);
                 finish();
             });
 
-            btnNLOG3.setOnClickListener(view ->
-            {
+            btnNLOG3.setOnClickListener(view -> {
                 Intent intent = new Intent(NLOG.this, NLOG.NLOG3.class);
                 startActivity(intent);
                 finish();
@@ -1053,8 +1047,7 @@ public class Gravitation extends AppCompatActivity {
                 TextChangeListeners(tvNLOG1result, etNLOG1r, etNLOG1m1, etNLOG1m2);
 
 
-                btnNLOG1calc.setOnClickListener(view ->
-                {
+                btnNLOG1calc.setOnClickListener(view -> {
 
                     if (etNLOG1m1.getText().toString().trim().isEmpty() || etNLOG1m2.getText().toString().trim().isEmpty() || etNLOG1r.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG1.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1066,7 +1059,7 @@ public class Gravitation extends AppCompatActivity {
 
                         double result = ((0.00000000006674010551359 * m1 * m2) / (r * r));
 
-                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> N </font>";
+                        String res = HtmlNumberFormatter(NLOG1.this, String.valueOf(result));
                         tvNLOG1result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
                         SV_NLOG1.post(() -> SV_NLOG1.smoothScrollTo(0, btnCopy.getBottom()));
@@ -1075,8 +1068,7 @@ public class Gravitation extends AppCompatActivity {
                         tvNLOG1result.setVisibility(View.VISIBLE);
                         btnCopy.setVisibility(View.VISIBLE);
 
-                        btnCopy.setOnClickListener(view1 ->
-                        {
+                        btnCopy.setOnClickListener(view1 -> {
 
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("force of attraction", tvNLOG1result.getText().toString().trim());
@@ -1128,8 +1120,7 @@ public class Gravitation extends AppCompatActivity {
                 TextChangeListeners(tvNLOG2result, etNLOG2m, etNLOG2r, etNLOG2n);
 
 
-                btnNLOG2calculate.setOnClickListener(view ->
-                {
+                btnNLOG2calculate.setOnClickListener(view -> {
                     if (etNLOG2m.getText().toString().trim().isEmpty() || etNLOG2n.getText().toString().trim().isEmpty() || etNLOG2r.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG2.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
@@ -1138,7 +1129,7 @@ public class Gravitation extends AppCompatActivity {
                         double r = evalf(etNLOG2r.getText().toString().trim());
 
                         double result = ((n * r * r) / (m * 0.00000000006674010551359));
-                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> Kg </font>";
+                        String res = HtmlNumberFormatter(NLOG2.this, String.valueOf(result));
 
                         tvNLOG2result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
@@ -1147,8 +1138,7 @@ public class Gravitation extends AppCompatActivity {
                         tvNLOG2result.setVisibility(View.VISIBLE);
                         btnNLOG2copy.setVisibility(View.VISIBLE);
 
-                        btnNLOG2copy.setOnClickListener(view1 ->
-                        {
+                        btnNLOG2copy.setOnClickListener(view1 -> {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("mass of second object", tvNLOG2result.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
@@ -1201,8 +1191,7 @@ public class Gravitation extends AppCompatActivity {
 
                 TextChangeListeners(tvNLOG3result, etNLOG3f, etNLOG3m1, etNLOG3m2);
 
-                btnNLOG3calc.setOnClickListener(view ->
-                {
+                btnNLOG3calc.setOnClickListener(view -> {
 
                     if (etNLOG3m1.getText().toString().trim().isEmpty() || etNLOG3m2.getText().toString().trim().isEmpty() || etNLOG3f.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1213,7 +1202,7 @@ public class Gravitation extends AppCompatActivity {
                         double n = evalf(etNLOG3f.getText().toString().trim());
 
                         double result = (Math.sqrt((0.00000000006674010551359 * m1 * m2) / n));
-                        String res = "<font color = #CDDC39>" + (result) + "</font> <font color = #6BBBE1> m </font>";
+                        String res = HtmlNumberFormatter(NLOG3.this, String.valueOf(result));
 
                         tvNLOG3result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
@@ -1223,8 +1212,7 @@ public class Gravitation extends AppCompatActivity {
                         tvNLOG3result.setVisibility(View.VISIBLE);
                         btnNLOG3copy.setVisibility(View.VISIBLE);
 
-                        btnNLOG3copy.setOnClickListener(view1 ->
-                        {
+                        btnNLOG3copy.setOnClickListener(view1 -> {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Distance between the masses", tvNLOG3result.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);

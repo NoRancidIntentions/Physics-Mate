@@ -13,6 +13,8 @@ import org.matheclipse.core.eval.ExprEvaluator;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.physicsmate.Custom_methods.HtmlNumberFormatter;
+
 public class Orthonormalisation extends AppCompatActivity {
 
     Button btnNext;
@@ -111,7 +113,7 @@ public class Orthonormalisation extends AppCompatActivity {
         s = s.replace("},{", "<br><br>");
         s = s.replace("{{", "");
         s = s.replace("}}", "");
-        s = "<br><font color=#6BBBE1> The orthonormalised vectors are </font> <br><br><font color=#CDDC39>" + s + "</font>";
+        s = "<br>The orthonormalised vectors are " + HtmlNumberFormatter(Orthonormalisation.this, s);
         //remove any { or } left
         s = s.replace("{", "");
         s = s.replace("}", "");

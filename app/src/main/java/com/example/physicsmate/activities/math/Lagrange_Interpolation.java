@@ -12,8 +12,7 @@ import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
-import static com.example.physicsmate.Custom_methods.evalf;
-import static com.example.physicsmate.Custom_methods.getTex;
+import static com.example.physicsmate.Custom_methods.*;
 
 public class Lagrange_Interpolation extends AppCompatActivity {
 
@@ -207,8 +206,8 @@ public class Lagrange_Interpolation extends AppCompatActivity {
 
                     }
 
-                    String poly = getPolynomialFunction(x, y);
-                    String TvLagrangePoly = "<font color=#6BBBE1>The polynomial satisfying the above points is </font> <font color=#CDDC39> y = " + poly + "</font>";
+                    String poly = "y = " + getPolynomialFunction(x, y);
+                    String TvLagrangePoly = "The polynomial satisfying the above points is " + HtmlColoriser(Lagrange_Interpolation.this, poly);
                     String TexPoly = getTex("y= " + poly);
 
                     LagrangeTvResult.setText(Html.fromHtml(TvLagrangePoly, Html.FROM_HTML_MODE_LEGACY));
