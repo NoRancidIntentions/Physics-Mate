@@ -70,9 +70,9 @@ public class ExpressionEvaluator extends AppCompatActivity {
                 double result = Double.parseDouble(rounded_String(evalAtPointX(strexpression, val), etval));
                 System.out.println(result);
 
-                String StrResult = "f(" + val + ") = " + result;
+                String StrResult = "f(" + etval.getText().toString() + ") = " + HtmlColoriser(ExpressionEvaluator.this, rounded_String(result, etval));
 
-                tvResult.setText(Html.fromHtml(HtmlNumberFormatter(ExpressionEvaluator.this, StrResult), Html.FROM_HTML_MODE_LEGACY));
+                tvResult.setText(Html.fromHtml(StrResult, Html.FROM_HTML_MODE_LEGACY));
 
                 tvResult.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);

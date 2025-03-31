@@ -11,6 +11,7 @@ import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -73,6 +74,22 @@ public class VEAdd2 extends AppCompatActivity {
 
     }
 
+    //a method, which will surrounded a given text with brackets, if it is not already surrounded by brackets
+    public static String addBrackets(String s) {
+        if (s.charAt(0) != '(') {
+            s = "(" + s;
+        }
+        if (s.charAt(s.length() - 1) != ')') {
+            s = s + ")";
+        }
+        return s;
+    }
+
+    //a method to check if the given string is a scalar (no comma)
+    public static boolean isScalar(String s) {
+        return !s.contains(",");
+    }
+
     public static class VEAdd2Cart extends AppCompatActivity {
 
         ScrollView sv;
@@ -115,6 +132,7 @@ public class VEAdd2 extends AppCompatActivity {
             //mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
             btnCalc.setClickable(true);
 
@@ -148,18 +166,36 @@ public class VEAdd2 extends AppCompatActivity {
             tvHelp.setText("Use the format (x,y,z,...)");
             linearLayout.addView(tvHelp, 1);
 
+            AtomicReference<Double> scalarSum = new AtomicReference<>((double) 0);
+            final boolean[] isScalar = {false};
+
             btnCalc.setOnClickListener(v -> {
                 //add the vectors
                 String[] vectors = new String[editTexts.length];
                 for (int i = 0; i < editTexts.length; i++) {
-                    vectors[i] = editTexts[i].getText().toString();
+
+                    vectors[i] = addBrackets(editTexts[i].getText().toString());
+
+                    //check if the vector is a scalar
+                    if (isScalar(vectors[i])) {
+                        int finalI = i;
+                        //if it is a scalar, add it to the scalar sum
+                        scalarSum.updateAndGet(v2 -> v2 + evalf(vectors[finalI]));
+                        isScalar[0] = true;
+                    }
                 }
+
                 //calculate the result
-                String result = addVectors(vectors);
-                tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2Cart.this, result), Html.FROM_HTML_MODE_LEGACY));
+                if (isScalar[0]) {
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2Cart.this, scalarSum.get().toString()), Html.FROM_HTML_MODE_LEGACY));
+                } else {
+                    String result = addVectors(vectors);
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(VEAdd2Cart.this, result), Html.FROM_HTML_MODE_LEGACY));
+                }
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
+
             });
 
             btnCopy.setOnClickListener(v -> {
@@ -212,6 +248,7 @@ public class VEAdd2 extends AppCompatActivity {
             //mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
             btnCalc.setClickable(true);
 
@@ -249,7 +286,7 @@ public class VEAdd2 extends AppCompatActivity {
                 //add the vectors
                 String[] vectors = new String[editTexts.length];
                 for (int i = 0; i < editTexts.length; i++) {
-                    vectors[i] = editTexts[i].getText().toString();
+                    vectors[i] = addBrackets(editTexts[i].getText().toString());
                 }
                 //calculate the result
                 String result = addPolarVectors(vectors);
@@ -309,6 +346,7 @@ public class VEAdd2 extends AppCompatActivity {
             //mv.setVisibility(View.GONE);
             img.setVisibility(View.GONE);
 
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
             Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
             btnCalc.setClickable(true);
 
@@ -351,7 +389,8 @@ public class VEAdd2 extends AppCompatActivity {
                     //eg, the vector (4,0.6) is represented as (4,0.6,0.8) in polar coordinates for 2D
                     //note that editTexts.length is the number of vectors to add, not the dimension of the vector
 
-                    String s = editTexts[i].getText().toString();
+                    String s = addBrackets(editTexts[i].getText().toString());
+
                     //remove the brackets before splitting
                     s = s.substring(1, s.length() - 1);
                     String[] parts = s.split(",");
