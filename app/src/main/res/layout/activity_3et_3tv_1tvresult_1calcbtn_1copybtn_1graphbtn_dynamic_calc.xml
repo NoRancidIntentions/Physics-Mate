@@ -1,68 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+>
+
+    <ScrollView
             android:id="@+id/SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/app_bg">
 
 
-    <LinearLayout
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_bg"
+                android:orientation="vertical">
+
+            <ImageView
+                    style="@style/custom_imageview_fixedratio"
+                    android:src="@drawable/losac"
+                    android:id="@+id/imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            />
+
+            <TextView
+                    android:text="Enter length of AB"
+                    android:id="@+id/tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_textView"/>
+
+            <EditText
+                    android:id="@+id/et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_edittext"/>
+
+            <TextView
+                    android:text="Enter length of BC"
+                    android:id="@+id/tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_textView"/>
+
+            <EditText
+                    android:id="@+id/et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_edittext"/>
+
+            <TextView
+                    android:text="Enter value of angle C in degrees"
+                    android:id="@+id/tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_textView"/>
+
+            <EditText
+                    android:id="@+id/et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_edittext"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    android:text="find the remaining values"
+                    style="@style/custom_button_enabled"/>
+
+            <TextView
+                    android:id="@+id/tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    android:text="TextView"
+                    style="@style/custom_textView"
+            />
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:text="Copy to clipboard"
+                    android:id="@+id/btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    style="@style/custom_button_enabled"
+                    android:layout_marginBottom="45dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.example.physicsmate.ui.main.custom_keyboard1_initializer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_bg"
-            android:orientation="vertical">
-
-        <ImageView
-                style="@style/custom_imageview_fixedratio"
-                android:src="@drawable/losac"
-                android:id="@+id/imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-        />
-
-        <TextView
-                android:text="Enter length of AB"
-                android:id="@+id/tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_textView"/>
-
-        <EditText
-                android:id="@+id/et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_edittext"/>
-
-        <TextView
-                android:text="Enter length of BC"
-                android:id="@+id/tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_textView"/>
-
-        <EditText
-                android:id="@+id/et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_edittext"/>
-
-        <TextView
-                android:text="Enter value of angle C in degrees"
-                android:id="@+id/tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_textView"/>
-
-        <EditText
-                android:id="@+id/et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_edittext"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                android:text="find the remaining values"
-                style="@style/custom_button_enabled"/>
-
-        <TextView
-                android:id="@+id/tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                android:text="TextView"
-                style="@style/custom_textView"
-        />
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:text="Copy to clipboard"
-                android:id="@+id/btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
-                style="@style/custom_button_enabled"
-                android:layout_marginBottom="45dp"/>
-
-    </LinearLayout>
-
-</ScrollView>
+            android:id="@+id/custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

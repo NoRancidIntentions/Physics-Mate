@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
             //calculate derivative of 3x
             String derivative = Custom_methods.calculateNthDerivative("3x", "x", 1);
+            System.out.println(derivative);
         }).start();
 
 

@@ -99,6 +99,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class EscVel3Calc extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -113,8 +127,8 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                custom_keyboard1_initializer keyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
 
@@ -123,8 +137,9 @@ public class Gravitation extends AppCompatActivity {
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
+                customKeyboard.setVisibility(View.GONE);
 
-                img.setImageResource(R.drawable.escvelpng);
+                img.setVisibility(View.GONE);
 
                 int chooserV = getIntent().getIntExtra("chooserV", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
@@ -135,7 +150,8 @@ public class Gravitation extends AppCompatActivity {
                 Collection<EditText> editTextList = new ArrayList<>();
                 editTextList.add(et1);
                 editTextList.add(et2);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, keyboard, editTextList);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 
                 if (chooserV == 1) //needs work
                 {
@@ -279,6 +295,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class GravPotential3Calc extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -293,16 +323,18 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
 
-                img.setImageResource(R.drawable.escvelpng);
+                img.setVisibility(View.GONE);
 
                 int chooserV = getIntent().getIntExtra("chooserV", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
@@ -418,7 +450,7 @@ public class Gravitation extends AppCompatActivity {
             btnU.setText("Gravitational Potential Energy \"U\"");
             btnM.setText("Mass \"m\"");
             btnR.setText("Distance \"r\"");
-            img.setImageResource(R.drawable.orbvelpng);
+            img.setVisibility(View.GONE);
 
             final int[] chooserU = {0};
             final int[] chooserM = {0};
@@ -453,6 +485,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class GravPotentialEnergyCalc extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
@@ -471,14 +517,16 @@ public class Gravitation extends AppCompatActivity {
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
 
-                img.setImageResource(R.drawable.escvelpng);
+                img.setVisibility(View.GONE);
 
                 int chooserU = getIntent().getIntExtra("chooserU", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
@@ -672,7 +720,6 @@ public class Gravitation extends AppCompatActivity {
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -808,12 +855,14 @@ public class Gravitation extends AppCompatActivity {
             Button btnV, btnM, btnR;
             ImageView img = findViewById(R.id.imageView26);
 
+            img.setVisibility(View.GONE);
+
             btnV = findViewById(R.id.button41);
             btnM = findViewById(R.id.button42);
             btnR = findViewById(R.id.button43);
 
             btnV.setText("Orbital Velocity \"V\"");
-            img.setImageResource(R.drawable.orbvelpng);
+            img.setVisibility(View.GONE);
 
             final int[] chooserV = {0};
             final int[] chooserM = {0};
@@ -847,6 +896,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class OrbVel3Calc extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -861,15 +924,18 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
 
-                img.setImageResource(R.drawable.orbvelpng);
+                img.setVisibility(View.GONE);
 
                 int chooserV = getIntent().getIntExtra("chooserV", 1);
                 int chooserM = getIntent().getIntExtra("chooserM", 1);
@@ -1023,6 +1089,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class NLOG1 extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -1034,14 +1114,17 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG1m1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG1r = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ScrollView SV_NLOG1 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                custom_keyboard1_initializer customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                img.setImageResource(R.drawable.nlogpic);
+                img.setVisibility(View.GONE);
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG1m1, etNLOG1m2, etNLOG1r);
                 tvNLOG1.setText("Mass of the first object");
                 tvNLOG2.setText("Mass of the second object");
                 tvNLOG3.setText("Distance between the centre of the objects");
@@ -1074,7 +1157,7 @@ public class Gravitation extends AppCompatActivity {
                         String res = HtmlNumberFormatter(NLOG1.this, String.valueOf(result));
                         tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
-                        SV_NLOG1.post(() -> SV_NLOG1.smoothScrollTo(0, btnCopy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
 
                         tvRes.setVisibility(View.VISIBLE);
@@ -1095,6 +1178,20 @@ public class Gravitation extends AppCompatActivity {
 
         public static class NLOG2 extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
 
@@ -1107,15 +1204,17 @@ public class Gravitation extends AppCompatActivity {
                 EditText etNLOG2m = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG2r = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText etNLOG2n = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ScrollView SV_NLOG2 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                img.setImageResource(R.drawable.nlogpic);
-
+                img.setVisibility(View.GONE);
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG2m, etNLOG2r, etNLOG2n);
                 tvNLOG1.setText("Mass of the object");
                 tvNLOG2.setText("Force between the objects");
                 tvNLOG3.setText("Distance between the centre of the objects");
@@ -1145,7 +1244,7 @@ public class Gravitation extends AppCompatActivity {
 
                         tvNLOG2result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
-                        SV_NLOG2.post(() -> SV_NLOG2.smoothScrollTo(0, btnNLOG2copy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnNLOG2copy.getBottom()));
 
                         tvNLOG2result.setVisibility(View.VISIBLE);
                         btnNLOG2copy.setVisibility(View.VISIBLE);
@@ -1164,10 +1263,23 @@ public class Gravitation extends AppCompatActivity {
 
         public static class NLOG3 extends AppCompatActivity {
 
+            custom_keyboard1_initializer customKeyboard;
+            ScrollView sv;
+
+            @Override
+            public void onBackPressed() {
+                //if system back btn is pressed, and if keyboard is visible, hide it
+                if (customKeyboard.getVisibility() == View.VISIBLE) {
+                    customKeyboard.setVisibility(View.GONE);
+                    sv.setPadding(0, 0, 0, 0);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+
             Button btnNLOG3calc, btnNLOG3copy;
             TextView tvNLOG3result;
             EditText etNLOG3m1, etNLOG3m2, etNLOG3f;
-            ScrollView SV_NLOG3;
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
@@ -1180,14 +1292,17 @@ public class Gravitation extends AppCompatActivity {
                 etNLOG3m1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 etNLOG3m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 etNLOG3f = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                SV_NLOG3 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //athView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-                img.setImageResource(R.drawable.nlogpic);
+                customKeyboard.setVisibility(View.GONE);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG3m1, etNLOG3m2, etNLOG3f);
+                img.setVisibility(View.GONE);
                 tvNLOG1.setText("Mass of the first object");
                 tvNLOG2.setText("Mass of the second object");
                 tvNLOG3.setText("Force between the objects");
@@ -1219,7 +1334,7 @@ public class Gravitation extends AppCompatActivity {
                         tvNLOG3result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
 
-                        SV_NLOG3.post(() -> SV_NLOG3.smoothScrollTo(0, btnNLOG3copy.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnNLOG3copy.getBottom()));
 
                         tvNLOG3result.setVisibility(View.VISIBLE);
                         btnNLOG3copy.setVisibility(View.VISIBLE);

@@ -22,6 +22,21 @@
                 android:name=".activities.physics.SpecRelativity$LengthContraction"
                 android:exported="false"/>
         <activity
+                android:name=".activities.physics.SpecRelativity$TimeDilation"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.SpecRelativity$VelocityAddition"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.SpecRelativity$DopplerEffect"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.SpecRelativity$RelativisiticPosition"
+                android:exported="false"/>
+        <activity
+                android:name=".activities.physics.SpecRelativity$RelativisticTime"
+                android:exported="false"/>
+        <activity
                 android:name=".activities.physics.SpecRelativity"
                 android:exported="false"/>
         <activity
@@ -248,15 +263,6 @@
         <activity
                 android:name=".activities.physics.Kinematics$KE1$KE1_1$ke11_graph"
                 android:exported="true"/>
-        <!--activity
-                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
-                android:exported="true"/>
-        <activity
-                android:name=".ui.main.UI_Solver_Tools_Linker$ExtLinks"
-                android:exported="true"/>
-        <activity
-                android:name=".ui.main.UI_Solver_Tools_Linker$Solver_frag"
-                android:exported="true"/-->
         <activity
                 android:name=".ui.main.MainActivity"
                 android:exported="true">
