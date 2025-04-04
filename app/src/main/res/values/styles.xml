@@ -7,6 +7,11 @@
         <item name="android:background">@color/app_bg</item>
         <item name="android:orientation">vertical</item>
         <item name="android:weightSum">10</item>
+        <item name="android:drawingCacheQuality">high</item>
+        <item name="android:alwaysDrawnWithCache">true</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:animationCache">true</item>
+        <item name="android:persistentDrawingCache">all</item>
     </style>
     <style name="custom_linearLayout">
         <item name="android:layout_width">match_parent</item>
@@ -14,11 +19,22 @@
         <item name="android:background">@color/app_bg</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
+        <item name="android:drawingCacheQuality">high</item>
+        <item name="android:alwaysDrawnWithCache">true</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:animationCache">true</item>
+        <item name="android:persistentDrawingCache">all</item>
+
     </style>
     <style name="custom_scrollView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/app_bg</item>
+        <item name="android:drawingCacheQuality">high</item>
+        <item name="android:alwaysDrawnWithCache">true</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:animationCache">true</item>
+        <item name="android:persistentDrawingCache">all</item>
     </style>
     <style name="custom_button_enabled" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">match_parent</item>

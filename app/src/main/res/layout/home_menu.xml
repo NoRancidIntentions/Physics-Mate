@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainActivity">
+        android:fillViewport="true"
+        tools:context=".ui.main.MainActivity" android:alwaysDrawnWithCache="true" android:animateLayoutChanges="true"
+        android:animationCache="true" android:drawingCacheQuality="high">
 
     <LinearLayout
             style="@style/custom_linearLayout"
@@ -50,7 +53,8 @@
         <androidx.viewpager2.widget.ViewPager2
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/viewPager2"/>
+                android:id="@+id/viewPager2" android:drawingCacheQuality="high" android:alwaysDrawnWithCache="true"
+                android:animateLayoutChanges="true" android:animationCache="true" android:persistentDrawingCache="all"/>
 
     </LinearLayout>
 
