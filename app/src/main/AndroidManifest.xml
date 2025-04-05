@@ -62,6 +62,11 @@
                 android:label="@string/title_activity_curvature_menu"
                 android:theme="@style/Theme.PhysicsMate"/>
         <activity
+                android:name=".activities.physics.tmpclass"
+                android:exported="false"
+                android:label="TmpClass"
+                android:theme="@style/Theme.PhysicsMate"/>
+        <activity
                 android:name=".activities.physics.Kinematics$KE_projectile"
                 android:exported="false"/>
         <activity

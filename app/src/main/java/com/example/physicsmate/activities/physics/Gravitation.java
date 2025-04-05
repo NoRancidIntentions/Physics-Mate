@@ -56,6 +56,7 @@ public class Gravitation extends AppCompatActivity {
     public static class EscVelMenu extends AppCompatActivity {
 
 
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -1361,7 +1362,7 @@ public class Gravitation extends AppCompatActivity {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Distance between the masses", tvNLOG3result.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
-                            Toast.makeText(this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Copied to Clipboard.", Toast.LENGTH_SHORT).show();
                         });
                     }
                 });
