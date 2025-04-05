@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/SV_VE"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            tools:context=".activities.physics.VEAdd">
+
+        <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="337dp"
+                android:layout_height="247dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintDimensionRatio="1221:759"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/among_us"/>
+
+        <HorizontalScrollView
+                android:id="@+id/horizontalScrollView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/textView33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="356dp"/>
+
+        <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/sans_bold"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Amogus"
+                android:textAllCaps="true"
+                android:textColor="@color/text_question"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/horizontalScrollViewSub"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"/>
+
+        <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewSub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/btnVEAdd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView33"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:layout_marginStart="80dp" android:layout_marginEnd="80dp">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                        android:singleLine="true"
+
+                        android:id="@+id/etBi"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:inputType="text"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center_horizontal"
+                        android:hint="just say yes"
+                        android:minHeight="48dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="34sp"
+                        tools:ignore="SpeakableTextPresentCheck"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVEAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/btn_enabled"
+                android:fontFamily="@font/sans_bold"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:text="Check"
+                android:textColor="@drawable/dynamic_text"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvVEAddResults"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewSub"/>
+
+        <TextView
+                android:id="@+id/tvVEAddResults"
+                style="@style/custom_textView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnVEAdd"
+                android:text="This is just a test/temp layout."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
