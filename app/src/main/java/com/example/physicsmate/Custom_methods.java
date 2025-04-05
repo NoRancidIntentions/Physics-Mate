@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -133,6 +134,20 @@ public class Custom_methods {
         // Use the minDecimalPlaces value for rounding the number
         // ...
         return String.valueOf(round(t, minDecimalPlaces));
+    }
+
+    //method to hide keyboard whenever the given button is clicked
+    public static void hideKeyboardOnClick(Button button, Context context) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(button.getWindowToken(), 0);
+    }
+
+    public static void hideKeyboardOnClick(Button button, Context context, custom_keyboard1_initializer customKeyboard) {
+        button.setOnClickListener(v -> {
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            customKeyboard.hideKeyboard();
+        });
     }
 
     private static int getNumberOfDecimalPlaces(double number) {

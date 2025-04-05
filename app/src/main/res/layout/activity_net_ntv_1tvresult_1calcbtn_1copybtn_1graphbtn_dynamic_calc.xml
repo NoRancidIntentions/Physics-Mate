@@ -11,11 +11,13 @@
             android:id="@+id/SV_activity_net_ntv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            style="@style/custom_scrollView"
             android:background="@color/app_bg">
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/custom_linearLayout"
                 android:background="@color/app_bg"
                 android:orientation="vertical">
 

@@ -787,6 +787,7 @@ public class Kinematics extends AppCompatActivity {
             });
 
             btnCalc.setOnClickListener(view -> {
+                hideKeyboardOnClick(btnCalc, this);
                 if (cbAirResistance.isChecked()) {
                     calculateProjectileWithAirResistance();
                 } else {

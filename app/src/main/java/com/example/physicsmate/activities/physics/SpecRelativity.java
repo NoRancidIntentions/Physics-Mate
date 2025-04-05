@@ -146,9 +146,6 @@ public class SpecRelativity extends AppCompatActivity {
             checkBoxes.add(chkContractedLength);
             checkBoxes.add(chkVelocity);
 
-            chkProperLength.setChecked(true);
-            chkVelocity.setChecked(true);
-
             Button btnNext = new Button(this);
             Button btnClear = new Button(this);
             Button btnCopy = new Button(this);
@@ -250,6 +247,7 @@ public class SpecRelativity extends AppCompatActivity {
                 btnCalc.setVisibility(View.VISIBLE);
 
                 btnCalc.setOnClickListener(view1 -> {
+                    hideKeyboardOnClick(btnCalc, LengthContraction.this);
                     switch (s) {
                         case "Proper Length":
                             double contracted_length = evalf(et1.getText().toString());
