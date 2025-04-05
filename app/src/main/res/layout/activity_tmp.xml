@@ -134,7 +134,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnVEAdd"
-                android:text="This is just a test/temp layout."/>
+                android:text="hmm"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
