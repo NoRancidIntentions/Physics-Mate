@@ -110,8 +110,6 @@ public class UI_Solver_Tools_Linker {
 
     }
 
-
-
     public static class Solver_frag extends Fragment {
 
         // TODO: Rename parameter arguments, choose names that match
@@ -145,7 +143,7 @@ public class UI_Solver_Tools_Linker {
         public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin, btnCollision, btnSpecRelativity, btntest;
+            Button btnGravitation, btnVEAdd, btnVEmultiply, btnKin, btnCollision, btnSpecRelativity;
 
             btnGravitation = requireView().findViewById(R.id.btnGravitation);
             btnVEAdd = requireView().findViewById(R.id.button12);
@@ -153,7 +151,6 @@ public class UI_Solver_Tools_Linker {
             btnKin = requireView().findViewById(R.id.button17);
             btnCollision = requireView().findViewById(R.id.btnCollision);
             btnSpecRelativity = requireView().findViewById(R.id.btnSpecRelativity);
-            btntest = requireView().findViewById(R.id.btntest);
 
             btnGravitation.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), Gravitation.class)));
 
@@ -166,8 +163,6 @@ public class UI_Solver_Tools_Linker {
             btnCollision.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), CollisionMenu.class)));
 
             btnSpecRelativity.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), SpecRelativity.class)));
-
-            btntest.setOnClickListener(view2 -> startActivity(new Intent(getActivity(), tmpclass.class)));
         }
     }
 
