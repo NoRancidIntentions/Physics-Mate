@@ -61,6 +61,7 @@ public class ExpressionEvaluator extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
             } else {
 
+                hideKeyboardOnClick(btnCal, ExpressionEvaluator.this);
                 double val;
 
                 val = evalf(etval.getText().toString().toLowerCase());

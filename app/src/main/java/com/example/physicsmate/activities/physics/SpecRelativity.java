@@ -293,6 +293,8 @@ public class SpecRelativity extends AppCompatActivity {
                     tvRes.setVisibility(View.VISIBLE);
                     btnCopy.setVisibility(View.VISIBLE);
 
+                    sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
                 });
 
                 btnCopy.setOnClickListener(view1 -> {

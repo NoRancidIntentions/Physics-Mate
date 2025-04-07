@@ -158,6 +158,8 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                     if (calculateDerivative.isClickable()) {
                         calculateDerivative.setOnClickListener(v -> {
 
+                            hideKeyboardOnClick(calculateDerivative, DerivativeCalcOffline2.this);
+
                             String function = inputFunction.getText().toString().trim();
                             String StrInputVar = inputVar.getText().toString().trim();
                             final String[] derivative = new String[1];

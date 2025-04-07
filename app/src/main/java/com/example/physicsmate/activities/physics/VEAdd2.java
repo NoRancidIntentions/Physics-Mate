@@ -170,6 +170,8 @@ public class VEAdd2 extends AppCompatActivity {
             final boolean[] isScalar = {false};
 
             btnCalc.setOnClickListener(v -> {
+                customKeyboard.setVisibility(View.GONE);
+                hideKeyboardOnClick(btnCalc, VEAdd2Cart.this);
                 //add the vectors
                 String[] vectors = new String[editTexts.length];
                 for (int i = 0; i < editTexts.length; i++) {
@@ -195,6 +197,7 @@ public class VEAdd2 extends AppCompatActivity {
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
+                sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 
             });
 
@@ -283,6 +286,8 @@ public class VEAdd2 extends AppCompatActivity {
             linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
+                customKeyboard.setVisibility(View.GONE);
+                hideKeyboardOnClick(btnCalc, VEAdd2Polar.this);
                 //add the vectors
                 String[] vectors = new String[editTexts.length];
                 for (int i = 0; i < editTexts.length; i++) {
@@ -294,6 +299,7 @@ public class VEAdd2 extends AppCompatActivity {
 
                 tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
+                sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
             });
 
             btnCopy.setOnClickListener(v -> {
@@ -381,6 +387,8 @@ public class VEAdd2 extends AppCompatActivity {
             linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
+                customKeyboard.setVisibility(View.GONE);
+                hideKeyboardOnClick(btnCalc, VEAdd2PolarCosines.this);
                 //add the vectors
                 String[] vectors = new String[editTexts.length];
                 for (int i = 0; i < editTexts.length; i++) {

@@ -163,6 +163,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -193,6 +194,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double vel = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -223,6 +225,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double vel = evalf(et2.getText().toString());
 
@@ -353,6 +356,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -383,6 +387,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double v = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -413,6 +418,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double v = evalf(et2.getText().toString());
 
@@ -548,6 +554,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m1 = evalf(et1.getText().toString());
                         double m2 = evalf(et2.getText().toString());
                         double r = evalf(et3.getText().toString());
@@ -581,6 +588,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         //find m1
                         double u = evalf(et1.getText().toString());
                         double m2 = evalf(et2.getText().toString());
@@ -615,6 +623,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         //find r
                         double u = evalf(et1.getText().toString());
                         double m1 = evalf(et2.getText().toString());
@@ -757,6 +766,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
 
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
@@ -791,6 +801,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double acc = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -821,6 +832,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double acc = evalf(et2.getText().toString());
 
@@ -962,6 +974,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -992,6 +1005,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double vel = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -1022,6 +1036,7 @@ public class Gravitation extends AppCompatActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
+                        customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double vel = evalf(et2.getText().toString());
 
@@ -1159,6 +1174,7 @@ public class Gravitation extends AppCompatActivity {
 
                 btnCalc.setOnClickListener(view -> {
                     hideKeyboardOnClick(btnCalc, NLOG1.this);
+                    customKeyboard.setVisibility(View.GONE);
 
                     if (etNLOG1m1.getText().toString().trim().isEmpty() || etNLOG1m2.getText().toString().trim().isEmpty() || etNLOG1r.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG1.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1249,6 +1265,7 @@ public class Gravitation extends AppCompatActivity {
 
                 btnCalc.setOnClickListener(view -> {
                     hideKeyboardOnClick(btnCalc, NLOG2.this);
+                    customKeyboard.setVisibility(View.GONE);
                     if (etNLOG2m.getText().toString().trim().isEmpty() || etNLOG2n.getText().toString().trim().isEmpty() || etNLOG2r.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG2.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
@@ -1337,7 +1354,7 @@ public class Gravitation extends AppCompatActivity {
 
                 btnCalc.setOnClickListener(view -> {
                     hideKeyboardOnClick(btnCalc, NLOG3.this);
-
+                    customKeyboard.setVisibility(View.GONE);
                     if (etNLOG3m1.getText().toString().trim().isEmpty() || etNLOG3m2.getText().toString().trim().isEmpty() || etNLOG3f.getText().toString().trim().isEmpty()) {
                         Toast.makeText(NLOG3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {

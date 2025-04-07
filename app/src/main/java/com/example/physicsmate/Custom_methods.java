@@ -142,14 +142,6 @@ public class Custom_methods {
         imm.hideSoftInputFromWindow(button.getWindowToken(), 0);
     }
 
-    public static void hideKeyboardOnClick(Button button, Context context, custom_keyboard1_initializer customKeyboard) {
-        button.setOnClickListener(v -> {
-            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-            customKeyboard.hideKeyboard();
-        });
-    }
-
     private static int getNumberOfDecimalPlaces(double number) {
         String[] parts = String.valueOf(number).split("\\.");
         if (parts.length == 2) {
