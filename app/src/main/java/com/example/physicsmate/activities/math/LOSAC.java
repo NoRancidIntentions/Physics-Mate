@@ -90,15 +90,16 @@ public class LOSAC extends AppCompatActivity {
             btnCalculate.setOnClickListener(view ->
             {
 
+                double c = evalf(C.getText().toString().trim());
+
                 if (AB.getText().toString().trim().isEmpty() || BC.getText().toString().trim().isEmpty() || C.getText().toString().trim().isEmpty()) {
                     Toast.makeText(LOSAC1.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                } else if (C.getText().toString().trim().equals("0") || C.getText().toString().trim().equals("180")) {
-                    Toast.makeText(LOSAC1.this, "angle C cannot be 0 or 180", Toast.LENGTH_SHORT).show();
+                } else if (c < 0 || c >= 180) {
+                    Toast.makeText(LOSAC1.this, "angle cannot be less than 0 or greater than or equal to 180", Toast.LENGTH_SHORT).show();
                 } else {
 
                     double ab = evalf(AB.getText().toString().trim());
                     double bc = evalf(BC.getText().toString().trim());
-                    double c = evalf(C.getText().toString().trim());
 
                     double k = ab / Math.sin(Math.toRadians(c));
                     double a = Math.asin(bc / k);
@@ -170,14 +171,15 @@ public class LOSAC extends AppCompatActivity {
 
             btnCalculate.setOnClickListener(view ->
             {
+                double b = evalf(B.getText().toString().trim());
+
                 if (AB.getText().toString().trim().isEmpty() || BC.getText().toString().trim().isEmpty() || B.getText().toString().trim().isEmpty()) {
                     Toast.makeText(LOSAC2.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                } else if (B.getText().toString().trim().equals("0") || B.getText().toString().trim().equals("180")) {
-                    Toast.makeText(LOSAC2.this, "angle B cannot be 0 or 180", Toast.LENGTH_SHORT).show();
+                } else if (b < 0 || b >= 180) {
+                    Toast.makeText(LOSAC2.this, "angle cannot be less than 0 or greater than or equal to 180", Toast.LENGTH_SHORT).show();
                 } else {
                     double ab = evalf(AB.getText().toString().trim());
                     double bc = evalf(BC.getText().toString().trim());
-                    double b = evalf(B.getText().toString().trim());
 
                     double ac = Math.sqrt((ab * ab) + (bc * bc) - (2 * ab * bc * (Math.cos(Math.toRadians(b)))));
 
@@ -314,16 +316,16 @@ public class LOSAC extends AppCompatActivity {
 
             btnCalculate.setOnClickListener(view ->
             {
+                double b = evalf(B.getText().toString().trim());
+                double c = evalf(C.getText().toString().trim());
 
                 if (AB.getText().toString().trim().isEmpty() || B.getText().toString().trim().isEmpty() || C.getText().toString().trim().isEmpty()) {
                     Toast.makeText(LOSAC4.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                } else if (C.getText().toString().trim().equals("0") || C.getText().toString().trim().equals("180") || B.getText().toString().trim().equals("0") || B.getText().toString().trim().equals("180")) {
-                    Toast.makeText(LOSAC4.this, "angle C cannot be 0 or 180", Toast.LENGTH_SHORT).show();
+                } else if (c < 0 || c >= 180 || b < 0 || b >= 180) {
+                    Toast.makeText(LOSAC4.this, "angles cannot be negative or greater than 180", Toast.LENGTH_SHORT).show();
                 } else {
 
                     double ab = evalf(AB.getText().toString().trim());
-                    double b = evalf(B.getText().toString().trim());
-                    double c = evalf(C.getText().toString().trim());
 
                     double a = 180 - b - c;
 
@@ -341,14 +343,6 @@ public class LOSAC extends AppCompatActivity {
 
                     double area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ac));
                     String AREA = rounded_String(area, AB, B, C);
-
-                    /*String text = "<font color=#6BBBE1>Length of AC is approximately </font> <font color=#CDDC39>" + AC +
-                            "</font><br><br>" + "<font color=#6BBBE1>BC is approximately </font> <font color=#CDDC39>" +
-                            BC + "</font><br><br>" +
-                            "<font color=#6BBBE1>Angle a is approximately </font> <font color=#CDDC39>" +
-                            ADEGREE + "</font><br><br>" +
-                            "<font color=#6BBBE1>Area of the triangle is approximately </font> <font color=#CDDC39>" +
-                            AREA + "</font>";*/
 
                     String text = "Length of AC is approximately " + AC + "<br><br>" + "Length of BC is approximately " +
                             BC + "<br><br>" + "Angle a is approximately " + ADEGREE + "<br><br>" +
