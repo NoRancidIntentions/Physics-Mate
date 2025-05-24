@@ -19,7 +19,7 @@ public class VarSolver extends AppCompatActivity {
     Button btnSolve, btnAddRow, btnCopy;
     EditText et1, etVars;
     TextView tvResult;
-    LinearLayout rowsLinearLayout, MVsLinearLayout;
+    LinearLayout rowsLinearLayout;// MVsLinearLayout;
     ScrollView scrollView;
     //MathView mathView;
 
@@ -43,7 +43,7 @@ public class VarSolver extends AppCompatActivity {
         btnSolve = findViewById(R.id.var_solver_solve_button);
 
         //mathView = findViewById(R.id.var_solver_mv1);
-        MVsLinearLayout = findViewById(R.id.var_solver_MVs);
+        //MVsLinearLayout = findViewById(R.id.var_solver_MVs);
 
         tvResult.setVisibility(View.GONE);
         btnCopy.setVisibility(View.GONE);
@@ -122,9 +122,9 @@ public class VarSolver extends AppCompatActivity {
         setupEditTextChangeListener(viewsToDissapear, btnSolve, null, editTexts);
 
         //add mathview
-        @SuppressLint("InflateParams")
-        LinearLayout mvItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_mv, null, false);
-        MVsLinearLayout.addView(mvItem);
+        //@SuppressLint("InflateParams")
+        //LinearLayout mvItem = (LinearLayout) getLayoutInflater().inflate(R.layout.var_solver_mv, null, false);
+        //MVsLinearLayout.addView(mvItem);
 
 
         solveButtonClickable();
@@ -152,7 +152,7 @@ public class VarSolver extends AppCompatActivity {
 
     public void removeRow() {
         rowsLinearLayout.removeViewAt(rowsLinearLayout.getChildCount() - 1);
-        MVsLinearLayout.removeViewAt(MVsLinearLayout.getChildCount() - 1);
+        //MVsLinearLayout.removeViewAt(MVsLinearLayout.getChildCount() - 1);
         solveButtonClickable();
     }
 
@@ -190,7 +190,7 @@ public class VarSolver extends AppCompatActivity {
                         btnCopy.setVisibility(View.GONE);
 
                         //remove all mathviews from the linearlayout
-                        MVsLinearLayout.removeAllViews();
+                        //MVsLinearLayout.removeAllViews();
 
                         try {
                             //mathView.setText(null);
@@ -208,7 +208,7 @@ public class VarSolver extends AppCompatActivity {
                         //mathView.setText(getTex(et1.getText().toString()));
 
                         //iterate through all mathviews and set the text
-                        LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(i);
+                        //LinearLayout mvItem = (LinearLayout) MVsLinearLayout.getChildAt(i);
                         //MathView mv = (MathView) mvItem.getChildAt(0);
                         //mv.setText(getTex(et.getText().toString()));
 
