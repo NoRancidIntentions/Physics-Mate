@@ -17,6 +17,7 @@
             android:shell="true"
             android:supportsRtl="true"
             android:theme="@style/Theme.PhysicsMate"
+            tools:replace="android:theme"
             tools:targetApi="q">
         <activity
                 android:name=".activities.physics.SpecRelativity$LengthContraction"
@@ -287,9 +288,6 @@
                 android:exported="true"/>
         <activity
                 android:name=".activities.math.VEMultiply"
-                android:exported="true"/>
-        <activity
-                android:name=".activities.physics.VEAdd"
                 android:exported="true"/>
         <activity
                 android:name=".activities.math.LOSAC$LOSAC3"

@@ -10,13 +10,22 @@
         tools:context=".ui.main.MainActivity" android:alwaysDrawnWithCache="true" android:animateLayoutChanges="true"
         android:animationCache="true" android:drawingCacheQuality="high">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             style="@style/custom_linearLayout"
             android:layout_height="match_parent"
             android:id="@+id/homeMenuLinearLayout">
 
+        <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/viewPager2" android:drawingCacheQuality="high" android:alwaysDrawnWithCache="true"
+                android:animateLayoutChanges="true" android:animationCache="true" android:persistentDrawingCache="all"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tabLayout" app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintVertical_bias="0.0"/>
         <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tabLayout"
                 android:background="@color/darker_grey"
@@ -25,7 +34,9 @@
                 app:tabIndicatorColor="@color/yellow_num_answer"
                 app:tabRippleColor="@color/yellow_num_answer"
                 app:fontFamily="@font/sans_bold"
-        >
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" app:tabIndicatorGravity="top" app:tabMode="fixed"
+                app:tabGravity="fill" app:tabUnboundedRipple="false">
 
             <com.google.android.material.tabs.TabItem
                     android:layout_width="match_parent"
@@ -50,12 +61,6 @@
 
         </com.google.android.material.tabs.TabLayout>
 
-        <androidx.viewpager2.widget.ViewPager2
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/viewPager2" android:drawingCacheQuality="high" android:alwaysDrawnWithCache="true"
-                android:animateLayoutChanges="true" android:animationCache="true" android:persistentDrawingCache="all"/>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
