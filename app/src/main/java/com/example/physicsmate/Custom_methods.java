@@ -1159,7 +1159,30 @@ public class Custom_methods {
             StringWriter stw = new StringWriter();
             texUtil.toTeX(IExprConverter(function), stw);
             // print: \sum_{i = 1}^{n}i
-            return "$$ \\color{#D0D0D0}{" + stw + "}$$";
+            String latex = " \\color{#D0D0D0}{" + stw + "}";
+            return "\\[" + latex + "\\]";
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+        } catch (MathException me) {
+            // catch Symja math errors here
+        } catch (Exception ignored) {
+        }
+
+        return StringError;
+    }
+
+    public static String getTex(String function, int fontSize) {
+        try {
+            // false -> switch to Mathematica syntax mode:
+            EvalEngine engine = new EvalEngine(false);
+            //
+            TeXUtilities texUtil = new TeXUtilities(engine, false);
+
+            StringWriter stw = new StringWriter();
+            texUtil.toTeX(IExprConverter(function), stw);
+            // print: \sum_{i = 1}^{n}i
+            String latex = " \\color{#D0D0D0}{" + stw + "}";
+            return "<div style='font-size:" + fontSize + "px;'>\\[" + latex + "\\]</div>";
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here

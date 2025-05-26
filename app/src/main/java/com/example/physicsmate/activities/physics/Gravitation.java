@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import live.pw.renderX.mathJaxView.MathJaxView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -731,7 +732,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //MathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathJaxView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
@@ -744,7 +745,7 @@ public class Gravitation extends AppCompatActivity {
 
                 img.setVisibility(View.GONE);
                 //MathJaxConfig(mathView);
-                //mathView.setText(getTex("g = G*M/r^2"));
+                mathView.setText(getTex("g = G*M/r^2", 24));
 
                 setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 

@@ -32,6 +32,13 @@
                     android:id="@+id/imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
             />
 
+            <live.pw.renderX.mathJaxView.MathJaxView
+                    android:id="@+id/latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+            />
+
             <TextView
                     android:text="ERROR"
                     android:id="@+id/tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"

@@ -111,6 +111,7 @@ public class LOSAC extends AppCompatActivity {
                     double bdegree = Math.toDegrees(b);
                     double adegree = Math.toDegrees(a);
 
+
                     String AC = rounded_String(ac, AB, C, BC);
                     String ADEGREE = rounded_String(adegree, AB, C, BC);
                     String BDEGREE = rounded_String(bdegree, AB, C, BC);
@@ -323,6 +324,8 @@ public class LOSAC extends AppCompatActivity {
                     Toast.makeText(LOSAC4.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 } else if (c < 0 || c >= 180 || b < 0 || b >= 180) {
                     Toast.makeText(LOSAC4.this, "angles cannot be negative or greater than 180", Toast.LENGTH_SHORT).show();
+                } else if (b + c >= 180) {
+                    Toast.makeText(LOSAC4.this, "Sum of angles cannot be greater than 180", Toast.LENGTH_SHORT).show();
                 } else {
 
                     double ab = evalf(AB.getText().toString().trim());
