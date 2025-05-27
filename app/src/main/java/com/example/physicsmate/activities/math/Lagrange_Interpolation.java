@@ -6,121 +6,166 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import live.pw.renderX.mathJaxView.MathJaxView;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 public class Lagrange_Interpolation extends AppCompatActivity {
 
-    Button LagrangeAddRowButton, LagrangeCalcButton;
-    EditText Lagrangex1, Lagrangey1, Lagrangex2, Lagrangey2;
-    TextView LagrangeTvResult;
-    LinearLayout LagrangeRowsLinearLayout;
+    private Button btnAddRow, btnCalc;
+    private TextView tvResult;
+    private MathJaxView mathView;
+    private LinearLayout rowsLayout;
 
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lagrange_interpolation);
 
-        LagrangeRowsLinearLayout = findViewById(R.id.LagrangeRowsLinearLayout);
-        LagrangeTvResult = findViewById(R.id.LagrangeTvResult);
+        rowsLayout = findViewById(R.id.LagrangeRowsLinearLayout);
+        tvResult = findViewById(R.id.LagrangeTvResult);
+        mathView = findViewById(R.id.l_mathview);
+        btnAddRow = findViewById(R.id.LagrangeAddRowButton);
+        btnCalc = findViewById(R.id.LagrangeCalcButton);
 
-        Paris.styleBuilder(LagrangeTvResult).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(tvResult).add(R.style.answer_textView).apply();
 
-        Lagrangex1 = findViewById(R.id.Lagrangex1);
-        Lagrangey1 = findViewById(R.id.Lagrangey1);
-        Lagrangex2 = findViewById(R.id.Lagrangex2);
-        Lagrangey2 = findViewById(R.id.Lagrangey2);
+        mathView.setVisibility(View.GONE);
+        tvResult.setVisibility(View.GONE);
 
-        Lagrangex1.addTextChangedListener(new CustomTextWatcher());
-        Lagrangey1.addTextChangedListener(new CustomTextWatcher());
-        Lagrangex2.addTextChangedListener(new CustomTextWatcher());
-        Lagrangey2.addTextChangedListener(new CustomTextWatcher());
+        setupInitialTextWatchers();
+        btnAddRow.setOnClickListener(v -> addRow());
+        btnCalc.setOnClickListener(v -> calculatePolynomial());
 
-        LagrangeAddRowButton = findViewById(R.id.LagrangeAddRowButton);
-        LagrangeCalcButton = findViewById(R.id.LagrangeCalcButton);
-
-        LagrangeCalcButton.setClickable(false);
-        LagrangeCalcButton.setBackgroundResource(R.drawable.btn_disabled);
-        LagrangeCalcButton.setTextColor(getResources().getColor(R.color.app_bg));
-        LagrangeCalcButton.setText("Enter all the fields");
-
-        LagrangeTvResult.setVisibility(View.GONE);
-
-        LagrangeAddRowButton.setOnClickListener(this::LagrangeAddRow);
-
+        updateCalcButtonState();
     }
 
-    public void LagrangeAddRow(View view) {
-        LinearLayout LagrangeRowsLinearLayout = findViewById(R.id.LagrangeRowsLinearLayout);
-        LinearLayout LagrangeRow = (LinearLayout) getLayoutInflater().inflate(R.layout.lagrange_rows, null);
-        LagrangeRowsLinearLayout.addView(LagrangeRow);
-
-        LagrangeCalcButtonClickable();
-
-        int LagrangeRowsLinearLayoutChildCount = LagrangeRowsLinearLayout.getChildCount();
-
-        for (int i = 0; i < LagrangeRowsLinearLayoutChildCount; i++) {
-            LinearLayout LagrangeRowItem = (LinearLayout) LagrangeRowsLinearLayout.getChildAt(i);
-            EditText LagrangeRowItemX = (EditText) LagrangeRowItem.getChildAt(0);
-            EditText LagrangeRowItemY = (EditText) LagrangeRowItem.getChildAt(1);
-            LagrangeRowItemX.setHint("x" + (i + 1));
-            LagrangeRowItemY.setHint("y" + (i + 1));
-            LagrangeRowItemX.addTextChangedListener(new CustomTextWatcher());
-            LagrangeRowItemY.addTextChangedListener(new CustomTextWatcher());
-
+    private void setupInitialTextWatchers() {
+        for (int i = 0; i < rowsLayout.getChildCount(); i++) {
+            LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
+            for (int j = 0; j < 2; j++) {
+                EditText et = (EditText) row.getChildAt(j);
+                et.addTextChangedListener(new CustomTextWatcher());
+            }
         }
-
-        //delete listener to each row
-        for (int i = 0; i < LagrangeRowsLinearLayoutChildCount; i++) {
-            ImageButton LagrangeDeleteRowButton = (ImageButton) LagrangeRow.getChildAt(2);
-            LagrangeDeleteRowButton.setOnClickListener(v -> {
-                LagrangeRowsLinearLayout.removeView(LagrangeRow);
-                LagrangeCalcButtonClickable();
-            });
-        }
-
     }
 
+    private void addRow() {
+        @SuppressLint("InflateParams")
+        LinearLayout newRow = (LinearLayout) getLayoutInflater().inflate(R.layout.lagrange_rows, null, false);
+        Animation anim = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        newRow.startAnimation(anim);
+        rowsLayout.addView(newRow);
 
-    //use lagrange interpolation from apache library
-    public String getPolynomialFunction(double[] x, double[] y) {
+        int index = rowsLayout.getChildCount();
 
+        EditText xInput = (EditText) newRow.getChildAt(0);
+        EditText yInput = (EditText) newRow.getChildAt(1);
+        ImageButton deleteButton = (ImageButton) newRow.getChildAt(2);
+
+        xInput.setHint("x" + index);
+        yInput.setHint("y" + index);
+
+        xInput.addTextChangedListener(new CustomTextWatcher());
+        yInput.addTextChangedListener(new CustomTextWatcher());
+
+        deleteButton.setOnClickListener(v -> removeRowWithAnimation(newRow));
+
+        updateCalcButtonState();
+    }
+
+    private void removeRowWithAnimation(View row) {
+        Animation anim = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+        row.startAnimation(anim);
+        row.postDelayed(() -> {
+            rowsLayout.removeView(row);
+            updateCalcButtonState();
+        }, anim.getDuration());
+    }
+
+    private void updateCalcButtonState() {
+        boolean allFilled = true;
+        for (int i = 0; i < rowsLayout.getChildCount(); i++) {
+            LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
+            EditText x = (EditText) row.getChildAt(0);
+            EditText y = (EditText) row.getChildAt(1);
+            if (x.getText().toString().trim().isEmpty() || y.getText().toString().trim().isEmpty()) {
+                allFilled = false;
+                break;
+            }
+        }
+
+        if (allFilled) {
+            btnCalc.setEnabled(true);
+            btnCalc.setClickable(true);
+            btnCalc.setText("Get Polynomial");
+            Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
+        } else {
+            btnCalc.setEnabled(false);
+            btnCalc.setClickable(false);
+            btnCalc.setText("Enter all the fields");
+            btnCalc.setBackgroundResource(R.drawable.btn_disabled);
+            btnCalc.setTextColor(getResources().getColor(R.color.app_bg));
+        }
+    }
+
+    private void calculatePolynomial() {
+        List<Double> xVals = new ArrayList<>();
+        List<Double> yVals = new ArrayList<>();
+
+        for (int i = 0; i < rowsLayout.getChildCount(); i++) {
+            LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
+            EditText x = (EditText) row.getChildAt(0);
+            EditText y = (EditText) row.getChildAt(1);
+            try {
+                xVals.add(evalf(x.getText().toString()));
+                yVals.add(evalf(y.getText().toString()));
+            } catch (Exception e) {
+                Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
+        double[] xArr = xVals.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] yArr = yVals.stream().mapToDouble(Double::doubleValue).toArray();
+
+        String poly = getPolynomialString(xArr, yArr);
+        String resultText = "The polynomial satisfying the above points is " + HtmlColoriser(this, "y = " + poly);
+
+        tvResult.setText(Html.fromHtml(resultText, Html.FROM_HTML_MODE_LEGACY));
+        tvResult.setVisibility(View.VISIBLE);
+
+        mathView.setText(getTex("y = " + poly));
+        mathView.setVisibility(View.VISIBLE);
+    }
+
+    private String getPolynomialString(double[] x, double[] y) {
         try {
-            PolynomialFunctionLagrangeForm interpolator = new PolynomialFunctionLagrangeForm(x, y);
-
-            // Get the polynomial function as a string
-            double[] coeff = interpolator.getCoefficients();
-
-            //round off the coefficients to 2 decimal places
+            PolynomialFunctionLagrangeForm poly = new PolynomialFunctionLagrangeForm(x, y);
+            double[] coeff = poly.getCoefficients();
             for (int i = 0; i < coeff.length; i++) {
                 coeff[i] = Math.round(coeff[i] * 100.0) / 100.0;
             }
 
-            int n = coeff.length;
             StringBuilder sb = new StringBuilder();
+            for (int i = coeff.length - 1; i >= 0; i--) {
+                if (coeff[i] == 0) continue;
+                if (sb.length() > 0 && coeff[i] > 0) sb.append(" + ");
+                else if (coeff[i] < 0) sb.append(" - ");
 
-            for (int i = n - 1; i >= 0; i--) {
-                if (coeff[i] == 0) {
-                    continue;
-                }
-                if (sb.length() > 0) {
-                    sb.append(coeff[i] > 0 ? " + " : " - ");
-                    sb.append(Math.abs(coeff[i]));
-                } else {
-                    sb.append(coeff[i]);
-                }
-                if (i > 1) {
-                    sb.append("x^");
-                    sb.append(i);
-                } else if (i == 1) {
-                    sb.append("x");
-                }
+                sb.append(Math.abs(coeff[i]));
+                if (i > 1) sb.append("x^").append(i);
+                else if (i == 1) sb.append("x");
             }
 
             return sb.toString();
@@ -129,96 +174,20 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         }
     }
 
-
-    //make btnLagrangeCalc button unclickable if any of the edit texts are empty
-    @SuppressLint("ResourceType")
-    public void LagrangeCalcButtonClickable() {
-        LinearLayout LagrangeRowsLinearLayout = findViewById(R.id.LagrangeRowsLinearLayout);
-        int LagrangeRowsLinearLayoutChildCount = LagrangeRowsLinearLayout.getChildCount();
-        for (int i = 0; i < LagrangeRowsLinearLayoutChildCount; i++) {
-            LinearLayout LagrangeRow = (LinearLayout) LagrangeRowsLinearLayout.getChildAt(i);
-            EditText LagrangeRowItemX = (EditText) LagrangeRow.getChildAt(0);
-            EditText LagrangeRowItemY = (EditText) LagrangeRow.getChildAt(1);
-            String LagrangeRowItemXValue = LagrangeRowItemX.getText().toString().trim();
-            String LagrangeRowItemYValue = LagrangeRowItemY.getText().toString().trim();
-
-            if (LagrangeRowItemXValue.isEmpty() || LagrangeRowItemYValue.isEmpty()) {
-                LagrangeCalcButton.setClickable(false);
-                LagrangeCalcButton.setBackgroundResource(R.drawable.btn_disabled);
-                LagrangeCalcButton.setTextColor(getResources().getColor(R.color.app_bg));
-                LagrangeCalcButton.setText("Enter all the fields");
-                break;
-            } else {
-                LagrangeCalcButton.setClickable(true);
-                //set style of the button
-                Paris.styleBuilder(LagrangeCalcButton).add(R.style.custom_button_enabled).apply();
-                LagrangeCalcButton.setText("Get polynomial");
-            }
-        }
-    }
-
-    //custom text watcher class to add textChangedListener to all the edit texts
-    public class CustomTextWatcher implements TextWatcher {
-
-        public CustomTextWatcher() {
+    private class CustomTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            updateCalcButtonState();
         }
 
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            LagrangeCalcButtonClickable();
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            LagrangeCalcButtonClickable();
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            updateCalcButtonState();
         }
 
         @Override
         public void afterTextChanged(Editable s) {
-            LagrangeCalcButtonClickable();
-
-            if (LagrangeCalcButton.isClickable()) {
-                LagrangeCalcButton.setOnClickListener(v ->
-                {
-                    //get number of linear layouts inside LagrangeRowsLinearLayout
-                    int LagrangeRowsLinearLayoutChildCount = LagrangeRowsLinearLayout.getChildCount();
-
-
-                    double[] x = new double[LagrangeRowsLinearLayoutChildCount];
-                    double[] y = new double[LagrangeRowsLinearLayoutChildCount];
-                    for (int i = 0; i < LagrangeRowsLinearLayoutChildCount; i++) {
-                        //get the linear layout at index i
-                        LinearLayout LagrangeRow = (LinearLayout) LagrangeRowsLinearLayout.getChildAt(i);
-
-                        //get the edit text at index 0 of LagrangeRow
-                        EditText LagrangeRowItemX = (EditText) LagrangeRow.getChildAt(0);
-                        //get the edit text at index 1
-                        EditText LagrangeRowItemY = (EditText) LagrangeRow.getChildAt(1);
-                        //get the value of the edit text at index 0
-                        String LagrangeRowItemXValue = LagrangeRowItemX.getText().toString().trim();
-                        //get the value of the edit text at index 1
-                        String LagrangeRowItemYValue = LagrangeRowItemY.getText().toString().trim();
-                        //if the edit text at index 0 is empty, dont add it to the array
-                        if (LagrangeRowItemXValue.isEmpty() || LagrangeRowItemYValue.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please fill in all the values", Toast.LENGTH_SHORT).show();
-                        } else {
-                            //convert the value of the edit text at index 0 to double and store it in the x array at index j
-                            x[i] = evalf(LagrangeRowItemXValue);
-                            //convert the value of the edit text at index 1 to double and store it in the y array at index j
-                            y[i] = evalf(LagrangeRowItemYValue);
-                        }
-
-                    }
-
-                    String poly = "y = " + getPolynomialFunction(x, y);
-                    String TvLagrangePoly = "The polynomial satisfying the above points is " + HtmlColoriser(Lagrange_Interpolation.this, poly);
-                    String TexPoly = getTex("y= " + poly);
-
-                    LagrangeTvResult.setText(Html.fromHtml(TvLagrangePoly, Html.FROM_HTML_MODE_LEGACY));
-                    LagrangeTvResult.setVisibility(View.VISIBLE);
-
-
-                });
-            }
+            updateCalcButtonState();
         }
-
     }
 }

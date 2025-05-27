@@ -77,6 +77,10 @@
         <activity
                 android:name=".activities.math.VarSolver"
                 android:exported="true"/>
+
+        <activity
+                android:name=".activities.math.VarSolver2"
+                android:exported="true"/>
         <activity
                 android:name=".activities.math.Lagrange_Interpolation"
                 android:exported="true"/>

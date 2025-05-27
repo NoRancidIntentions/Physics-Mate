@@ -24,7 +24,16 @@
         <item name="android:animateLayoutChanges">true</item>
         <item name="android:animationCache">true</item>
         <item name="android:persistentDrawingCache">all</item>
-
+    </style>
+    <style name="custom_mathJaxView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:drawingCacheQuality">high</item>
+        <item name="android:alwaysDrawnWithCache">true</item>
+        <item name="android:animateLayoutChanges">true</item>
+        <item name="android:animationCache">true</item>
+        <item name="android:persistentDrawingCache">all</item>
     </style>
     <style name="custom_scrollView">
         <item name="android:layout_width">match_parent</item>

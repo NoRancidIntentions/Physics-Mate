@@ -11,6 +11,7 @@
             style="custom_linearLayout"
             android:orientation="vertical">
         <TextView
+                android:id="@+id/var_solver_text_view"
                 style="@style/custom_textView"
                 android:text="Please add the system of equations"
         />
@@ -20,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 style="custom_linearLayout"
-                android:id="@+id/var_solver_SOE">
+                android:id="@+id/var_solver_ets">
             <EditText
                     android:id="@+id/var_solver_et1"
                     style="@style/custom_edittext"
@@ -36,6 +37,10 @@
                 style="custom_linearLayout"
                 android:id="@+id/var_solver_MVs">
 
+            <live.pw.renderX.mathJaxView.MathJaxView
+                    style="@style/custom_mathJaxView"
+                    android:id="@+id/var_solver_mv1"
+            />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton

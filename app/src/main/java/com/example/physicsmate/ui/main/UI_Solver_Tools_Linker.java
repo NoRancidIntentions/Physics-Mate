@@ -217,7 +217,7 @@ public class UI_Solver_Tools_Linker {
             btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline2.class)));
             btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline.class)));
             btnLagrange.setOnClickListener(v -> startActivity(new Intent(getActivity(), Lagrange_Interpolation.class)));
-            btnVarSolver.setOnClickListener(v -> startActivity(new Intent(getActivity(), VarSolver.class)));
+            btnVarSolver.setOnClickListener(v -> startActivity(new Intent(getActivity(), VarSolver2.class)));
             btnOrthonormalisation.setOnClickListener(v -> startActivity(new Intent(getActivity(), Orthonormalisation.class)));
         }
     }

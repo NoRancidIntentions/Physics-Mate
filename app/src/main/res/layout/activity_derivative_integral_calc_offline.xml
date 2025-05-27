@@ -25,6 +25,10 @@
                 android:inputType="text"
                 android:minHeight="48dp"/>
 
+        <live.pw.renderX.mathJaxView.MathJaxView
+                style="@style/custom_mathJaxView"
+                android:id="@+id/latexView1"/>
+
 
         <TextView
                 android:text="Enter the differentiating variable"
@@ -92,6 +96,10 @@
                 style="@style/custom_button_enabled"
         />
 
+        <live.pw.renderX.mathJaxView.MathJaxView
+                style="@style/custom_mathJaxView"
+                android:id="@+id/latexView2"/>
+
         <TextView
                 style = "@style/custom_textView"
                 android:text="Area under curve"
@@ -114,6 +122,11 @@
                 style="@style/custom_textView"
                 android:layout_marginBottom="0dp"
         />
+
+
+        <live.pw.renderX.mathJaxView.MathJaxView
+                style="@style/custom_mathJaxView"
+                android:id="@+id/latexView3"/>
 
 
         <androidx.appcompat.widget.AppCompatButton
