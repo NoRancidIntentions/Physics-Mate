@@ -4,13 +4,16 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import live.pw.renderX.mathJaxView.MathJaxView;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -25,8 +28,9 @@ public class ExpressionEvaluator extends AppCompatActivity {
         Button btnCal, btnCopy, btnGraph;
         TextView tvResult, tv1, tv2;
         ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+        LinearLayout ll = findViewById(R.id.ll_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
+        MathJaxView mv = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         etexp = findViewById(R.id.et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
         etexp.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -43,14 +47,49 @@ public class ExpressionEvaluator extends AppCompatActivity {
         tvResult.setVisibility(View.GONE);
         img.setVisibility(View.GONE);
         btnGraph.setVisibility(View.GONE);
+        mv.setVisibility(View.GONE);
 
         Paris.styleBuilder(tvResult).add(R.style.answer_textView);
+        btnCal.setEnabled(false);
+        Paris.styleBuilder(btnCal).add(R.style.custom_button_disabled).apply();
+        btnCal.setText("Enter Expression");
 
         tv1.setText("enter the function to evaluate");
         tv2.setText("Enter value of 'x'");
         btnCal.setText("Get f(x)");
         etexp.setHint("3x^2 + 5x + 4");
         etval.setHint("5 - 4.3 * 6");
+
+        //shift the mathview to below tv2
+        ll.removeView(mv);
+        int index = ll.indexOfChild(etexp);
+        ll.addView(mv, index + 1);
+
+        //add a text change listener to etexp
+        etexp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (etexp.getText().toString().isEmpty()) {
+                    mv.setVisibility(View.GONE);
+                    btnCal.setEnabled(false);
+                    Paris.styleBuilder(btnCal).add(R.style.custom_button_disabled).apply();
+                    btnCal.setText("Enter Expression");
+                } else {
+                    mv.setText(getTex(etexp.getText().toString()));
+                    mv.setVisibility(View.VISIBLE);
+                    btnCal.setEnabled(true);
+                    Paris.styleBuilder(btnCal).add(R.style.custom_button_enabled).apply();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
         btnCal.setOnClickListener(v ->
         {

@@ -39,6 +39,7 @@
 
             <live.pw.renderX.mathJaxView.MathJaxView
                     style="@style/custom_mathJaxView"
+                    android:layout_marginTop="10dp"
                     android:id="@+id/var_solver_mv1"
             />
         </LinearLayout>
