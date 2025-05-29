@@ -1086,7 +1086,7 @@ public class Gravitation extends AppCompatActivity {
 
     public static class NLOG extends AppCompatActivity {
 
-        ImageButton btnNLOG1, btnNLOG2, btnNLOG3;
+        Button btnNLOG1, btnNLOG2, btnNLOG3;
 
 
         @Override

@@ -7,9 +7,10 @@
             android:layout_height="match_parent"
             android:background="@color/app_bg">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/custom_linearLayout"
             android:background="@color/app_bg"
             tools:context=".activities.physics.Gravitation$NLOG">
 
@@ -33,7 +34,7 @@
 
         <TextView
                 android:id="@+id/textView29"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
@@ -50,66 +51,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNLOG1"
-                android:layout_width="310dp"
-                android:layout_height="0dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="40dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/btnNLOG2"
-                app:layout_constraintDimensionRatio="h,729:146"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29"
-                app:srcCompat="@drawable/phbtn1_2_clicked"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                style="@style/custom_button_enabled"
+                android:text="Calculate Force"
+        />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNLOG2"
-                android:layout_width="310dp"
-                android:layout_height="0dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="40dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/btnNLOG3"
-                app:layout_constraintDimensionRatio="h,729:146"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNLOG1"
-                app:srcCompat="@drawable/phbtn1_3_clicked"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                style="@style/custom_button_enabled"
+                android:text="Calculate m1"
+        />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNLOG3"
-                android:layout_width="310dp"
-                android:layout_height="0dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="50dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="h,729:146"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNLOG2"
-                app:srcCompat="@drawable/phbtn1_4"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                style="@style/custom_button_enabled"
+                android:text="calculate r"
+        />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>
