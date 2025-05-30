@@ -1158,8 +1158,10 @@ public class Custom_methods {
 
             StringWriter stw = new StringWriter();
             texUtil.toTeX(IExprConverter(function), stw);
-            // print: \sum_{i = 1}^{n}i
-            String latex = " \\color{#D0D0D0}{" + stw + "}";
+
+            String stw_string = stw.toString().replaceAll("(\\D)(\\d)", "$1_{$2}");
+
+            String latex = " \\color{#D0D0D0}{" + stw_string + "}";
             return "<div style='font-size:" + 18 + "px;'>\\[" + latex + "\\]</div>";
 
         } catch (SyntaxError e) {

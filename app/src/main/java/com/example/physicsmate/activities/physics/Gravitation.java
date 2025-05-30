@@ -474,7 +474,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserU[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserU", chooserU[0]));
                 finish();
             });
 
@@ -482,7 +482,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -490,7 +490,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserR[0] = 1;
 
-                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyMenu.GravPotentialEnergyCalc.class).putExtra("chooserR", chooserR[0]));
+                startActivity(new Intent(GravPotentialEnergyMenu.this, GravPotentialEnergyCalc.class).putExtra("chooserR", chooserR[0]));
                 finish();
             });
 
@@ -679,7 +679,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserA[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserA", chooserA[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserA", chooserA[0]));
                 finish();
             });
 
@@ -687,7 +687,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserM[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserM", chooserM[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserM", chooserM[0]));
                 finish();
             });
 
@@ -695,7 +695,7 @@ public class Gravitation extends AppCompatActivity {
 
                 chooserR[0] = 1;
 
-                startActivity(new Intent(GravAcc.this, GravAcc.GravAcc3Calc.class).putExtra("chooserR", chooserR[0]));
+                startActivity(new Intent(GravAcc.this, GravAcc3Calc.class).putExtra("chooserR", chooserR[0]));
                 finish();
             });
 
@@ -766,7 +766,7 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
                         customKeyboard.setVisibility(View.GONE);
 
                         double m = evalf(et1.getText().toString());
@@ -778,7 +778,7 @@ public class Gravitation extends AppCompatActivity {
                         System.out.println(acc);
 
                         String strRes = "Gravitational acceleration = " + acc + " m/s";
-                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc3Calc.this, strRes)));
 
 
                         tvRes.setVisibility(View.VISIBLE);
@@ -790,7 +790,7 @@ public class Gravitation extends AppCompatActivity {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Escape velocity", tvRes.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
-                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });
                     });
                 } else if (chooserM == 1) {
@@ -801,14 +801,14 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("6400000");
 
                     btnCalc.setOnClickListener(v -> {
-                        hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
                         customKeyboard.setVisibility(View.GONE);
                         double acc = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
                         double m = acc * Math.pow(r, 2) / G;
                         String strRes = "Mass = " + m + " kg";
-                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc3Calc.this, strRes)));
 
 
                         tvRes.setVisibility(View.VISIBLE);
@@ -820,7 +820,7 @@ public class Gravitation extends AppCompatActivity {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Mass", tvRes.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
-                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });
 
                     });
@@ -832,14 +832,14 @@ public class Gravitation extends AppCompatActivity {
                     et2.setHint("9.8");
 
                     btnCalc.setOnClickListener(v -> {
-                        hideKeyboardOnClick(btnCalc, GravAcc.GravAcc3Calc.this);
+                        hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
                         customKeyboard.setVisibility(View.GONE);
                         double m = evalf(et1.getText().toString());
                         double acc = evalf(et2.getText().toString());
 
                         double r = Math.sqrt(G * m / acc);
                         String strRes = "Radius = " + r + " metres";
-                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc.GravAcc3Calc.this, strRes)));
+                        tvRes.setText(Html.fromHtml(HtmlNumberFormatter(GravAcc3Calc.this, strRes)));
 
 
                         tvRes.setVisibility(View.VISIBLE);
@@ -851,7 +851,7 @@ public class Gravitation extends AppCompatActivity {
                             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             ClipData clip = ClipData.newPlainText("Distance", tvRes.getText().toString().trim());
                             clipboard.setPrimaryClip(clip);
-                            Toast.makeText(GravAcc.GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GravAcc3Calc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                         });
 
                     });
@@ -1098,27 +1098,41 @@ public class Gravitation extends AppCompatActivity {
             btnNLOG2 = findViewById(R.id.btnNLOG2);
             btnNLOG3 = findViewById(R.id.btnNLOG3);
 
+            final boolean[] findFMR = {false, false, false};
+
             btnNLOG1.setOnClickListener(view -> {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG1.class);
+                Intent intent = new Intent(NLOG.this, NLOGcalc.class);
+                findFMR[0] = true;
+                findFMR[1] = false;
+                findFMR[2] = false;
+                intent.putExtra("findFMR", findFMR);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG2.setOnClickListener(view -> {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG2.class);
+                Intent intent = new Intent(NLOG.this, NLOGcalc.class);
+                findFMR[0] = false;
+                findFMR[1] = true;
+                findFMR[2] = false;
+                intent.putExtra("findFMR", findFMR);
                 startActivity(intent);
                 finish();
             });
 
             btnNLOG3.setOnClickListener(view -> {
-                Intent intent = new Intent(NLOG.this, NLOG.NLOG3.class);
+                Intent intent = new Intent(NLOG.this, NLOGcalc.class);
+                findFMR[0] = false;
+                findFMR[1] = false;
+                findFMR[2] = true;
+                intent.putExtra("findFMR", findFMR);
                 startActivity(intent);
                 finish();
             });
 
         }
 
-        public static class NLOG1 extends AppCompatActivity {
+        public static class NLOGcalc extends AppCompatActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;
@@ -1142,252 +1156,145 @@ public class Gravitation extends AppCompatActivity {
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG1m1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG1m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG1r = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                EditText et1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                EditText et2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                EditText et3 = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tv1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tv2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                TextView tv3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MathJaxView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setVisibility(View.GONE);
                 customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG1m1, etNLOG1m2, etNLOG1r);
-                tvNLOG1.setText("Mass of the first object");
-                tvNLOG2.setText("Mass of the second object");
-                tvNLOG3.setText("Distance between the centre of the objects");
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
-
 
                 tvRes.setVisibility(View.GONE);
                 btnCopy.setVisibility(View.GONE);
 
-                et_Scroller(etNLOG1r, NLOG1.this);
-                et_Scroller(etNLOG1m1, NLOG1.this);
-                et_Scroller(etNLOG1m2, NLOG1.this);
+                et_Scroller(et3, NLOGcalc.this);
+                et_Scroller(et1, NLOGcalc.this);
+                et_Scroller(et2, NLOGcalc.this);
 
-                TextChangeListeners(tvRes, etNLOG1r, etNLOG1m1, etNLOG1m2);
+                TextChangeListeners(tvRes, et3, et1, et2);
 
+                btnCopy.setOnClickListener(view1 -> {
 
-                btnCalc.setOnClickListener(view -> {
-                    hideKeyboardOnClick(btnCalc, NLOG1.this);
-                    customKeyboard.setVisibility(View.GONE);
-
-                    if (etNLOG1m1.getText().toString().trim().isEmpty() || etNLOG1m2.getText().toString().trim().isEmpty() || etNLOG1r.getText().toString().trim().isEmpty()) {
-                        Toast.makeText(NLOG1.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                    } else {
-
-                        double m1 = evalf(etNLOG1m1.getText().toString().trim());
-                        double m2 = evalf(etNLOG1m2.getText().toString().trim());
-                        double r = evalf(etNLOG1r.getText().toString().trim());
-
-                        double result = ((0.00000000006674010551359 * m1 * m2) / (r * r));
-
-                        String res = HtmlNumberFormatter(NLOG1.this, String.valueOf(result));
-                        tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
-
-                        sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
-
-
-                        tvRes.setVisibility(View.VISIBLE);
-                        btnCopy.setVisibility(View.VISIBLE);
-
-                        btnCopy.setOnClickListener(view1 -> {
-
-                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("force of attraction", tvRes.getText().toString().trim());
-                            clipboard.setPrimaryClip(clip);
-                            Toast.makeText(NLOG1.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                        });
-                    }
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText(null, tvRes.getText().toString().trim());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(NLOGcalc.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
                 });
 
-            }
-        }
+                boolean[] findFMR = getIntent().getBooleanArrayExtra("findFMR");
+                boolean findF = findFMR[0];
+                boolean findM = findFMR[1];
+                boolean findR = findFMR[2];
 
-        public static class NLOG2 extends AppCompatActivity {
+                if (findF) {
+                    tv1.setText("Mass of the first object");
+                    tv2.setText("Mass of the second object");
+                    tv3.setText("Distance between the centre of the objects");
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
+                    mathView.setVisibility(View.VISIBLE);
+                    mathView.setText(getTex("F=G*m1*m2/r^2"));
 
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
+                    btnCalc.setOnClickListener(view -> {
+                        hideKeyboardOnClick(btnCalc, NLOGcalc.this);
+                        customKeyboard.setVisibility(View.GONE);
+
+                        if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
+                            Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            double m1 = evalf(et1.getText().toString().trim());
+                            double m2 = evalf(et2.getText().toString().trim());
+                            double r = evalf(et3.getText().toString().trim());
+
+                            double result = ((G * m1 * m2) / (r * r));
+
+                            String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
+                            tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
+
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+
+                            tvRes.setVisibility(View.VISIBLE);
+                            btnCopy.setVisibility(View.VISIBLE);
+
+                        }
+                    });
+                } else if (findM) {
+                    tv1.setText("Mass of the first object");
+                    tv2.setText("Force of attraction");
+                    tv3.setText("Distance between the centre of the objects");
+
+                    mathView.setVisibility(View.VISIBLE);
+                    mathView.setText(getTex("m1=F*r^2/G"));
+
+                    btnCalc.setOnClickListener(view -> {
+                        hideKeyboardOnClick(btnCalc, NLOGcalc.this);
+                        customKeyboard.setVisibility(View.GONE);
+
+                        if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
+                            Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            double m1 = evalf(et1.getText().toString().trim());
+                            double f2 = evalf(et2.getText().toString().trim());
+                            double r = evalf(et3.getText().toString().trim());
+
+                            double result = r * r * f2 / (G * m1);
+
+                            String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
+                            tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
+
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+                            tvRes.setVisibility(View.VISIBLE);
+                            btnCopy.setVisibility(View.VISIBLE);
+
+                        }
+                    });
+                } else if (findR) {
+                    tv1.setText("Mass of the first object");
+                    tv2.setText("Mass of the second object");
+                    tv3.setText("Force of attraction");
+
+                    mathView.setVisibility(View.VISIBLE);
+                    mathView.setText(getTex("r=sqrt(F*m1*m2/G)"));
+
+                    btnCalc.setOnClickListener(view -> {
+                        hideKeyboardOnClick(btnCalc, NLOGcalc.this);
+                        customKeyboard.setVisibility(View.GONE);
+
+                        if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
+                            Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            double m1 = evalf(et1.getText().toString().trim());
+                            double m2 = evalf(et2.getText().toString().trim());
+                            double f2 = evalf(et3.getText().toString().trim());
+
+                            double result = Math.sqrt((G * m1 * m2) / f2);
+
+                            String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
+                            tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
+
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
+                            tvRes.setVisibility(View.VISIBLE);
+                            btnCopy.setVisibility(View.VISIBLE);
+
+                        }
+                    });
                 }
             }
-
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
-                Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                Button btnNLOG2copy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG2result = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG2m = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG2r = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                EditText etNLOG2n = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
-                img.setVisibility(View.GONE);
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG2m, etNLOG2r, etNLOG2n);
-                tvNLOG1.setText("Mass of the object");
-                tvNLOG2.setText("Force between the objects");
-                tvNLOG3.setText("Distance between the centre of the objects");
-
-
-                et_Scroller(etNLOG2r, NLOG2.this);
-                et_Scroller(etNLOG2m, NLOG2.this);
-                et_Scroller(etNLOG2n, NLOG2.this);
-
-                tvNLOG2result.setVisibility(View.GONE);
-                btnNLOG2copy.setVisibility(View.GONE);
-
-
-                TextChangeListeners(tvNLOG2result, etNLOG2m, etNLOG2r, etNLOG2n);
-
-
-                btnCalc.setOnClickListener(view -> {
-                    hideKeyboardOnClick(btnCalc, NLOG2.this);
-                    customKeyboard.setVisibility(View.GONE);
-                    if (etNLOG2m.getText().toString().trim().isEmpty() || etNLOG2n.getText().toString().trim().isEmpty() || etNLOG2r.getText().toString().trim().isEmpty()) {
-                        Toast.makeText(NLOG2.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                    } else {
-                        double m = evalf(etNLOG2m.getText().toString().trim());
-                        double n = evalf(etNLOG2n.getText().toString().trim());
-                        double r = evalf(etNLOG2r.getText().toString().trim());
-
-                        double result = ((n * r * r) / (m * 0.00000000006674010551359));
-                        String res = HtmlNumberFormatter(NLOG2.this, String.valueOf(result));
-
-                        tvNLOG2result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
-
-                        sv.post(() -> sv.smoothScrollTo(0, btnNLOG2copy.getBottom()));
-
-                        tvNLOG2result.setVisibility(View.VISIBLE);
-                        btnNLOG2copy.setVisibility(View.VISIBLE);
-
-                        btnNLOG2copy.setOnClickListener(view1 -> {
-                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("mass of second object", tvNLOG2result.getText().toString().trim());
-                            clipboard.setPrimaryClip(clip);
-                            Toast.makeText(NLOG2.this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                        });
-
-                    }
-                });
-            }
         }
 
-        public static class NLOG3 extends AppCompatActivity {
-
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
-            Button btnCalc, btnNLOG3copy;
-            TextView tvNLOG3result;
-            EditText etNLOG3m1, etNLOG3m2, etNLOG3f;
-
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
-                btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                btnNLOG3copy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                tvNLOG3result = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                etNLOG3m1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                etNLOG3m2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                etNLOG3f = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                TextView tvNLOG3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, etNLOG3m1, etNLOG3m2, etNLOG3f);
-                img.setVisibility(View.GONE);
-                tvNLOG1.setText("Mass of the first object");
-                tvNLOG2.setText("Mass of the second object");
-                tvNLOG3.setText("Force between the objects");
-
-
-                et_Scroller(etNLOG3f, NLOG3.this);
-                et_Scroller(etNLOG3m1, NLOG3.this);
-                et_Scroller(etNLOG3m2, NLOG3.this);
-
-                tvNLOG3result.setVisibility(View.GONE);
-                btnNLOG3copy.setVisibility(View.GONE);
-
-
-                TextChangeListeners(tvNLOG3result, etNLOG3f, etNLOG3m1, etNLOG3m2);
-
-                btnCalc.setOnClickListener(view -> {
-                    hideKeyboardOnClick(btnCalc, NLOG3.this);
-                    customKeyboard.setVisibility(View.GONE);
-                    if (etNLOG3m1.getText().toString().trim().isEmpty() || etNLOG3m2.getText().toString().trim().isEmpty() || etNLOG3f.getText().toString().trim().isEmpty()) {
-                        Toast.makeText(NLOG3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-                    } else {
-
-                        double m1 = evalf(etNLOG3m1.getText().toString().trim());
-                        double m2 = evalf(etNLOG3m2.getText().toString().trim());
-                        double n = evalf(etNLOG3f.getText().toString().trim());
-
-                        double result = (Math.sqrt((0.00000000006674010551359 * m1 * m2) / n));
-                        String res = HtmlNumberFormatter(NLOG3.this, String.valueOf(result));
-
-                        tvNLOG3result.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
-
-
-                        sv.post(() -> sv.smoothScrollTo(0, btnNLOG3copy.getBottom()));
-
-                        tvNLOG3result.setVisibility(View.VISIBLE);
-                        btnNLOG3copy.setVisibility(View.VISIBLE);
-
-                        btnNLOG3copy.setOnClickListener(view1 -> {
-                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("Distance between the masses", tvNLOG3result.getText().toString().trim());
-                            clipboard.setPrimaryClip(clip);
-                            Toast.makeText(this, "Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                        });
-                    }
-                });
-
-            }
-
-        }
     }
-
-
 }

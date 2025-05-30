@@ -75,10 +75,6 @@
                 android:name=".activities.physics.CollisionMenu$ObliqueCollisionMenu$momentumConservation"
                 android:exported="true"/>
         <activity
-                android:name=".activities.math.VarSolver"
-                android:exported="true"/>
-
-        <activity
                 android:name=".activities.math.VarSolver2"
                 android:exported="true"/>
         <activity
@@ -306,13 +302,7 @@
                 android:name=".activities.math.LOSAC"
                 android:exported="true"/>
         <activity
-                android:name=".activities.physics.Gravitation$NLOG$NLOG3"
-                android:exported="true"/>
-        <activity
-                android:name=".activities.physics.Gravitation$NLOG$NLOG2"
-                android:exported="true"/>
-        <activity
-                android:name=".activities.physics.Gravitation$NLOG$NLOG1"
+                android:name=".activities.physics.Gravitation$NLOG$NLOGcalc"
                 android:exported="true"/>
         <activity
                 android:name=".activities.physics.Gravitation$NLOG"
