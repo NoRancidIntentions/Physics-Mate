@@ -9,10 +9,10 @@ import android.text.Html;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
-import live.pw.renderX.mathJaxView.MathJaxView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +23,7 @@ import static com.example.physicsmate.Custom_methods.*;
 public class Gravitation extends AppCompatActivity {
 
     static double G = 0.00000000006674010551359;
+    static final float fontSize = 72.f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -732,7 +733,7 @@ public class Gravitation extends AppCompatActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathJaxView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MTMathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
 
@@ -745,7 +746,7 @@ public class Gravitation extends AppCompatActivity {
 
                 img.setVisibility(View.GONE);
                 //MathJaxConfig(mathView);
-                mathView.setText(getTex("g = G*M/r^2", 24));
+                mathView.setLatex(getTex("g = G*M/r^2"));
 
                 setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 
@@ -1164,7 +1165,7 @@ public class Gravitation extends AppCompatActivity {
                 TextView tv1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                MathJaxView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                MTMathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
                 img.setVisibility(View.GONE);
@@ -1201,7 +1202,7 @@ public class Gravitation extends AppCompatActivity {
                     tv3.setText("Distance between the centre of the objects");
 
                     mathView.setVisibility(View.VISIBLE);
-                    mathView.setText(getTex("F=G*m1*m2/r^2"));
+                    mathView.setLatex(getTex("F=G*m1*m2/r^2", fontSize, mathView));
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);
@@ -1234,7 +1235,7 @@ public class Gravitation extends AppCompatActivity {
                     tv3.setText("Distance between the centre of the objects");
 
                     mathView.setVisibility(View.VISIBLE);
-                    mathView.setText(getTex("m1=F*r^2/G"));
+                    mathView.setLatex(getTex("m1=F*r^2/G", fontSize, mathView));
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);
@@ -1266,7 +1267,7 @@ public class Gravitation extends AppCompatActivity {
                     tv3.setText("Force of attraction");
 
                     mathView.setVisibility(View.VISIBLE);
-                    mathView.setText(getTex("r=sqrt(F*m1*m2/G)"));
+                    mathView.setLatex(getTex("r=sqrt(G*m1*m2/F)", fontSize, mathView));
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);

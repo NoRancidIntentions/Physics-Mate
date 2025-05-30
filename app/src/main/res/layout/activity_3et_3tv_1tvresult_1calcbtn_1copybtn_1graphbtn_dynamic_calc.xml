@@ -28,7 +28,7 @@
                     android:id="@+id/imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
             />
 
-            <live.pw.renderX.mathJaxView.MathJaxView
+            <com.agog.mathdisplay.MTMathView
                     style="@style/custom_mathJaxView"
                     android:id="@+id/latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc"
             />

@@ -15,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import com.github.mikephil.charting.charts.LineChart;
@@ -1161,8 +1162,7 @@ public class Custom_methods {
 
             String stw_string = stw.toString().replaceAll("(\\D)(\\d)", "$1_{$2}");
 
-            String latex = " \\color{#D0D0D0}{" + stw_string + "}";
-            return "<div style='font-size:" + 18 + "px;'>\\[" + latex + "\\]</div>";
+            return "\\color{#D0D0D0}{" + stw_string + "}";
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
@@ -1174,7 +1174,7 @@ public class Custom_methods {
         return StringError;
     }
 
-    public static String getTex(String function, int fontSize) {
+    public static String getTex(String function, float fontSize, MTMathView mathView) {
         try {
             // false -> switch to Mathematica syntax mode:
             EvalEngine engine = new EvalEngine(false);
@@ -1183,9 +1183,11 @@ public class Custom_methods {
 
             StringWriter stw = new StringWriter();
             texUtil.toTeX(IExprConverter(function), stw);
-            // print: \sum_{i = 1}^{n}i
-            String latex = " \\color{#D0D0D0}{" + stw + "}";
-            return "<div style='font-size:" + fontSize + "px;'>\\[" + latex + "\\]</div>";
+
+            String stw_string = stw.toString().replaceAll("(\\D)(\\d)", "$1_{$2}");
+
+            mathView.setFontSize(fontSize);
+            return "\\color{#D0D0D0}{" + stw_string + "}";
 
         } catch (SyntaxError e) {
             // catch Symja parser errors here
