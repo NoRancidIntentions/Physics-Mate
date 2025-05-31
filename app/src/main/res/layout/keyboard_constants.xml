@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:padding="8dp"
+            android:background="@color/darker_grey">
+
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="e"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="π"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="h"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="c"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="G"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="μ₀"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="ε₀"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="mₑ"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="mₚ"/>
+    <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard" android:text="mₙ"/>
+
+</GridLayout>

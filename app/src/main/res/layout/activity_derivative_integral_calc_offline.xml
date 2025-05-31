@@ -25,7 +25,7 @@
                 android:inputType="text"
                 android:minHeight="48dp"/>
 
-        <live.pw.renderX.mathJaxView.MathJaxView
+        <com.agog.mathdisplay.MTMathView
                 style="@style/custom_mathJaxView"
                 android:id="@+id/latexView1"/>
 
@@ -96,7 +96,7 @@
                 style="@style/custom_button_enabled"
         />
 
-        <live.pw.renderX.mathJaxView.MathJaxView
+        <com.agog.mathdisplay.MTMathView
                 style="@style/custom_mathJaxView"
                 android:id="@+id/latexView2"/>
 
@@ -124,7 +124,7 @@
         />
 
 
-        <live.pw.renderX.mathJaxView.MathJaxView
+        <com.agog.mathdisplay.MTMathView
                 style="@style/custom_mathJaxView"
                 android:id="@+id/latexView3"/>
 
