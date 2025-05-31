@@ -37,7 +37,7 @@
                 style="custom_linearLayout"
                 android:id="@+id/var_solver_MVs">
 
-            <live.pw.renderX.mathJaxView.MathJaxView
+            <com.agog.mathdisplay.MTMathView
                     style="@style/custom_mathJaxView"
                     android:layout_marginTop="10dp"
                     android:id="@+id/var_solver_mv1"

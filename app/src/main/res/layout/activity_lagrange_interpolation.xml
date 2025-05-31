@@ -109,7 +109,7 @@
                 style="@style/custom_textView"
                 android:text="TextView"/>
 
-        <live.pw.renderX.mathJaxView.MathJaxView
+        <com.agog.mathdisplay.MTMathView
                 style="@style/custom_mathJaxView"
                 android:id="@+id/l_mathview"/>
 

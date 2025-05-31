@@ -20,9 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         //in a new thread, calculate derivative of 3x
         new Thread(() -> {
-            //calculate derivative of 3x
-            String derivative = Custom_methods.calculateNthDerivative("3x", "x", 1);
-            System.out.println(derivative);
+            UI_Solver_Tools_Linker.LoggerFix.fix();
+            Custom_methods.calculateNthDerivative("3x", "x", 1);
         }).start();
 
 
