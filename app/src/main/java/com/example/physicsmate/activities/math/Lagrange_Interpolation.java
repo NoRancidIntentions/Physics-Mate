@@ -10,9 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import live.pw.renderX.mathJaxView.MathJaxView;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class Lagrange_Interpolation extends AppCompatActivity {
 
     private Button btnAddRow, btnCalc;
     private TextView tvResult;
-    private MathJaxView mathView;
+    private MTMathView mathView;
     private LinearLayout rowsLayout;
 
     @Override
@@ -79,12 +79,12 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         xInput.addTextChangedListener(new CustomTextWatcher());
         yInput.addTextChangedListener(new CustomTextWatcher());
 
-        deleteButton.setOnClickListener(v -> removeRowWithAnimation(newRow));
+        deleteButton.setOnClickListener(v -> removeRow(newRow));
 
         updateCalcButtonState();
     }
 
-    private void removeRowWithAnimation(View row) {
+    private void removeRow(View row) {
         Animation anim = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
         row.startAnimation(anim);
         row.postDelayed(() -> {
@@ -145,7 +145,7 @@ public class Lagrange_Interpolation extends AppCompatActivity {
         tvResult.setText(Html.fromHtml(resultText, Html.FROM_HTML_MODE_LEGACY));
         tvResult.setVisibility(View.VISIBLE);
 
-        mathView.setText(getTex("y = " + poly));
+        mathView.setLatex(getTex("y = " + poly, mathView));
         mathView.setVisibility(View.VISIBLE);
     }
 

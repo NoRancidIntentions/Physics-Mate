@@ -746,7 +746,7 @@ public class Gravitation extends AppCompatActivity {
 
                 img.setVisibility(View.GONE);
                 //MathJaxConfig(mathView);
-                mathView.setLatex(getTex("g = G*M/r^2"));
+                mathView.setLatex(getTex("g = G*M/r^2", fontSize, mathView));
 
                 setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
 

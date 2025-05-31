@@ -1150,7 +1150,7 @@ public class Custom_methods {
      * @param function the mathematical function to convert to LaTeX
      * @return the LaTeX representation of the function
      */
-    public static String getTex(String function) {
+    public static String getTex(String function, MTMathView mathView) {
         try {
             // false -> switch to Mathematica syntax mode:
             EvalEngine engine = new EvalEngine(false);
@@ -1160,7 +1160,9 @@ public class Custom_methods {
             StringWriter stw = new StringWriter();
             texUtil.toTeX(IExprConverter(function), stw);
 
-            String stw_string = stw.toString().replaceAll("(\\D)(\\d)", "$1_{$2}");
+            String stw_string = stw.toString().replaceAll("([a-zA-Z])(\\d+)", "$1_{$2}");
+            mathView.setFontSize(60f);
+
 
             return "\\color{#D0D0D0}{" + stw_string + "}";
 
@@ -1184,7 +1186,7 @@ public class Custom_methods {
             StringWriter stw = new StringWriter();
             texUtil.toTeX(IExprConverter(function), stw);
 
-            String stw_string = stw.toString().replaceAll("(\\D)(\\d)", "$1_{$2}");
+            String stw_string = stw.toString().replaceAll("([a-zA-Z])(\\d+)", "$1_{$2}");
 
             mathView.setFontSize(fontSize);
             return "\\color{#D0D0D0}{" + stw_string + "}";

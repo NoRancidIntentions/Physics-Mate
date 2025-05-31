@@ -11,9 +11,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import live.pw.renderX.mathJaxView.MathJaxView;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -30,7 +30,7 @@ public class ExpressionEvaluator extends AppCompatActivity {
         ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
         LinearLayout ll = findViewById(R.id.ll_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-        MathJaxView mv = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+        MTMathView mv = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         etexp = findViewById(R.id.et1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
         etexp.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -79,7 +79,7 @@ public class ExpressionEvaluator extends AppCompatActivity {
                     Paris.styleBuilder(btnCal).add(R.style.custom_button_disabled).apply();
                     btnCal.setText("Enter Expression");
                 } else {
-                    mv.setText(getTex(etexp.getText().toString()));
+                    mv.setLatex(getTex(etexp.getText().toString(), mv));
                     mv.setVisibility(View.VISIBLE);
                     btnCal.setEnabled(true);
                     Paris.styleBuilder(btnCal).add(R.style.custom_button_enabled).apply();

@@ -12,9 +12,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import live.pw.renderX.mathJaxView.MathJaxView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +29,7 @@ public class VarSolver2 extends AppCompatActivity {
     TextView tvResult;
     LinearLayout rowsLinearLayout, MVsLinearLayout;
     ScrollView scrollView;
-    MathJaxView mv1;
+    MTMathView mv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ public class VarSolver2 extends AppCompatActivity {
         et.addTextChangedListener(new CustomTextWatcher());
 
         @SuppressLint("InflateParams")
-        MathJaxView mvItem = (MathJaxView) getLayoutInflater().inflate(R.layout.var_solver_mv2, null, false);
+        MTMathView mvItem = (MTMathView) getLayoutInflater().inflate(R.layout.var_solver_mv2, null, false);
         MVsLinearLayout.addView(mvItem);
 
         int lastIndex = rowsLinearLayout.getChildCount() - 1;
@@ -144,7 +144,7 @@ public class VarSolver2 extends AppCompatActivity {
 
         if (et1.getText().toString().isEmpty()) {
             setSolveButtonState(false, "Enter all the fields");
-            mv1.setText(null);
+            mv1.setLatex(null);
             return;
         }
 
@@ -153,19 +153,19 @@ public class VarSolver2 extends AppCompatActivity {
             EditText et = (EditText) eqnRowItem.getChildAt(0);
             if (et.getText().toString().isEmpty()) {
                 setSolveButtonState(false, "Enter all the fields");
-                mv1.setText(null);
+                mv1.setLatex(null);
                 return;
             }
         }
 
         setSolveButtonState(true, "Solve");
-        mv1.setText(getTex(et1.getText().toString()));
+        mv1.setLatex(getTex(et1.getText().toString(), mv1));
 
         for (int i = 1; i < numOfEqns; i++) {
             LinearLayout eqnRowItem = (LinearLayout) rowsLinearLayout.getChildAt(i);
             EditText et = (EditText) eqnRowItem.getChildAt(0);
-            MathJaxView mv = (MathJaxView) MVsLinearLayout.getChildAt(i);
-            mv.setText(getTex(et.getText().toString()));
+            MTMathView mv = (MTMathView) MVsLinearLayout.getChildAt(i);
+            mv.setLatex(getTex(et.getText().toString(), mv));
         }
     }
 

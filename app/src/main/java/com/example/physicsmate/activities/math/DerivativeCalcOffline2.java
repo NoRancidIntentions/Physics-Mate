@@ -11,9 +11,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import live.pw.renderX.mathJaxView.MathJaxView;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -21,7 +21,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
     CheckBox cbDefiniteIntegral, cbNumericEvaluation;
     TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound, tvDefInt;
-    MathJaxView latexView1, latexView2, latexView3;
+    MTMathView latexView1, latexView2, latexView3;
 
     Button calculateDerivative, btnGraph, btnGraphInfo, btnCopy, btnCopyDefInt;
 
@@ -114,7 +114,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
         } else {
             double number = Double.parseDouble(nthDer.getText().toString().trim());
             if (number >= 0 && Math.floor(number) == number) {
-                latexView1.setText(getTex(inputFunction.getText().toString().trim()));
+                latexView1.setLatex(getTex(inputFunction.getText().toString().trim(), latexView1));
                 calculateDerivative.setClickable(true);
                 //set style of the button
                 Paris.styleBuilder(calculateDerivative).add(R.style.custom_button_enabled).apply();
@@ -153,7 +153,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                     btnCopyDefInt.setVisibility(View.GONE);
                     latexView2.setVisibility(View.GONE);
                     latexView3.setVisibility(View.GONE);
-                    latexView1.setText(getTex(inputFunction.getText().toString().trim()));
+                    latexView1.setLatex(getTex(inputFunction.getText().toString().trim(), latexView1));
 
                     if (!inputFunction.getText().toString().isEmpty()) {
                         latexView1.setVisibility(View.VISIBLE);
@@ -182,7 +182,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
                             result.setVisibility(View.VISIBLE);
 
-                            latexView2.setText(getTex(derivative[0]));
+                            latexView2.setLatex(getTex(derivative[0], latexView2));
                             latexView2.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
                             btnGraphInfo.setVisibility(View.VISIBLE);
@@ -236,7 +236,7 @@ public class DerivativeCalcOffline2 extends AppCompatActivity {
                                 // Update UI with simplified derivative
                                 runOnUiThread(() -> {
 
-                                    latexView3.setText(getTex(simplifiedDerivative));
+                                    latexView3.setLatex(getTex(simplifiedDerivative, latexView3));
                                     latexView3.setVisibility(View.VISIBLE);
                                     Toast.makeText(getApplicationContext(), "The derivative has been simplified", Toast.LENGTH_SHORT).show();
                                     simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
