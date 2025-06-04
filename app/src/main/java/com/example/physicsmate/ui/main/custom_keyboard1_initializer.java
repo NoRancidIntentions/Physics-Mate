@@ -206,8 +206,10 @@ public class custom_keyboard1_initializer extends LinearLayout {
     public void showKeyboard() {
         setVisibility(View.VISIBLE);
         if (scrollView != null) {
-            scrollView.setPadding(0, 0, 0, getHeight());
-            System.out.println("\n\n\ndone" + getHeight() + "\n\n\n");
+            post(() -> {
+                scrollView.setPadding(0, 0, 0, getHeight());
+                System.out.println("\n\n\ndone: " + getHeight() + "\n\n\n");
+            });
         }
     }
 
