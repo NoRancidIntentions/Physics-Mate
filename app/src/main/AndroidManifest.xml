@@ -18,6 +18,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.PhysicsMate"
             tools:replace="android:theme"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             tools:targetApi="q">
         <activity
                 android:name=".activities.physics.SpecRelativity$LengthContraction"

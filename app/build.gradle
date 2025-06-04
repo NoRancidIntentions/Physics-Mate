@@ -71,7 +71,7 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' //graphs
     implementation 'org.matheclipse:matheclipse-core:2.0.0' //symbolic java
     implementation 'com.airbnb.android:paris:2.0.0' //styling
-    //implementation 'com.github.tech-pw:RenderX:1.0.0' //rendering latex
+    implementation 'com.google.android.flexbox:flexbox:3.0.0' //flexible layout, reflow
     implementation 'com.github.gregcockroft:AndroidMath:ALPHA'  //rendering latex
 //_______________________________________________________________________________
 
