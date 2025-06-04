@@ -159,11 +159,12 @@ public class Custom_methods {
      */
     public static double evalf(@NotNull String str) {
         ExprEvaluator util = new ExprEvaluator();
-        str = str.replace("e", eString);
+        str = str.replaceAll("\\b(\\d+(?:\\.\\d+)?)[eE]([+-]?\\d+)\\b", "$1 * 10^$2");
         str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
         str = str.replaceAll("phi", phiString);
         str = str.replaceAll("π", "Pi");
         str = str.replaceAll(",", "");
+        str = str.replace("e", eString);
         try {
             String temp = String.valueOf(util.eval(IExprConverter(str)));
             return util.evalf(temp);
@@ -176,10 +177,11 @@ public class Custom_methods {
     public static double evalf(@NotNull String str, boolean isComma) {
 
         ExprEvaluator util = new ExprEvaluator();
-        str = str.replace("e", eString);
+        str = str.replaceAll("\\b(\\d+(?:\\.\\d+)?)[eE]([+-]?\\d+)\\b", "$1 * 10^$2");
         str = str.replaceAll("log10\\((.*?)\\)", "ln($1)/ln(10)");
         str = str.replaceAll("phi", phiString);
         str = str.replaceAll("π", "Pi");
+        str = str.replace("e", eString);
 
         if (!isComma) {
             str = str.replace(",", "");
