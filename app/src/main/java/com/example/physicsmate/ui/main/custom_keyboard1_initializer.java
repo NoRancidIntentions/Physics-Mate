@@ -7,7 +7,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import com.example.physicsmate.R;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
@@ -72,9 +75,7 @@ public class custom_keyboard1_initializer extends LinearLayout {
         });
 
         View maybeScroll = findViewById(R.id.keyboard_tab_container);
-        if (maybeScroll instanceof HorizontalScrollView) {
-            keyboardTabContent = (HorizontalScrollView) maybeScroll;
-        } else if (maybeScroll instanceof ScrollView) {
+        if (maybeScroll instanceof ScrollView) {
             keyboardTabContent = (ScrollView) maybeScroll;
         } else {
             keyboardTabContent = (ViewGroup) maybeScroll;
@@ -140,18 +141,6 @@ public class custom_keyboard1_initializer extends LinearLayout {
         keyboardTabContent.removeAllViews();
         LayoutInflater inflater = LayoutInflater.from(getContext());
         FlexboxLayout flexContainer = (FlexboxLayout) inflater.inflate(layoutResId, keyboardTabContent, false);
-
-        if (keyboardTabContent instanceof HorizontalScrollView) {
-            ((HorizontalScrollView) keyboardTabContent).setFillViewport(true);
-            flexContainer.setFlexWrap(FlexWrap.NOWRAP);
-            flexContainer.setFlexDirection(FlexDirection.ROW);
-            flexContainer.setLayoutParams(new LayoutParams(
-                    LayoutParams.WRAP_CONTENT,        // allow width to expand
-                    LayoutParams.MATCH_PARENT));      // fill vertically
-            // Add to the HorizontalScrollView
-            keyboardTabContent.addView(flexContainer);
-            keyboardTabContent.setVisibility(VISIBLE);
-        }
 
         if (keyboardTabContent instanceof ScrollView) {
             flexContainer.setFlexWrap(FlexWrap.WRAP);
