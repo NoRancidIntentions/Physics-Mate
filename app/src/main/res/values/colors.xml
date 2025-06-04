@@ -11,5 +11,6 @@
     <color name="yellow_num_answer">#CDDC39</color>
     <color name="app_bg">#282b2d</color>
     <color name="darker_grey">#252525</color>
+    <color name="lighter_grey">#404040</color>
 
 </resources>
