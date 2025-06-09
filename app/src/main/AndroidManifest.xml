@@ -20,6 +20,7 @@
             tools:replace="android:theme"
             android:configChanges="orientation|keyboardHidden|screenSize"
             tools:targetApi="q">
+        <profileable android:shell="true"/>
         <activity
                 android:name=".activities.physics.SpecRelativity$LengthContraction"
                 android:exported="false"/>
