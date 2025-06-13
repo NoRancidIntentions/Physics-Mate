@@ -6,17 +6,14 @@ import android.text.Html;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.physicsmate.R;
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayout;
 
-import static com.example.physicsmate.Custom_methods.evalf;
 
 public class custom_keyboard1_initializer extends LinearLayout {
 
@@ -34,10 +31,12 @@ public class custom_keyboard1_initializer extends LinearLayout {
     final double Na = 6.02214076e23;
     final double sigma = 5.670367e-8;
     final double gas_constant = 8.31446261815324;
-    private final ViewGroup keyboardTabContent;
     private EditText targetEditText;
     private View scrollView;
     LinearLayout keyboard_layout, keyboard_tab_bar;
+    ConstraintLayout keyboard_main_layout;
+    FlexboxLayout keyboard_content;
+    ScrollView keyboard_scroll_view;
 
     public custom_keyboard1_initializer(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -49,13 +48,47 @@ public class custom_keyboard1_initializer extends LinearLayout {
         setVisibility(GONE);
 
         keyboard_layout = findViewById(R.id.keyboard_layout);
+        keyboard_main_layout = findViewById(R.id.keyboard_main_layout);
+        keyboard_scroll_view = findViewById(R.id.keyboard_scroll_view);
         setupOperatorBar();
+
+        //get the current orientation of the device
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == 2) {
+            keyboard_layout.getLayoutParams().height = getResources().getDisplayMetrics().heightPixels / 2 + 150;
+            System.out.println("H/2: " + keyboard_layout.getLayoutParams().height);
+        }
 
         Button tab123 = findViewById(R.id.tab_numbers);
         Button tabABC = findViewById(R.id.tab_alphabets);
         Button tabGreek = findViewById(R.id.tab_greek);
         Button tabConst = findViewById(R.id.tab_constants);
         Button backspace = findViewById(R.id.backspace);
+        Button num = findViewById(R.id.num);
+        Button alphabets = findViewById(R.id.alphabets);
+        Button greek = findViewById(R.id.greek);
+        Button constants = findViewById(R.id.constants);
+
+        tab123.setOnClickListener(v -> {
+            //smooth scroll to num button
+            keyboard_scroll_view.post(() -> keyboard_scroll_view.smoothScrollTo(0, num.getTop()));
+        });
+
+        tabABC.setOnClickListener(v -> {
+            //smooth scroll to alphabets button
+            keyboard_scroll_view.post(() -> keyboard_scroll_view.smoothScrollTo(0, alphabets.getTop()));
+        });
+
+        tabGreek.setOnClickListener(v -> {
+            //smooth scroll to greek button
+            keyboard_scroll_view.post(() -> keyboard_scroll_view.smoothScrollTo(0, greek.getTop()));
+        });
+
+        tabConst.setOnClickListener(v -> {
+            //smooth scroll to constants button
+            keyboard_scroll_view.post(() -> keyboard_scroll_view.smoothScrollTo(0, constants.getTop()));
+        });
+
 
         backspace.setOnClickListener(v -> {
             int cursorPosition = targetEditText.getSelectionStart();
@@ -74,21 +107,77 @@ public class custom_keyboard1_initializer extends LinearLayout {
             return true;
         });
 
-        View maybeScroll = findViewById(R.id.keyboard_tab_container);
-        if (maybeScroll instanceof ScrollView) {
-            keyboardTabContent = (ScrollView) maybeScroll;
-        } else {
-            keyboardTabContent = (ViewGroup) maybeScroll;
+        keyboard_tab_bar = findViewById(R.id.keyboard_tab_bar);
+        keyboard_content = findViewById(R.id.keyboard_content);
+        //get the number of buttons in keyboard_content
+        int numberOfButtons = keyboard_content.getChildCount();
+
+        int i;
+
+        for (i = 0; i < numberOfButtons; i++) {
+            Button button = (Button) keyboard_content.getChildAt(i);
+            if (button.getId() != R.id.constants) {
+                button.setOnClickListener(v -> insertText(button.getText().toString()));
+            } else {
+                break;
+            }
         }
 
-        keyboard_tab_bar = findViewById(R.id.keyboard_tab_bar);
+        for (; i < numberOfButtons; i++) {
+            Button button = (Button) keyboard_content.getChildAt(i);
+            button.setOnClickListener(v -> insertTextConst(button.getText().toString()));
+        }
 
-        tab123.setOnClickListener(v -> loadKeyboardLayout(R.layout.keyboard_numbers));
-        tabABC.setOnClickListener(v -> loadKeyboardLayout(R.layout.keyboard_alphabets));
-        tabGreek.setOnClickListener(v -> loadKeyboardLayout(R.layout.keyboard_greek));
-        tabConst.setOnClickListener(v -> loadKeyboardLayoutForConstants());
+    }
 
-        loadKeyboardLayout(R.layout.keyboard_numbers);
+    private void insertTextConst(String string) {
+        int cursorPosition = targetEditText.getSelectionStart();
+        Editable editable = targetEditText.getText();
+
+        switch (string) {
+            case "π":
+                editable.insert(cursorPosition, String.valueOf(pi));
+                break;
+            case "e":
+                editable.insert(cursorPosition, String.valueOf(e));
+                break;
+            case "ħ":
+                editable.insert(cursorPosition, String.valueOf(h));
+                break;
+            case "c":
+                editable.insert(cursorPosition, String.valueOf(c));
+                break;
+            case "G":
+                editable.insert(cursorPosition, String.valueOf(G));
+                break;
+            case "μ₀":
+                editable.insert(cursorPosition, String.valueOf(mu_0));
+                break;
+            case "ε₀":
+                editable.insert(cursorPosition, String.valueOf(eps_0));
+                break;
+            case "mₑ":
+                editable.insert(cursorPosition, String.valueOf(m_e));
+                break;
+            case "mₚ":
+                editable.insert(cursorPosition, String.valueOf(m_p));
+                break;
+            case "mₙ":
+                editable.insert(cursorPosition, String.valueOf(m_n));
+                break;
+            case "k":
+                editable.insert(cursorPosition, String.valueOf(k_B));
+                break;
+            case "N":
+                editable.insert(cursorPosition, String.valueOf(Na));
+                break;
+            case "σ":
+                editable.insert(cursorPosition, String.valueOf(sigma));
+                break;
+            case "R":
+                editable.insert(cursorPosition, String.valueOf(gas_constant));
+                break;
+        }
     }
 
     private void setupOperatorBar() {
@@ -98,22 +187,40 @@ public class custom_keyboard1_initializer extends LinearLayout {
         for (int id : operatorIds) {
             Button btn = findViewById(id);
             if (btn == null) continue;
-            String text = btn.getText().toString();
-            btn.setOnClickListener(v -> insertText(text));
+            if (btn.getId() == R.id.button_modulus) {
+                btn.setOnClickListener(v -> {
+                    insertText("||");
+                    //go back one character
+                    targetEditText.setSelection(targetEditText.getSelectionStart() - 1);
+                });
+            } else if (btn.getId() == R.id.button_factorial) {
+                btn.setOnClickListener(v -> {
+                    insertText("()!");
+                    //go back one character
+                    targetEditText.setSelection(targetEditText.getSelectionStart() - 2);
+                });
+            } else {
+                String text = btn.getText().toString();
+                btn.setOnClickListener(v -> insertText(text));
+            }
         }
 
-        int[] specOperatorIds = new int[]{R.id.button_modulus, R.id.button_factorial,
+        int[] specOperatorIds = new int[]{
                 R.id.buttonLn, R.id.buttonLog10, R.id.button_sin, R.id.button_cos, R.id.button_tan,
                 R.id.button_arcsin, R.id.button_arccos, R.id.button_arctan};
 
         for (int id : specOperatorIds) {
             Button btn = findViewById(id);
             if (btn == null) continue;
-            CharSequence text = btn.getText();
-            if (text != null) {
-                btn.setOnClickListener(v -> insertText(text + "("));
-            }
+            CharSequence text = btn.getTag().toString();
+            btn.setOnClickListener(v -> {
+                insertText(text + "()");
+                //go back one character
+                targetEditText.setSelection(targetEditText.getSelectionStart() - 1);
+            });
+
         }
+
 
         Button decimalBtn = findViewById(R.id.buttonDecimal);
         decimalBtn.setText(Html.fromHtml("<sup>.</sup> ,", Html.FROM_HTML_MODE_LEGACY));
@@ -125,64 +232,18 @@ public class custom_keyboard1_initializer extends LinearLayout {
         Button addition = findViewById(R.id.buttonPlus);
         addition.setText(Html.fromHtml("+ <sub>(</sub>", Html.FROM_HTML_MODE_LEGACY));
         addition.setOnLongClickListener(v -> {
-            insertText(" + ");
+            insertText(" ( ");
             return true;
         });
 
         Button subtraction = findViewById(R.id.buttonMinus);
         subtraction.setText(Html.fromHtml("- <sub>)</sub>", Html.FROM_HTML_MODE_LEGACY));
         subtraction.setOnLongClickListener(v -> {
-            insertText(" - ");
+            insertText(" ) ");
             return true;
         });
     }
 
-    private void loadKeyboardLayout(int layoutResId) {
-        keyboardTabContent.removeAllViews();
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        FlexboxLayout flexContainer = (FlexboxLayout) inflater.inflate(layoutResId, keyboardTabContent, false);
-
-        if (keyboardTabContent instanceof ScrollView) {
-            flexContainer.setFlexWrap(FlexWrap.WRAP);
-            flexContainer.setFlexDirection(FlexDirection.ROW);
-            flexContainer.setLayoutParams(new LayoutParams(
-                    LayoutParams.MATCH_PARENT,        // fill horizontally
-                    LayoutParams.WRAP_CONTENT));      // height wrap_content
-            // Add to the ScrollView
-            keyboardTabContent.addView(flexContainer);
-            keyboardTabContent.setVisibility(VISIBLE);
-        }
-
-        for (int i = 0; i < flexContainer.getChildCount(); i++) {
-            View v = flexContainer.getChildAt(i);
-            if (v instanceof Button) {
-                String text = ((Button) v).getText().toString();
-                v.setOnClickListener(btn -> insertText(text));
-            }
-        }
-    }
-
-    private void loadKeyboardLayoutForConstants() {
-        keyboardTabContent.removeAllViews();
-        LayoutInflater inflater1 = LayoutInflater.from(getContext());
-        FlexboxLayout layout = (FlexboxLayout) inflater1.inflate(R.layout.keyboard_constants, keyboardTabContent, false);
-        keyboardTabContent.addView(layout);
-
-        layout.getChildAt(0).setOnClickListener(v1 -> insertText(e));
-        layout.getChildAt(1).setOnClickListener(v1 -> insertText(pi));
-        layout.getChildAt(2).setOnClickListener(v1 -> insertText(h));
-        layout.getChildAt(3).setOnClickListener(v1 -> insertText(c));
-        layout.getChildAt(4).setOnClickListener(v1 -> insertText(G));
-        layout.getChildAt(5).setOnClickListener(v1 -> insertText(mu_0));
-        layout.getChildAt(6).setOnClickListener(v1 -> insertText(eps_0));
-        layout.getChildAt(7).setOnClickListener(v1 -> insertText(m_e));
-        layout.getChildAt(8).setOnClickListener(v1 -> insertText(m_p));
-        layout.getChildAt(9).setOnClickListener(v1 -> insertText(m_n));
-        layout.getChildAt(10).setOnClickListener(v1 -> insertText(k_B));
-        layout.getChildAt(11).setOnClickListener(v1 -> insertText(Na));
-        layout.getChildAt(12).setOnClickListener(v1 -> insertText(sigma));
-        layout.getChildAt(13).setOnClickListener(v1 -> insertText(gas_constant));
-    }
 
     public void setTargetEditText(EditText editText) {
         targetEditText = editText;
@@ -209,10 +270,6 @@ public class custom_keyboard1_initializer extends LinearLayout {
         setVisibility(View.GONE);
     }
 
-    public String getKeyboardText() {
-        return targetEditText != null ? targetEditText.getText().toString() : "";
-    }
-
     private void insertText(CharSequence text) {
         if (targetEditText != null) {
             int cursorPosition = targetEditText.getSelectionStart();
@@ -221,21 +278,4 @@ public class custom_keyboard1_initializer extends LinearLayout {
         }
     }
 
-    private void insertText(double num) {
-        if (targetEditText != null) {
-            int cursorPosition = targetEditText.getSelectionStart();
-            Editable editable = targetEditText.getText();
-            String text = String.valueOf(evalf(String.valueOf(num)));
-            editable.insert(cursorPosition, text);
-        }
-    }
-
-    private void insertTextInt(double num) {
-        if (targetEditText != null) {
-            int cursorPosition = targetEditText.getSelectionStart();
-            Editable editable = targetEditText.getText();
-            String text = String.valueOf((int) evalf(String.valueOf(num)));
-            editable.insert(cursorPosition, text);
-        }
-    }
 }

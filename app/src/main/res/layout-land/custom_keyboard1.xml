@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:layout_gravity="bottom|center"
         android:gravity="center"
@@ -15,6 +15,8 @@
     <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
             android:padding="4dp">
 
         <LinearLayout
@@ -50,28 +52,28 @@
                                                        android:tag="!"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/buttonLn"
                                                        style="@style/custom_button_enabled_keyboard" android:text="ln"
-                                                       android:tag="ln("/>
+                                                       android:tag="ln"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/buttonLog10"
                                                        style="@style/custom_button_enabled_keyboard"
                                                        android:text="log10" android:tag="log10("/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_sin"
                                                        style="@style/custom_button_enabled_keyboard" android:text="sin"
-                                                       android:tag="sin("/>
+                                                       android:tag="sin"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_cos"
                                                        style="@style/custom_button_enabled_keyboard" android:text="cos"
-                                                       android:tag="cos("/>
+                                                       android:tag="cos"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_tan"
                                                        style="@style/custom_button_enabled_keyboard" android:text="tan"
-                                                       android:tag="tan("/>
+                                                       android:tag="tan"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_arcsin"
                                                        style="@style/custom_button_enabled_keyboard"
-                                                       android:text="sin⁻¹" android:tag="arcsin("/>
+                                                       android:text="sin⁻¹" android:tag="arcsin"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_arccos"
                                                        style="@style/custom_button_enabled_keyboard"
-                                                       android:text="cos⁻¹" android:tag="arccos("/>
+                                                       android:text="cos⁻¹" android:tag="arccos"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_arctan"
                                                        style="@style/custom_button_enabled_keyboard"
-                                                       android:text="tan⁻¹" android:tag="arctan("/>
+                                                       android:text="tan⁻¹" android:tag="arctan"/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_pi"
                                                        style="@style/custom_button_enabled_keyboard" android:text="π"
                                                        android:tag="pi"/>
@@ -85,18 +87,207 @@
     <!-- Main layout: tab content on left, tab bar on right -->
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/keyboard_main_layout"
             android:layout_weight="1">
 
         <ScrollView
-                android:id="@+id/keyboard_tab_container"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:id="@+id/keyboard_scroll_view"
+                android:background="@color/darker_grey"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/keyboard_tab_bar"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/keyboard_tab_bar">
 
+
+            <com.google.android.flexbox.FlexboxLayout
+                    app:flexWrap="wrap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:justifyContent="space_around"
+                    android:id="@+id/keyboard_content"
+            >
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="1" android:id="@+id/num"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="2"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="3"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="4"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="5"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="6"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="7"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="8"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="9"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="0"/>
+
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="a" android:id="@+id/alphabets"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="b"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="c"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="d"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="e"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="f"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="g"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="h"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="i"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="j"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="k"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="l"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="m"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="n"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="o"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="p"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="q"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="r"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="s"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="t"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="u"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="v"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="w"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="x"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="y"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="z"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="α" android:id="@+id/greek"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="β"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="γ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="δ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ε"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ζ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="η"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="θ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ι"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="κ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="λ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="μ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ν"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ξ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ο"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="π"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ρ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="σ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="τ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="υ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="φ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="χ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ψ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ω"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="△"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="▽"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="•"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="×"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ʃ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∬"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∭"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∮"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∯"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∰"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∑"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="∏"/>
+
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="e" android:id="@+id/constants"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="π"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="h"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="c"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="G"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="μ₀"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="ε₀"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="mₑ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="mₚ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="mₙ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="k"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="N"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="σ"/>
+                <androidx.appcompat.widget.AppCompatButton style="@style/custom_button_enabled_keyboard"
+                                                           android:text="R"/>
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </ScrollView>
         <LinearLayout
                 android:id="@+id/keyboard_tab_bar"
                 android:layout_width="wrap_content"
@@ -105,9 +296,8 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:gravity="center_vertical"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/tab_numbers"
                                                        android:textColor="@drawable/dynamic_text"
@@ -133,6 +323,7 @@
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/backspace"
                                                        android:textColor="@drawable/dynamic_text"
                                                        android:background="@drawable/btn_enabled"
+                                                       android:minHeight="48dp"
                                                        style="@style/custom_button_enabled_keyboard" android:text="⌫"
                                                        android:layout_width="80dp"/>
 
