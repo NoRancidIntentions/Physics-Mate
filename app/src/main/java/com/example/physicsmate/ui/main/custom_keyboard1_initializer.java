@@ -181,7 +181,7 @@ public class custom_keyboard1_initializer extends LinearLayout {
     }
 
     private void setupOperatorBar() {
-        int[] operatorIds = new int[]{R.id.button_modulus, R.id.button_factorial, R.id.buttonDecimal, R.id.buttonPlus, R.id.buttonMinus, R.id.buttonMultiply,
+        int[] operatorIds = new int[]{R.id.buttonDecimal, R.id.buttonPlus, R.id.buttonMinus, R.id.buttonMultiply,
                 R.id.buttonDivide, R.id.button_power};
 
         for (int id : operatorIds) {

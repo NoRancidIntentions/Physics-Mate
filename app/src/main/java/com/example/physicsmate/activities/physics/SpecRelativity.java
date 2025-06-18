@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.MainActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class SpecRelativity extends AppCompatActivity {
+public class SpecRelativity extends MainActivity {
 
     public static int c = 299792458;
 
@@ -91,7 +91,7 @@ public class SpecRelativity extends AppCompatActivity {
         });
     }
 
-    public static class LengthContraction extends AppCompatActivity {
+    public static class LengthContraction extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;
@@ -325,7 +325,7 @@ public class SpecRelativity extends AppCompatActivity {
         }
     }
 
-    public static class TimeDilation extends AppCompatActivity {
+    public static class TimeDilation extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;
@@ -351,7 +351,7 @@ public class SpecRelativity extends AppCompatActivity {
         }
     }
 
-    public static class VelocityAddition extends AppCompatActivity {
+    public static class VelocityAddition extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;
@@ -377,7 +377,7 @@ public class SpecRelativity extends AppCompatActivity {
         }
     }
 
-    public static class DopplerEffect extends AppCompatActivity {
+    public static class DopplerEffect extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;
@@ -403,7 +403,7 @@ public class SpecRelativity extends AppCompatActivity {
         }
     }
 
-    public static class RelativisiticPosition extends AppCompatActivity {
+    public static class RelativisiticPosition extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;
@@ -429,7 +429,7 @@ public class SpecRelativity extends AppCompatActivity {
         }
     }
 
-    public static class RelativisticTime extends AppCompatActivity {
+    public static class RelativisticTime extends MainActivity {
 
         custom_keyboard1_initializer customKeyboard;
         ScrollView sv;

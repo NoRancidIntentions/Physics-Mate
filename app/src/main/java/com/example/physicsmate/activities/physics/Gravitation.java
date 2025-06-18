@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.MainActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class Gravitation extends AppCompatActivity {
+public class Gravitation extends MainActivity {
 
     static double G = 0.00000000006674010551359;
     static final float fontSize = 72.f;
@@ -55,7 +55,7 @@ public class Gravitation extends AppCompatActivity {
         btnGravTimeDil.setOnClickListener(v -> startActivity(new Intent(Gravitation.this, GravTimeDilation.class)));
     }
 
-    public static class EscVelMenu extends AppCompatActivity {
+    public static class EscVelMenu extends MainActivity {
 
 
         @Override
@@ -99,7 +99,7 @@ public class Gravitation extends AppCompatActivity {
 
         }
 
-        public static class EscVel3Calc extends AppCompatActivity {
+        public static class EscVel3Calc extends MainActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;
@@ -255,7 +255,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravPotentialMenu extends AppCompatActivity {
+    public static class GravPotentialMenu extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -301,7 +301,7 @@ public class Gravitation extends AppCompatActivity {
 
         }
 
-        public static class GravPotential3Calc extends AppCompatActivity {
+        public static class GravPotential3Calc extends MainActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;
@@ -447,7 +447,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravPotentialEnergyMenu extends AppCompatActivity {
+    public static class GravPotentialEnergyMenu extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -497,7 +497,7 @@ public class Gravitation extends AppCompatActivity {
 
         }
 
-        public static class GravPotentialEnergyCalc extends AppCompatActivity {
+        public static class GravPotentialEnergyCalc extends MainActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;
@@ -657,7 +657,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravAcc extends AppCompatActivity {
+    public static class GravAcc extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -702,7 +702,7 @@ public class Gravitation extends AppCompatActivity {
 
         }
 
-        public static class GravAcc3Calc extends AppCompatActivity {
+        public static class GravAcc3Calc extends MainActivity {
 
             ScrollView sv;
             custom_keyboard1_initializer customKeyboard;
@@ -862,7 +862,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravBinEnergy extends AppCompatActivity {
+    public static class GravBinEnergy extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -871,7 +871,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class OrbVelMenu extends AppCompatActivity {
+    public static class OrbVelMenu extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -920,7 +920,7 @@ public class Gravitation extends AppCompatActivity {
             });
         }
 
-        public static class OrbVel3Calc extends AppCompatActivity {
+        public static class OrbVel3Calc extends MainActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;
@@ -1067,7 +1067,7 @@ public class Gravitation extends AppCompatActivity {
     }
 
 
-    public static class KepThirdLaw extends AppCompatActivity {
+    public static class KepThirdLaw extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -1076,7 +1076,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class GravTimeDilation extends AppCompatActivity {
+    public static class GravTimeDilation extends MainActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -1085,7 +1085,7 @@ public class Gravitation extends AppCompatActivity {
         }
     }
 
-    public static class NLOG extends AppCompatActivity {
+    public static class NLOG extends MainActivity {
 
         Button btnNLOG1, btnNLOG2, btnNLOG3;
 
@@ -1133,7 +1133,7 @@ public class Gravitation extends AppCompatActivity {
 
         }
 
-        public static class NLOGcalc extends AppCompatActivity {
+        public static class NLOGcalc extends MainActivity {
 
             custom_keyboard1_initializer customKeyboard;
             ScrollView sv;

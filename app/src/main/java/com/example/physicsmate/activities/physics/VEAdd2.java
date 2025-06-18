@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.main.MainActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class VEAdd2 extends AppCompatActivity {
+public class VEAdd2 extends MainActivity {
 
 
     @Override
@@ -90,7 +90,7 @@ public class VEAdd2 extends AppCompatActivity {
         return !s.contains(",");
     }
 
-    public static class VEAdd2Cart extends AppCompatActivity {
+    public static class VEAdd2Cart extends MainActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
@@ -209,7 +209,7 @@ public class VEAdd2 extends AppCompatActivity {
 
     }
 
-    public static class VEAdd2Polar extends AppCompatActivity {
+    public static class VEAdd2Polar extends MainActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
@@ -310,7 +310,7 @@ public class VEAdd2 extends AppCompatActivity {
 
     }
 
-    public static class VEAdd2PolarCosines extends AppCompatActivity {
+    public static class VEAdd2PolarCosines extends MainActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
