@@ -2,8 +2,8 @@ package com.example.physicsmate.activities.math;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import static com.example.physicsmate.Custom_methods.addArrayListEntries;
 import static com.example.physicsmate.Custom_methods.mChartProperties;
 
-public class DerivativeCalcOfflineGraph extends AppCompatActivity {
+public class DerivativeCalcOfflineGraph extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

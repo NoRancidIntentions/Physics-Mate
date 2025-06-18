@@ -1,80 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:id="@+id/homeMenuConstraintLayout"
         tools:context=".ui.main.MainActivity">
 
+    <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/viewPager2" android:drawingCacheQuality="high" android:alwaysDrawnWithCache="true"
+            android:animateLayoutChanges="true" android:animationCache="true" android:persistentDrawingCache="all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.tabs.TabLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabLayout"
+            android:background="@color/darker_grey"
+            app:tabSelectedTextColor="@color/yellow_num_answer"
+            app:tabTextColor="@color/blue_text_answer"
+            app:tabIndicatorColor="@color/yellow_num_answer"
+            app:tabRippleColor="@color/yellow_num_answer"
+            app:fontFamily="@font/sans_bold"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:tabIndicatorGravity="top" app:tabMode="fixed"
+            app:tabGravity="fill" app:tabUnboundedRipple="false">
 
-    <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true">
-
-    </com.google.android.material.navigation.NavigationView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/custom_linearLayout"
-            android:layout_height="match_parent"
-            android:id="@+id/homeMenuLinearLayout">
-
-        <include layout="@layout/custom_toolbar"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent"
-        />
-
-        <androidx.viewpager2.widget.ViewPager2
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:id="@+id/viewPager2" android:drawingCacheQuality="high" android:alwaysDrawnWithCache="true"
-                android:animateLayoutChanges="true" android:animationCache="true" android:persistentDrawingCache="all"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tabLayout" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="1.0"/>
-        <com.google.android.material.tabs.TabLayout
-                android:layout_width="0dp"
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tabLayout"
-                android:background="@color/darker_grey"
-                app:tabSelectedTextColor="@color/yellow_num_answer"
-                app:tabTextColor="@color/blue_text_answer"
-                app:tabIndicatorColor="@color/yellow_num_answer"
-                app:tabRippleColor="@color/yellow_num_answer"
+                android:text="Solver"
                 app:fontFamily="@font/sans_bold"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:tabIndicatorGravity="top" app:tabMode="fixed"
-                app:tabGravity="fill" app:tabUnboundedRipple="false">
+                android:id="@+id/SolverTab"/>
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Solver"
-                    app:fontFamily="@font/sans_bold"
-                    android:id="@+id/SolverTab"/>
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tools"
+                app:fontFamily="@font/sans_bold"
+                android:id="@+id/ToolsTab"/>
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tools"
-                    app:fontFamily="@font/sans_bold"
-                    android:id="@+id/ToolsTab"/>
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="External \nLinks"
+                app:fontFamily="@font/sans_bold"
+                android:id="@+id/ExtTab"/>
 
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="External \nLinks"
-                    app:fontFamily="@font/sans_bold"
-                    android:id="@+id/ExtTab"/>
+    </com.google.android.material.tabs.TabLayout>
 
-        </com.google.android.material.tabs.TabLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

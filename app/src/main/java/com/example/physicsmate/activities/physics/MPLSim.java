@@ -2,13 +2,13 @@ package com.example.physicsmate.activities.physics;
 
 import android.os.Bundle;
 import android.webkit.WebView;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.WebViewLoader;
 
 
-public class MPLSim extends AppCompatActivity {
+public class MPLSim extends BaseActivity {
 
     WebView wv;
 

@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class Lagrange_Interpolation extends AppCompatActivity {
+public class Lagrange_Interpolation extends BaseActivity {
 
     private Button btnAddRow, btnCalc;
     private TextView tvResult;

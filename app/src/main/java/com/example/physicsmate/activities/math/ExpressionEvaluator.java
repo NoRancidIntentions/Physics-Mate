@@ -10,14 +10,14 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class ExpressionEvaluator extends AppCompatActivity {
+public class ExpressionEvaluator extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

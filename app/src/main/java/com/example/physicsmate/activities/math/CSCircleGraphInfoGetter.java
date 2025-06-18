@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.et_Scroller;
 import static com.example.physicsmate.Custom_methods.evalf;
 
-public class CSCircleGraphInfoGetter extends AppCompatActivity {
+public class CSCircleGraphInfoGetter extends BaseActivity {
 
     EditText etH, etK, etR;
     Button btnCalc;

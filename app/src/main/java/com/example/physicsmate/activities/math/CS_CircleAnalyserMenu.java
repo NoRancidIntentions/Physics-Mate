@@ -1,10 +1,10 @@
 package com.example.physicsmate.activities.math;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
-public class CS_CircleAnalyserMenu extends AppCompatActivity {
+public class CS_CircleAnalyserMenu extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

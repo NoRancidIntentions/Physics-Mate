@@ -9,9 +9,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import static com.example.physicsmate.Custom_methods.*;
 
 
-public class QE extends AppCompatActivity {
+public class QE extends BaseActivity {
 
     EditText a, b, c, graphxmin, graphxmax;
     Button btnCal, btnQE2, btnQEArea, btngraphcalc;
@@ -316,7 +316,7 @@ public class QE extends AppCompatActivity {
         tvQEArea.setText(null);
     }
 
-    public static class QE_Graph extends AppCompatActivity {
+    public static class QE_Graph extends BaseActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

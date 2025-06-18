@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.MainActivity;
+import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class VEAdd2 extends MainActivity {
+public class VEAdd2 extends BaseActivity {
 
 
     @Override
@@ -90,7 +90,7 @@ public class VEAdd2 extends MainActivity {
         return !s.contains(",");
     }
 
-    public static class VEAdd2Cart extends MainActivity {
+    public static class VEAdd2Cart extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
@@ -209,7 +209,7 @@ public class VEAdd2 extends MainActivity {
 
     }
 
-    public static class VEAdd2Polar extends MainActivity {
+    public static class VEAdd2Polar extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
@@ -310,7 +310,7 @@ public class VEAdd2 extends MainActivity {
 
     }
 
-    public static class VEAdd2PolarCosines extends MainActivity {
+    public static class VEAdd2PolarCosines extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;

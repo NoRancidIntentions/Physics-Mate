@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class VarSolver2 extends AppCompatActivity {
+public class VarSolver2 extends BaseActivity {
 
     Button btnSolve, btnAddRow, btnCopy;
     EditText et1, etVars;

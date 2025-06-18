@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 
-public class VEMultiply extends AppCompatActivity {
+public class VEMultiply extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

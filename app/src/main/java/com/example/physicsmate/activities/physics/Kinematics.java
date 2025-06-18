@@ -6,7 +6,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.*;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.MainActivity;
+import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -19,7 +19,7 @@ import java.util.Collection;
 import static com.example.physicsmate.Custom_methods.*;
 
 
-public class Kinematics extends MainActivity {
+public class Kinematics extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class Kinematics extends MainActivity {
 
     }
 
-    public static class KE1 extends MainActivity {
+    public static class KE1 extends BaseActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +133,7 @@ public class Kinematics extends MainActivity {
         }
 
 
-        public static class KE1_1 extends MainActivity {
+        public static class KE1_1 extends BaseActivity {
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
@@ -384,7 +384,7 @@ public class Kinematics extends MainActivity {
                 });
             }
 
-            public static class ke11_graph extends MainActivity {
+            public static class ke11_graph extends BaseActivity {
 
                 @Override
                 protected void onCreate(Bundle savedInstanceState) {
@@ -426,7 +426,7 @@ public class Kinematics extends MainActivity {
 
 
 
-    /*public static class KE2_Temp extends MainActivity {
+    /*public static class KE2_Temp extends BaseActivity {
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
@@ -662,7 +662,7 @@ public class Kinematics extends MainActivity {
         }
     }*/
 
-    public static class KE_projectile extends MainActivity {
+    public static class KE_projectile extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;

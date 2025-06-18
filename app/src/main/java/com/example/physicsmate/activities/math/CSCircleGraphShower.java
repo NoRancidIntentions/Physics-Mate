@@ -1,8 +1,8 @@
 package com.example.physicsmate.activities.math;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 
@@ -12,7 +12,7 @@ import static com.example.physicsmate.Custom_methods.mChartDataSetter;
 import static com.example.physicsmate.Custom_methods.mChartProperties;
 
 
-public class CSCircleGraphShower extends AppCompatActivity {
+public class CSCircleGraphShower extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,14 +10,14 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class DerivativeCalcOffline2 extends AppCompatActivity {
+public class DerivativeCalcOffline2 extends BaseActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
     CheckBox cbDefiniteIntegral, cbNumericEvaluation;
     TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound, tvDefInt;

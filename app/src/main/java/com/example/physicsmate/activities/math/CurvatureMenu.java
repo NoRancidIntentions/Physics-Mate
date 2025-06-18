@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
-public class CurvatureMenu extends AppCompatActivity
+public class CurvatureMenu extends BaseActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,7 +34,7 @@ public class CurvatureMenu extends AppCompatActivity
 
     }
 
-    public static class CurvatureParametric extends AppCompatActivity
+    public static class CurvatureParametric extends BaseActivity
     {
         @Override
         protected void onCreate(Bundle savedInstanceState)
@@ -45,7 +45,7 @@ public class CurvatureMenu extends AppCompatActivity
         }
     }
 
-    public static class CurvatureCartesian extends AppCompatActivity
+    public static class CurvatureCartesian extends BaseActivity
     {
         @Override
         protected void onCreate(Bundle savedInstanceState)

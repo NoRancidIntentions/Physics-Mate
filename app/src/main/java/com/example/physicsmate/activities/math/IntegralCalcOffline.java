@@ -10,14 +10,14 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import org.matheclipse.core.eval.ExprEvaluator;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class IntegralCalcOffline extends AppCompatActivity {
+public class IntegralCalcOffline extends BaseActivity {
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
     CheckBox cbDefiniteIntegral, cbNumericEvaluation;
     TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound, tvDefInt;

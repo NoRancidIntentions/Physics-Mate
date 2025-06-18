@@ -3,10 +3,10 @@ package com.example.physicsmate.activities.math;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
-public class CSMenu extends AppCompatActivity {
+public class CSMenu extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

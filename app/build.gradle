@@ -72,7 +72,8 @@ dependencies {
     implementation 'org.matheclipse:matheclipse-core:2.0.0' //symbolic java
     implementation 'com.airbnb.android:paris:2.0.0' //styling
     implementation 'com.google.android.flexbox:flexbox:3.0.0' //flexible layout, reflow
-    implementation 'com.github.gregcockroft:AndroidMath:ALPHA'  //rendering latex
+    implementation 'com.github.gregcockroft:AndroidMath:ALPHA'
+    implementation 'androidx.activity:activity:1.8.0'//rendering latex
 //_______________________________________________________________________________
 
     //________________________________________________________________________________

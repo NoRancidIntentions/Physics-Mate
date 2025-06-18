@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.MainActivity;
+import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 import static com.example.physicsmate.Custom_methods.*;
 
-public class CollisionMenu extends MainActivity {
+public class CollisionMenu extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class CollisionMenu extends MainActivity {
 
     }
 
-    public static class ObliqueCollisionMenu extends MainActivity {
+    public static class ObliqueCollisionMenu extends BaseActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +130,7 @@ public class CollisionMenu extends MainActivity {
 
         }
 
-        public static class momentumConservation extends MainActivity {
+        public static class momentumConservation extends BaseActivity {
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {

@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 
-public class LOSAC extends AppCompatActivity {
+public class LOSAC extends BaseActivity {
 
     Button losac1, losac2, losac3, losac4;
 
@@ -54,7 +54,7 @@ public class LOSAC extends AppCompatActivity {
         });
     }
 
-    public static class LOSAC1 extends AppCompatActivity {
+    public static class LOSAC1 extends BaseActivity {
 
         EditText AB, BC, C;
         Button btnCalculate;
@@ -137,7 +137,7 @@ public class LOSAC extends AppCompatActivity {
         }
     }
 
-    public static class LOSAC2 extends AppCompatActivity {
+    public static class LOSAC2 extends BaseActivity {
 
         EditText AB, BC, B;
         Button btnCalculate;
@@ -213,7 +213,7 @@ public class LOSAC extends AppCompatActivity {
         }
     }
 
-    public static class LOSAC3 extends AppCompatActivity {
+    public static class LOSAC3 extends BaseActivity {
 
         EditText AB, BC, AC;
         Button btnCalculate;
@@ -282,7 +282,7 @@ public class LOSAC extends AppCompatActivity {
         }
     }
 
-    public static class LOSAC4 extends AppCompatActivity {
+    public static class LOSAC4 extends BaseActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

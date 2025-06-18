@@ -2,12 +2,12 @@ package com.example.physicsmate.activities.math;
 
 import android.os.Bundle;
 import android.webkit.WebView;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 
 import static com.example.physicsmate.Custom_methods.WebViewLoader;
 
-public class GeoGebraGraph extends AppCompatActivity {
+public class GeoGebraGraph extends BaseActivity {
 
     WebView wv;
 

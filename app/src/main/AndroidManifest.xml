@@ -9,6 +9,7 @@
 
     <application
             android:allowBackup="true"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:enabled="true"
             android:hardwareAccelerated="true"
             android:icon="@mipmap/ic_launcher"
@@ -18,9 +19,13 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.PhysicsMate"
             tools:replace="android:theme"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             tools:targetApi="q">
+        <activity
+                android:name=".ui.BaseActivity"
+                android:exported="false"/>
+
         <profileable android:shell="true"/>
+
         <activity
                 android:name=".activities.physics.SpecRelativity$LengthContraction"
                 android:exported="false"/>
@@ -302,4 +307,5 @@
                 android:name=".activities.physics.Gravitation$NLOG"
                 android:exported="true"/>
     </application>
+
 </manifest>

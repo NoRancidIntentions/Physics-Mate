@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.R;
+import com.example.physicsmate.ui.BaseActivity;
 import org.matheclipse.core.eval.ExprEvaluator;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.example.physicsmate.Custom_methods.HtmlNumberFormatter;
 
-public class Orthonormalisation extends AppCompatActivity {
+public class Orthonormalisation extends BaseActivity {
 
     Button btnNext;
     EditText etDimension;
