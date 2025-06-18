@@ -31,9 +31,11 @@ public class BaseActivity extends AppCompatActivity {
     // Inject your custom activity content here
     @Override
     public void setContentView(int layoutResID) {
-        ViewGroup container = findViewById(R.id.base_content);  // Defined in activity_base_with_toolbar.xml
+        ViewGroup container = findViewById(R.id.base_content);// Defined in activity_base_with_toolbar.xml
+
         container.removeAllViews();
         LayoutInflater.from(this).inflate(layoutResID, container, true);
+
     }
 
     public Toolbar getToolbar() {
