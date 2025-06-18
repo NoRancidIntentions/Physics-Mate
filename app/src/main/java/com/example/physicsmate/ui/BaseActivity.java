@@ -1,0 +1,42 @@
+package com.example.physicsmate.ui;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.example.physicsmate.R;
+
+public class BaseActivity extends AppCompatActivity {
+
+    protected Toolbar toolbar;
+    AppCompatImageButton menuButton;
+    DrawerLayout drawerLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        super.setContentView(R.layout.activity_base); // Contains the toolbar and FrameLayout
+        toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        menuButton = findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
+    }
+
+    // Inject your custom activity content here
+    @Override
+    public void setContentView(int layoutResID) {
+        ViewGroup container = findViewById(R.id.base_content);  // Defined in activity_base_with_toolbar.xml
+        container.removeAllViews();
+        LayoutInflater.from(this).inflate(layoutResID, container, true);
+    }
+
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
+}
