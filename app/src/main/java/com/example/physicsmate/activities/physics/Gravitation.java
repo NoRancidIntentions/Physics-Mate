@@ -529,11 +529,11 @@ public class Gravitation extends BaseActivity {
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                //MathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                customKeyboard = this.keyboard;
 
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
+
 
                 customKeyboard.setVisibility(View.GONE);
                 setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
@@ -1166,11 +1166,16 @@ public class Gravitation extends BaseActivity {
                 TextView tv2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 MTMathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.setVisibility(View.GONE);
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
+                    }
+                });
 
                 img.setVisibility(View.GONE);
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 

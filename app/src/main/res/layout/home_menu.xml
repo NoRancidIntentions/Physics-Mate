@@ -37,14 +37,14 @@
         <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Solver"
+                android:text="Physics"
                 app:fontFamily="@font/sans_bold"
                 android:id="@+id/SolverTab"/>
 
         <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tools"
+                android:text="Math"
                 app:fontFamily="@font/sans_bold"
                 android:id="@+id/ToolsTab"/>
 
