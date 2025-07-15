@@ -15,7 +15,6 @@ import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -24,6 +23,8 @@ public class Gravitation extends BaseActivity {
 
     static double G = 0.00000000006674010551359;
     static final float fontSize = 72.f;
+    static custom_keyboard1_initializer customKeyboard;
+    static ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,20 +102,6 @@ public class Gravitation extends BaseActivity {
 
         public static class EscVel3Calc extends BaseActivity {
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -129,17 +116,14 @@ public class Gravitation extends BaseActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-
-                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
+                setLinkedScrollView(sv);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
-                customKeyboard.setVisibility(View.GONE);
 
                 img.setVisibility(View.GONE);
 
@@ -149,11 +133,20 @@ public class Gravitation extends BaseActivity {
 
                 Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
                 btnCalc.setClickable(false);
+
+                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
                 Collection<EditText> editTextList = new ArrayList<>();
                 editTextList.add(et1);
                 editTextList.add(et2);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
 
                 if (chooserV == 1) //needs work
                 {
@@ -165,7 +158,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -196,7 +189,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double vel = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -227,7 +220,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, EscVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double vel = evalf(et2.getText().toString());
 
@@ -303,20 +296,6 @@ public class Gravitation extends BaseActivity {
 
         public static class GravPotential3Calc extends BaseActivity {
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -331,13 +310,24 @@ public class Gravitation extends BaseActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                setLinkedScrollView(sv);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
+
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -358,7 +348,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -389,7 +379,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double v = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -420,7 +410,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v1 -> {
                         hideKeyboardOnClick(btnCalc, GravPotential3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double v = evalf(et2.getText().toString());
 
@@ -499,20 +489,6 @@ public class Gravitation extends BaseActivity {
 
         public static class GravPotentialEnergyCalc extends BaseActivity {
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
@@ -529,14 +505,26 @@ public class Gravitation extends BaseActivity {
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = this.keyboard;
 
                 sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                setLinkedScrollView(sv);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+                View[] viewsToDisappear = {btnCopy, tvRes};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
+                editTextList.add(et3);
 
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
 
@@ -556,7 +544,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m1 = evalf(et1.getText().toString());
                         double m2 = evalf(et2.getText().toString());
                         double r = evalf(et3.getText().toString());
@@ -590,7 +578,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         //find m1
                         double u = evalf(et1.getText().toString());
                         double m2 = evalf(et2.getText().toString());
@@ -625,7 +613,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravPotentialEnergyCalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         //find r
                         double u = evalf(et1.getText().toString());
                         double m1 = evalf(et2.getText().toString());
@@ -704,20 +692,6 @@ public class Gravitation extends BaseActivity {
 
         public static class GravAcc3Calc extends BaseActivity {
 
-            ScrollView sv;
-            custom_keyboard1_initializer customKeyboard;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
             @Override
             protected void onCreate(Bundle savedInstanceState) {
 
@@ -734,10 +708,9 @@ public class Gravitation extends BaseActivity {
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 MTMathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                setLinkedScrollView(Gravitation.sv);
 
-                View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 btnCopy.setVisibility(View.GONE);
@@ -748,16 +721,23 @@ public class Gravitation extends BaseActivity {
                 //MathJaxConfig(mathView);
                 mathView.setLatex(getTex("g = G*M/r^2", fontSize, mathView));
 
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
-
                 int chooserA = getIntent().getIntExtra("chooserA", 0);
                 int chooserM = getIntent().getIntExtra("chooserM", 0);
                 int chooserR = getIntent().getIntExtra("chooserR", 0);
+                View[] viewsToDisappear = {btnCopy, tvRes};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
 
-                //Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
-                //btnCalc.setClickable(false);
-                Collection<EditText> editTexts = Arrays.asList(et1, et2);
-                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTexts);
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
+
                 if (chooserA == 1) //needs work
                 {
                     tv1.setText("Enter Mass in kilograms");
@@ -768,7 +748,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
 
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
@@ -803,7 +783,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double acc = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -834,7 +814,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, GravAcc3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double acc = evalf(et2.getText().toString());
 
@@ -922,20 +902,6 @@ public class Gravitation extends BaseActivity {
 
         public static class OrbVel3Calc extends BaseActivity {
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -950,13 +916,25 @@ public class Gravitation extends BaseActivity {
                 Button btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                customKeyboard = findViewById(R.id.custom_keyboard1_initializer_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
+                setLinkedScrollView(sv);
+
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-                customKeyboard.setVisibility(View.GONE);
-                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                View[] viewsToDisappear = {btnCopy, tvRes};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
+
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
+
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
                 btnGraph.setVisibility(View.GONE);
@@ -976,7 +954,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -1007,7 +985,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double vel = evalf(et1.getText().toString());
                         double r = evalf(et2.getText().toString());
 
@@ -1038,7 +1016,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(v -> {
                         hideKeyboardOnClick(btnCalc, OrbVel3Calc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         double m = evalf(et1.getText().toString());
                         double vel = evalf(et2.getText().toString());
 
@@ -1135,20 +1113,6 @@ public class Gravitation extends BaseActivity {
 
         public static class NLOGcalc extends BaseActivity {
 
-            custom_keyboard1_initializer customKeyboard;
-            ScrollView sv;
-
-            @Override
-            public void onBackPressed() {
-                //if system back btn is pressed, and if keyboard is visible, hide it
-                if (customKeyboard.getVisibility() == View.VISIBLE) {
-                    customKeyboard.setVisibility(View.GONE);
-                    sv.setPadding(0, 0, 0, 0);
-                } else {
-                    super.onBackPressed();
-                }
-            }
-
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -1160,18 +1124,25 @@ public class Gravitation extends BaseActivity {
                 EditText et1 = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText et2 = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 EditText et3 = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+                ScrollView sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv1 = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv2 = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 TextView tv3 = findViewById(R.id.tv3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 MTMathView mathView = findViewById(R.id.latexView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
+                View[] viewsToDisappear = {btnCopy, tvRes};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
+                editTextList.add(et3);
+
                 base_constraint_layout.post(() -> {
                     customKeyboard = getKeyboard();
                     if (customKeyboard != null) {
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
                         setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2, et3);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
 
@@ -1185,8 +1156,6 @@ public class Gravitation extends BaseActivity {
                 et_Scroller(et3, NLOGcalc.this);
                 et_Scroller(et1, NLOGcalc.this);
                 et_Scroller(et2, NLOGcalc.this);
-
-                TextChangeListeners(tvRes, et3, et1, et2);
 
                 btnCopy.setOnClickListener(view1 -> {
 
@@ -1211,7 +1180,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
 
                         if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
                             Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1226,11 +1195,10 @@ public class Gravitation extends BaseActivity {
                             String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
                             tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
-
-
                             tvRes.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
 
                         }
                     });
@@ -1244,7 +1212,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
 
                         if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
                             Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1259,10 +1227,10 @@ public class Gravitation extends BaseActivity {
                             String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
                             tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
-
                             tvRes.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
 
                         }
                     });
@@ -1276,7 +1244,7 @@ public class Gravitation extends BaseActivity {
 
                     btnCalc.setOnClickListener(view -> {
                         hideKeyboardOnClick(btnCalc, NLOGcalc.this);
-                        customKeyboard.setVisibility(View.GONE);
+                        customKeyboard.hideKeyboard();
 
                         if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
                             Toast.makeText(NLOGcalc.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -1291,10 +1259,10 @@ public class Gravitation extends BaseActivity {
                             String res = HtmlNumberFormatter(NLOGcalc.this, String.valueOf(result));
                             tvRes.setText(Html.fromHtml(res, Html.FROM_HTML_MODE_LEGACY));
 
-                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
-
                             tvRes.setVisibility(View.VISIBLE);
                             btnCopy.setVisibility(View.VISIBLE);
+                            sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
 
                         }
                     });

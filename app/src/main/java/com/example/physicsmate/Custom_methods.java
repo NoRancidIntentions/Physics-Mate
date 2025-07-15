@@ -56,7 +56,7 @@ public class Custom_methods {
     static String StringError = "Error";
     static String eString = "2.71828182845904523536";
     static String phiString = "1.61803398874989484820";
-
+    custom_keyboard1_initializer customKeyboard;
 
     /*public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
         if (number == null) {

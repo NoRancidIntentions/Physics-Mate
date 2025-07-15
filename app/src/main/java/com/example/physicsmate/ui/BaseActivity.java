@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +22,7 @@ public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     public ConstraintLayout base_constraint_layout;
     public custom_keyboard1_initializer keyboard;
+    private ScrollView linkedScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,22 @@ public class BaseActivity extends AppCompatActivity {
         container.removeAllViews();
         LayoutInflater.from(this).inflate(layoutResID, container, true);
 
+    }
+
+    public void setLinkedScrollView(ScrollView sv) {
+        this.linkedScrollView = sv;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (keyboard != null && keyboard.getVisibility() == View.VISIBLE) {
+            keyboard.setVisibility(View.GONE);
+            if (linkedScrollView != null) {
+                linkedScrollView.setPadding(0, 0, 0, 0);
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public custom_keyboard1_initializer getKeyboard() {
