@@ -66,7 +66,6 @@ public class DerivativeCalcOffline2 extends BaseActivity {
 
         setClickability();
 
-
         latexView1.setVisibility(View.GONE);
         latexView2.setVisibility(View.GONE);
         latexView3.setVisibility(View.GONE);

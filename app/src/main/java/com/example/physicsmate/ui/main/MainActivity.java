@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
         viewPager2 = findViewById(R.id.viewPager2);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> new Thread(() -> {
-            UI_Solver_Tools_Linker.LoggerFix.fix();
+            UI_Physics_Maths_Linker.LoggerFix.fix();
             Custom_methods.calculateNthDerivative("3x", "x", 1);
         }).start(), 500); // Delay by 500ms after activity shows
 

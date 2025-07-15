@@ -18,11 +18,11 @@ public class NewViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int i) {
         switch (i) {
             case 1:
-                return new UI_Solver_Tools_Linker.Maths_frag();
+                return new UI_Physics_Maths_Linker.Maths_frag();
             case 2:
-                return new UI_Solver_Tools_Linker.ExtLinks();
+                return new UI_Physics_Maths_Linker.ExtLinks();
             default:
-                return new UI_Solver_Tools_Linker.Physics_frag();
+                return new UI_Physics_Maths_Linker.Physics_frag();
         }
     }
 

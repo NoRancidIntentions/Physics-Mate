@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class UI_Solver_Tools_Linker {
+public class UI_Physics_Maths_Linker {
 
 
     //_________________________________________________________________________________________
@@ -214,7 +214,7 @@ public class UI_Solver_Tools_Linker {
             btnQE.setOnClickListener(v -> startActivity(new Intent(getActivity(), QE.class)));
             btnCS.setOnClickListener(v -> startActivity(new Intent(getActivity(), CSMenu.class)));
             btnExpEval.setOnClickListener(v -> startActivity(new Intent(getActivity(), ExpressionEvaluator.class)));
-            btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline2.class)));
+            btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline.class)));
             btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline.class)));
             btnLagrange.setOnClickListener(v -> startActivity(new Intent(getActivity(), Lagrange_Interpolation.class)));
             btnVarSolver.setOnClickListener(v -> startActivity(new Intent(getActivity(), VarSolver2.class)));

@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/app_bg"
-            tools:context=".ui.main.UI_Solver_Tools_Linker$ExtLinks">
+            tools:context=".ui.main.UI_Physics_Maths_Linker$ExtLinks">
 
         <ImageView
                 android:id="@+id/imageView21"

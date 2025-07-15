@@ -91,7 +91,7 @@
                 android:name=".activities.math.DerivativeCalcOfflineGraph"
                 android:exported="true"/>
         <activity
-                android:name=".activities.math.DerivativeCalcOffline2"
+                android:name=".activities.math.DerivativeCalcOffline"
                 android:exported="true"/>
         <activity
                 android:name=".activities.math.IntegralCalcOffline"
