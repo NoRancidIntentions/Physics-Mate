@@ -106,11 +106,10 @@ public class ExpressionEvaluator extends BaseActivity {
                 val = evalf(etval.getText().toString().toLowerCase());
                 System.out.println(val);
 
-
                 double result = Double.parseDouble(rounded_String(evalAtPointX(strexpression, val), etval));
                 System.out.println(result);
 
-                String StrResult = "f(" + etval.getText().toString() + ") = " + HtmlColoriser(ExpressionEvaluator.this, rounded_String(result, etval));
+                String StrResult = "f(" + etval.getText().toString() + ") = " + HtmlColoriser(ExpressionEvaluator.this, String.valueOf(result));
 
                 tvResult.setText(Html.fromHtml(StrResult, Html.FROM_HTML_MODE_LEGACY));
 

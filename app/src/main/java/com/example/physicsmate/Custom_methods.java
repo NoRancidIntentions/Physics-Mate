@@ -124,17 +124,49 @@ public class Custom_methods {
 
         for (EditText editText : editTexts) {
             String text = editText.getText().toString();
-            double number = evalf(text);
-            int decimalPlaces = getNumberOfDecimalPlaces(number);
+            int decimalPlaces = findLeastSigDigits(text);
 
             if (decimalPlaces < minDecimalPlaces) {
                 minDecimalPlaces = decimalPlaces;
             }
         }
-
         // Use the minDecimalPlaces value for rounding the number
         // ...
         return String.valueOf(round(t, minDecimalPlaces));
+    }
+
+    public static int countSignificantDigits(String numberStr) {
+        if (numberStr.contains("e") || numberStr.contains("E")) {
+            String[] parts = numberStr.split("[eE]");
+            return countSignificantDigits(parts[0]);
+        }
+
+        numberStr = numberStr.replaceFirst("^0+", ""); // remove leading zeros
+        if (numberStr.contains(".")) {
+            // Decimal number
+            numberStr = numberStr.replaceFirst("^\\.", ""); // remove lone leading dot
+            numberStr = numberStr.replaceFirst("0+(?!\\d)", ""); // remove trailing non-digit zeros
+            numberStr = numberStr.replaceFirst("^0+", ""); // remove again leading zeros
+            return numberStr.replace(".", "").length();
+        } else {
+            // Integer (no decimal point)
+            return numberStr.replaceAll("^0+", "").length();
+        }
+    }
+
+    public static int findLeastSigDigits(String expr) {
+        Pattern pattern = Pattern.compile("(?<![a-zA-Z])(?:\\d*\\.\\d+|\\d+\\.?\\d*)(?:[eE][+-]?\\d+)?");
+        Matcher matcher = pattern.matcher(expr);
+
+        int minSig = Integer.MAX_VALUE;
+
+        while (matcher.find()) {
+            String num = matcher.group();
+            int sig = countSignificantDigits(num);
+            minSig = Math.min(minSig, sig);
+        }
+
+        return minSig == Integer.MAX_VALUE ? 0 : minSig;
     }
 
     //method to hide keyboard whenever the given button is clicked
@@ -143,13 +175,6 @@ public class Custom_methods {
         imm.hideSoftInputFromWindow(button.getWindowToken(), 0);
     }
 
-    private static int getNumberOfDecimalPlaces(double number) {
-        String[] parts = String.valueOf(number).split("\\.");
-        if (parts.length == 2) {
-            return parts[1].length();
-        }
-        return 0;
-    }
 
     /**
      * Evaluates a mathematical expression and returns the result as a double.
