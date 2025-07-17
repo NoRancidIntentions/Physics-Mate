@@ -14,10 +14,16 @@ import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 public class ExpressionEvaluator extends BaseActivity {
+
+    custom_keyboard1_initializer customKeyboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +31,8 @@ public class ExpressionEvaluator extends BaseActivity {
         setContentView(R.layout.activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
         EditText etexp, etval;
-        Button btnCal, btnCopy, btnGraph;
-        TextView tvResult, tv1, tv2;
+        Button btnCalc, btnCopy, btnGraph;
+        TextView tvRes, tv1, tv2;
         ScrollView sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
         LinearLayout ll = findViewById(R.id.ll_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -36,27 +42,27 @@ public class ExpressionEvaluator extends BaseActivity {
         etexp.setInputType(InputType.TYPE_CLASS_TEXT);
 
         etval = findViewById(R.id.et2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-        btnCal = findViewById(R.id.btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+        btnCalc = findViewById(R.id.btnCalc_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-        tvResult = findViewById(R.id.tvResults_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+        tvRes = findViewById(R.id.tvResults_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         tv1 = findViewById(R.id.tv1_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         tv2 = findViewById(R.id.tv2_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
         btnGraph = findViewById(R.id.btnGraph_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
         btnCopy.setVisibility(View.GONE);
-        tvResult.setVisibility(View.GONE);
+        tvRes.setVisibility(View.GONE);
         img.setVisibility(View.GONE);
         btnGraph.setVisibility(View.GONE);
         mv.setVisibility(View.GONE);
 
-        Paris.styleBuilder(tvResult).add(R.style.answer_textView);
-        btnCal.setEnabled(false);
-        Paris.styleBuilder(btnCal).add(R.style.custom_button_disabled).apply();
-        btnCal.setText("Enter Expression");
+        Paris.styleBuilder(tvRes).add(R.style.answer_textView);
+        btnCalc.setEnabled(false);
+        Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
+        btnCalc.setText("Enter Expression");
 
         tv1.setText("enter the function to evaluate");
         tv2.setText("Enter value of 'x'");
-        btnCal.setText("Get f(x)");
+        btnCalc.setText("Get f(x)");
         etexp.setHint("3x^2 + 5x + 4");
         etval.setHint("5 - 4.3 * 6");
 
@@ -64,6 +70,20 @@ public class ExpressionEvaluator extends BaseActivity {
         ll.removeView(mv);
         int index = ll.indexOfChild(etexp);
         ll.addView(mv, index + 1);
+
+        View[] viewsToDisappear = {btnCopy, tvRes};
+        Collection<EditText> editTextList = new ArrayList<>();
+        editTextList.add(etexp);
+        editTextList.add(etval);
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, etexp, etval);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+            }
+        });
 
         //add a text change listener to etexp
         etexp.addTextChangedListener(new TextWatcher() {
@@ -75,14 +95,14 @@ public class ExpressionEvaluator extends BaseActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (etexp.getText().toString().isEmpty()) {
                     mv.setVisibility(View.GONE);
-                    btnCal.setEnabled(false);
-                    Paris.styleBuilder(btnCal).add(R.style.custom_button_disabled).apply();
-                    btnCal.setText("Enter Expression");
+                    btnCalc.setEnabled(false);
+                    Paris.styleBuilder(btnCalc).add(R.style.custom_button_disabled).apply();
+                    btnCalc.setText("Enter Expression");
                 } else {
                     mv.setLatex(getTex(etexp.getText().toString(), mv));
                     mv.setVisibility(View.VISIBLE);
-                    btnCal.setEnabled(true);
-                    Paris.styleBuilder(btnCal).add(R.style.custom_button_enabled).apply();
+                    btnCalc.setEnabled(true);
+                    Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
                 }
             }
 
@@ -91,8 +111,11 @@ public class ExpressionEvaluator extends BaseActivity {
             }
         });
 
-        btnCal.setOnClickListener(v ->
+        btnCalc.setOnClickListener(v ->
         {
+            hideKeyboardOnClick(btnCalc, ExpressionEvaluator.this);
+            customKeyboard.hideKeyboard();
+
             String strexpression = etexp.getText().toString().toLowerCase();
             strexpression = replaceConstants(strexpression);
 
@@ -100,7 +123,7 @@ public class ExpressionEvaluator extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
             } else {
 
-                hideKeyboardOnClick(btnCal, ExpressionEvaluator.this);
+                hideKeyboardOnClick(btnCalc, ExpressionEvaluator.this);
                 double val;
 
                 val = evalf(etval.getText().toString().toLowerCase());
@@ -111,9 +134,9 @@ public class ExpressionEvaluator extends BaseActivity {
 
                 String StrResult = "f(" + etval.getText().toString() + ") = " + HtmlColoriser(ExpressionEvaluator.this, String.valueOf(result));
 
-                tvResult.setText(Html.fromHtml(StrResult, Html.FROM_HTML_MODE_LEGACY));
+                tvRes.setText(Html.fromHtml(StrResult, Html.FROM_HTML_MODE_LEGACY));
 
-                tvResult.setVisibility(View.VISIBLE);
+                tvRes.setVisibility(View.VISIBLE);
                 btnCopy.setVisibility(View.VISIBLE);
                 sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
 

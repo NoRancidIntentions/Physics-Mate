@@ -3,6 +3,7 @@ package com.example.physicsmate;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -698,7 +699,7 @@ public class Custom_methods {
     }
 
     //set up the edittext to use the custom keyboard
-    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, View scrollView, EditText... editText) {
+    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, ScrollView scrollView, EditText... editText) {
 
         for (EditText editText1 : editText) {
             editText1.setShowSoftInputOnFocus(false);
@@ -707,11 +708,22 @@ public class Custom_methods {
                 if (hasFocus) {
                     custom_keyboard1.setTargetEditText(editText1);
                     custom_keyboard1.showKeyboard();
-                } else {
-                    custom_keyboard1.hideKeyboard();
+                    //smooth scroll to the editText if editText is not visible
+
+                    custom_keyboard1.post(() -> {
+                        if (!isFullyVisible(editText1)) {
+                            System.out.println("not fully visible");
+                            scrollView.smoothScrollTo(0, editText1.getTop());
+                        }
+                    });
                 }
             });
         }
+    }
+
+    public static Boolean isFullyVisible(View view) {
+        Rect rect = new Rect();
+        return view.getGlobalVisibleRect(rect) && view.getHeight() == rect.height() && view.getWidth() == rect.width();
     }
 
     /**

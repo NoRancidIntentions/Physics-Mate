@@ -117,7 +117,6 @@ public class Gravitation extends BaseActivity {
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-                setLinkedScrollView(sv);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
@@ -147,6 +146,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 if (chooserV == 1) //needs work
                 {
@@ -311,7 +312,6 @@ public class Gravitation extends BaseActivity {
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-                setLinkedScrollView(sv);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 View[] viewsToDisappear = {btnGraph, btnCopy, tvRes};
@@ -327,6 +327,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -505,9 +507,7 @@ public class Gravitation extends BaseActivity {
                 Button btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 Button btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-
                 sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-                setLinkedScrollView(sv);
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
                 View[] viewsToDisappear = {btnCopy, tvRes};
@@ -524,6 +524,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -709,7 +711,6 @@ public class Gravitation extends BaseActivity {
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 MTMathView mathView = findViewById(R.id.latexView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-                setLinkedScrollView(Gravitation.sv);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
@@ -737,6 +738,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 if (chooserA == 1) //needs work
                 {
@@ -917,7 +920,6 @@ public class Gravitation extends BaseActivity {
                 Button btnCopy = findViewById(R.id.btnCopy_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 ImageView img = findViewById(R.id.imageView_activity_2et_2tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
                 sv = findViewById(R.id.SV_2et_3tv_2btn_1graph_dynamic_calc);
-                setLinkedScrollView(sv);
 
                 Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
@@ -934,6 +936,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 btnCopy.setVisibility(View.GONE);
                 tvRes.setVisibility(View.GONE);
@@ -1145,6 +1149,8 @@ public class Gravitation extends BaseActivity {
                         setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
                     }
                 });
+
+                setLinkedScrollView(sv);
 
                 img.setVisibility(View.GONE);
 
