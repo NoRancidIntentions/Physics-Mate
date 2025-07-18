@@ -233,32 +233,33 @@ public class Kinematics extends BaseActivity {
                 boolean case7 = fin && ini && acc; //t and s
                 boolean case8 = fin && ini && tim; //u and s
                 boolean case9 = fin && acc && tim; //a and s
-                //v and s
+                //v and s automatic
+
+                ScrollView SV_KE11 = findViewById(R.id.SV_KE11);
+
+                View[] viewsToDisappear = {tvRes, btnGraphKE11};
+                Collection<EditText> editTextList = new ArrayList<>();
+                editTextList.add(et1);
+                editTextList.add(et2);
+                editTextList.add(et3);
+
+                base_constraint_layout.post(() -> {
+                    customKeyboard = getKeyboard();
+                    if (customKeyboard != null) {
+                        customKeyboard.hideKeyboard();
+                        setupEditTextForCustomKeyboard(customKeyboard, SV_KE11, et1, et2, et3);
+                        setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                    }
+                });
+
+                setLinkedScrollView(SV_KE11);
 
                 btnCalc.setOnClickListener(view -> {
+                    customKeyboard.hideKeyboard();
+
                     if (et1.getText().toString().trim().isEmpty() || et2.getText().toString().trim().isEmpty() || et3.getText().toString().trim().isEmpty()) {
                         Toast.makeText(KE1Calc.this, "Please enter all the fields!", Toast.LENGTH_SHORT).show();
                     } else {
-
-                        ScrollView SV_KE11 = findViewById(R.id.SV_KE11);
-
-                        View[] viewsToDisappear = {tvRes};
-                        Collection<EditText> editTextList = new ArrayList<>();
-                        editTextList.add(et1);
-                        editTextList.add(et2);
-                        editTextList.add(et3);
-
-                        base_constraint_layout.post(() -> {
-                            customKeyboard = getKeyboard();
-                            if (customKeyboard != null) {
-                                customKeyboard.hideKeyboard();
-                                setupEditTextForCustomKeyboard(customKeyboard, SV_KE11, et1, et2, et3);
-                                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
-                            }
-                        });
-
-                        setLinkedScrollView(SV_KE11);
-
 
                         if (case1) {
                             double s = evalf(et1.getText().toString().trim());
@@ -268,7 +269,7 @@ public class Kinematics extends BaseActivity {
                             double t = 2 * s / (v - u);
                             double a = (v - u) / t;
 
-                            String text = "Time is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(t, et1, et2, et3) + "br><br>" + "Acceleration is is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(a, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Time is " + rounded_String(t, et1, et2, et3) + " s<br><br>" + "Acceleration is " + rounded_String(a, et1, et2, et3) + " m/s<sup>2</sup><br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case2) {
@@ -280,7 +281,7 @@ public class Kinematics extends BaseActivity {
                             double t = (v - u) / a;
 
 
-                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(u, et1, et2, et3) + "</font><br><br>" + "Time is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(t, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Initial velocity is " + rounded_String(u, et1, et2, et3) + " m/s<br><br>" + "Time is " + rounded_String(t, et1, et2, et3) + " s<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case3) {
@@ -291,7 +292,7 @@ public class Kinematics extends BaseActivity {
                             double u = 2 * s / t - v;
                             double a = (v - u) / t;
 
-                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(u, et1, et2, et3) + "</font><br><br>" + "acceleration is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(a, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Initial velocity is " + rounded_String(u, et1, et2, et3) + " m/s<br><br>" + "Acceleration is " + rounded_String(a, et1, et2, et3) + " m/s<sup>2</sup><br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case4) {
@@ -302,7 +303,7 @@ public class Kinematics extends BaseActivity {
                             double v = Math.sqrt(u * u + 2 * a * s);
                             double t = (v - u) / a;
 
-                            String text = "time is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(t, et1, et2, et3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(v, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Time is " + rounded_String(t, et1, et2, et3) + " s<br><br>" + "Final velocity is " + rounded_String(v, et1, et2, et3) + " m/s<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case5) {
@@ -313,7 +314,7 @@ public class Kinematics extends BaseActivity {
                             double v = 2 * s / t - u;
                             double a = (v - u) / t;
 
-                            String text = "Acceleration is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(a, et1, et2, et3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(v, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Acceleration is " + rounded_String(a, et1, et2, et3) + " m/s<sup>2</sup><br><br>" + "Final velocity is " + rounded_String(v, et1, et2, et3) + " m/s<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case6) {
@@ -324,7 +325,7 @@ public class Kinematics extends BaseActivity {
                             double u = (s - (a * t * t / 2)) / t;
                             double v = u + a * t;
 
-                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(u, et1, et2, et3) + "</font><br><br>" + "Final velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(v, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Initial velocity is " + rounded_String(u, et1, et2, et3) + " m/s<br><br>" + "Final velocity is " + rounded_String(v, et1, et2, et3) + " m/s<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case7) {
@@ -335,7 +336,7 @@ public class Kinematics extends BaseActivity {
                             double s = (v * v - u * u) / (2 * a);
                             double t = (v - u) / a;
 
-                            String text = "Displacement is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(s, et1, et2, et3) + "</font><br><br>" + "Time is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(t, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Displacement is " + rounded_String(s, et1, et2, et3) + " m<br><br>" + "Time is " + rounded_String(t, et1, et2, et3) + " s<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case8) {
@@ -346,7 +347,7 @@ public class Kinematics extends BaseActivity {
                             double a = (v - u) / t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "Acceleration is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(a, et1, et2, et3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(s, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Acceleration is " + rounded_String(a, et1, et2, et3) + " m/s<sup>2</sup><br><br>" + "Displacement is " + rounded_String(s, et1, et2, et3) + " m<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else if (case9) {
@@ -357,7 +358,7 @@ public class Kinematics extends BaseActivity {
                             double u = v - a * t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "Initial velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(u, et1, et2, et3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(s, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Initial velocity is " + rounded_String(u, et1, et2, et3) + " m/s<br><br>" + "Displacement is " + rounded_String(s, et1, et2, et3) + " m<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         } else //case10
@@ -369,7 +370,7 @@ public class Kinematics extends BaseActivity {
                             double v = u + a * t;
                             double s = (v * v - u * u) / (2 * a);
 
-                            String text = "Final velocity is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(v, et1, et2, et3) + "</font><br><br>" + "Displacement is " + HtmlNumberFormatter(KE1Calc.this, rounded_String(s, et1, et2, et3))) + "</font><br><br>";
+                            String text = HtmlNumberFormatter(KE1Calc.this, "Final velocity is " + rounded_String(v, et1, et2, et3) + " m/s<br><br>" + "Displacement is " + rounded_String(s, et1, et2, et3) + " m<br><br>");
 
                             ResultAndGraphStarterButton(btnGraphKE11, tvRes, u, a, t, text);
                         }
