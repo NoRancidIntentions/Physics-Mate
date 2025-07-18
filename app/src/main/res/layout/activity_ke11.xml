@@ -13,7 +13,7 @@
             android:background="@color/app_bg"
             android:orientation="vertical"
             android:gravity="center"
-            tools:context=".activities.physics.Kinematics$KE1$KE1_1">
+            tools:context=".activities.physics.Kinematics$KE1$KE1Calc">
 
         <TextView
                 android:id="@+id/textView37"

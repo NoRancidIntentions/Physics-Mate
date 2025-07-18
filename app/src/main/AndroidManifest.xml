@@ -256,7 +256,7 @@
                     android:value=""/>
         </activity>
         <activity
-                android:name=".activities.physics.Kinematics$KE1$KE1_1$ke11_graph"
+                android:name=".activities.physics.Kinematics$KE1$KE1Calc$ke11_graph"
                 android:exported="true"/>
         <activity
                 android:name=".ui.main.MainActivity"
@@ -268,7 +268,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activities.physics.Kinematics$KE1$KE1_1"
+                android:name=".activities.physics.Kinematics$KE1$KE1Calc"
                 android:exported="true"/>
         <activity
                 android:name=".activities.physics.Kinematics$KE1"
