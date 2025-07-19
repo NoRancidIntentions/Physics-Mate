@@ -95,17 +95,6 @@ public class VEAdd2 extends BaseActivity {
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
 
-        @Override
-        public void onBackPressed() {
-            //if system back btn is pressed, and if keyboard is visible, hide it
-            if (customKeyboard.getVisibility() == View.VISIBLE) {
-                customKeyboard.setVisibility(View.GONE);
-                sv.setPadding(0, 0, 0, 0);
-            } else {
-                super.onBackPressed();
-            }
-        }
-
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
             android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", string);

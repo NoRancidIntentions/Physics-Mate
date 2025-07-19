@@ -442,7 +442,7 @@ public class CollisionMenu extends BaseActivity {
         }
     }
 
-    public static String extractBetweenOR(String input) {
+    public static String extractBetweenOR(CharSequence input) {
         if (input == null) {
             return "";  // Return an empty string if the input is null
         }

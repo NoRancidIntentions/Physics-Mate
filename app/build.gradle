@@ -5,7 +5,7 @@ plugins {
 android {
 
     namespace 'com.example.physicsmate'
-    compileSdk 34
+    compileSdk 35
     packagingOptions {
         resources {
             excludes += ['graphml.xsd', 'xlink.xsd', 'viz.xsd', 'gexf.xsd', 'META-INF/DEPENDENCIES']
@@ -63,7 +63,7 @@ repositories
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
@@ -73,7 +73,7 @@ dependencies {
     implementation 'com.airbnb.android:paris:2.0.0' //styling
     implementation 'com.google.android.flexbox:flexbox:3.0.0' //flexible layout, reflow
     implementation 'com.github.gregcockroft:AndroidMath:ALPHA'
-    implementation 'androidx.activity:activity:1.8.0'//rendering latex
+    implementation 'androidx.activity:activity:1.10.1'//rendering latex
 //_______________________________________________________________________________
 
     //________________________________________________________________________________

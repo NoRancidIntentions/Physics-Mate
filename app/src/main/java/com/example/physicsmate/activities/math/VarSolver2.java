@@ -169,7 +169,7 @@ public class VarSolver2 extends BaseActivity {
         }
     }
 
-    private void setSolveButtonState(boolean enabled, String message) {
+    private void setSolveButtonState(boolean enabled, CharSequence message) {
         btnSolve.setEnabled(enabled);
         btnSolve.setClickable(enabled);
         btnSolve.setText(message);

@@ -57,7 +57,6 @@ public class Custom_methods {
     static String StringError = "Error";
     static String eString = "2.71828182845904523536";
     static String phiString = "1.61803398874989484820";
-    custom_keyboard1_initializer customKeyboard;
 
     /*public static int getNumberOfFractionDigits(@org.jetbrains.annotations.Nullable Number number) {
         if (number == null) {
@@ -155,7 +154,7 @@ public class Custom_methods {
         }
     }
 
-    public static int findLeastSigDigits(String expr) {
+    public static int findLeastSigDigits(CharSequence expr) {
         Pattern pattern = Pattern.compile("(?<![a-zA-Z])(?:\\d*\\.\\d+|\\d+\\.?\\d*)(?:[eE][+-]?\\d+)?");
         Matcher matcher = pattern.matcher(expr);
 
@@ -276,7 +275,7 @@ public class Custom_methods {
     }
 
     //a function to extract numerical values from a string
-    public static String extractNumberFromString(String input) {
+    public static String extractNumberFromString(CharSequence input) {
 
         Matcher matcher = Pattern.compile("<font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
         if (matcher.find()) {
@@ -285,10 +284,10 @@ public class Custom_methods {
         return "0.0";
     }
 
-    public static Double extractValue(String input, String variable) {
+    public static Double extractValue(CharSequence input, String variable) {
         Matcher matcher = Pattern.compile(variable + "= </font><font color='#CDDC39'>([\\d.]+)</font>").matcher(input);
         if (matcher.find()) {
-            return evalf(matcher.group(1));
+            return evalf(Objects.requireNonNull(matcher.group(1)));
         }
         return null;
     }
@@ -810,6 +809,7 @@ public class Custom_methods {
             String[] ExtremasString = new String[Extremas.length];
 
             for (int i = 0; i < Extremas.length; i++) {
+                assert Extremas[i] != null;
                 ExtremasString[i] = Extremas[i].toString();
             }
 
@@ -846,7 +846,7 @@ public class Custom_methods {
             // catch Symja parser errors here
         } catch (MathException me) {
             // catch Symja math errors here
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return null;
     }
@@ -908,7 +908,7 @@ public class Custom_methods {
             // catch Symja parser errors here
         } catch (MathException me) {
             // catch Symja math errors here
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return null;
     }
@@ -1016,6 +1016,7 @@ public class Custom_methods {
             String logTerm = matcher.group(1);
 
             // Split the log term by multiplication
+            assert logTerm != null;
             String[] terms = logTerm.split("\\*");
 
             // Simplify the log terms
@@ -1035,7 +1036,7 @@ public class Custom_methods {
         return output.toString();
     }
 
-    public static String simplifyFractionsInsideLog(String input) {
+    public static String simplifyFractionsInsideLog(CharSequence input) {
         // Regular expression pattern to match the fraction inside log
         String pattern = "log\\((\\d+)/(\\d+)\\)";
 
@@ -1050,8 +1051,8 @@ public class Custom_methods {
         // Iterate through the matches
         while (matcher.find()) {
             // Get the numerator and denominator
-            int numerator = Integer.parseInt(matcher.group(1));
-            int denominator = Integer.parseInt(matcher.group(2));
+            int numerator = Integer.parseInt(Objects.requireNonNull(matcher.group(1)));
+            int denominator = Integer.parseInt(Objects.requireNonNull(matcher.group(2)));
 
             // Simplify the fraction
             int gcd = getGCD(numerator, denominator);
@@ -1460,7 +1461,7 @@ public class Custom_methods {
      * @param a               the integer array to increment
      * @param max_CB_Required the maximum value the first element can reach
      */
-    public static void CB_Incrementer_Till_Max(@NotNull CheckBox CB_acc, int[] a, int max_CB_Required) {
+    public static void CB_Incrementer_Till_Max(@NotNull Checkable CB_acc, int[] a, int max_CB_Required) {
         if (CB_acc.isChecked() && a[0] < max_CB_Required) {
             a[0]++;
         }

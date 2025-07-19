@@ -295,7 +295,7 @@ public class QE extends BaseActivity {
 
     }
 
-    public void txtChange(String defBtn) {
+    public void txtChange(CharSequence defBtn) {
         btnCal.setText(defBtn);
         btnQEArea.setVisibility(View.GONE);
         btngraphcalc.setVisibility(View.GONE);

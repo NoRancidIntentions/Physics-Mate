@@ -16,7 +16,7 @@ import com.example.physicsmate.ui.BaseActivity;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -120,8 +120,8 @@ public class Lagrange_Interpolation extends BaseActivity {
     }
 
     private void calculatePolynomial() {
-        List<Double> xVals = new ArrayList<>();
-        List<Double> yVals = new ArrayList<>();
+        Collection<Double> xVals = new ArrayList<>();
+        Collection<Double> yVals = new ArrayList<>();
 
         for (int i = 0; i < rowsLayout.getChildCount(); i++) {
             LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
