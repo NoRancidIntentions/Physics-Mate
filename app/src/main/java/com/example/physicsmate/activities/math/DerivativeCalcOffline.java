@@ -14,12 +14,12 @@ import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 import static com.example.physicsmate.Custom_methods.*;
 
 public class DerivativeCalcOffline extends BaseActivity {
-    custom_keyboard1_initializer customKeyboard;
+    CustomKeyboard customKeyboard;
     EditText inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound;
     CheckBox cbDefiniteIntegral, cbNumericEvaluation;
     TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound, tvDefInt;

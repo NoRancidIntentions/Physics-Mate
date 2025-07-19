@@ -12,7 +12,7 @@ import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,7 +23,7 @@ public class Gravitation extends BaseActivity {
 
     static double G = 0.00000000006674010551359;
     static final float fontSize = 72.f;
-    static custom_keyboard1_initializer customKeyboard;
+    static CustomKeyboard customKeyboard;
     static ScrollView sv;
 
     @Override

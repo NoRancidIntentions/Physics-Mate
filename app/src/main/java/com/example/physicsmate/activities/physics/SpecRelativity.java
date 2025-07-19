@@ -12,7 +12,7 @@ import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +22,7 @@ import static com.example.physicsmate.Custom_methods.*;
 public class SpecRelativity extends BaseActivity {
 
     public static int c = 299792458;
-    static custom_keyboard1_initializer customKeyboard;
+    static CustomKeyboard customKeyboard;
     static ScrollView sv;
 
     @SuppressLint("SetTextI18n")
@@ -319,7 +319,7 @@ public class SpecRelativity extends BaseActivity {
 
     public static class TimeDilation extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
         ScrollView sv;
 
         @Override
@@ -345,7 +345,7 @@ public class SpecRelativity extends BaseActivity {
 
     public static class VelocityAddition extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
         ScrollView sv;
 
         @Override
@@ -371,7 +371,7 @@ public class SpecRelativity extends BaseActivity {
 
     public static class DopplerEffect extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
         ScrollView sv;
 
         @Override
@@ -397,7 +397,7 @@ public class SpecRelativity extends BaseActivity {
 
     public static class RelativisiticPosition extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
         ScrollView sv;
 
         @Override
@@ -423,7 +423,7 @@ public class SpecRelativity extends BaseActivity {
 
     public static class RelativisticTime extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
         ScrollView sv;
 
         @Override

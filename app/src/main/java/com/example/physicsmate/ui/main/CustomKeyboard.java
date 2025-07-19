@@ -15,7 +15,7 @@ import com.example.physicsmate.R;
 import com.google.android.flexbox.FlexboxLayout;
 
 
-public class custom_keyboard1_initializer extends LinearLayout {
+public class CustomKeyboard extends LinearLayout {
 
     final double pi = Math.PI;
     final double e = Math.E;
@@ -38,7 +38,7 @@ public class custom_keyboard1_initializer extends LinearLayout {
     FlexboxLayout keyboard_content;
     ScrollView keyboard_scroll_view;
 
-    public custom_keyboard1_initializer(Context context, AttributeSet attrs) {
+    public CustomKeyboard(Context context, AttributeSet attrs) {
         super(context, attrs);
         setOrientation(VERTICAL);
 

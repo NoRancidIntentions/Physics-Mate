@@ -15,6 +15,7 @@ import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,12 +25,14 @@ import static com.example.physicsmate.Custom_methods.*;
 
 public class VarSolver2 extends BaseActivity {
 
-    Button btnSolve, btnAddRow, btnCopy;
+    Button btnCalc, btnAddRow, btnCopy;
     EditText et1, etVars;
-    TextView tvResult;
+    TextView tvRes;
     LinearLayout rowsLinearLayout, MVsLinearLayout;
     ScrollView scrollView;
     MTMathView mv1;
+    CustomKeyboard customKeyboard;
+    ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class VarSolver2 extends BaseActivity {
         setContentView(R.layout.activity_var_solver2);
 
         rowsLinearLayout = findViewById(R.id.var_solver_ets);
-        tvResult = findViewById(R.id.var_solver_solution);
+        tvRes = findViewById(R.id.var_solver_solution);
         scrollView = findViewById(R.id.var_solver_scroll_view);
 
         et1 = findViewById(R.id.var_solver_et1);
@@ -50,13 +53,34 @@ public class VarSolver2 extends BaseActivity {
         btnCopy = findViewById(R.id.btnCopy);
         btnCopy.setVisibility(View.GONE);
 
-        btnSolve = findViewById(R.id.var_solver_solve_button);
-        btnSolve.setOnClickListener(v -> solveEquations());
+        btnCalc = findViewById(R.id.var_solver_solve_button);
+
+        View[] viewsToDisappear = {btnCopy, tvRes};
+        Collection<EditText> editTextList = new ArrayList<>();
+        editTextList.add(et1);
+        editTextList.add(etVars);
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, et1, etVars);
+                //setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+            }
+        });
+
+        setLinkedScrollView(sv);
+
+        btnCalc.setOnClickListener(v ->
+        {
+            customKeyboard.hideKeyboard();
+            solveEquations();
+        });
 
         mv1 = findViewById(R.id.var_solver_mv1);
         MVsLinearLayout = findViewById(R.id.var_solver_MVs);
 
-        tvResult.setVisibility(View.GONE);
+        tvRes.setVisibility(View.GONE);
     }
 
     private void solveEquations() {
@@ -81,18 +105,18 @@ public class VarSolver2 extends BaseActivity {
         new Handler(Looper.getMainLooper()).post(() -> {
             try {
                 thread.join();
-                tvResult.setText(Html.fromHtml(resultParsed.get(), Html.FROM_HTML_MODE_LEGACY));
-                tvResult.setVisibility(View.VISIBLE);
-                scrollView.post(() -> scrollView.smoothScrollTo(0, tvResult.getBottom()));
+                tvRes.setText(Html.fromHtml(resultParsed.get(), Html.FROM_HTML_MODE_LEGACY));
+                tvRes.setVisibility(View.VISIBLE);
+                scrollView.post(() -> scrollView.smoothScrollTo(0, tvRes.getBottom()));
                 btnCopy.setVisibility(View.VISIBLE);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ignored) {
             }
         });
 
         btnCopy.setOnClickListener(v -> {
+            customKeyboard.hideKeyboard();
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", tvResult.getText().toString());
+            android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", tvRes.getText().toString());
             clipboard.setPrimaryClip(clip);
             Toast.makeText(VarSolver2.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
         });
@@ -107,6 +131,7 @@ public class VarSolver2 extends BaseActivity {
         rowsLinearLayout.addView(rowItem);
         EditText et = (EditText) rowItem.getChildAt(0);
         et.addTextChangedListener(new CustomTextWatcher());
+        setupEditTextForCustomKeyboard(customKeyboard, sv, et);
 
         @SuppressLint("InflateParams")
         MTMathView mvItem = (MTMathView) getLayoutInflater().inflate(R.layout.var_solver_mv2, null, false);
@@ -144,7 +169,7 @@ public class VarSolver2 extends BaseActivity {
 
         if (et1.getText().toString().isEmpty()) {
             setSolveButtonState(false, "Enter all the fields");
-            mv1.setLatex(null);
+            mv1.setVisibility(View.GONE);
             return;
         }
 
@@ -153,7 +178,7 @@ public class VarSolver2 extends BaseActivity {
             EditText et = (EditText) eqnRowItem.getChildAt(0);
             if (et.getText().toString().isEmpty()) {
                 setSolveButtonState(false, "Enter all the fields");
-                mv1.setLatex(null);
+                mv1.setVisibility(View.GONE);
                 return;
             }
         }
@@ -170,14 +195,14 @@ public class VarSolver2 extends BaseActivity {
     }
 
     private void setSolveButtonState(boolean enabled, CharSequence message) {
-        btnSolve.setEnabled(enabled);
-        btnSolve.setClickable(enabled);
-        btnSolve.setText(message);
+        btnCalc.setEnabled(enabled);
+        btnCalc.setClickable(enabled);
+        btnCalc.setText(message);
         if (enabled) {
-            Paris.styleBuilder(btnSolve).add(R.style.custom_button_enabled).apply();
+            Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
         } else {
-            btnSolve.setBackgroundResource(R.drawable.btn_disabled);
-            btnSolve.setTextColor(getResources().getColor(R.color.app_bg));
+            btnCalc.setBackgroundResource(R.drawable.btn_disabled);
+            btnCalc.setTextColor(getResources().getColor(R.color.app_bg));
         }
     }
 

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.*;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import org.jetbrains.annotations.NotNull;
@@ -46,7 +46,7 @@ public class Kinematics extends BaseActivity {
 
     public static class KE1 extends BaseActivity {
 
-        static custom_keyboard1_initializer customKeyboard;
+        static CustomKeyboard customKeyboard;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -685,7 +685,7 @@ public class Kinematics extends BaseActivity {
     public static class KE_projectile extends BaseActivity {
 
         ScrollView sv;
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
 
         EditText etXi, etYi, etXp, etYp, etMass, etGravity, etVelocityMagnitude, etInclinedPlaneAngle, etProjectionAngle,
                 etDensity, etArea, etDragCoefficient;

@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -625,7 +625,7 @@ public class Custom_methods {
      * @param btnCalc          the button to enable or disable based on EditTexts' contents
      * @param editTexts        an array of EditTexts to listen for changes
      */
-    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, custom_keyboard1_initializer custom_keyboard, Iterable<EditText> editTexts) {
+    public static void setupEditTextChangeListener(View[] viewsToDisappear, Button btnCalc, CustomKeyboard custom_keyboard, Iterable<EditText> editTexts) {
 
         // Check if any of the EditTexts are empty
         boolean anyEditTextEmpty = false;
@@ -699,7 +699,7 @@ public class Custom_methods {
     }
 
     //set up the edittext to use the custom keyboard
-    public static void setupEditTextForCustomKeyboard(custom_keyboard1_initializer custom_keyboard1, ScrollView scrollView, EditText... editText) {
+    public static void setupEditTextForCustomKeyboard(CustomKeyboard custom_keyboard1, ScrollView scrollView, EditText... editText) {
 
         for (EditText editText1 : editText) {
             editText1.setShowSoftInputOnFocus(false);

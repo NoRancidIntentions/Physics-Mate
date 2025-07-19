@@ -21,7 +21,7 @@
 
     </ScrollView>
 
-    <com.example.physicsmate.ui.main.custom_keyboard1_initializer
+    <com.example.physicsmate.ui.main.CustomKeyboard
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/custom_keyboard1_initializer_blank_activity"

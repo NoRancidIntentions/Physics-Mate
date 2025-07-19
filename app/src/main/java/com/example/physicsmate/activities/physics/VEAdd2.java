@@ -8,7 +8,7 @@ import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
@@ -93,7 +93,7 @@ public class VEAdd2 extends BaseActivity {
     public static class VEAdd2Cart extends BaseActivity {
 
         ScrollView sv;
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
 
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -208,7 +208,7 @@ public class VEAdd2 extends BaseActivity {
     public static class VEAdd2Polar extends BaseActivity {
 
         ScrollView sv;
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
 
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -305,7 +305,7 @@ public class VEAdd2 extends BaseActivity {
     public static class VEAdd2PolarCosines extends BaseActivity {
 
         ScrollView sv;
-        custom_keyboard1_initializer customKeyboard;
+        CustomKeyboard customKeyboard;
 
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);

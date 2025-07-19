@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.physicsmate.R;
-import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -21,7 +21,7 @@ public class BaseActivity extends AppCompatActivity {
     AppCompatImageButton menuButton;
     DrawerLayout drawerLayout;
     public ConstraintLayout base_constraint_layout;
-    public custom_keyboard1_initializer keyboard;
+    public CustomKeyboard keyboard;
     private ScrollView linkedScrollView;
 
     @Override
@@ -38,7 +38,7 @@ public class BaseActivity extends AppCompatActivity {
         base_constraint_layout = findViewById(R.id.base_constraint_layout);
 
         base_constraint_layout.post(() -> {
-            keyboard = new custom_keyboard1_initializer(this, null);
+            keyboard = new CustomKeyboard(this, null);
             base_constraint_layout.addView(keyboard);
             //set constraints
             ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
@@ -86,7 +86,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public custom_keyboard1_initializer getKeyboard() {
+    public CustomKeyboard getKeyboard() {
         return keyboard;
     }
 
