@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
@@ -25,6 +26,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.Utils;
 import org.jetbrains.annotations.NotNull;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
@@ -1269,14 +1271,19 @@ public class Custom_methods {
 
             set1.setFillAlpha(110);
             set1.setDrawCircles(false);
-            set1.setLineWidth(1.7f);
+            set1.setLineWidth(2.f);
             set1.setColor(Color.WHITE);
             set1.setValueTextColor(Color.WHITE);
             set1.setValueTextSize(15f);
 
             set1.setDrawFilled(ShouldBeFilled);
-            set1.setFillColor(Color.rgb(200, 200, 255));
-
+            if (Utils.getSDKInt() >= 18) {
+                // fill drawable only supported on api level 18 and above
+                Drawable drawable = ContextCompat.getDrawable(context, R.drawable.fade_blue);
+                set1.setFillDrawable(drawable);
+            } else {
+                set1.setFillColor(Color.rgb(30, 30, 30));
+            }
 
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             dataSets.add(set1);

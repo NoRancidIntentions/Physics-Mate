@@ -15,7 +15,6 @@ import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.custom_keyboard1_initializer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -23,6 +22,8 @@ import static com.example.physicsmate.Custom_methods.*;
 public class SpecRelativity extends BaseActivity {
 
     public static int c = 299792458;
+    static custom_keyboard1_initializer customKeyboard;
+    static ScrollView sv;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -93,20 +94,6 @@ public class SpecRelativity extends BaseActivity {
 
     public static class LengthContraction extends BaseActivity {
 
-        custom_keyboard1_initializer customKeyboard;
-        ScrollView sv;
-
-        @Override
-        public void onBackPressed() {
-            //if system back btn is pressed, and if keyboard is visible, hide it
-            if (customKeyboard.getVisibility() == View.VISIBLE) {
-                customKeyboard.setVisibility(View.GONE);
-                sv.setPadding(0, 0, 0, 0);
-            } else {
-                super.onBackPressed();
-            }
-        }
-
         @SuppressLint("SetTextI18n")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -114,11 +101,7 @@ public class SpecRelativity extends BaseActivity {
             setContentView(R.layout.blank_activity);
 
             CheckBox chkProperLength, chkContractedLength, chkVelocity;
-
-            customKeyboard = findViewById(R.id.custom_keyboard1_initializer_blank_activity);
             sv = findViewById(R.id.sv_blank_activity);
-
-            customKeyboard.setVisibility(View.GONE);
 
             chkProperLength = new CheckBox(this);
             chkContractedLength = new CheckBox(this);
@@ -212,13 +195,24 @@ public class SpecRelativity extends BaseActivity {
 
             tvRes.setVisibility(View.GONE);
 
-            View[] viewsToHide = {tvRes};
-            setupEditTextChangeListener(viewsToHide, btnCalc, customKeyboard, Arrays.asList(et1, et2));
+            View[] viewsToDisappear = {btnCopy, tvRes};
+            Collection<EditText> editTextList = new ArrayList<>();
+            editTextList.add(et1);
+            editTextList.add(et2);
 
-            setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, et1, et2);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                }
+            });
+
+            setLinkedScrollView(sv);
 
             btnNext.setOnClickListener(view -> {
-
+                customKeyboard.hideKeyboard();
                 String s = checkBoxes.stream().filter(CB -> !CB.isChecked()).findFirst().map(CB -> CB.getText().toString()).orElse("Contracted Length");
 
                 //find which checkbox is not checked
@@ -247,7 +241,8 @@ public class SpecRelativity extends BaseActivity {
                 btnCalc.setVisibility(View.VISIBLE);
 
                 btnCalc.setOnClickListener(view1 -> {
-                    hideKeyboardOnClick(btnCalc, LengthContraction.this);
+
+                    customKeyboard.hideKeyboard();
                     switch (s) {
                         case "Proper Length":
                             double contracted_length = evalf(et1.getText().toString());
@@ -258,7 +253,7 @@ public class SpecRelativity extends BaseActivity {
 
                             double proper_length = gamma * contracted_length;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The proper length of the moving object is " + proper_length + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The proper length of the moving object is " + proper_length + " m")));
 
                             break;
 
@@ -272,7 +267,7 @@ public class SpecRelativity extends BaseActivity {
                             System.out.println(gamma1);
                             double contracted_length1 = proper_length1 / gamma1;
 
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The contracted length of the moving object is " + contracted_length1 + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The contracted length of the moving object is " + contracted_length1 + " m")));
 
                             break;
 
@@ -280,12 +275,9 @@ public class SpecRelativity extends BaseActivity {
                             double proper_length2 = evalf(et1.getText().toString());
                             double contracted_length2 = evalf(et2.getText().toString());
 
-                            double gamma2 = proper_length2 / contracted_length2;
-                            double beta2 = 1 - 1 / (gamma2 * gamma2);
+                            double velocity2 = c * Math.sqrt(1 - ((contracted_length2 / proper_length2) * (contracted_length2 / proper_length2)));
 
-                            double velocity2 = beta2 * c;
-
-                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The velocity of the moving object is " + velocity2 + " units")));
+                            tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LengthContraction.this, "The velocity of the moving object is " + velocity2 + " m/s")));
 
                             break;
                     }
