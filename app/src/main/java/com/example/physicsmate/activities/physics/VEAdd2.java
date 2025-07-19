@@ -128,21 +128,28 @@ public class VEAdd2 extends BaseActivity {
             Intent intent = getIntent();
             int num = intent.getIntExtra("num", 0);
 
-            EditText[] editTexts = new EditText[num];
+            EditText[] editTextList = new EditText[num];
 
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
-                editTexts[i] = et;
-
-                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
+                editTextList[i] = et;
             }
 
-            //setup the edittext change listener
-            View[] viewsToDissappear = new View[]{tvRes, btnCopy};
-            setupEditTextChangeListener(viewsToDissappear, btnCalc, customKeyboard, Arrays.asList(editTexts));
+            View[] viewsToDisappear = {btnCopy, tvRes};
+
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, Arrays.asList(editTextList));
+                }
+            });
+
+            setLinkedScrollView(sv);
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
@@ -159,13 +166,12 @@ public class VEAdd2 extends BaseActivity {
             final boolean[] isScalar = {false};
 
             btnCalc.setOnClickListener(v -> {
-                customKeyboard.setVisibility(View.GONE);
-                hideKeyboardOnClick(btnCalc, VEAdd2Cart.this);
+                customKeyboard.hideKeyboard();
                 //add the vectors
-                String[] vectors = new String[editTexts.length];
-                for (int i = 0; i < editTexts.length; i++) {
+                String[] vectors = new String[editTextList.length];
+                for (int i = 0; i < editTextList.length; i++) {
 
-                    vectors[i] = addBrackets(editTexts[i].getText().toString());
+                    vectors[i] = addBrackets(editTextList[i].getText().toString());
 
                     //check if the vector is a scalar
                     if (isScalar(vectors[i])) {
@@ -191,6 +197,7 @@ public class VEAdd2 extends BaseActivity {
             });
 
             btnCopy.setOnClickListener(v -> {
+                customKeyboard.hideKeyboard();
                 copyToClipboard(tvRes.getText().toString());
                 Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
@@ -202,17 +209,6 @@ public class VEAdd2 extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
-
-        @Override
-        public void onBackPressed() {
-            //if system back btn is pressed, and if keyboard is visible, hide it
-            if (customKeyboard.getVisibility() == View.VISIBLE) {
-                customKeyboard.setVisibility(View.GONE);
-                sv.setPadding(0, 0, 0, 0);
-            } else {
-                super.onBackPressed();
-            }
-        }
 
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -247,21 +243,28 @@ public class VEAdd2 extends BaseActivity {
             Intent intent = getIntent();
             int num = intent.getIntExtra("num", 0);
 
-            EditText[] editTexts = new EditText[num];
+            EditText[] editTextList = new EditText[num];
 
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
-                editTexts[i] = et;
-
-                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
+                editTextList[i] = et;
             }
 
-            //setup the edittext change listener
-            View[] viewsToDissappear = new View[]{tvRes, btnCopy};
-            setupEditTextChangeListener(viewsToDissappear, btnCalc, customKeyboard, Arrays.asList(editTexts));
+            View[] viewsToDisappear = {btnCopy, tvRes};
+
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, Arrays.asList(editTextList));
+                }
+            });
+
+            setLinkedScrollView(sv);
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
@@ -275,12 +278,11 @@ public class VEAdd2 extends BaseActivity {
             linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
-                customKeyboard.setVisibility(View.GONE);
-                hideKeyboardOnClick(btnCalc, VEAdd2Polar.this);
+                customKeyboard.hideKeyboard();
                 //add the vectors
-                String[] vectors = new String[editTexts.length];
-                for (int i = 0; i < editTexts.length; i++) {
-                    vectors[i] = addBrackets(editTexts[i].getText().toString());
+                String[] vectors = new String[editTextList.length];
+                for (int i = 0; i < editTextList.length; i++) {
+                    vectors[i] = addBrackets(editTextList[i].getText().toString());
                 }
                 //calculate the result
                 String result = addPolarVectors(vectors);
@@ -292,6 +294,7 @@ public class VEAdd2 extends BaseActivity {
             });
 
             btnCopy.setOnClickListener(v -> {
+                customKeyboard.hideKeyboard();
                 copyToClipboard(tvRes.getText().toString());
                 Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
@@ -303,17 +306,6 @@ public class VEAdd2 extends BaseActivity {
 
         ScrollView sv;
         custom_keyboard1_initializer customKeyboard;
-
-        @Override
-        public void onBackPressed() {
-            //if system back btn is pressed, and if keyboard is visible, hide it
-            if (customKeyboard.getVisibility() == View.VISIBLE) {
-                customKeyboard.setVisibility(View.GONE);
-                sv.setPadding(0, 0, 0, 0);
-            } else {
-                super.onBackPressed();
-            }
-        }
 
         public void copyToClipboard(CharSequence string) {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -348,21 +340,28 @@ public class VEAdd2 extends BaseActivity {
             Intent intent = getIntent();
             int num = intent.getIntExtra("num", 0);
 
-            EditText[] editTexts = new EditText[num];
+            EditText[] editTextList = new EditText[num];
 
             //add edittexts based on the number of vectors
             for (int i = 0; i < num; i++) {
                 EditText et = new EditText(this);
                 Paris.styleBuilder(et).add(R.style.custom_edittext).apply();
                 linearLayout.addView(et);
-                editTexts[i] = et;
-
-                setupEditTextForCustomKeyboard(customKeyboard, sv, editTexts[i]);
+                editTextList[i] = et;
             }
 
-            //setup the edittext change listener
-            View[] viewsToDissappear = new View[]{tvRes, btnCopy};
-            setupEditTextChangeListener(viewsToDissappear, btnCalc, customKeyboard, Arrays.asList(editTexts));
+            View[] viewsToDisappear = {btnCopy, tvRes};
+
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, Arrays.asList(editTextList));
+                }
+            });
+
+            setLinkedScrollView(sv);
 
             //add a textview at the top (child 0), asking the user to enter the vectors
             TextView tv = new TextView(this);
@@ -376,17 +375,16 @@ public class VEAdd2 extends BaseActivity {
             linearLayout.addView(tvHelp, 1);
 
             btnCalc.setOnClickListener(v -> {
-                customKeyboard.setVisibility(View.GONE);
-                hideKeyboardOnClick(btnCalc, VEAdd2PolarCosines.this);
+                customKeyboard.hideKeyboard();
                 //add the vectors
-                String[] vectors = new String[editTexts.length];
-                for (int i = 0; i < editTexts.length; i++) {
+                String[] vectors = new String[editTextList.length];
+                for (int i = 0; i < editTextList.length; i++) {
 
                     //calculate the last cosine using formula cos(theta(n)) = sqrt(1 - cos^2(theta1) - cos^2(theta2) - ... - cos^2(theta(n-1)))
                     //eg, the vector (4,0.6) is represented as (4,0.6,0.8) in polar coordinates for 2D
                     //note that editTexts.length is the number of vectors to add, not the dimension of the vector
 
-                    String s = addBrackets(editTexts[i].getText().toString());
+                    String s = addBrackets(editTextList[i].getText().toString());
 
                     //remove the brackets before splitting
                     s = s.substring(1, s.length() - 1);
@@ -395,16 +393,16 @@ public class VEAdd2 extends BaseActivity {
                     System.out.println(parts[1]);
                     double sumSqrCosines = 0;
                     for (int j = 1; j < parts.length; j++) {
-                        sumSqrCosines += Math.pow(Double.parseDouble(parts[j]), 2);
+                        sumSqrCosines += Math.pow(evalf(parts[j]), 2);
                     }
                     double lastCosine = Math.sqrt(1 - sumSqrCosines);
 
 
                     //remove the last bracket before appending the last cosine
-                    editTexts[i].setText(editTexts[i].getText().toString().substring(0, editTexts[i].getText().toString().length() - 1));
-                    editTexts[i].setText(editTexts[i].getText().toString() + "," + lastCosine + ")");
+                    editTextList[i].setText(editTextList[i].getText().toString().substring(0, editTextList[i].getText().toString().length() - 1));
+                    editTextList[i].setText(editTextList[i].getText().toString() + "," + lastCosine + ")");
 
-                    vectors[i] = editTexts[i].getText().toString();
+                    vectors[i] = editTextList[i].getText().toString();
 
                 }
                 //calculate the result
@@ -419,6 +417,7 @@ public class VEAdd2 extends BaseActivity {
             });
 
             btnCopy.setOnClickListener(v -> {
+                customKeyboard.hideKeyboard();
                 copyToClipboard(tvRes.getText().toString());
                 Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
