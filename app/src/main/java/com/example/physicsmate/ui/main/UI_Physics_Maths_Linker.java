@@ -211,7 +211,6 @@ public class UI_Physics_Maths_Linker {
             btnOrthonormalisation = requireView().findViewById(R.id.btnOrthonormalisation);
 
             btnLOSAC.setOnClickListener(v -> startActivity(new Intent(getActivity(), LOSAC.class)));
-            btnQE.setOnClickListener(v -> startActivity(new Intent(getActivity(), QE.class)));
             btnCS.setOnClickListener(v -> startActivity(new Intent(getActivity(), CSMenu.class)));
             btnExpEval.setOnClickListener(v -> startActivity(new Intent(getActivity(), ExpressionEvaluator.class)));
             btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline.class)));
