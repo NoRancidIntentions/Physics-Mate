@@ -198,10 +198,9 @@ public class UI_Physics_Maths_Linker {
         public void onViewCreated(@NonNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            Button btnLOSAC, btnOrthonormalisation, btnVarSolver, btnQE, btnCS, btnExpEval, btnDerivativeCalcOffline, btnIntegralCalcOffline, btnLagrange;
+            Button btnLOSAC, btnOrthonormalisation, btnVarSolver, btnCS, btnExpEval, btnDerivativeCalcOffline, btnIntegralCalcOffline, btnLagrange;
 
             btnLOSAC = requireView().findViewById(R.id.btnLOSAC);
-            btnQE = requireView().findViewById(R.id.button8);
             btnCS = requireView().findViewById(R.id.btnCS);
             btnExpEval = requireView().findViewById(R.id.btnExpEval);
             btnDerivativeCalcOffline = requireView().findViewById(R.id.btnDerivativeCalcOffline);

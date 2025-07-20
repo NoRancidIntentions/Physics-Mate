@@ -29,10 +29,9 @@ public class VarSolver2 extends BaseActivity {
     EditText et1, etVars;
     TextView tvRes;
     LinearLayout rowsLinearLayout, MVsLinearLayout;
-    ScrollView scrollView;
+    ScrollView sv;
     MTMathView mv1;
     CustomKeyboard customKeyboard;
-    ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class VarSolver2 extends BaseActivity {
 
         rowsLinearLayout = findViewById(R.id.var_solver_ets);
         tvRes = findViewById(R.id.var_solver_solution);
-        scrollView = findViewById(R.id.var_solver_scroll_view);
+        sv = findViewById(R.id.var_solver_scroll_view);
 
         et1 = findViewById(R.id.var_solver_et1);
         et1.addTextChangedListener(new CustomTextWatcher());
@@ -81,6 +80,7 @@ public class VarSolver2 extends BaseActivity {
         MVsLinearLayout = findViewById(R.id.var_solver_MVs);
 
         tvRes.setVisibility(View.GONE);
+        mv1.setVisibility(View.GONE);
     }
 
     private void solveEquations() {
@@ -107,7 +107,7 @@ public class VarSolver2 extends BaseActivity {
                 thread.join();
                 tvRes.setText(Html.fromHtml(resultParsed.get(), Html.FROM_HTML_MODE_LEGACY));
                 tvRes.setVisibility(View.VISIBLE);
-                scrollView.post(() -> scrollView.smoothScrollTo(0, tvRes.getBottom()));
+                sv.post(() -> sv.smoothScrollTo(0, tvRes.getBottom()));
                 btnCopy.setVisibility(View.VISIBLE);
             } catch (InterruptedException ignored) {
             }
@@ -185,6 +185,7 @@ public class VarSolver2 extends BaseActivity {
 
         setSolveButtonState(true, "Solve");
         mv1.setLatex(getTex(et1.getText().toString(), mv1));
+        mv1.setVisibility(View.VISIBLE);
 
         for (int i = 1; i < numOfEqns; i++) {
             LinearLayout eqnRowItem = (LinearLayout) rowsLinearLayout.getChildAt(i);

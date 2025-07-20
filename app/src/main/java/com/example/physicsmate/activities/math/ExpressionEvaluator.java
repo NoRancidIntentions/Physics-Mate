@@ -85,6 +85,8 @@ public class ExpressionEvaluator extends BaseActivity {
             }
         });
 
+        setLinkedScrollView(sv);
+
         //add a text change listener to etexp
         etexp.addTextChangedListener(new TextWatcher() {
             @Override

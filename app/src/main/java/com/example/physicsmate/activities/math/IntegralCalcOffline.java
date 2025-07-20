@@ -13,6 +13,7 @@ import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 import org.matheclipse.core.eval.ExprEvaluator;
 
 import static com.example.physicsmate.Custom_methods.*;
@@ -23,8 +24,8 @@ public class IntegralCalcOffline extends BaseActivity {
     TextView result, simpResult, derInttvMax, derInttvMin, DerInttv3, DerInttv2, DerInttv1, tvLowerBound, tvUpperBound, tvDefInt;
 
     Button calculateDerivative, btnGraph, btnGraphInfo, btnCopy, btnCopyDefInt;
-
-    ScrollView derIntSymjaSV;
+    CustomKeyboard customKeyboard;
+    ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,10 +43,7 @@ public class IntegralCalcOffline extends BaseActivity {
         btnCopy = findViewById(R.id.btnCopy);
         result = findViewById(R.id.result);
         simpResult = findViewById(R.id.simp_result);
-        //latexView1 = findViewById(R.id.latexView1);
-        //latexView2 = findViewById(R.id.latexView2);
-        //latexView3 = findViewById(R.id.latexView3);
-        derIntSymjaSV = findViewById(R.id.derIntSymjaSV);
+        sv = findViewById(R.id.derIntSymjaSV);
         minX = findViewById(R.id.etXMinDerInt);
         maxX = findViewById(R.id.etXMaxDerInt);
         derInttvMax = findViewById(R.id.derInttvMax);
@@ -112,6 +110,26 @@ public class IntegralCalcOffline extends BaseActivity {
                 setClickability();
             }
         });
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);
+            }
+        });
+
+        setLinkedScrollView(sv);
+
+        Paris.styleBuilder(result).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(simpResult).add(R.style.answer_textView).apply();
+
+        calculateDerivative.setOnClickListener(v ->
+        {
+            customKeyboard.hideKeyboard();
+            setupButtons();
+        });
+
 
     }
 
@@ -183,167 +201,167 @@ public class IntegralCalcOffline extends BaseActivity {
                     tvDefInt.setVisibility(View.GONE);
                     btnCopy.setVisibility(View.GONE);
                     btnCopyDefInt.setVisibility(View.GONE);
-                    //latexView2.setVisibility(View.GONE);
-                    //latexView3.setVisibility(View.GONE);
-                    //latexView1.setText(getTex(inputFunction.getText().toString().trim()));
+                    btnGraph.setVisibility(View.GONE);
+                    btnGraphInfo.setVisibility(View.GONE);
 
-                    if (!inputFunction.getText().toString().isEmpty()) {
-                        //latexView1.setVisibility(View.VISIBLE);
-                    }
+                    inputFunction.getText().toString();//latexView1.setVisibility(View.VISIBLE);
 
-                    if (calculateDerivative.isClickable()) {
-                        calculateDerivative.setOnClickListener(v -> {
-
-                            double lowerBound = 0;
-                            double upperBound = 0;
-
-                            //get lower and upper bounds if cbDefiniteIntegral is checked
-                            if (cbDefiniteIntegral.isChecked()) {
-                                lowerBound = evalf(etLowerBound.getText().toString().trim());
-                                upperBound = evalf(etUpperBound.getText().toString().trim());
-                            }
-
-                            String function = inputFunction.getText().toString().trim();
-                            String StrInputVar = inputVar.getText().toString().trim();
-
-                            String integral = calculateNthIntegral(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase();
-                            String finalStringResult = "The integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
-
-                            result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
-                            result.setVisibility(View.VISIBLE);
-
-                            //latexView2.setText(getTex(integral));
-                            //latexView2.setVisibility(View.VISIBLE);
-                            btnCopy.setVisibility(View.VISIBLE);
-                            btnGraphInfo.setVisibility(View.VISIBLE);
-
-                            if (cbDefiniteIntegral.isChecked()) {
-
-                                String finalDefiniteIntegral, definiteIntegral;
-
-                                if (cbNumericEvaluation.isChecked()) {
-                                    definiteIntegral = String.valueOf(evalDefiniteIntegral(integral, lowerBound, upperBound));
-
-                                } else {
-                                    definiteIntegral = evalDefiniteIntegralSymbolic(integral, StrInputVar, lowerBound, upperBound);
-
-                                }
-                                finalDefiniteIntegral = "The definite integral is " + HtmlColoriser(IntegralCalcOffline.this, definiteIntegral);
-                                tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
-                                tvDefInt.setVisibility(View.VISIBLE);
-
-
-                                btnCopyDefInt.setOnClickListener(view -> {
-                                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                    ClipData clip = ClipData.newPlainText("Definite Integral", definiteIntegral);
-                                    clipboard.setPrimaryClip(clip);
-                                    Toast.makeText(getApplicationContext(), "Definite Integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                                });
-
-                            }
-
-                            btnCopy.setVisibility(View.VISIBLE);
-                            btnGraphInfo.setVisibility(View.VISIBLE);
-
-                            btnCopy.setOnClickListener(view -> {
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("Integral", integral);
-                                clipboard.setPrimaryClip(clip);
-                                Toast.makeText(getApplicationContext(), "Integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                            });
-
-
-                            btnGraphInfo.setOnClickListener(v12 ->
-                            {
-                                derInttvMax.setVisibility(View.VISIBLE);
-                                derInttvMin.setVisibility(View.VISIBLE);
-                                minX.setVisibility(View.VISIBLE);
-                                maxX.setVisibility(View.VISIBLE);
-                                btnGraph.setVisibility(View.VISIBLE);
-
-                                //create a toast to display message that smaller ranges will give more  accurate graph
-                                Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
-
-                                derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraph.getBottom()));
-
-                                btnGraph.setOnClickListener(v1 -> {
-                                    if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
-                                        Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
-                                        intent.putExtra("input", function);
-                                        intent.putExtra("DerInt", integral);
-                                        intent.putExtra("minX", evalf(minX.getText().toString().trim()));
-                                        intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
-                                        startActivity(intent);
-                                    }
-
-                                });
-                            });
-
-                            // Execute simplification in a separate thread
-                            new Thread(() -> {
-                                String simplifiedIntegral = ExprSimplifier(integral);
-                                String finalSimplifiedStringResult = "The simplified integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
-
-
-                                // Update UI with simplified derivative
-                                runOnUiThread(() -> {
-
-                                    //latexView3.setText(getTex(simplifiedIntegral));
-                                    //latexView3.setVisibility(View.VISIBLE);
-                                    Toast.makeText(getApplicationContext(), "The integral has been simplified", Toast.LENGTH_SHORT).show();
-                                    simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
-                                    simpResult.setVisibility(View.VISIBLE);
-                                    btnCopy.setVisibility(View.VISIBLE);
-
-                                    derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraphInfo.getBottom()));
-
-                                    btnCopy.setOnClickListener(v1 -> {
-                                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                                        ClipData clip = ClipData.newPlainText("Simplified integral", simplifiedIntegral);
-                                        clipboard.setPrimaryClip(clip);
-                                        Toast.makeText(getApplicationContext(), "Simplified integral copied to clipboard", Toast.LENGTH_SHORT).show();
-                                    });
-
-
-                                    btnGraphInfo.setOnClickListener(v12 ->
-                                    {
-                                        derInttvMax.setVisibility(View.VISIBLE);
-                                        derInttvMin.setVisibility(View.VISIBLE);
-                                        minX.setVisibility(View.VISIBLE);
-                                        maxX.setVisibility(View.VISIBLE);
-                                        btnGraph.setVisibility(View.VISIBLE);
-
-                                        derIntSymjaSV.post(() -> derIntSymjaSV.smoothScrollTo(0, btnGraph.getBottom()));
-
-                                        //create a toast to display message that smaller ranges will give more  accurate graph
-                                        Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
-
-
-                                        btnGraph.setOnClickListener(v1 -> {
-                                            if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
-                                                Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
-                                                intent.putExtra("input", function);
-                                                intent.putExtra("DerInt", integral);
-                                                intent.putExtra("minX", evalf(minX.getText().toString().trim()));
-                                                intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
-                                                startActivity(intent);
-                                            }
-
-                                        });
-                                    });
-                                });
-                            }).start();
-
-                        });
-
-                    }
                 }
             });
         }
+    }
+
+    private void setupButtons() {
+        double lowerBound = 0;
+        double upperBound = 0;
+
+        //get lower and upper bounds if cbDefiniteIntegral is checked
+        if (cbDefiniteIntegral.isChecked()) {
+            lowerBound = evalf(etLowerBound.getText().toString().trim());
+            upperBound = evalf(etUpperBound.getText().toString().trim());
+        }
+
+        String function = inputFunction.getText().toString().trim();
+        String StrInputVar = inputVar.getText().toString().trim();
+
+        String integral = calculateNthIntegral(function, StrInputVar, (int) evalf(nthDer.getText().toString().trim())).toLowerCase();
+        String finalStringResult = "The integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
+
+        result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
+        result.setVisibility(View.VISIBLE);
+
+        //latexView2.setText(getTex(integral));
+        //latexView2.setVisibility(View.VISIBLE);
+        btnCopy.setVisibility(View.VISIBLE);
+        btnGraphInfo.setVisibility(View.VISIBLE);
+
+        if (cbDefiniteIntegral.isChecked()) {
+
+            String finalDefiniteIntegral, definiteIntegral;
+
+            if (cbNumericEvaluation.isChecked()) {
+                definiteIntegral = String.valueOf(evalDefiniteIntegral(integral, lowerBound, upperBound));
+
+            } else {
+                definiteIntegral = evalDefiniteIntegralSymbolic(integral, StrInputVar, lowerBound, upperBound);
+
+            }
+            finalDefiniteIntegral = "The definite integral is " + HtmlColoriser(IntegralCalcOffline.this, definiteIntegral);
+            tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
+            tvDefInt.setVisibility(View.VISIBLE);
+
+
+            btnCopyDefInt.setOnClickListener(view -> {
+                customKeyboard.hideKeyboard();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Definite Integral", definiteIntegral);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(), "Definite Integral copied to clipboard", Toast.LENGTH_SHORT).show();
+            });
+
+        }
+
+        btnCopy.setVisibility(View.VISIBLE);
+        btnGraphInfo.setVisibility(View.VISIBLE);
+
+        btnCopy.setOnClickListener(view -> {
+            customKeyboard.hideKeyboard();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Integral", integral);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(getApplicationContext(), "Integral copied to clipboard", Toast.LENGTH_SHORT).show();
+        });
+
+
+        btnGraphInfo.setOnClickListener(v12 ->
+        {
+            customKeyboard.hideKeyboard();
+            derInttvMax.setVisibility(View.VISIBLE);
+            derInttvMin.setVisibility(View.VISIBLE);
+            minX.setVisibility(View.VISIBLE);
+            maxX.setVisibility(View.VISIBLE);
+            btnGraph.setVisibility(View.VISIBLE);
+
+            //create a toast to display message that smaller ranges will give more  accurate graph
+            Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
+
+            sv.post(() -> sv.smoothScrollTo(0, btnGraph.getBottom()));
+
+            btnGraph.setOnClickListener(v1 -> {
+                customKeyboard.hideKeyboard();
+                if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                    intent.putExtra("input", function);
+                    intent.putExtra("DerInt", integral);
+                    intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                    intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
+                    startActivity(intent);
+                }
+
+            });
+        });
+
+        // Execute simplification in a separate thread
+        new Thread(() -> {
+            String simplifiedIntegral = ExprSimplifier(integral);
+            String finalSimplifiedStringResult = "The simplified integral is " + HtmlColoriser(IntegralCalcOffline.this, integral);
+
+
+            // Update UI with simplified derivative
+            runOnUiThread(() -> {
+
+                //latexView3.setText(getTex(simplifiedIntegral));
+                //latexView3.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "The integral has been simplified", Toast.LENGTH_SHORT).show();
+                simpResult.setText(Html.fromHtml(finalSimplifiedStringResult, Html.FROM_HTML_MODE_LEGACY));
+                simpResult.setVisibility(View.VISIBLE);
+                btnCopy.setVisibility(View.VISIBLE);
+
+                sv.post(() -> sv.smoothScrollTo(0, btnGraphInfo.getBottom()));
+
+                btnCopy.setOnClickListener(v1 -> {
+                    customKeyboard.hideKeyboard();
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Simplified integral", simplifiedIntegral);
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getApplicationContext(), "Simplified integral copied to clipboard", Toast.LENGTH_SHORT).show();
+                });
+
+
+                btnGraphInfo.setOnClickListener(v12 ->
+                {
+                    customKeyboard.hideKeyboard();
+                    derInttvMax.setVisibility(View.VISIBLE);
+                    derInttvMin.setVisibility(View.VISIBLE);
+                    minX.setVisibility(View.VISIBLE);
+                    maxX.setVisibility(View.VISIBLE);
+                    btnGraph.setVisibility(View.VISIBLE);
+
+                    sv.post(() -> sv.smoothScrollTo(0, btnGraph.getBottom()));
+
+                    //create a toast to display message that smaller ranges will give more  accurate graph
+                    Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
+
+
+                    btnGraph.setOnClickListener(v1 -> {
+                        customKeyboard.hideKeyboard();
+                        if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
+                            Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                            intent.putExtra("input", function);
+                            intent.putExtra("DerInt", integral);
+                            intent.putExtra("minX", evalf(minX.getText().toString().trim()));
+                            intent.putExtra("maxX", evalf(maxX.getText().toString().trim()));
+                            startActivity(intent);
+                        }
+
+                    });
+                });
+            });
+        }).start();
     }
 }
 

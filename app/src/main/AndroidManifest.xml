@@ -94,7 +94,7 @@
                 android:name=".activities.math.DerivativeCalcOffline"
                 android:exported="true"/>
         <activity
-                android:name=".activities.math.IntegralCalcOffline"
+                android:name=".activities.math.IntegralCalcOffline2"
                 android:exported="true"/>
         <activity
                 android:name=".activities.physics.Gravitation$GravPotentialMenu$GravPotential3Calc"

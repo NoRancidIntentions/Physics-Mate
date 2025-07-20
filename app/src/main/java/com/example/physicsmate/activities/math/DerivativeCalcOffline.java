@@ -28,7 +28,7 @@ public class DerivativeCalcOffline extends BaseActivity {
     Button calculateDerivative, btnGraph, btnGraphInfo, btnCopy, btnCopyDefInt;
 
     //MathView latexView1, latexView2, latexView3;
-    ScrollView scrollView;
+    ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class DerivativeCalcOffline extends BaseActivity {
         latexView1 = findViewById(R.id.latexView1);
         latexView2 = findViewById(R.id.latexView2);
         latexView3 = findViewById(R.id.latexView3);
-        scrollView = findViewById(R.id.derIntSymjaSV);
+        sv = findViewById(R.id.derIntSymjaSV);
         minX = findViewById(R.id.etXMinDerInt);
         maxX = findViewById(R.id.etXMaxDerInt);
         derInttvMax = findViewById(R.id.derInttvMax);
@@ -102,9 +102,12 @@ public class DerivativeCalcOffline extends BaseActivity {
             customKeyboard = getKeyboard();
             if (customKeyboard != null) {
                 customKeyboard.hideKeyboard();
-                setupEditTextForCustomKeyboard(customKeyboard, scrollView, inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);
+                setupEditTextForCustomKeyboard(customKeyboard, sv, inputFunction, inputVar, nthDer, minX, maxX, etLowerBound, etUpperBound);
             }
         });
+
+        setLinkedScrollView(sv);
+
 
         Paris.styleBuilder(result).add(R.style.answer_textView).apply();
         Paris.styleBuilder(simpResult).add(R.style.answer_textView).apply();
@@ -229,7 +232,7 @@ public class DerivativeCalcOffline extends BaseActivity {
                 //create a toast to display message that smaller ranges will give more  accurate graph
                 Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
 
-                scrollView.post(() -> scrollView.smoothScrollTo(0, btnGraph.getBottom()));
+                sv.post(() -> sv.smoothScrollTo(0, btnGraph.getBottom()));
 
                 btnGraph.setOnClickListener(v1 -> {
                     customKeyboard.hideKeyboard();
@@ -263,7 +266,7 @@ public class DerivativeCalcOffline extends BaseActivity {
                     simpResult.setVisibility(View.VISIBLE);
                     btnCopy.setVisibility(View.VISIBLE);
 
-                    scrollView.post(() -> scrollView.smoothScrollTo(0, btnGraphInfo.getBottom()));
+                    sv.post(() -> sv.smoothScrollTo(0, btnGraphInfo.getBottom()));
 
                     btnCopy.setOnClickListener(v1 -> {
                         customKeyboard.hideKeyboard();
@@ -283,7 +286,7 @@ public class DerivativeCalcOffline extends BaseActivity {
                         maxX.setVisibility(View.VISIBLE);
                         btnGraph.setVisibility(View.VISIBLE);
 
-                        scrollView.post(() -> scrollView.smoothScrollTo(0, btnGraph.getBottom()));
+                        sv.post(() -> sv.smoothScrollTo(0, btnGraph.getBottom()));
 
                         //create a toast to display message that smaller ranges will give more  accurate graph
                         Toast.makeText(getApplicationContext(), "Smaller ranges will give more accurate graph", Toast.LENGTH_SHORT).show();
