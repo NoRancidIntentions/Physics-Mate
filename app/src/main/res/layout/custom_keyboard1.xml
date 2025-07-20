@@ -44,6 +44,12 @@
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_power"
                                                        style="@style/custom_button_enabled_keyboard" android:text="^"
                                                        android:tag="^"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_root"
+                                                       style="@style/custom_button_enabled_keyboard" android:text="√"
+                                                       android:tag="√"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_equal"
+                                                       style="@style/custom_button_enabled_keyboard" android:text="="
+                                                       android:tag="="/>
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/button_modulus"
                                                        style="@style/custom_button_enabled_keyboard" android:text="|n|"
                                                        android:tag="||"/>

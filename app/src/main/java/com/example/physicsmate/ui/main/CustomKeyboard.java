@@ -182,10 +182,12 @@ public class CustomKeyboard extends LinearLayout {
 
     private void setupOperatorBar() {
         int[] operatorIds = new int[]{R.id.buttonDecimal, R.id.buttonPlus, R.id.buttonMinus, R.id.buttonMultiply,
-                R.id.buttonDivide, R.id.button_power};
+                R.id.buttonDivide, R.id.button_power, R.id.button_root, R.id.button_equal, R.id.button_modulus,
+                R.id.button_factorial, R.id.button_pi, R.id.button_e};
 
         for (int id : operatorIds) {
             Button btn = findViewById(id);
+
             if (btn == null) continue;
             if (btn.getId() == R.id.button_modulus) {
                 btn.setOnClickListener(v -> {
@@ -196,17 +198,23 @@ public class CustomKeyboard extends LinearLayout {
             } else if (btn.getId() == R.id.button_factorial) {
                 btn.setOnClickListener(v -> {
                     insertText("()!");
-                    //go back one character
+                    //go back two character
                     targetEditText.setSelection(targetEditText.getSelectionStart() - 2);
                 });
+            } else if (btn.getId() == R.id.button_root) {
+                btn.setOnClickListener(v -> {
+                    insertText("sqrt()");
+                    //go back one character
+                    targetEditText.setSelection(targetEditText.getSelectionStart() - 1);
+                });
+
             } else {
                 String text = btn.getText().toString();
                 btn.setOnClickListener(v -> insertText(text));
             }
         }
 
-        int[] specOperatorIds = new int[]{
-                R.id.buttonLn, R.id.buttonLog10, R.id.button_sin, R.id.button_cos, R.id.button_tan,
+        int[] specOperatorIds = new int[]{R.id.buttonLn, R.id.buttonLog10, R.id.button_sin, R.id.button_cos, R.id.button_tan,
                 R.id.button_arcsin, R.id.button_arccos, R.id.button_arctan};
 
         for (int id : specOperatorIds) {
