@@ -14,7 +14,6 @@ import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.CustomKeyboard;
-import org.matheclipse.core.eval.ExprEvaluator;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -133,26 +132,6 @@ public class IntegralCalcOffline extends BaseActivity {
 
     }
 
-    private double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
-
-        double upperValue = evalAtPointX(integral, upperBound);
-        double lowerValue = evalAtPointX(integral, lowerBound);
-        return upperValue - lowerValue;
-
-    }
-
-    private String evalDefiniteIntegralSymbolic(String integral, CharSequence var, double lowerBound, double upperBound) //working
-    {
-        ExprEvaluator util = new ExprEvaluator();
-
-        String upperval = evalAtPointXSymbolic(integral, var, upperBound);
-        String lowerval = evalAtPointXSymbolic(integral, var, lowerBound);
-
-        String expr = upperval + "-" + lowerval;
-
-        String expanded = util.eval("Expand(" + expr + ")").toString();
-        return util.eval("Simplify(ReplaceAll(" + expanded + ", {log(x_)+log(y_) -> log(x*y), log(x_)-log(y_) -> log(x/y), log(x_^y_) -> y*log(x_)}))").toString();
-    }
 
     //method to set clickability of the calculate button
     private void setClickability() {

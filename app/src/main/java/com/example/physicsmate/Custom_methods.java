@@ -613,6 +613,27 @@ public class Custom_methods {
         return modifiedExpression;
     }
 
+    public static double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
+
+        double upperValue = evalAtPointX(integral, upperBound);
+        double lowerValue = evalAtPointX(integral, lowerBound);
+        return upperValue - lowerValue;
+
+    }
+
+    public static String evalDefiniteIntegralSymbolic(String integral, CharSequence var, double lowerBound, double upperBound) //working
+    {
+        ExprEvaluator util = new ExprEvaluator();
+
+        String upperval = evalAtPointXSymbolic(integral, var, upperBound);
+        String lowerval = evalAtPointXSymbolic(integral, var, lowerBound);
+
+        String expr = upperval + "-" + lowerval;
+
+        String expanded = util.eval("Expand(" + expr + ")").toString();
+        return util.eval("Simplify(ReplaceAll(" + expanded + ", {log(x_)+log(y_) -> log(x*y), log(x_)-log(y_) -> log(x/y), log(x_^y_) -> y*log(x_)}))").toString();
+    }
+
 
     public static double mod(double dividend, double divisor) {
         return dividend - divisor * Math.floor(dividend / divisor);

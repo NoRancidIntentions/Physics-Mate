@@ -213,7 +213,7 @@ public class UI_Physics_Maths_Linker {
             btnCS.setOnClickListener(v -> startActivity(new Intent(getActivity(), CSMenu.class)));
             btnExpEval.setOnClickListener(v -> startActivity(new Intent(getActivity(), ExpressionEvaluator.class)));
             btnDerivativeCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), DerivativeCalcOffline.class)));
-            btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline.class)));
+            btnIntegralCalcOffline.setOnClickListener(v -> startActivity(new Intent(getActivity(), IntegralCalcOffline2.class)));
             btnLagrange.setOnClickListener(v -> startActivity(new Intent(getActivity(), Lagrange_Interpolation.class)));
             btnVarSolver.setOnClickListener(v -> startActivity(new Intent(getActivity(), VarSolver2.class)));
             btnOrthonormalisation.setOnClickListener(v -> startActivity(new Intent(getActivity(), Orthonormalisation.class)));
