@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static de.lab4inf.math.util.Accuracy.round;
+import static org.matheclipse.core.expression.F.eval;
 
 public class Custom_methods {
 
@@ -613,25 +614,26 @@ public class Custom_methods {
         return modifiedExpression;
     }
 
-    public static double evalDefiniteIntegral(String integral, double lowerBound, double upperBound) {
+    public static double evalDefiniteIntegral(String integral, double lowerBound, double upperBound, String var) {
 
-        double upperValue = evalAtPointX(integral, upperBound);
-        double lowerValue = evalAtPointX(integral, lowerBound);
+        double upperValue = evalAtPoint(integral, upperBound, var);
+        double lowerValue = evalAtPoint(integral, lowerBound, var);
         return upperValue - lowerValue;
 
     }
 
     public static String evalDefiniteIntegralSymbolic(String integral, CharSequence var, double lowerBound, double upperBound) //working
     {
-        ExprEvaluator util = new ExprEvaluator();
-
         String upperval = evalAtPointXSymbolic(integral, var, upperBound);
         String lowerval = evalAtPointXSymbolic(integral, var, lowerBound);
 
-        String expr = upperval + "-" + lowerval;
+        String expr = "(" + upperval + ")-(" + lowerval + ")";
 
-        String expanded = util.eval("Expand(" + expr + ")").toString();
-        return util.eval("Simplify(ReplaceAll(" + expanded + ", {log(x_)+log(y_) -> log(x*y), log(x_)-log(y_) -> log(x/y), log(x_^y_) -> y*log(x_)}))").toString();
+        System.out.println(eval("Simplify(" + expr + ")").toString());
+        return eval("Simplify(" + expr + ")").toString();
+
+        //String expanded = util.eval("Expand(" + expr + ")").toString();
+        //return util.eval("Simplify(ReplaceAll(" + expanded + ", {log(x_)+log(y_) -> log(x*y), log(x_)-log(y_) -> log(x/y), log(x_^y_) -> y*log(x_)}))").toString();
     }
 
 
@@ -844,7 +846,7 @@ public class Custom_methods {
                 //get the x values of the extremas
                 double[] ExtremasX = new double[ExtremasString.length];
                 for (int i = 0; i < ExtremasString.length; i++) {
-                    ExtremasX[i] = F.eval(ExtremasString[i]).evalDouble();
+                    ExtremasX[i] = eval(ExtremasString[i]).evalDouble();
                 }
 
                 double[] ExtremasY = new double[ExtremasString.length];
@@ -899,7 +901,7 @@ public class Custom_methods {
             //get the x values of the extremas
             double[] ExtremasX = new double[ExtremasString.length];
             for (int i = 0; i < ExtremasString.length; i++) {
-                ExtremasX[i] = F.eval(ExtremasString[i]).evalDouble();
+                ExtremasX[i] = eval(ExtremasString[i]).evalDouble();
             }
 
             double[] SecDerY = new double[ExtremasString.length];
@@ -913,9 +915,9 @@ public class Custom_methods {
             int Maximas = 0;
             int Minimas = 0;
             for (int i = 0; i < ExtremasString.length; i++) {
-                if (evalf(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) > 0) {
+                if (evalf(String.valueOf(eval(String.valueOf(SecDerY[i])))) > 0) {
                     Minimas++;
-                } else if (evalf(String.valueOf(F.eval(String.valueOf(SecDerY[i])))) < 0) {
+                } else if (evalf(String.valueOf(eval(String.valueOf(SecDerY[i])))) < 0) {
                     Maximas++;
                 }
             }
@@ -972,10 +974,39 @@ public class Custom_methods {
         }
     }
 
+    public static double evalAtPoint(@NotNull final String str, Double val, String variable) {
+        ExprEvaluator util = new ExprEvaluator(false, (short) 2);
+        try {
+            IExpr variableSetter = util.eval(variable + "=" + val);
+            return util.evalf(str);
+        } catch (SyntaxError e) {
+            // catch Symja parser errors here
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", " + variable + " -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
+        } catch (MathException me) {
+            // catch Symja math errors here
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", " + variable + " -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
+        } catch (Exception e) {
+            // catch other exceptions here
+            String limVal = String.valueOf(util.evalf("Limit(" + str + ", " + variable + " -> " + val + ")"));
+            if (limVal.equals("Infinity") || limVal.equals("-Infinity") || limVal.equals("Indeterminate")) {
+                return 12.342;
+            }
+            return evalf(limVal);
+        }
+    }
+
     public static String evalAtPointXSymbolic(@NotNull final String str, CharSequence variable, Double val) {
         //replace x with val. If val is in decimal, convert it to fraction
-        String frac = convertDecimalToFraction(val);
-        String str1 = str.replace(variable, frac);
+        //String frac = convertDecimalToFraction(val);
+        String str1 = str.replace(variable, val.toString());
 
         return (ExprSimplifier(str1)).toLowerCase();
     }

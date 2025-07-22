@@ -219,7 +219,7 @@ public class IntegralCalcOffline extends BaseActivity {
             String finalDefiniteIntegral, definiteIntegral;
 
             if (cbNumericEvaluation.isChecked()) {
-                definiteIntegral = String.valueOf(evalDefiniteIntegral(integral, lowerBound, upperBound));
+                definiteIntegral = String.valueOf(evalDefiniteIntegral(integral, lowerBound, upperBound, StrInputVar));
 
             } else {
                 definiteIntegral = evalDefiniteIntegralSymbolic(integral, StrInputVar, lowerBound, upperBound);

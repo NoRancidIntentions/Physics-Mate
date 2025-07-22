@@ -109,6 +109,7 @@ public class IntegralCalcOffline2 extends BaseActivity {
 
         Paris.styleBuilder(result).add(R.style.answer_textView).apply();
         Paris.styleBuilder(simpResult).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(tvDefInt).add(R.style.answer_textView).apply();
 
         cbDefiniteIntegral.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -116,13 +117,13 @@ public class IntegralCalcOffline2 extends BaseActivity {
                 tvUpperBound.setVisibility(View.VISIBLE);
                 etLowerBound.setVisibility(View.VISIBLE);
                 etUpperBound.setVisibility(View.VISIBLE);
-                cbNumericEvaluation.setVisibility(View.VISIBLE);
+                //cbNumericEvaluation.setVisibility(View.VISIBLE);
             } else {
                 tvLowerBound.setVisibility(View.GONE);
                 tvUpperBound.setVisibility(View.GONE);
                 etLowerBound.setVisibility(View.GONE);
                 etUpperBound.setVisibility(View.GONE);
-                cbNumericEvaluation.setVisibility(View.GONE);
+                //cbNumericEvaluation.setVisibility(View.GONE);
             }
         });
 
@@ -178,7 +179,6 @@ public class IntegralCalcOffline2 extends BaseActivity {
                     tvDefInt.setVisibility(View.GONE);
                     btnCopy.setVisibility(View.GONE);
                     btnCopyDefInt.setVisibility(View.GONE);
-                    latexView2.setVisibility(View.GONE);
                     latexView3.setVisibility(View.GONE);
                     latexView1.setLatex(getTex(inputFunction.getText().toString().trim(), latexView1));
 
@@ -216,8 +216,8 @@ public class IntegralCalcOffline2 extends BaseActivity {
             result.setText(Html.fromHtml(finalStringResult, Html.FROM_HTML_MODE_LEGACY));
             result.setVisibility(View.VISIBLE);
 
-            latexView2.setLatex(getTex(integral[0], latexView2));
-            latexView2.setVisibility(View.VISIBLE);
+            latexView3.setLatex(getTex(integral[0], latexView3));
+            latexView3.setVisibility(View.VISIBLE);
             btnCopy.setVisibility(View.VISIBLE);
             btnGraphInfo.setVisibility(View.VISIBLE);
 
@@ -231,13 +231,8 @@ public class IntegralCalcOffline2 extends BaseActivity {
                 double LowerBound = evalf(etLowerBound.getText().toString().trim());
                 double UpperBound = evalf(etUpperBound.getText().toString().trim());
 
-                if (cbNumericEvaluation.isChecked()) {
-                    definiteIntegral = String.valueOf(evalDefiniteIntegral(integral[0], LowerBound, UpperBound));
+                definiteIntegral = evalDefiniteIntegralSymbolic(integral[0], StrInputVar, LowerBound, UpperBound);
 
-                } else {
-                    definiteIntegral = evalDefiniteIntegralSymbolic(integral[0], StrInputVar, LowerBound, UpperBound);
-
-                }
                 finalDefiniteIntegral = "The definite integral is " + HtmlColoriser(IntegralCalcOffline2.this, definiteIntegral);
                 tvDefInt.setText(Html.fromHtml(finalDefiniteIntegral, Html.FROM_HTML_MODE_LEGACY));
                 tvDefInt.setVisibility(View.VISIBLE);
