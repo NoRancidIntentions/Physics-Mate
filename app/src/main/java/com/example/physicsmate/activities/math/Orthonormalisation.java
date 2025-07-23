@@ -3,23 +3,29 @@ package com.example.physicsmate.activities.math;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
+import android.view.View;
 import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 import org.matheclipse.core.eval.ExprEvaluator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-import static com.example.physicsmate.Custom_methods.HtmlNumberFormatter;
+import static com.example.physicsmate.Custom_methods.*;
 
 public class Orthonormalisation extends BaseActivity {
 
-    Button btnNext;
+    Button btnNext, btnCopy, btnCalc;
     EditText etDimension;
     LinearLayout vectorsContainer, orthonormalisation_LL;
+    ScrollView sv;
+    CustomKeyboard customKeyboard;
+    TextView tvRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +34,31 @@ public class Orthonormalisation extends BaseActivity {
 
         // Initialize UI elements
         btnNext = findViewById(R.id.orthonormalisation_btn);
+        btnCopy = findViewById(R.id.btnCopy);
+        btnCalc = findViewById(R.id.btnCalc);
+        tvRes = findViewById(R.id.tvRes);
         etDimension = findViewById(R.id.orthonormalisation_dim);
         vectorsContainer = findViewById(R.id.vectorsContainer);
         orthonormalisation_LL = findViewById(R.id.orthonormalisation_LL);
+        sv = findViewById(R.id.orthonormalisation_scrollview);
+
+        btnCopy.setVisibility(View.GONE);
+        tvRes.setVisibility(View.GONE);
+        btnCalc.setVisibility(View.GONE);
+
+        View[] viewsToDisappear = {btnCopy, tvRes, vectorsContainer};
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, etDimension);
+                setupEditTextChangeListener(viewsToDisappear, btnNext, customKeyboard, etDimension);
+            }
+        });
+
+
+        setLinkedScrollView(sv);
 
         // Set up button click listener
         btnNext.setOnClickListener(v -> {
@@ -42,18 +70,17 @@ public class Orthonormalisation extends BaseActivity {
 
             int dimension = Integer.parseInt(dimStr);
             createVectorInputFields(dimension);
+            btnCalc.setVisibility(View.VISIBLE);
         });
     }
 
     private void createVectorInputFields(int dimension) {
         vectorsContainer.removeAllViews();
-
+        vectorsContainer.setVisibility(View.VISIBLE);
+        Collection<EditText> editTextList = new ArrayList<>();
         for (int i = 0; i < dimension; i++) {
             HorizontalScrollView scrollView = new HorizontalScrollView(this);
-            scrollView.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            ));
+            scrollView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
             LinearLayout vectorRow = new LinearLayout(this);
             vectorRow.setOrientation(LinearLayout.HORIZONTAL);
@@ -64,18 +91,30 @@ public class Orthonormalisation extends BaseActivity {
                 Paris.styleBuilder(componentInput).add(R.style.custom_edittext_mini).apply();
                 componentInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 vectorRow.addView(componentInput);
+                editTextList.add(componentInput);
             }
 
             scrollView.addView(vectorRow);
             vectorsContainer.addView(scrollView);
         }
 
-        Button solveButton = new Button(this);
-        solveButton.setText("Orthonormalise");
-        Paris.styleBuilder(solveButton).add(R.style.custom_button_enabled).apply();
-        vectorsContainer.addView(solveButton);
+        btnCalc.setText("Orthonormalise");
+        Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
+        View[] viewsToDisappear = {btnCopy, tvRes};
 
-        solveButton.setOnClickListener(v -> performOrthonormalisation(dimension));
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+            }
+        });
+
+
+        setLinkedScrollView(sv);
+
+        btnCalc.setOnClickListener(v -> performOrthonormalisation(dimension));
     }
 
     private void performOrthonormalisation(int dimension) {
@@ -98,12 +137,12 @@ public class Orthonormalisation extends BaseActivity {
             vectors.add(vector);
         }
 
-        //insert textview result
-        TextView tvResult = new TextView(this);
-        Paris.styleBuilder(tvResult).add(R.style.answer_textView).apply();
-        orthonormalisation_LL.addView(tvResult);
+        Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
-        tvResult.setText(Html.fromHtml(parseStringForOrthonormalisation(orthogonalizeWithSymja(vectors)), Html.FROM_HTML_MODE_LEGACY));
+        tvRes.setText(Html.fromHtml(parseStringForOrthonormalisation(orthogonalizeWithSymja(vectors)), Html.FROM_HTML_MODE_LEGACY));
+        tvRes.setVisibility(View.VISIBLE);
+
+        btnCopy.setVisibility(View.VISIBLE);
     }
 
     private String parseStringForOrthonormalisation(String s) {
@@ -131,12 +170,12 @@ public class Orthonormalisation extends BaseActivity {
             for (int j = 0; j < vectors.get(i).size(); j++) {
                 symjaInput.append(vectors.get(i).get(j));
                 if (j < vectors.get(i).size() - 1) {
-                    symjaInput.append(",");
+                    symjaInput.append(", ");
                 }
             }
             symjaInput.append("}");
             if (i < vectors.size() - 1) {
-                symjaInput.append(",");
+                symjaInput.append(", ");
             }
         }
         symjaInput.append("}");
