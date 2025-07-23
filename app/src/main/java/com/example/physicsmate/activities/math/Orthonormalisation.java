@@ -10,7 +10,6 @@ import com.example.physicsmate.Custom_methods;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
 import com.example.physicsmate.ui.main.CustomKeyboard;
-import org.matheclipse.core.eval.ExprEvaluator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -62,6 +61,7 @@ public class Orthonormalisation extends BaseActivity {
 
         // Set up button click listener
         btnNext.setOnClickListener(v -> {
+            customKeyboard.hideKeyboard();
             String dimStr = etDimension.getText().toString();
             if (dimStr.isEmpty() || Integer.parseInt(dimStr) <= 0) {
                 Toast.makeText(this, "Enter a valid dimension", Toast.LENGTH_SHORT).show();
@@ -118,8 +118,9 @@ public class Orthonormalisation extends BaseActivity {
     }
 
     private void performOrthonormalisation(int dimension) {
-        List<List<Double>> vectors = new ArrayList<>();
 
+        customKeyboard.hideKeyboard();
+        List<List<Double>> vectors = new ArrayList<>();
         for (int i = 0; i < dimension; i++) {
             HorizontalScrollView scrollView = (HorizontalScrollView) vectorsContainer.getChildAt(i);
             LinearLayout vectorRow = (LinearLayout) scrollView.getChildAt(0);
@@ -161,7 +162,6 @@ public class Orthonormalisation extends BaseActivity {
 
     private String orthogonalizeWithSymja(List<List<Double>> vectors) {
         // Initialize Symja evaluator
-        ExprEvaluator evaluator = new ExprEvaluator();
 
         // Convert the input vectors to a Symja-compatible string format
         StringBuilder symjaInput = new StringBuilder("{");

@@ -1,5 +1,8 @@
 package com.example.physicsmate.activities.math;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -8,6 +11,10 @@ import android.widget.*;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.CustomKeyboard;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import static com.example.physicsmate.Custom_methods.*;
 
@@ -57,9 +64,10 @@ public class LOSAC extends BaseActivity {
     public static class LOSAC1 extends BaseActivity {
 
         EditText AB, BC, C;
-        Button btnCalculate;
-        TextView tvresult;
-        ScrollView SV_LOSAC1;
+        Button btnCalc, btnCopy;
+        TextView tvRes;
+        ScrollView sv;
+        CustomKeyboard customKeyboard;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +77,10 @@ public class LOSAC extends BaseActivity {
             AB = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             BC = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             C = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            btnCalculate = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            tvresult = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            SV_LOSAC1 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             TextView ABtv = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             TextView BCtv = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -81,15 +90,30 @@ public class LOSAC extends BaseActivity {
             BCtv.setText("Enter length of BC");
             Ctv.setText("Enter value of angle C in degrees");
 
-            tvresult.setVisibility(View.GONE);
-            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+            tvRes.setVisibility(View.GONE);
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+            View[] viewsToDisappear = {btnCopy, tvRes};
+            Collection<EditText> editTextList = new ArrayList<>();
+            editTextList.add(AB);
+            editTextList.add(BC);
+            editTextList.add(C);
 
-            TextChangeListeners(tvresult, AB, BC, C);
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                }
+            });
 
-            btnCalculate.setOnClickListener(view ->
+            setLinkedScrollView(sv);
+            btnCopy.setVisibility(View.GONE);
+
+            btnCalc.setOnClickListener(view ->
             {
-
+                customKeyboard.hideKeyboard();
                 double c = evalf(C.getText().toString().trim());
 
                 if (AB.getText().toString().trim().isEmpty() || BC.getText().toString().trim().isEmpty() || C.getText().toString().trim().isEmpty()) {
@@ -126,13 +150,22 @@ public class LOSAC extends BaseActivity {
                             AREA;
 
 
-                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC1.this, text), Html.FROM_HTML_MODE_LEGACY));
-                    tvresult.setVisibility(View.VISIBLE);
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC1.this, text), Html.FROM_HTML_MODE_LEGACY));
+                    tvRes.setVisibility(View.VISIBLE);
 
-                    SV_LOSAC1.post(() -> SV_LOSAC1.smoothScrollTo(0, btnCalculate.getBottom()));
+                    btnCopy.setVisibility(View.VISIBLE);
+                    sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
                 }
             });
 
+            btnCopy.setOnClickListener(view ->
+            {
+                customKeyboard.hideKeyboard();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Copied Text", tvRes.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(LOSAC1.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            });
 
         }
     }
@@ -140,9 +173,10 @@ public class LOSAC extends BaseActivity {
     public static class LOSAC2 extends BaseActivity {
 
         EditText AB, BC, B;
-        Button btnCalculate;
-        TextView tvresult;
-        ScrollView SV_LOSAC2;
+        Button btnCalc, btnCopy;
+        TextView tvRes;
+        ScrollView sv;
+        CustomKeyboard customKeyboard;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -152,9 +186,10 @@ public class LOSAC extends BaseActivity {
             AB = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             BC = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             B = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            btnCalculate = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            tvresult = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            SV_LOSAC2 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             TextView ABtv = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             TextView BCtv = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -164,14 +199,30 @@ public class LOSAC extends BaseActivity {
             BCtv.setText("Enter length of BC");
             Btv.setText("Enter value of angle B in degrees");
 
-            tvresult.setVisibility(View.GONE);
-            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+            btnCopy.setVisibility(View.GONE);
+            tvRes.setVisibility(View.GONE);
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+            View[] viewsToDisappear = {btnCopy, tvRes};
+            Collection<EditText> editTextList = new ArrayList<>();
+            editTextList.add(AB);
+            editTextList.add(BC);
+            editTextList.add(B);
 
-            TextChangeListeners(tvresult, AB, BC, B);
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                }
+            });
 
-            btnCalculate.setOnClickListener(view ->
+            setLinkedScrollView(sv);
+
+            btnCalc.setOnClickListener(view ->
             {
+                customKeyboard.hideKeyboard();
                 double b = evalf(B.getText().toString().trim());
 
                 if (AB.getText().toString().trim().isEmpty() || BC.getText().toString().trim().isEmpty() || B.getText().toString().trim().isEmpty()) {
@@ -204,10 +255,23 @@ public class LOSAC extends BaseActivity {
                             AREA;
 
 
-                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC2.this, text), Html.FROM_HTML_MODE_LEGACY));
-                    tvresult.setVisibility(View.VISIBLE);
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC2.this, text), Html.FROM_HTML_MODE_LEGACY));
+                    tvRes.setVisibility(View.VISIBLE);
 
-                    SV_LOSAC2.post(() -> SV_LOSAC2.smoothScrollTo(0, btnCalculate.getBottom()));
+                    btnCopy.setVisibility(View.VISIBLE);
+                    sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+                }
+            });
+
+            btnCopy.setOnClickListener(view ->
+            {
+                customKeyboard.hideKeyboard();
+                String text = tvRes.getText().toString();
+                if (!text.isEmpty()) {
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("text", text);
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(LOSAC2.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -216,10 +280,10 @@ public class LOSAC extends BaseActivity {
     public static class LOSAC3 extends BaseActivity {
 
         EditText AB, BC, AC;
-        Button btnCalculate;
-        TextView tvresult;
-        ScrollView SV_LOSAC3;
-
+        Button btnCalc, btnCopy;
+        TextView tvRes;
+        ScrollView sv;
+        CustomKeyboard customKeyboard;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -229,9 +293,10 @@ public class LOSAC extends BaseActivity {
             AB = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             BC = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             AC = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            btnCalculate = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            tvresult = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            SV_LOSAC3 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             TextView ABtv = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             TextView BCtv = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -241,14 +306,32 @@ public class LOSAC extends BaseActivity {
             BCtv.setText("Enter length of BC");
             ACtv.setText("Enter length of AC");
 
-            TextChangeListeners(tvresult, AB, BC, AC);
+            TextChangeListeners(tvRes, AB, BC, AC);
 
-            tvresult.setVisibility(View.GONE);
-            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+            btnCopy.setVisibility(View.GONE);
+            tvRes.setVisibility(View.GONE);
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+            View[] viewsToDisappear = {btnCopy, tvRes};
+            Collection<EditText> editTextList = new ArrayList<>();
+            editTextList.add(AB);
+            editTextList.add(BC);
+            editTextList.add(AC);
 
-            btnCalculate.setOnClickListener(view ->
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                }
+            });
+
+            setLinkedScrollView(sv);
+
+            btnCalc.setOnClickListener(view ->
             {
+                customKeyboard.hideKeyboard();
                 if (AB.getText().toString().trim().isEmpty() || BC.getText().toString().trim().isEmpty() || AC.getText().toString().trim().isEmpty()) {
                     Toast.makeText(LOSAC3.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 } else {
@@ -272,34 +355,46 @@ public class LOSAC extends BaseActivity {
                             b + "<br><br>" + "Angle c is approximately " + c + "<br><br>" +
                             "Area of the triangle is approximately " + AREA;
 
-                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC3.this, text), Html.FROM_HTML_MODE_LEGACY));
-                    tvresult.setVisibility(View.VISIBLE);
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC3.this, text), Html.FROM_HTML_MODE_LEGACY));
+                    tvRes.setVisibility(View.VISIBLE);
 
-                    SV_LOSAC3.post(() -> SV_LOSAC3.smoothScrollTo(0, btnCalculate.getBottom()));
-
+                    btnCopy.setVisibility(View.VISIBLE);
+                    sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
                 }
+            });
+
+            btnCopy.setOnClickListener(view ->
+            {
+                customKeyboard.hideKeyboard();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Copied Text", tvRes.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(LOSAC3.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
         }
     }
 
     public static class LOSAC4 extends BaseActivity {
 
+        EditText AB, B, C;
+        Button btnCalc, btnCopy;
+        TextView tvRes;
+        ScrollView sv;
+        CustomKeyboard customKeyboard;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
-            EditText AB, B, C;
-            Button btnCalculate;
-            TextView tvresult;
-            ScrollView SV_LOSAC4;
 
             AB = findViewById(R.id.et1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             B = findViewById(R.id.et2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             C = findViewById(R.id.et3_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            btnCalculate = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            tvresult = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
-            SV_LOSAC4 = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCalc = findViewById(R.id.btnCalc_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            btnCopy = findViewById(R.id.btnCopy_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            tvRes = findViewById(R.id.tvResults_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
+            sv = findViewById(R.id.SV_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
 
             TextView ABtv = findViewById(R.id.tv1_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
             TextView Btv = findViewById(R.id.tv2_activity_3et_3tv_1tvresult_1calcbtn_1copybtn_1graphbtn_dynamic_calc);
@@ -309,14 +404,30 @@ public class LOSAC extends BaseActivity {
             Btv.setText("Enter the value of angle B in degrees");
             Ctv.setText("Enter the value of angle C in degrees");
 
-            tvresult.setVisibility(View.GONE);
-            Paris.styleBuilder(tvresult).add(R.style.answer_textView).apply();
+            btnCopy.setVisibility(View.GONE);
+            tvRes.setVisibility(View.GONE);
+            Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
+            View[] viewsToDisappear = {btnCopy, tvRes};
+            Collection<EditText> editTextList = new ArrayList<>();
+            editTextList.add(AB);
+            editTextList.add(B);
+            editTextList.add(C);
 
-            TextChangeListeners(tvresult, AB, B, C);
+            base_constraint_layout.post(() -> {
+                customKeyboard = getKeyboard();
+                if (customKeyboard != null) {
+                    customKeyboard.hideKeyboard();
+                    setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                    setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+                }
+            });
 
-            btnCalculate.setOnClickListener(view ->
+            setLinkedScrollView(sv);
+
+            btnCalc.setOnClickListener(view ->
             {
+                customKeyboard.hideKeyboard();
                 double b = evalf(B.getText().toString().trim());
                 double c = evalf(C.getText().toString().trim());
 
@@ -352,11 +463,21 @@ public class LOSAC extends BaseActivity {
                             "Area of the triangle is approximately " + AREA;
 
 
-                    tvresult.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC4.this, text), Html.FROM_HTML_MODE_LEGACY));
-                    tvresult.setVisibility(View.VISIBLE);
+                    tvRes.setText(Html.fromHtml(HtmlNumberFormatter(LOSAC4.this, text), Html.FROM_HTML_MODE_LEGACY));
+                    tvRes.setVisibility(View.VISIBLE);
 
-                    SV_LOSAC4.post(() -> SV_LOSAC4.smoothScrollTo(0, btnCalculate.getBottom()));
+                    btnCopy.setVisibility(View.VISIBLE);
+                    sv.post(() -> sv.smoothScrollTo(0, btnCopy.getBottom()));
+
                 }
+            });
+
+            btnCopy.setOnClickListener(view -> {
+                customKeyboard.hideKeyboard();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("text", tvRes.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(LOSAC4.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             });
         }
     }
