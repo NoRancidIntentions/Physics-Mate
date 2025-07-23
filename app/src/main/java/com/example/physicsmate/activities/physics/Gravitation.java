@@ -23,8 +23,8 @@ public class Gravitation extends BaseActivity {
 
     static double G = 0.00000000006674010551359;
     static final float fontSize = 72.f;
-    static CustomKeyboard customKeyboard;
-    static ScrollView sv;
+    protected static CustomKeyboard customKeyboard;
+    protected static ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

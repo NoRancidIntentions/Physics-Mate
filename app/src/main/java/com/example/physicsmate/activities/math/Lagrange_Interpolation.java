@@ -2,9 +2,7 @@ package com.example.physicsmate.activities.math;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.Html;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,6 +11,7 @@ import com.agog.mathdisplay.MTMathView;
 import com.airbnb.paris.Paris;
 import com.example.physicsmate.R;
 import com.example.physicsmate.ui.BaseActivity;
+import com.example.physicsmate.ui.main.CustomKeyboard;
 import org.hipparchus.analysis.polynomials.PolynomialFunctionLagrangeForm;
 
 import java.util.ArrayList;
@@ -23,9 +22,11 @@ import static com.example.physicsmate.Custom_methods.*;
 public class Lagrange_Interpolation extends BaseActivity {
 
     private Button btnAddRow, btnCalc;
-    private TextView tvResult;
+    private TextView tvRes;
     private MTMathView mathView;
     private LinearLayout rowsLayout;
+    private CustomKeyboard customKeyboard;
+    private ScrollView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,31 +34,45 @@ public class Lagrange_Interpolation extends BaseActivity {
         setContentView(R.layout.activity_lagrange_interpolation);
 
         rowsLayout = findViewById(R.id.LagrangeRowsLinearLayout);
-        tvResult = findViewById(R.id.LagrangeTvResult);
+        tvRes = findViewById(R.id.LagrangeTvResult);
         mathView = findViewById(R.id.l_mathview);
         btnAddRow = findViewById(R.id.LagrangeAddRowButton);
         btnCalc = findViewById(R.id.LagrangeCalcButton);
+        sv = findViewById(R.id.LagrangeSV);
 
-        Paris.styleBuilder(tvResult).add(R.style.answer_textView).apply();
+        Paris.styleBuilder(tvRes).add(R.style.answer_textView).apply();
 
         mathView.setVisibility(View.GONE);
-        tvResult.setVisibility(View.GONE);
+        tvRes.setVisibility(View.GONE);
 
         setupInitialTextWatchers();
         btnAddRow.setOnClickListener(v -> addRow());
         btnCalc.setOnClickListener(v -> calculatePolynomial());
 
-        updateCalcButtonState();
+        setLinkedScrollView(sv);
+
     }
 
     private void setupInitialTextWatchers() {
+        Collection<EditText> editTextList = new ArrayList<>();
         for (int i = 0; i < rowsLayout.getChildCount(); i++) {
             LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
             for (int j = 0; j < 2; j++) {
-                EditText et = (EditText) row.getChildAt(j);
-                et.addTextChangedListener(new CustomTextWatcher());
+                EditText editText = (EditText) row.getChildAt(j);
+                editTextList.add(editText);
             }
         }
+
+        View[] viewsToDisappear = {tvRes};
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+            }
+        });
     }
 
     private void addRow() {
@@ -73,15 +88,25 @@ public class Lagrange_Interpolation extends BaseActivity {
         EditText yInput = (EditText) newRow.getChildAt(1);
         ImageButton deleteButton = (ImageButton) newRow.getChildAt(2);
 
+        View[] viewsToDisappear = {tvRes};
+        Collection<EditText> editTextList = new ArrayList<>();
+        editTextList.add(xInput);
+        editTextList.add(yInput);
+
+        base_constraint_layout.post(() -> {
+            customKeyboard = getKeyboard();
+            if (customKeyboard != null) {
+                customKeyboard.hideKeyboard();
+                setupEditTextForCustomKeyboard(customKeyboard, sv, editTextList);
+                setupEditTextChangeListener(viewsToDisappear, btnCalc, customKeyboard, editTextList);
+            }
+        });
+
         xInput.setHint("x" + index);
         yInput.setHint("y" + index);
 
-        xInput.addTextChangedListener(new CustomTextWatcher());
-        yInput.addTextChangedListener(new CustomTextWatcher());
-
         deleteButton.setOnClickListener(v -> removeRow(newRow));
 
-        updateCalcButtonState();
     }
 
     private void removeRow(View row) {
@@ -89,37 +114,11 @@ public class Lagrange_Interpolation extends BaseActivity {
         row.startAnimation(anim);
         row.postDelayed(() -> {
             rowsLayout.removeView(row);
-            updateCalcButtonState();
         }, anim.getDuration());
     }
 
-    private void updateCalcButtonState() {
-        boolean allFilled = true;
-        for (int i = 0; i < rowsLayout.getChildCount(); i++) {
-            LinearLayout row = (LinearLayout) rowsLayout.getChildAt(i);
-            EditText x = (EditText) row.getChildAt(0);
-            EditText y = (EditText) row.getChildAt(1);
-            if (x.getText().toString().trim().isEmpty() || y.getText().toString().trim().isEmpty()) {
-                allFilled = false;
-                break;
-            }
-        }
-
-        if (allFilled) {
-            btnCalc.setEnabled(true);
-            btnCalc.setClickable(true);
-            btnCalc.setText("Get Polynomial");
-            Paris.styleBuilder(btnCalc).add(R.style.custom_button_enabled).apply();
-        } else {
-            btnCalc.setEnabled(false);
-            btnCalc.setClickable(false);
-            btnCalc.setText("Enter all the fields");
-            btnCalc.setBackgroundResource(R.drawable.btn_disabled);
-            btnCalc.setTextColor(getResources().getColor(R.color.app_bg));
-        }
-    }
-
     private void calculatePolynomial() {
+        customKeyboard.hideKeyboard();
         Collection<Double> xVals = new ArrayList<>();
         Collection<Double> yVals = new ArrayList<>();
 
@@ -142,8 +141,8 @@ public class Lagrange_Interpolation extends BaseActivity {
         String poly = getPolynomialString(xArr, yArr);
         String resultText = "The polynomial satisfying the above points is " + HtmlColoriser(this, "y = " + poly);
 
-        tvResult.setText(Html.fromHtml(resultText, Html.FROM_HTML_MODE_LEGACY));
-        tvResult.setVisibility(View.VISIBLE);
+        tvRes.setText(Html.fromHtml(resultText, Html.FROM_HTML_MODE_LEGACY));
+        tvRes.setVisibility(View.VISIBLE);
 
         mathView.setLatex(getTex("y = " + poly, mathView));
         mathView.setVisibility(View.VISIBLE);
@@ -171,23 +170,6 @@ public class Lagrange_Interpolation extends BaseActivity {
             return sb.toString();
         } catch (Exception e) {
             return "Error";
-        }
-    }
-
-    private class CustomTextWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            updateCalcButtonState();
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            updateCalcButtonState();
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            updateCalcButtonState();
         }
     }
 }
