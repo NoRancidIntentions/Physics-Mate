@@ -271,7 +271,7 @@ public class IntegralCalcOffline extends BaseActivity {
                 if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                    Intent intent = new Intent(IntegralCalcOffline.this, DerIntCalcOfflineGraph.class);
                     intent.putExtra("input", function);
                     intent.putExtra("DerInt", integral);
                     intent.putExtra("minX", evalf(minX.getText().toString().trim()));
@@ -329,7 +329,7 @@ public class IntegralCalcOffline extends BaseActivity {
                         if (minX.getText().toString().trim().isEmpty() || maxX.getText().toString().trim().isEmpty()) {
                             Toast.makeText(getApplicationContext(), "Please enter a valid range", Toast.LENGTH_SHORT).show();
                         } else {
-                            Intent intent = new Intent(IntegralCalcOffline.this, DerivativeCalcOfflineGraph.class);
+                            Intent intent = new Intent(IntegralCalcOffline.this, DerIntCalcOfflineGraph.class);
                             intent.putExtra("input", function);
                             intent.putExtra("DerInt", integral);
                             intent.putExtra("minX", evalf(minX.getText().toString().trim()));

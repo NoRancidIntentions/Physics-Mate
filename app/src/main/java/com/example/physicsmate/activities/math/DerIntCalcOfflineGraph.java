@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import static com.example.physicsmate.Custom_methods.addArrayListEntries;
 import static com.example.physicsmate.Custom_methods.mChartProperties;
 
-public class DerivativeCalcOfflineGraph extends BaseActivity {
+public class DerIntCalcOfflineGraph extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
