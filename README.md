@@ -31,6 +31,19 @@ The codebase is retained as an earlier stage of the project. Some screens are co
 
 Additional gravitation screens are present for topics such as Kepler's third law, gravitational time dilation, and binary gravitational binding energy. Their implementation should be checked individually before relying on them.
 
+
+https://github.com/user-attachments/assets/937beb20-d59e-4720-ac16-be9e7cbc7396
+
+https://github.com/user-attachments/assets/308707c8-2167-4231-b232-b74ad3f65f1b
+
+https://github.com/user-attachments/assets/9bcbfdf8-bc14-4670-8e51-e6b53c17b8f4
+
+https://github.com/user-attachments/assets/e35a20c9-da45-4b24-b913-15b1b5c5002e
+
+https://github.com/user-attachments/assets/ea10797c-cdb4-445d-a494-7ec44526fc76
+
+https://github.com/user-attachments/assets/4e5da818-ea08-4b57-bc04-7c715d017f13
+
 ### Mathematics
 
 - **Variable Solver** — numerically solve systems of equations with multiple unknowns.
@@ -42,6 +55,17 @@ Additional gravitation screens are present for topics such as Kepler's third law
 - **Vector Operations** — vector addition in Cartesian and polar forms, direction-cosine representation, and dot/cross products.
 - **Triangle Solver** — solve triangle side/angle configurations using trigonometric relations.
 - **Circle Graphing** — a circle-plotting workflow is present in the conic-section menu. Other conic-section entries are not fully wired into the interface.
+
+
+
+https://github.com/user-attachments/assets/0bd8d263-fa9d-421f-bdff-5f234860d922
+
+
+
+https://github.com/user-attachments/assets/4f4b14b1-4b73-4615-9cbd-ffcd06e904ec
+
+There are many bugs in this app!
+
 
 ### External Tools
 
