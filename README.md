@@ -2,6 +2,9 @@
 
 **A Java-based Android toolkit for physics and mathematics.**
 
+## THIS IS OUTDATED AND NO LONGER MAINTAINED.
+## THE NEWER, MAINTAINED REPOSITORY IS FOUND [HERE](https://github.com/NoRancidIntentions/PhysicsMate2) 
+
 PhysicsMate brings together physics calculators, symbolic and numerical mathematics tools, and a collection of built-in formula notes. It is a personal Android development project and is still under active development.
 
 ![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
