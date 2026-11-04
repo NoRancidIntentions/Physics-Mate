@@ -1,96 +1,212 @@
-PhysicsMate
-PhysicsMate is a native Android application for evaluating mathematical expressions and solving selected problems in physics. It is a personal learning project developed with Java and Android Studio.
+# PhysicsMate
 
-The app brings together symbolic and numerical mathematics tools, physics calculators, and a small collection of built-in formula notes. It is a work in progress; unfinished screens are identified below rather than presented as completed features.
-Features
-Physics
-Special relativity
-- Length contraction: calculate the proper length, contracted length, or relative speed when the other two quantities are known.
-- Time dilation: a navigation entry exists, but the calculator has not been implemented yet.
-Gravitation
-- Newtonian gravitational force: calculate the force, either mass, or the separation using the other quantities.
-- Escape velocity: calculate escape velocity, the attracting body's mass, or its radius.
-- Additional gravitation entries are present in the navigation, but are not yet implemented: gravitational potential, gravitational potential energy, gravitational acceleration, orbital velocity, Kepler's law, Jeans mass, and Schwarzschild radius.
+**A Java-based Android toolkit for physics and mathematics.**
+
+PhysicsMate brings together physics calculators, symbolic and numerical mathematics tools, and a collection of built-in formula notes. It is a personal Android development project and is still under active development.
+
+![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
+![Java](https://img.shields.io/badge/Language-Java-orange?logo=openjdk&logoColor=white)
+![Minimum SDK](https://img.shields.io/badge/Min%20SDK-26-blue)
+![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-orange)
+
+---
+
+## Contents
+
+- [Features](#features)
+  - [Physics](#physics)
+  - [Mathematics](#mathematics)
+  - [Formula Notes](#formula-notes)
+  - [Interface](#interface)
+- [Technology](#technology)
+- [Build and Run](#build-and-run)
+- [Project Structure](#project-structure)
+- [Current Limitations](#current-limitations)
+- [License](#license)
+
+---
+
+## Features
+
+### Physics
+
+#### Special Relativity
+
+- **Length Contraction** â€” Calculate the proper length, contracted length, or relative speed when the other two quantities are known.
+- **Time Dilation** â€” A navigation entry is present, but the calculator has not yet been implemented.
+
+#### Gravitation
+
+- **Newtonian Gravitational Force** â€” Calculate the gravitational force, either mass, or the separation using the other quantities.
+- **Escape Velocity** â€” Calculate the escape velocity, the attracting body's mass, or its radius.
+
+The following gravitation topics also appear in the navigation, but their calculators are not implemented yet:
+
+`Gravitational Potential` Â· `Gravitational Potential Energy` Â· `Gravitational Acceleration` Â· `Orbital Velocity` Â· `Kepler's Law` Â· `Jeans Mass` Â· `Schwarzschild Radius`
+
 The implemented gravitation calculators use SI-unit inputs and outputs.
-Mathematics
-- Variable solver: numerically solves systems of equations in multiple variables. Equations can be added or removed dynamically.
-- Expression evaluator: evaluates a function at user-supplied variable values, for example sin(x)*y with assignments such as x = pi, y = e.
-- Derivative calculator: calculates higher-order derivatives and provides a simplified symbolic result. It also includes graphing support.
-- Integral calculator: calculates higher-order and definite integrals, with symbolic simplification and graphing support.
-- Orthonormalisation: orthonormalises a set of input vectors.
-- Vector addition: supports Cartesian components, polar coordinates, and direction-cosine input.
-- Eigenvalue and eigenvector calculator: accepts square matrices with dimensions from 1 to 11.
-Formula notes
-The Notes screen currently displays built-in example formulas grouped under:
-- Gravity
-- Electricity & Magnetism
-The current examples include Newton's law of gravitation, gravitational potential energy, Coulomb's law, and Gauss's law.
 
-The notes are currently loaded into an in-memory model. A user-facing interface for adding or editing notes, and persistent storage across app launches, are not implemented yet.
-Interface
-- A custom in-app keyboard for entering mathematical expressions.
-- Mathematical expression rendering with LaTeX-style formatting.
-- Copy-to-clipboard support for calculator results.
-- Graph plotting in the calculus tools.
-Technology
-- Language: Java (source and target compatibility set to Java 11)
-- IDE / build system: Android Studio, Gradle Kotlin DSL
-- Android Gradle Plugin: 8.12.0
-- Gradle wrapper: 8.13
-- Compile SDK: 35
-- Target SDK: 35
-- Minimum SDK: 26 (Android 8.0)
-- Application ID: com.example.physicsmate
-Main libraries
-Library	Purpose
-Symja / Matheclipse	Symbolic expressions, equation solving, calculus, and mathematical operations
-MPAndroidChart	Plotting graphs
-AndroidMath	Rendering mathematical expressions
-Material Components for Android	Material UI components
-AndroidX	AppCompat, Navigation, Lifecycle, and related Android libraries
-Paris	Programmatic view styling
+### Mathematics
 
+| Tool | What it does |
+|---|---|
+| **Variable Solver** | Numerically solves systems of equations in multiple variables. Equations can be added or removed dynamically. |
+| **Expression Evaluator** | Evaluates a function at user-supplied variable values. For example, evaluate `sin(x)*y` with `x = pi, y = e`. |
+| **Derivative Calculator** | Calculates higher-order derivatives, provides a simplified symbolic result, and includes graphing support. |
+| **Integral Calculator** | Calculates higher-order and definite integrals, with symbolic simplification and graphing support. |
+| **Orthonormalisation** | Orthonormalises a set of input vectors. |
+| **Vector Addition** | Adds vectors represented in Cartesian components, polar coordinates, or direction-cosine form. |
+| **Eigenvalue and Eigenvector Calculator** | Calculates eigenvalues and eigenvectors of square matrices with dimensions from 1 to 11. |
 
-Build and run
-Requirements
-- Android Studio
-- Android SDK Platform 35
-- JDK 17 or newer to run the Gradle/Android Gradle Plugin build
-- An Android device or emulator running Android 8.0 (API 26) or newer
-The app's Java source compatibility is set to Java 11; this is separate from the JDK used to run Gradle.
-Open in Android Studio
-1. Clone the repository:git clone https://github.com/NoRancidIntentions/PhysicsMate2.git
+### Formula Notes
+
+The **Notes** screen currently displays built-in example formulas grouped into:
+
+- **Gravity** â€” Newton's law of gravitation and gravitational potential energy.
+- **Electricity & Magnetism** â€” Coulomb's law and Gauss's law.
+
+These examples are loaded into an in-memory model. A user-facing interface for adding or editing notes, and persistent storage across app launches, have not been implemented yet.
+
+### Interface
+
+- **Custom mathematical keyboard** for entering expressions.
+- **Mathematical expression rendering** with LaTeX-style formatting.
+- **Copy-to-clipboard support** for calculator results.
+- **Graph plotting** in the calculus tools.
+
+---
+
+## Technology
+
+### Project Configuration
+
+| Component | Configuration |
+|---|---|
+| **Language** | Java |
+| **Java source / target compatibility** | Java 11 |
+| **IDE** | Android Studio |
+| **Build scripts** | Gradle Kotlin DSL |
+| **Android Gradle Plugin** | 8.12.0 |
+| **Gradle wrapper** | 8.13 |
+| **Compile SDK** | 35 |
+| **Target SDK** | 35 |
+| **Minimum SDK** | 26 (Android 8.0) |
+| **Application ID** | `com.example.physicsmate` |
+
+### Main Libraries
+
+| Library | Purpose |
+|---|---|
+| [Symja / Matheclipse](https://github.com/axkr/symja_android_library) | Symbolic expressions, equation solving, calculus, and mathematical operations. |
+| [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) | Plotting graphs. |
+| [AndroidMath](https://github.com/gregcockroft/AndroidMath) | Rendering mathematical expressions. |
+| [Material Components for Android](https://github.com/material-components/material-components-android) | Material UI components. |
+| [AndroidX](https://developer.android.com/jetpack/androidx) | AppCompat, Navigation, Lifecycle, and related Android libraries. |
+| [Paris](https://github.com/airbnb/paris) | Programmatic view styling. |
+
+---
+
+## Build and Run
+
+### Requirements
+
+- **Android Studio**
+- **Android SDK Platform 35**
+- **JDK 17 or newer** to run the Gradle / Android Gradle Plugin build
+- An Android device or emulator running **Android 8.0 (API 26) or newer**
+
+> **Note:** The app's Java source and target compatibility are set to Java 11. This is separate from the JDK version used to run Gradle.
+
+### Open in Android Studio
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/NoRancidIntentions/PhysicsMate2.git
    cd PhysicsMate2
+   ```
+
 2. Open the project root in Android Studio.
 3. Allow Gradle to sync and install any missing Android SDK components.
-4. Select a device or emulator and run the app configuration.
-Build from the command line
+4. Select a device or emulator and run the `app` configuration.
+
+### Build from the Command Line
+
 Build the debug APK:
+
+```bash
 ./gradlew :app:assembleDebug
+```
+
 Install the debug build on a connected device:
+
+```bash
 ./gradlew :app:installDebug
-On Windows, use gradlew.bat instead of ./gradlew.
+```
+
+On Windows, use `gradlew.bat` instead of `./gradlew`.
 
 The generated debug APK is located at:
+
+```text
 app/build/outputs/apk/debug/app-debug.apk
-A release APK is also currently checked into the repository at [app-release.apk](app/release/app-release.apk).
-Project layout
-app/
-├── build.gradle.kts
-├── release/
-│   └── app-release.apk
-└── src/main/
-    ├── AndroidManifest.xml
-    ├── java/com/example/physicsmate/
-    │   ├── misc/       # Main activity and shared mathematical utilities
-    │   ├── model/      # Home and formula-note data models
-    │   └── ui/         # Keyboard, navigation, calculators, notes, and settings
-    └── res/            # Layouts, navigation graph, themes, and other resources
-Current limitations
-This repository is still under development. In addition to the unfinished screens noted in the feature list:
-- The External Links tab is currently a placeholder.
-- The Settings screen is a scaffold; settings such as theme and font-size customization are not implemented.
-- Formula notes are currently example data held in memory; there is no completed note editor or persistent notes database.
-- Several physics topics are visible in the navigation but do not yet have calculator implementations.
-License
-There is currently no license file in this repository. Unless a license is added, the source code should be treated as not licensed for reuse or redistribution.
+```
+
+A release APK is also currently checked into the repository:
+
+[`app/release/app-release.apk`](app/release/app-release.apk)
+
+---
+
+## Project Structure
+
+The directory tree below shows the main source and configuration files. Resource folders and individual Java classes are grouped to keep the overview readable.
+
+```text
+PhysicsMate2/
+â”œâ”€â”€ app/
+â”‚   â”œâ”€â”€ build.gradle.kts
+â”‚   â”œâ”€â”€ release/
+â”‚   â”‚   â””â”€â”€ app-release.apk
+â”‚   â””â”€â”€ src/
+â”‚       â””â”€â”€ main/
+â”‚           â”œâ”€â”€ java/
+â”‚           â”‚   â””â”€â”€ com/example/physicsmate/
+â”‚           â”‚       â”œâ”€â”€ misc/
+â”‚           â”‚       â”œâ”€â”€ model/
+â”‚           â”‚       â””â”€â”€ ui/
+â”‚           â””â”€â”€ res/
+â”œâ”€â”€ gradle/
+â”‚   â””â”€â”€ wrapper/
+â”‚       â””â”€â”€ gradle-wrapper.properties
+â”œâ”€â”€ build.gradle.kts
+â”œâ”€â”€ gradle.properties
+â”œâ”€â”€ settings.gradle.kts
+â””â”€â”€ README.md
+```
+
+### Source Packages
+
+| Directory | Responsibility |
+|---|---|
+| `misc/` | Main activity and shared mathematical utility methods. |
+| `model/` | Data models and adapters for home topics and formula notes. |
+| `ui/` | Custom keyboard, navigation screens, physics and mathematics calculators, notes, and settings. |
+| `res/` | Android layouts, navigation graph, themes, drawables, fonts, and other resources. |
+
+---
+
+## Current Limitations
+
+PhysicsMate is still a work in progress. The main unfinished areas are:
+
+- The **External Links** tab is currently a placeholder.
+- The **Settings** screen is a scaffold; theme and font-size customization are not implemented.
+- Formula notes are example data held in memory. There is no completed note editor or persistent notes database.
+- Several physics topics are visible in the navigation but do not yet have calculator implementations, as listed in the [Physics](#physics) section.
+
+---
+
+## License
+
+There is currently no license file in this repository. Until a license is added, the source code should be treated as **not licensed for reuse or redistribution**.
