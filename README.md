@@ -17,7 +17,7 @@
 
 This repository contains the original activity-oriented implementation of PhysicsMate. It was developed as a personal Android project to explore physics calculators, symbolic and numerical mathematics, custom input interfaces, and graphing.
 
-The codebase is retained as an earlier stage of the project. Some screens are complete calculators, while others are experimental or unfinished. The feature summary below reflects the implementation found in this repository, not a claim that every menu item is production-ready.
+The codebase is retained as an earlier stage of the project. Some screens are complete calculators, while others are experimental or unfinished.
 
 ## Features
 
