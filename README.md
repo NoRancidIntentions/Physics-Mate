@@ -32,17 +32,17 @@ PhysicsMate brings together physics calculators, symbolic and numerical mathemat
 
 #### Special Relativity
 
-- **Length Contraction** â€” Calculate the proper length, contracted length, or relative speed when the other two quantities are known.
-- **Time Dilation** â€” A navigation entry is present, but the calculator has not yet been implemented.
+- **Length Contraction** — Calculate the proper length, contracted length, or relative speed when the other two quantities are known.
+- **Time Dilation** — A navigation entry is present, but the calculator has not yet been implemented.
 
 #### Gravitation
 
-- **Newtonian Gravitational Force** â€” Calculate the gravitational force, either mass, or the separation using the other quantities.
-- **Escape Velocity** â€” Calculate the escape velocity, the attracting body's mass, or its radius.
+- **Newtonian Gravitational Force** — Calculate the gravitational force, either mass, or the separation using the other quantities.
+- **Escape Velocity** — Calculate the escape velocity, the attracting body's mass, or its radius.
 
 The following gravitation topics also appear in the navigation, but their calculators are not implemented yet:
 
-`Gravitational Potential` Â· `Gravitational Potential Energy` Â· `Gravitational Acceleration` Â· `Orbital Velocity` Â· `Kepler's Law` Â· `Jeans Mass` Â· `Schwarzschild Radius`
+`Gravitational Potential` · `Gravitational Potential Energy` · `Gravitational Acceleration` · `Orbital Velocity` · `Kepler's Law` · `Jeans Mass` · `Schwarzschild Radius`
 
 The implemented gravitation calculators use SI-unit inputs and outputs.
 
@@ -62,8 +62,8 @@ The implemented gravitation calculators use SI-unit inputs and outputs.
 
 The **Notes** screen currently displays built-in example formulas grouped into:
 
-- **Gravity** â€” Newton's law of gravitation and gravitational potential energy.
-- **Electricity & Magnetism** â€” Coulomb's law and Gauss's law.
+- **Gravity** — Newton's law of gravitation and gravitational potential energy.
+- **Electricity & Magnetism** — Coulomb's law and Gauss's law.
 
 These examples are loaded into an in-memory model. A user-facing interface for adding or editing notes, and persistent storage across app launches, have not been implemented yet.
 
@@ -164,25 +164,25 @@ The directory tree below shows the main source and configuration files. Resource
 
 ```text
 PhysicsMate2/
-â”œâ”€â”€ app/
-â”‚   â”œâ”€â”€ build.gradle.kts
-â”‚   â”œâ”€â”€ release/
-â”‚   â”‚   â””â”€â”€ app-release.apk
-â”‚   â””â”€â”€ src/
-â”‚       â””â”€â”€ main/
-â”‚           â”œâ”€â”€ java/
-â”‚           â”‚   â””â”€â”€ com/example/physicsmate/
-â”‚           â”‚       â”œâ”€â”€ misc/
-â”‚           â”‚       â”œâ”€â”€ model/
-â”‚           â”‚       â””â”€â”€ ui/
-â”‚           â””â”€â”€ res/
-â”œâ”€â”€ gradle/
-â”‚   â””â”€â”€ wrapper/
-â”‚       â””â”€â”€ gradle-wrapper.properties
-â”œâ”€â”€ build.gradle.kts
-â”œâ”€â”€ gradle.properties
-â”œâ”€â”€ settings.gradle.kts
-â””â”€â”€ README.md
++-- app/
+|   +-- build.gradle.kts
+|   +-- release/
+|   |   `-- app-release.apk
+|   `-- src/
+|       `-- main/
+|           +-- java/
+|           |   `-- com/example/physicsmate/
+|           |       +-- misc/
+|           |       +-- model/
+|           |       `-- ui/
+|           `-- res/
++-- gradle/
+|   `-- wrapper/
+|       `-- gradle-wrapper.properties
++-- build.gradle.kts
++-- gradle.properties
++-- settings.gradle.kts
+`-- README.md
 ```
 
 ### Source Packages
