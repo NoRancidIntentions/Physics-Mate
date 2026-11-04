@@ -212,8 +212,6 @@ Physics-Mate/
 
 This repository has been **superseded by [PhysicsMate2](https://github.com/NoRancidIntentions/PhysicsMate2)**. It is retained as a record of the earlier implementation rather than as the primary development target.
 
-Some older screens are incomplete, and the code has not been presented as a validated scientific-computing package. For the current application structure and feature status, refer to the newer repository.
-
 ## License
 
 This repository does not currently contain a license file. Until a license is added, the source code should be treated as **not licensed for reuse or redistribution**.
