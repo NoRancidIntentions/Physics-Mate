@@ -9,6 +9,8 @@
 
 > **This is the earlier version of PhysicsMate.** Development continued in the newer, refactored repository: **[NoRancidIntentions/PhysicsMate2](https://github.com/NoRancidIntentions/PhysicsMate2)**. Use PhysicsMate2 as the main project reference.
 
+**NOTE:** The newer repository has a better underlying app structure, but contains **lesser** tools than this repository.
+
 ---
 
 ## About This Repository
